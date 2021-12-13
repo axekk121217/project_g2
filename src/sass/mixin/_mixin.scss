@@ -1,0 +1,28 @@
+// 置中
+@mixin center() {
+  margin: 0 auto;
+}
+
+// 元素寬高
+@mixin rect($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+// 水平垂直置中
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // @content 當呼叫flexcenter時，可以動態塞屬性進來
+  @content;
+}
+
+// 按鈕樣式
+@mixin btn_module($w, $p, $color, $hover) {
+  width: $w;
+  padding: 16px $p;
+  background-color: $color;
+  @content; //擴增屬性
+}

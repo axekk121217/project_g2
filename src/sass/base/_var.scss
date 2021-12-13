@@ -1,0 +1,31 @@
+// ------- 顏色 (color) ------ //
+$color_primary: #395762;                // 海藍色
+$color_primary_sub: #F4EADE;            // 海貝色
+$color_primary_el: #7E9FBC;             // 霧藍色
+
+$font_color_content: #282828;           // 內文黑 
+$font_color_Sub: #828282;               // 次標灰
+
+$btn_color_primary: #FCB629;            // 按鈕黃
+$btn_color_sub: #01B3A7;                // 按鈕綠
+
+$btn_color_primary_hover: #FF7A00;      // 按鈕黃hover
+$btn_color_sub_hover: #02776F;          // 按鈕綠hover
+$btn_color_disable:#E0E0E0;             // 按鈕Disable
+
+// ------- 字型 (font-size)------ //
+$fontSize_Banner: 72px;                   // Banner標題
+$fontSize_BigTitle: 50px;                 // 頁面大標(首頁, 靈感)
+$fontSize_Title: 36px;                    // 頁面標題
+$fontSize_CardTitle: 24px;                // 卡片標題
+$fontSize_Nav:  20px;                     // 選單文字
+$fontSize_Sub: 18px;                      // 頁面次標
+$fontSize: 16px;                          // 主文字大小
+$fontSize_footer: 14px;                   // footer文字大小
+
+$fontSize_mobile: 14px;                   // 手機版:主文字大小
+$fontSize_footer_mobile: 12px;            // 手機板:footer文字大小
+
+// ------- 字體 (font-amily)------ //
+$fontFamily_Ch: "Noto Sans TC";           // 中文
+$fontFamily_En: "Lato";                   // 英文

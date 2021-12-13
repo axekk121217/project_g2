@@ -1,0 +1,31 @@
+.btn{
+    @include btn_module(150px, 5px, $btn_color_primary, $btn_color_primary_hover);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    
+   
+}
+.btn_sub{
+    @include btn_module(150px, 5px, $btn_color_sub, $btn_color_sub_hover);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+}
+
+
+.btn:hover{
+    background-color: $btn_color_primary_hover;
+}
+
+.btn_sub:hover{
+    background-color: $btn_color_sub_hover;
+}
