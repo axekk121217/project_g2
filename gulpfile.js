@@ -83,7 +83,7 @@ function watchall(){
 exports.w = watchall;
 
 
-
+// 瀏覽器整合
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 

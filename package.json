@@ -9,7 +9,8 @@
     "執行html打包": "gulp template",
     "執行js打包": "gulp js",
     "監看開發": "gulp w",
-    "壓縮圖片": "gulp img"
+    "壓縮圖片": "gulp img",
+    "瀏覽器同步": "gulp"
   },
   "keywords": [],
   "author": "",

@@ -2,3 +2,24 @@
 @import 'base/reset';
 @import 'mixin/mixin';
 @import 'module/el';
+
+// 整合頁面scss
+@import 'layout/landing_page';
+@import 'layout/burgermenu';
+@import 'layout/header';
+@import 'layout/footer';
+
+
+// 主頁面scss
+@import 'page/index';
+@import 'page/new';
+@import 'page/summer_camp';
+@import 'page/winter_camp';
+@import 'page/local_theme';
+@import 'page/schedule';
+@import 'page/ideas';
+@import 'page/aboutus';
+@import 'page/faq';
+
+@import 'page/member';
+@import 'page/admin';

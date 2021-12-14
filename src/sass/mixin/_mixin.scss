@@ -22,7 +22,10 @@
 // 按鈕樣式
 @mixin btn_module($w, $p, $color, $hover) {
   width: $w;
-  padding: 16px $p;
+  padding: 8px $p;
   background-color: $color;
+  cursor: pointer;
+  text-align: center;
+
   @content; //擴增屬性
 }
