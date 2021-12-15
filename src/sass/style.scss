@@ -1,7 +1,12 @@
+// 使用套件
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// 共用自訂元件
 @import 'base/var';
 @import 'base/reset';
 @import 'mixin/mixin';
 @import 'module/el';
+
 
 // 整合頁面scss
 @import 'layout/landing_page';
