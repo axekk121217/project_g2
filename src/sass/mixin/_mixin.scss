@@ -10,12 +10,12 @@
 }
 
 // 水平垂直置中
-@mixin flexcenter {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  // @content 當呼叫flexcenter時，可以動態塞屬性進來
+  // @content 當呼叫flex-center時，可以動態塞屬性進來
   @content;
 }
 

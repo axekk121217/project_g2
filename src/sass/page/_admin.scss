@@ -5,7 +5,7 @@ body {
 div.admin {
   // border: 2px solid red;
   @include rect(100%, 600px);
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk.jpg");
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -13,7 +13,9 @@ div.admin {
 
 div.admin_logo_header {
   // border: 2px solid red;
-  @include flexcenter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div.admin_logo_header img {
@@ -28,20 +30,24 @@ div.admin_AI {
 
 div.admin_AI p {
   // border: 2px solid black;
-  @include flexcenter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 36px;
   font-weight: bold;
 }
 
 form {
-  @include flexcenter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
 
 div.admin_AI_account {
   // border: 2px solid red;
-  @include flexcenter;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
@@ -50,7 +56,7 @@ div.admin_AI_account {
 
 div.admin_AI_password {
   // border: 2px solid red;
-  @include flexcenter;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
@@ -58,17 +64,21 @@ div.admin_AI_password {
 
 div.admin_AI_login {
   // border: 2px solid red;
-  @include flexcenter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 
 div.admin_AI_forget {
-  @include flexcenter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 
 }
 
-button {
+button.admin_btn_login {
   @include btn_module(150px, 5px, $btn_color_sub, $btn_color_sub_hover);
   border: none;
   color: white;
@@ -77,6 +87,6 @@ button {
   letter-spacing: 0.05em;
 }
 
-button:hover {
+button.admin_btn_login:hover {
   background-color: $btn_color_sub_hover;
 }
