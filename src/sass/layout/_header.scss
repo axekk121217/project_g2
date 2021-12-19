@@ -1,0 +1,85 @@
+.nav_container {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background-color: white;
+  color: $font_color_content;
+  box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav_logo {
+  width: 80px;
+  margin-bottom: 4px;
+}
+
+//nav列表區
+.tab_container {
+  display: flex;
+  margin-bottom: 8px;
+}
+.tab_container > li a {
+  text-decoration: none;
+  color: $font_color_content;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 16px;
+  position: relative;
+}
+//nav hover效果
+.tab_container > li a::before {
+  content: "";
+  background-color: $btn_color_primary;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  top: 26px;
+  transform: scaleX(0);
+}
+
+.tab_container > li a:hover::before {
+  display: block;
+  transform: scaleX(1);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: center left;
+}
+
+//nav 右邊區域
+.nav_search_container input {
+  border-radius: 14px;
+  padding: 0 8px;
+  font-size: 16px;
+  width: 120px;
+  border: 1.5px solid rgb(196, 196, 196);
+  margin-bottom: 4px;
+}
+
+.fa-search {
+  font-size: 24px;
+  color: $font_color_Sub;
+}
+
+.fa-user-circle {
+  font-size: 26px;
+  color: $font_color_Sub;
+  margin: 0 16px;
+}
+
+.fa-shopping-cart {
+  font-size: 22px;
+  color: $font_color_Sub;
+}
+
+
+@media screen and (max-width: 996px) {
+  .tab_container {
+    display: none;
+  }
+  .nav_container {
+    justify-content: space-between;
+  }
+}

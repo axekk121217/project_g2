@@ -1,0 +1,326 @@
+.aboutus_container {
+  display: flex;
+  margin: 32px 16px;
+  position: relative;
+}
+
+// 關於品牌區域
+.aboutus_container_left {
+  width: 50%;
+  margin: 80px 100px;
+}
+
+.aboutus_container_left :first-child::before {
+  content: "";
+  height: 36px;
+  width: 200px;
+  background-color: $color_primary_el;
+  position: absolute;
+  left: 0;
+  top: 6px;
+  z-index: -1;
+}
+
+.aboutus_container_left :first-child {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  position: relative;
+}
+
+.aboutus_container_left :nth-child(2) {
+  font-size: 16px;
+  color: $font_color_Sub;
+  margin: 16px 0;
+  padding-left: 200px;
+}
+
+.aboutus_container_left :nth-child(3) {
+  font-size: 18px;
+  color: $font_color_content;
+  line-height: 1.7;
+}
+
+.image_100 {
+  max-width: 100%;
+}
+
+.aboutus_container_right img {
+  max-width: 100%;
+}
+
+// 向下的箭頭
+.aboutus_arrow {
+  position: relative;
+  height: 100px;
+}
+
+.aboutus_arrow img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//品牌故事標題
+.aboutus_story_container {
+  background-color: $color_primary_sub;
+  padding: 60px 0;
+}
+
+.aboutus_story_title {
+  position: relative;
+}
+
+.aboutus_story_title :first-child {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  text-align: center;
+}
+
+.aboutus_story_title :last-child {
+  font-size: $fontSize_Sub;
+  color: $font_color_Sub;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  margin: 16px 0;
+}
+//品牌故事-由來
+.aboutus_story_from_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 200px;
+}
+
+.aboutus_story_from_content {
+  width: 40%;
+}
+
+.aboutus_story_from_container img {
+  max-width: 100%;
+}
+
+.aboutus_story_target_container img {
+  max-width: 100%;
+}
+
+.aboutus_story_from_content :first-child {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  line-height: 1.8;
+}
+
+.aboutus_story_from_content :last-child {
+  line-height: 1.8;
+  padding-left: 20px;
+  color: $font_color_content;
+}
+
+//品牌故事-理念
+.aboutus_story_target_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 200px;
+}
+
+.aboutus_story_target_content {
+  width: 40%;
+  padding-top: 60px;
+}
+
+.aboutus_story_target_content :first-child {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  line-height: 1.8;
+}
+
+.aboutus_story_target_content :last-child {
+  line-height: 1.8;
+  padding-left: 20px;
+  color: $font_color_content;
+}
+
+//您最好的選擇
+
+.aboutus_best_container {
+  background-image: url("../images/aboutus/aboutusBG.png");
+  background-size: cover;
+  height: 400px;
+  padding-top: 48px;
+}
+
+.aboutus_best_title :first-child {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.aboutus_best_title :last-child {
+  font-size: 16px;
+  color: $color_primary;
+  text-align: center;
+}
+
+.aboutus_best_score_container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 0;
+}
+
+.aboutus_best_icon {
+  font-size: 50px;
+  font-weight: bold;
+  color: $color_primary;
+}
+
+.aboutus_best_icon :first-child {
+  font-size: 20px;
+  font-weight: normal;
+  color: $color_primary;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.aboutus_best_icon :last-child {
+  font-size: 24px;
+  color: $color_primary;
+  padding-right: 20px;
+  padding-bottom: 16px;
+}
+
+// 服務STEP
+.aboutus_service_title {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  line-height: 1.8;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.aboutus_step {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aboutus_step p {
+  background-color: $color_primary_el;
+  color: white;
+  padding-top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.aboutus_step :first-child::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: $color_primary_el;
+  top: 16px;
+  left: 0px;
+  z-index: -1;
+}
+
+//服務圖文
+.aboutus_service_container {
+  padding: 0 100px;
+}
+
+.aboutus_service_content {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 100px;
+}
+
+.aboutus_service_left {
+  width: 40%;
+}
+
+.aboutus_service_left :first-child {
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 1.8;
+  color: $color_primary;
+}
+
+.aboutus_service_left :last-child {
+  margin-top: 28px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: $font_color_Sub;
+}
+
+.aboutus_service_content .image {
+  max-width: 100%;
+}
+
+// 顧問團隊
+.aboutus_consultant_container {
+  padding: 0px 200px;
+}
+
+.aboutus_team_title {
+  font-size: $fontSize_Title;
+  color: $color_primary;
+  line-height: 1.8;
+  text-align: center;
+  margin-top: 80px;
+}
+
+//顧問團隊-卡片區
+.aboutus_team_cards_container{
+  display: flex;
+}
+
+.team_card{
+  border-right: 1px solid $color_primary_el;
+  padding: 40px 60px;
+}
+
+.team_card :last-child{
+  border: none;
+}
+
+.team_card img{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//顧問團隊-卡片區-姓名
+.team_card :nth-child(2){
+  font-weight: bold;
+  color: $color_primary;
+  text-align: center;
+  line-height: 1.8;
+}
+
+//顧問團隊-卡片區-職位
+.team_card :nth-child(3){
+  color: $color_primary_el;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+//顧問團隊-卡片區-說明
+.team_card :nth-child(4){
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+@media screen and (max-width: 996px) {
+  .aboutus_team_cards_container {
+    display: block;
+  }
+  .team_card{
+    border: none;
+  }
+
+}
