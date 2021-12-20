@@ -3,7 +3,7 @@
 
 // 共用自訂元件
 @import 'base/var';
-@import 'base/reset';
+@import 'base/reset'; 
 @import 'mixin/mixin';
 @import 'module/el';
 
@@ -28,3 +28,5 @@
 
 @import 'page/member';
 @import 'page/admin';
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
