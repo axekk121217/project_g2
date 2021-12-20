@@ -1,0 +1,60 @@
+.landing_container {
+  display: flex;
+  position: relative;
+}
+
+.landing_left {
+  width: 50%;
+}
+
+.landing_right {
+  width: 50%;
+}
+
+.landing_left img,
+.landing_right img {
+  max-width: 100%;
+} 
+
+.landing_left_title {
+  position: absolute;
+  top: 30%;
+  color: white;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.landing_right_title a,.landing_left_title a{
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.left_line {
+  width: 400px;
+  height: 2px;
+  background-color: white;
+}
+
+.landing_right_title {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: white;
+  font-size: 48px;
+  line-height: 1.6;
+}
+
+.right_line {
+  width: 400px;
+  height: 2px;
+  background-color: white;
+}
+
+.landing_logo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 15%;
+  left: 50%;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/8c41348ce8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>商品管理</title>
+  </head>
+  <body>
+    <div>
+      <div class="admin_member">
+        <div class="admin_header">
+          <div class="admin_header_logo">
+            <img src="images/admin/logo.png" alt="" />
+            <p>CAMPION後臺管理系統</p>
+          </div>
+          <div class="admin_header_btn">
+            <a href="../admin.html">
+              <button class="admin_btn_signOut">登出</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="admin_main">
+          <div class="admin_aside">
+            <a href="../admin_system.html">
+              <button class="admin_aside_btn">會員管理</button>
+            </a>
+            <a href="../admin_order.html">
+              <button class="admin_aside_btn">訂單管理</button>
+            </a>
+            <a href="../admin_commodity.html">
+              <button class="admin_aside_btn">商品管理</button>
+            </a>
+            <a href="../admin_review.html">
+              <button class="admin_aside_btn">評論管理</button>
+            </a>
+          </div>
+
+          <div class="admin_main_tltle">
+            <div class="admin_commodity">
+              <div class="admin_search">
+                <p>商品管理</p>
+                <div class="admin_commodity_add justify-content-start">
+                  <button class="admin_commodity_btn"><i class="fas fa-plus">新增商品</i></button>
+                </div>
+              </div>
+              <div class="admin_search_bar">
+                <input
+                  class="search-bar"
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="輸入名稱"
+                />
+                <button class="admin_search-btn">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="admin_main_content">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">行程編號</th>
+                    <th scope="col">行程名稱</th>
+                    <th scope="col">行程場次</th>
+                    <th scope="col">行程日期</th>
+                    <th scope="col">單價</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

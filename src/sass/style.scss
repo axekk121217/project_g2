@@ -16,6 +16,7 @@
 
 
 // 主頁面scss
+@import 'page/landing_page';
 @import 'page/index';
 @import 'page/new';
 @import 'page/summer_camp';
@@ -29,4 +30,8 @@
 @import 'page/member';
 @import 'page/admin';
 
+@import 'page/admin_system';
+@import 'page/admin_order';
+@import 'page/admin_commodity';
+@import 'page/admin_review';
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
