@@ -1,6 +1,6 @@
 @media screen and (max-width: 996px) {
   .menuToggle {
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -13,8 +13,9 @@
 //最外層
 .menuToggle {
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: 3px;
+  left: 2px;
+  margin-left: 16px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -23,7 +24,7 @@
 //選項
 .menuToggle a {
   text-decoration: none;
-  color: #232323;
+  color: #828282;
   transition: color 0.3s ease;
 }
 
@@ -37,8 +38,6 @@
   width: 40px;
   height: 32px;
   position: absolute;
-  top: -7px;
-  left: -5px;
   cursor: pointer;
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
@@ -48,12 +47,11 @@
 //漢堡按鈕
 .menuToggle span {
   display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
+  width: 24px;
+  height: 3px;
+  margin-bottom: 3px;
   position: relative;
-
-  background: #cdcdcd;
+  background: #828282;
   border-radius: 3px;
 
   z-index: 1;
@@ -109,7 +107,7 @@
   height: calc(100% + 120px);
   right: 0;
   margin: -120px 0px 0px 0px;
-  padding: 30px;
+  padding: 30px 100px;
   padding-top: 125px;
 
   background: $color_primary;
@@ -137,3 +135,5 @@
 .menuToggle input:checked ~ ul {
   transform: none;
 }
+
+

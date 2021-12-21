@@ -12,7 +12,7 @@
 }
 
 .nav_logo {
-  width: 80px;
+  width: 60px;
   margin-bottom: 4px;
 }
 
@@ -28,6 +28,12 @@
   cursor: pointer;
   margin: 0 16px;
   position: relative;
+}
+
+@media screen and (max-width: 1040px) {
+  .tab_container > li a {
+    margin: 0 8px;
+  }
 }
 //nav hover效果
 .tab_container > li a::before {
@@ -49,13 +55,22 @@
 }
 
 //nav 右邊區域
-.nav_search_container input {
+.nav_search_container{
+  text-align: right;
+}
+
+.nav_search_input {
   border-radius: 14px;
   padding: 0 8px;
   font-size: 16px;
-  width: 120px;
   border: 1.5px solid rgb(196, 196, 196);
   margin-bottom: 4px;
+}
+
+@media screen and (max-width: 576px) {
+  .nav_search_input {
+    display: none;
+  }
 }
 
 .fa-search {
