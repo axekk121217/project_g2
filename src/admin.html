@@ -4,32 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>後臺管理系統</title>
   </head>
+
   <body>
-    <div>
-      <div class="admin"><p>後臺管理系統</p></div>
+    <div class="admin">
+      <div class="admin_logo_header">
+        <img src="../images/admin/logo.png" />
+      </div>
+      <div class="admin_AI"><p>後臺管理系統</p></div>
 
-      <div>
-        帳號
+      <form action="">
+        <div class="admin_AI_account">
+          <label for="admin_account">帳號</label>
+          <input
+            type="text"
+            id="account"
+            name="account"
+            placeholder="請輸入帳號"
+          />
+        </div>
+
         <br />
-        <input type="text" />
+
+        <div class="admin_AI_password">
+          <label for="admin_password">密碼</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="請輸入密碼"
+          />
+        </div>
+
+        <br />
+
+        <div class="admin_AI_login">
+          <button class="admin_btn_login">登入</button>
+        </div>
+      </form>
+
+      <div class="admin_AI_forget">
+        <p>忘記帳號&nbsp;&frasl;&nbsp;密碼 &nbsp;請洽工程師</p>
       </div>
-
-      <br />
-
-      <div>
-        密碼<br />
-        <input type="text" />
-      </div>
-
-      <br />
-
-      <div>
-        <button>登入</button>
-      </div>
-
-      <div><p>忘記帳號&nbsp;&frasl;&nbsp;密碼 &nbsp;請洽工程師</p></div>
     </div>
   </body>
 </html>

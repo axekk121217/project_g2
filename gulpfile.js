@@ -27,7 +27,7 @@ const sass = require('gulp-sass')(require('sass'));
 function sassstyle(){
    return src('src/sass/*.scss') // 來源路徑
    .pipe(sass().on('error', sass.logError))
-   .pipe(dest('dist/css/')) // 目的地路徑
+   .pipe(dest('dist/css/' , 'src/sass/')) // 目的地路徑
 }
 
 exports.style =sassstyle;
