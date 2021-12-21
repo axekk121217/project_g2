@@ -9,6 +9,8 @@
       src="https://kit.fontawesome.com/8c41348ce8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
     <title>訂單管理</title>
   </head>
   <body>
@@ -54,7 +56,7 @@
                   placeholder="輸入名稱"
                 />
                 <button class="admin_search-btn">
-                  <i class="fas fa-search"></i>
+                  <i class="fas fa-search admin_search_icon"></i>
                 </button>
               </div>
             </div>
@@ -80,9 +82,205 @@
                     <td>已退款</td>
                     <td>已取消</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="exampleModalLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -93,9 +291,202 @@
                     <td>已付款</td>
                     <td>訂單成立</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -106,9 +497,202 @@
                     <td>未付款</td>
                     <td>訂單成立</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -119,9 +703,202 @@
                     <td>已付款</td>
                     <td>訂單成立</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -132,9 +909,202 @@
                     <td>已退款</td>
                     <td>已取消</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -145,9 +1115,202 @@
                     <td>已退款</td>
                     <td>已取消</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="3">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="3">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -158,63 +1321,204 @@
                     <td>已退款</td>
                     <td>已取消</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >電子信箱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單成立</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款方式</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="轉帳/信用卡"
+                                    />
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                      placeholder="匯款帳號後五碼"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >付款狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇付款狀態</option>
+                                      <option value="1">已付款</option>
+                                      <option value="2">未付款</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >訂單狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇訂單狀態</option>
+                                      <option value="1">訂單成立</option>
+                                      <option value="2">訂單完成</option>
+                                      <option value="2">申請取消</option>
+                                    </select>
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>訂單取消處理進度</option>
+                                      <option value="1">審核中</option>
+                                      <option value="2">退款中</option>
+                                      <option value="2">完成取消</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
-                  <!-- <tr>
-                    <th scope="row">A3245678976</th>
-                    <td>王大明</td>
-                    <td>2021-12-20</td>
-                    <td>信用卡付款</td>
-                    <td>已退款</td>
-                    <td>已取消</td>
-                    <td>
-                      <button class="admin_order_btn">
-                        編輯&nbsp;&frasl;&nbsp;查看
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">A3245678976</th>
-                    <td>王大明</td>
-                    <td>2021-12-20</td>
-                    <td>轉帳付款</td>
-                    <td>已退款</td>
-                    <td>已取消</td>
-                    <td>
-                      <button class="admin_order_btn">
-                        編輯&nbsp;&frasl;&nbsp;查看
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">A3245678976</th>
-                    <td>王大明</td>
-                    <td>2021-12-20</td>
-                    <td>信用卡付款</td>
-                    <td>已付款</td>
-                    <td>訂單成立</td>
-                    <td>
-                      <button class="admin_order_btn">
-                        編輯&nbsp;&frasl;&nbsp;查看
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">A3245678976</th>
-                    <td>王大明</td>
-                    <td>2021-12-20</td>
-                    <td>信用卡付款</td>
-                    <td>已付款</td>
-                    <td>訂單成立</td>
-                    <td>
-                      <button class="admin_order_btn">
-                        編輯&nbsp;&frasl;&nbsp;查看
-                      </button>
-                    </td>
-                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -227,7 +1531,9 @@
                       <span aria-hidden="true">&laquo;</span>
                     </a>
                   </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="../admin_order.html">1</a>
+                  </li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
@@ -242,7 +1548,5 @@
         </div>
       </div>
     </div>
-
-    <div class="admin_order_edit"></div>
   </body>
 </html>

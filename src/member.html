@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>member</title>
     <link rel="stylesheet" href="css/style.css">
-    
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    @@include('./layout/header.html')
     <section class="member_accountItem">
         <div class="member_banner container">
             <h1 class="member_title">會員中心</h1>
@@ -20,7 +21,7 @@
                             <h4 class="member_name">流川風</h4>
                         </div>
                         <ul class="member_asideMenuItem">
-                            <li class="member_listItem -on">
+                            <li class="member_listItem member_listItem-on">
                                 <img src="../src/images/member/setting.png" alt="" class="member_icon">
                                 <span class="member_accountBox">會員資料</span>
                             </li>
@@ -44,14 +45,14 @@
                         會員選單
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item active" type="button">會員資料</button></li>
+                        <li><button class="dropdown-item dropdown-item-active" type="button">會員資料</button></li>
                         <li><button class="dropdown-item" type="button">訂單管理</button></li>
                         <li><button class="dropdown-item" type="button">行程管理</button></li>
                         <li><button class="dropdown-item" type="button">行程評論</button></li>
                     </ul>
                 </div>
                 <div class="member_right col-md-9">
-                    <div class="member_board -show">
+                    <div class="member_board member_board-show">
                         <!-- 會員資料 -->
                         <div class="member_accountHeader">
                             <h1 class="member_accountTitle">會員資料</h1>
@@ -130,7 +131,7 @@
                         <div class="member_orderNumberAll">
                             <div class="row">
                                 <div class="member_orderImage col-md-5">
-                                    <img src="./images/member/image1.png" alt="">
+                                    <img src="./images/member/image1.png" alt="" class="member_orderImage_All">
                                 </div>
 
                                 <div class="member_orderItemAll col-md-7">
@@ -444,7 +445,8 @@
             </div>
         </div>
     </section>
-
+    @@include('./layout/footer.html')
+    
     <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"crossorigin="anonymous"></script>
     <script>
@@ -454,10 +456,10 @@
         const member_cancel = document.getElementsByClassName('member_orderCancelAll')[0];
         
         member_orderCancel.addEventListener('click', function(){
-            if( member_line.classList.contains('-show')){
-                member_line.classList.remove('-show');
+            if( member_line.classList.contains('member_board-show')){
+                member_line.classList.remove('member_board-show');
             } else {
-                member_line.classList.add('-show');
+                member_line.classList.add('member_board-show');
             }
         });
         
@@ -469,12 +471,12 @@
         for(let i = 0; i < member_listItem.length; i++) {
             member_listItem[i].addEventListener("click", function(){
                 for(let j = 0; j < member_board.length; j++) {
-                    member_listItem[j].classList.remove('-on');
-                    member_board[j].classList.remove('-show');
-                    member_cancel.classList.remove('-show');
+                    member_listItem[j].classList.remove('member_listItem-on');
+                    member_board[j].classList.remove('member_board-show');
+                    member_cancel.classList.remove('member_board-show');
                 }
-                member_listItem[i].classList.add('-on');
-                member_board[i].classList.add('-show');
+                member_listItem[i].classList.add('member_listItem-on');
+                member_board[i].classList.add('member_board-show');
             });
         }
 
@@ -484,14 +486,14 @@
         const member_orderCancelClick = document.getElementsByClassName('member_board')[1];
 
         member_orderCancelCause.addEventListener('click', function(){
-            member_orderCancelClick.classList.remove('-show');
-            member_orderCancelAll.classList.add('-show');
+            member_orderCancelClick.classList.remove('member_board-show');
+            member_orderCancelAll.classList.add('member_board-show');
         });
 
         const member_orderCancelPage = document.getElementsByClassName('member_orderCancelPage')[0];
         member_orderCancelPage.addEventListener('click', function(){
-            member_orderCancelAll.classList.remove('-show');
-            member_orderCancelClick.classList.add('-show');
+            member_orderCancelAll.classList.remove('member_board-show');
+            member_orderCancelClick.classList.add('member_board-show');
         });
 
         // 會員選單
@@ -499,11 +501,11 @@
         for(let i = 0; i < dropdown_item.length; i++) {
             dropdown_item[i].addEventListener('click', function() {
                 for(let j = 0; j < dropdown_item.length; j++) {
-                    dropdown_item[j].classList.remove('active');
-                    member_board[j].classList.remove('-show');
+                    dropdown_item[j].classList.remove('dropdown-item-active');
+                    member_board[j].classList.remove('member_board-show');
                 }
-                dropdown_item[i].classList.add('active');
-                member_board[i].classList.add('-show');
+                dropdown_item[i].classList.add('dropdown-item-active');
+                member_board[i].classList.add('member_board-show');
             });
         }
 
