@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="memberSignUp_container">
+        <div class="memberSignUp_banner">
+            <img src="../src/images/member/logo.png" alt="" class="memberSignUp_logo rounded mx-auto d-block">
+            <h1 class="memberSignUp_title text-center">會員登入</h1>
+            <form action="#" method="post">
+                <label>會員帳號</label>
+                <br>
+                <input type="email" placeholder="請輸入您的Email" size="40">
+                <br>
+                <label>會員密碼</label>
+                <br>
+                <input type="password" placeholder="請輸入您的密碼(8~16位數字以上英數字混合)" size="40">
+                <br>
+                <div class="memberSignUp_checkBoxAll d-flex justify-content-between">
+                    <div class="memberSignUp_checkBox">
+                        <input type="checkbox" id="memberSignUp_Privacy">
+                        <label for="memberSignUp_Privacy">保持登入狀態</label>
+                    </div>
+                    <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
+                </div>
+                <br>
+                <button class="memberSignUp_confirm">登入</button>
+            </form>
+            <h4 class="memberSignUp_word text-center">還不是會員?<a href="member_signUp.html" class="memberSignUp_signInButton">註冊</a></h4>
+        </div>
+    </section>
+</body>
+</html>

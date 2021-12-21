@@ -1,0 +1,175 @@
+section.process_buyItem {
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(../images/member/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.process_buyItem {
+    padding-top: 50px;
+
+    .process_ballAll {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+
+        .process_ballName {
+            margin-right: 50px;
+        
+        @media (max-width: 776.98px) {
+            margin-right: 20px;
+        }
+
+            .process_ball {
+                border: solid 1px black;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 15px;
+                background-color: #fff;
+            }
+
+            @media (max-width: 776.98px) {
+                .process_ball {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            .ball {
+                background: #E7C29E;
+            }
+        }
+    }
+}
+
+i.bi-arrow-right {
+    font-size: 60px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+}
+
+i.bi-calendar2-check-fill {
+    margin-right: 10px;
+}
+
+@media (max-width: 776.98px) {
+    i.bi-arrow-right {
+        font-size: 40px;
+        margin-right: 20px;
+    }
+    
+}
+
+h1.process_buyItemAllTitle {
+    font-size: $fontSize_CardTitle;
+    font-family: $fontFamily_Ch;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.process_price {
+    font-size: $fontSize_Nav;
+    font-family: $fontFamily_Ch;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.process_buyItemAllPayTitle {
+    margin-top: 20px;
+    font-size: $fontSize_CardTitle;
+    font-family: $fontFamily_Ch;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.process_buyItemAll {
+    margin-top: 30px;
+    padding: 30px;
+    background-color:#fff;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-family: $fontFamily_Ch;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9));
+    width: 80%;
+
+    .process_buyImage {
+        img {
+            height: 220px;
+        }
+
+        @media(max-width: 1199.98px) {
+            img {
+                height: 190px;
+            }
+        }
+        @media (max-width: 991.98px) {
+            img {
+                height: 165px;
+            }
+        }
+        @media (max-width:769.98px) {
+            img {
+                width: 100%;
+                height: auto;
+                margin-bottom:20px;
+            }
+        }
+    }
+
+    .process_buyWordTitle {
+        font-size: $fontSize_CardTitle;
+        margin-bottom: 20px;
+        h1 {
+            font-weight: bold;
+        }
+
+        h4 {
+            color: $font_color_Sub;
+            font-size: $fontSize;
+            margin-top: 10px;
+        }
+    }
+
+    p.process_buyWordContent {
+        font-size: $fontSize;
+        line-height: 1.5;
+    }
+
+    .process_buyWordIcon {
+        display: flex;
+        margin-top: 20px;
+
+        p {
+            margin-right: 20px;
+        }
+    }
+}
+
+@media (max-width:769.98px) {
+    .process_buyItemAll {
+        width: 100%;
+    }
+}
+
+.process_payAll {
+    display: flex;
+    input#process_card {
+        margin-bottom: 15px;
+    }
+}
+
+.process_btnAll {
+    padding-bottom: 20px;
+}
+
