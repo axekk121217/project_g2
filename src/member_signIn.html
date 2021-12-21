@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    @@include('./layout/header.html')
     <section class="memberSignUp_container">
         <div class="memberSignUp_banner">
             <img src="../src/images/member/logo.png" alt="" class="memberSignUp_logo rounded mx-auto d-block">
             <h1 class="memberSignUp_title text-center">會員登入</h1>
-            <form action="#" method="post">
+            <form action="member.html">
                 <label>會員帳號</label>
                 <br>
                 <input type="email" placeholder="請輸入您的Email" size="40">
@@ -29,10 +31,11 @@
                     <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
                 </div>
                 <br>
-                <button class="memberSignUp_confirm">登入</button>
+                <a href="member.html"><button class="memberSignUp_confirm">登入</button></a>
             </form>
             <h4 class="memberSignUp_word text-center">還不是會員?<a href="member_signUp.html" class="memberSignUp_signInButton">註冊</a></h4>
         </div>
     </section>
+    @@include('./layout/footer.html')
 </body>
 </html>

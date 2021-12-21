@@ -31,15 +31,18 @@ div.admin_header_logo {
 }
 
 div.admin_header_logo img {
-  @include rect(75px, 91px);
-  margin: 5px;
+  @include rect(55px, 71px);
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+
 }
 
 div.admin_header_logo p {
   // border: 2px solid black;
   display: flex;
   flex-direction: row;
-  font-size: 30px
+  font-size: 24px
 }
 
 div.admin_header_btn {
@@ -51,13 +54,13 @@ div.admin_header_btn {
 }
 
 button.admin_btn_signOut {
-  @include btn_module(150px, 5px, $btn_color_primary, $btn_color_primary_hover);
+  @include btn_module(85px, 5px, $btn_color_primary, $btn_color_primary_hover);
   border: none;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   letter-spacing: 0.05em;
-  height: 40px;
+  height: 100%;
 }
 
 button.admin_btn_signOut:hover {
@@ -138,8 +141,9 @@ button.admin_aside_btn:hover {
   background-color: $btn_color_sub_hover;
 }
 
-i.fas {
+i.admin_search_icon {
   color: white;
+  font-size: 17px
 }
 
 div.d-flex {

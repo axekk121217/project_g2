@@ -74,13 +74,13 @@
         cursor: pointer;
         letter-spacing: 1.5px;
 
-        img {
+        img.member_icon {
             margin-right: 10px;
         }
     }
 }
 
-.-on {
+.member_listItem-on {
     background-color: #01B3A7;
     color: #fff;
 }
@@ -124,7 +124,7 @@
     animation-timing-function: linear;
 }
 
-.-show {
+.member_board-show {
     display: block;
 }
 
@@ -224,20 +224,20 @@ img.member_icon {
     color: $font_color_content;
 
     .member_orderImage {
-        img {
+        img.member_orderImage_All {
             width: 100%;
             height: 220px;
         }
 
         @media (max-width: 1199.98px) {
-            img {
+            img.member_orderImage_All {
                 height: auto;
             }
             
         }
 
         @media (max-width: 576.98px) {
-            img {
+            img.member_orderImage_All {
                 margin-bottom: 10px;
             }
         }
@@ -344,7 +344,7 @@ img.member_icon {
             }
         }
     }
-    .-show {
+    .member_board-show {
         display: block;
     }
 }
@@ -696,7 +696,7 @@ button.dropdown-toggle:focus {
     box-shadow: none;
 }
 
-.-show {
+.member_board-show {
     display: block;
 }
 
