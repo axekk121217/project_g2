@@ -1,12 +1,459 @@
+// ============= 最新消息進場滿版 banner =============
 .newsFullBanner{
     width: 100%;
-    height: 400px;
-    border: 1px solid red;
+    // height: 400px;
     background: url('../images/news/path.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    margin-bottom: 50px;
+
 }
-.news_banner{
+.nfb{
+    width: 100%; 
+}
+.news_banner.nb_top{
+    height: 200px;
+    background: url('../images/news/soon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.news_banner.nb_center{
+    margin: -20px 0;
+    height: 100px;
+    padding: 10px;
+    @include flexcenter;
+    background-color: $btn_color_primary;
+    color: #fff;
+    font-size: $fontSize_Banner;
+    z-index: 1;
+}
+.news_banner.nb_bottom{
+    height: 200px;
+    background: url('../images/news/newspapaer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// ============= 即將成團卡片區塊  =============
+.nb_soon{
+    height: 60px;
+    display: flex;
+    text-align: right;
+    align-items: center;
+    font-size: $fontSize_Title;
+    background-color: #092C4C;
+    color: #fff;
+
+}
+.newsFB2_container{
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 50px auto;
+}
+.newsFB2{
+    // margin: 0 auto 50px;
+    // width: 1200px;
+    // display: flex;
+    // justify-content: space-between;
+    // // flex-wrap: wrap;
+    // overflow-x: auto;
+    position: relative;
+}
+@media screen and (min-width: 576px) and (max-width: 1199.98px) {
+    .newsFB2 .row{
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+
+}
+
+.newsFB2_bg{
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background-color: $color_primary;
+    top: 100px;
+}
+.nb_soon_card{
+    // width: 270px;
+    height: 450px;
+    color: #fff;
+    text-align: center;
+    @include flexcenter;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+// 各張卡片背景底圖
+.nb_soon_card.nb_info1{
+    background: url('../images/news/theater.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nb_soon_card.nb_info2{
+    background: url('../images/news/film.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    
+}.nb_soon_card.nb_info3{
+    background: url('../images/news/soccer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    
+}.nb_soon_card.nb_info4{
+    background: url('../images/news/science.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    
+}
+// 即將成團卡片上的文字
+.nb_info_text{
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    // border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(260px);
+    transition: 1s ease;
+    cursor: pointer;
+}
+.nb_info_text:hover{
+    transform: translateY(0);
+}
+.nb_card_title{
+    font-size: $fontSize_CardTitle;
+    line-height: 1.5em;
+    color: #fff;
+}
+@media screen and (min-width: 576px) and (max-width: 1199.98px) {
+    .nb_card_title{
+        font-size: $fontSize_Nav;
+    }
+}
+.nb_card_remain{
+    // border: 1px solid red;
+    font-size: $fontSize_CardTitle;
+    color: #fff;
+
+}
+.nb_card_link{
+    // border: 1px solid red;
+    color: #fff;
+    display: block;
+}
+
+// ============= 最新資訊 ============= 
+.newsB3{
     border: 1px solid red;
+    // width: 1200px;
+    // @include center;
+    // display: flex;
+    // justify-content: space-between;
+    // height: 600px;
+    margin-bottom: 50px;
 }
+.nb_left_row{
+    // width: 48%;
+    height: 620px;
+    border: 1px solid blue;
+    padding: 0;
+    background: url('../images/news/forest.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+    margin-bottom: 20px;
+}
+.nb_right_row{
+    // width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.news_content1{
+    color: #fff;
+    padding: 20px;
+    margin-top: 120px;
+    background-color: $color_primary;
+    cursor: pointer;
+}
+.news_content1:hover{
+    background-color: $btn_color_primary;
+    transition: .5s ease;
+}
+.news_content1:hover .news_content_title{
+    color: $font_color_content;
+    transition: .5s ease;
+}
+.news_content1:hover .news_content_more_link{
+    color: $font_color_content;
+    transition: .5s ease;
+}
+.news_content_title{
+    font-size: $fontSize_Title;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: #fff;
+}
+.news_content_more{
+    text-align: right;
+}
+.news_content_more_link{
+    color: #fff;
+}
+.news_content_more_link:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.news_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.news_content2{
+    padding: 0;
+    background: url('../images/news/kongfu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+    height: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+
+}
+.news_content3{
+    padding: 0;
+    background: url('../images/news/flowers.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+
+}
+.news_content_text{
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transform: translateY(35px);
+    transition: .8s ease;
+}
+.news_content_text:hover{
+    transform: translateY(0);
+}
+.news_content_title_right{
+    font-size: $fontSize_Nav;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+// .newsB4{
+//     @include center;
+//     width: 1200px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+// }
+.newsB4 .row{
+    justify-content: center;
+}
+.news_more_card{
+    height: 300px;
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+.news_more_card.nmc1{
+    background: url('../images/news/nb_can.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;   
+    background-position: center center;
+
+}
+.news_more_card.nmc2{
+    background: url('../images/news/nb_uk.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc3{
+    background: url('../images/news/nb_usa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc4{
+    background: url('../images/news/nb_fr.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc5{
+    background: url('../images/news/nb_aus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc6{
+    background: url('../images/news/nb_nz.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc7{
+    background: url('../images/news/nb_ger.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+.news_more_card.nmc8{
+    background: url('../images/news/nb_sw.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center center;
+
+}
+
+// ============= 最新消息彈窗 ============= 
+.nb_overlay{
+    // border: 1px solid red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, .75);
+    display: none;
+    z-index: 100;
+    margin: 0 auto;
+    overflow-y: auto;
+
+}
+.modal_article{
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    // overflow-y: auto;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.modal_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: $color_primary;
+}
+.modal_header_title{
+    font-weight: 700;
+    color: #fff;
+    font-size: $fontSize_Title;
+}
+.btn_modal_close{
+    border: none;
+    background: none;
+    font-size: 45px;
+    color: #fff;
+}
+.nb_modal_img{
+    padding: 0;
+}
+.nb_modal_img img{
+    width: 100%;
+}
+.modal_body{
+    padding: 30px 30px 40px;
+}
+.nb_modal_title_block{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.nb_modal_title{
+    font-weight: 700;
+    font-size: $fontSize_CardTitle;
+}
+.nb_modal_date{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: 0;
+    top: -100px;
+    @include flexcenter;
+    text-align: center;
+    line-height: 150%;
+    font-weight: 700;
+    font-size: $fontSize_CardTitle;
+    background: $color_primary_sub;
+    color: $font_color_content;
+}
+@media screen and (min-width: 320px) and (max-width: 859.98px){
+    .nb_modal_date{
+        width: 80px;
+        height: 80px;
+        font-size: $fontSize;
+        top: -80px;
+    }
+}
+.nb_modal_content{
+    margin-top: 16px;
+    line-height: 150%;
+}
+.nb_modal_content a{
+    color: $btn_color_sub;
+    text-decoration: underline;
+}
+.nb_modal_content_plot{
+    margin-bottom: 1em;
+}
+
+// customized scrollbar
+/* width */
+// ::-webkit-scrollbar:horizontal {
+//     height: 10px;
+//     width: 20px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track:horizontal {
+//     border-radius: 20px;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb:horizontal {
+//     background: $btn_color_primary; 
+//     border-radius: 20px;
+//     margin-top: 40px;
+
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:horizontal:hover {
+//     background: $color_primary_sub; 
+// }

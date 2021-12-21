@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單資料</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="process_buyItem">
+        <div class="process_ballAll container">
+            <div class="process_ballName">
+                <div class="process_ball  ball">1</div>
+                <p>訂單資料</p>
+            </div>
+            <i class="bi bi-arrow-right"></i>
+            <div class="process_ballName">
+                <div class="process_ball">2</div>
+                <p>付款資訊</p>
+            </div>
+            <i class="bi bi-arrow-right"></i>
+            <div class="process_ballName">
+                <div class="process_ball">3</div>
+                <p>訂單確認</p>
+            </div>
+        </div>
+
+        <div class="process_buyItemAll container">
+            <h1 class=process_buyItemAllTitle>本次購買行程</h1>
+            <hr>
+            <div class="row">
+                <div class="process_buyImage col-md-5">
+                    <img src="./images/member/accountBanner.jpg" alt="">
+                </div>
+                <div class="process_buyWordAll col-md-7">
+                    <div class="process_buyWordTitle">
+                        <h1>[美國-洛杉磯] 微電影創作營</h1>
+                        <h4>California State University</h4>
+                    </div>
+                    <p class="process_buyWordContent">我們將英語課程結合了影視課程，為喜愛美國文化及影視有興趣學生提供最佳的機會，深入了解好萊塢。配合好萊塢著名景點及名人居住區域介紹，讓喜愛美國明星的你，感受進一步的接觸。</p>
+    
+                    <div class="process_buyWordIcon">
+                        <p><i class="bi bi-calendar2-check-fill"></i>梯次: 7/5 - 8/15</p>
+                        <p><i class="bi bi-person-fill"></i>人數 X2</p>
+                    </div>
+                    <div class="process_price text-end">
+                        <p>TWD $76,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="process_buyItemAll container">
+            <h1 class="process_buyItemAllTitle">訂購人資料</h1>
+            <hr>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="process_buyItemAllLength col-md-4">
+                    <label for="validationCustom01" class="form-label">名字</label>
+                    <input type="text" class="form-control" id="validationCustom01" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="process_buyItemAllLength col-md-4">
+                    <label for="validationCustom02" class="form-label">姓氏</label>
+                    <input type="text" class="form-control" id="validationCustom02" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                
+                <div class="process_buyItemAllLength col-md-4">
+                    <label for="validationCustom03" class="form-label">聯絡電話</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                
+                <div class="process_buyItemAllLength col-md-6">
+                    <label for="validationCustom03" class="form-label">電子信箱</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+
+                <div class="process_buyItemAllLength col-md-6">
+                    <label for="inputState" class="form-label">付款方式</label>
+                    <select id="inputState" class="form-select">
+                    <option selected>選擇付款方式</option>
+                    <option>信用卡付款</option>
+                    <option>轉帳付款</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            同步會員資料
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="container">
+            <div class="process_btnAll text-center">
+                <a href="#"><button class="btn_sub">取消</button></a>
+                <a href="process_next.html"><button class="process_nextStep btn_sub">下一步</button></a>
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html>

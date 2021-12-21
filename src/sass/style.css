@@ -12016,6 +12016,11 @@ table {
   border-spacing: 0;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .btn {
   width: 150px;
   padding: 8px 5px;
@@ -12050,6 +12055,138 @@ table {
   background-color: #02776F;
 }
 
+.newsFullBanner {
+  width: 100%;
+  border: 1px solid red;
+  background: url("../images/news/path.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 50px;
+}
+
+.nfb {
+  width: 100%;
+}
+
+.news_banner.nb_top {
+  height: 200px;
+  background: url("../images/news/soon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.news_banner.nb_center {
+  margin: -20px 0;
+  height: 100px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FCB629;
+  color: #fff;
+  font-size: 72px;
+  z-index: 1;
+}
+
+.news_banner.nb_bottom {
+  height: 200px;
+  background: url("../images/news/newspapaer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.newsFB2 {
+  margin-bottom: 50px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.nb_soon {
+  height: 60px;
+  border: 1px solid blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 36px;
+  background-color: #092C4C;
+  color: #fff;
+}
+
+.nb_soon_card {
+  height: 450px;
+  border: 1px solid red;
+  color: #fff;
+  text-align: center;
+  padding: 0 !important;
+}
+
+.nb_info_text {
+  padding: 20px;
+  height: 100%;
+  border: 1px solid #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.nb_card_title {
+  font-size: 24px;
+  border: 1px solid red;
+}
+
+.nb_card_remain {
+  border: 1px solid red;
+}
+
+.nb_card_bottom {
+  border: 1px solid red;
+}
+
+.nb_card_link {
+  border: 1px solid red;
+  color: #fff;
+  display: block;
+}
+
+.nb_soon_card.nb_info1 {
+  background: url("../images/news/theater.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nb_soon_card.nb_info2 {
+  background: url("../images/news/film.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nb_soon_card.nb_info3 {
+  background: url("../images/news/soccer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nb_soon_card.nb_info4 {
+  background: url("../images/news/science.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .nav_container {
   padding: 8px 16px;
   display: -webkit-box;
