@@ -1,9 +1,7 @@
 img, embed{
     max-width: 100%;;
 }
-*{
-    color: $font_color_content;
-}
+
 // =========== breadcrumb 麵包屑 =========== 
 .sch_breadcrumb{
     margin: 50px auto;
@@ -473,7 +471,10 @@ img.sch_info_content_img{
 .sch_week_process{
     display: flex;
     // border: 1px solid red;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
+}
+.sch_week_content{
+    height: 50px;
 }
 
 .sch_week_num{
@@ -504,6 +505,7 @@ img.sch_info_content_img{
     padding-bottom: 5px;
 }
 .sch_week_theme.-on{
+    padding-bottom: 5px;
     border-bottom: 3px solid $btn_color_primary;
 }
 
