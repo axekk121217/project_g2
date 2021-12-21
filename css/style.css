@@ -12212,12 +12212,13 @@ body {
 
 div.admin_member {
   width: 100%;
-  height: 600px;
+  height: 100%;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url("../images/admin/adminbk2.jpg");
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  padding-bottom: 10px;
 }
 
 div.admin_header {
@@ -12254,9 +12255,11 @@ div.admin_header_logo {
 }
 
 div.admin_header_logo img {
-  width: 85px;
-  height: 101px;
-  margin: 5px;
+  width: 55px;
+  height: 71px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 div.admin_header_logo p {
@@ -12267,7 +12270,7 @@ div.admin_header_logo p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 div.admin_header_btn {
@@ -12288,7 +12291,7 @@ div.admin_header_btn {
 }
 
 button.admin_btn_signOut {
-  width: 150px;
+  width: 85px;
   padding: 8px 5px;
   background-color: #FCB629;
   cursor: pointer;
@@ -12298,7 +12301,7 @@ button.admin_btn_signOut {
   font-weight: bold;
   border-radius: 5px;
   letter-spacing: 0.05em;
-  height: 40px;
+  height: 100%;
 }
 
 button.admin_btn_signOut:hover {
@@ -12413,18 +12416,35 @@ i.fas {
   color: white;
 }
 
+div.d-flex {
+  margin-top: 10px;
+}
+
+a.page-link {
+  background-color: #01B3A7;
+  color: white;
+  border: 1px solid #395762;
+}
+
+a.page-link:hover {
+  background-color: #395762;
+  color: white;
+  border: 1px solid #395762;
+}
+
 body {
   margin: 0 auto;
 }
 
 div.admin_member {
   width: 100%;
-  height: 600px;
+  height: 100%;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url("../images/admin/adminbk2.jpg");
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  padding-bottom: 10px;
 }
 
 div.admin_header {
@@ -12461,9 +12481,11 @@ div.admin_header_logo {
 }
 
 div.admin_header_logo img {
-  width: 85px;
-  height: 101px;
-  margin: 5px;
+  width: 55px;
+  height: 71px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 div.admin_header_logo p {
@@ -12474,7 +12496,7 @@ div.admin_header_logo p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 div.admin_header_btn {
@@ -12495,7 +12517,7 @@ div.admin_header_btn {
 }
 
 button.admin_btn_signOut {
-  width: 150px;
+  width: 85px;
   padding: 8px 5px;
   background-color: #FCB629;
   cursor: pointer;
@@ -12505,7 +12527,259 @@ button.admin_btn_signOut {
   font-weight: bold;
   border-radius: 5px;
   letter-spacing: 0.05em;
-  height: 40px;
+  height: 100%;
+}
+
+button.admin_btn_signOut:hover {
+  background-color: #FF7A00;
+}
+
+div.admin_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+div.admin_main_tltle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.admin_search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.admin_search p {
+  font-size: 36px;
+  color: black;
+}
+
+div.admin_search_bar input {
+  border: 2px solid #01B3A7;
+  border-radius: 5px 0 0 5px;
+  outline-color: #FCB629;
+}
+
+button.admin_search-btn {
+  border: none;
+  background-color: #01B3A7;
+  float: right;
+  padding: 6px 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+div.admin_main_content {
+  border: 2px solid #395762;
+  margin-top: 10px;
+  width: 1000px;
+  text-align: center;
+}
+
+div.admin_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 20px 0 0;
+}
+
+button.admin_aside_btn {
+  width: 150px;
+  padding: 8px 5px;
+  background-color: #01B3A7;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px 0;
+}
+
+button.admin_aside_btn:hover {
+  background-color: #02776F;
+}
+
+i.fas {
+  color: white;
+}
+
+button.admin_order_btn {
+  width: 100px;
+  padding: 8px 5px;
+  background-color: #FCB629;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  padding: 5px 5px;
+}
+
+button.admin_order_btn.bg-primary {
+  color: #01B3A7;
+}
+
+button.admin_order_btn:hover {
+  background-color: #FF7A00;
+}
+
+div.d-flex {
+  margin-top: 10px;
+}
+
+a.page-link {
+  background-color: #01B3A7;
+  color: white;
+  border: 1px solid #395762;
+}
+
+a.page-link:hover {
+  background-color: #395762;
+  color: white;
+  border: 1px solid #395762;
+}
+
+div.admin_order_header {
+  background-color: #FCB629;
+}
+
+body {
+  margin: 0 auto;
+}
+
+div.admin_member {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url("../images/admin/adminbk2.jpg");
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 10px;
+}
+
+div.admin_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #EDF0F4;
+}
+
+div.admin_header_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.admin_header_logo img {
+  width: 55px;
+  height: 71px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+div.admin_header_logo p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 24px;
+}
+
+div.admin_header_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px 0 0;
+}
+
+button.admin_btn_signOut {
+  width: 85px;
+  padding: 8px 5px;
+  background-color: #FCB629;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  height: 100%;
 }
 
 button.admin_btn_signOut:hover {
@@ -12637,5 +12911,374 @@ button.admin_order_btn {
 
 button.admin_order_btn:hover {
   background-color: #FF7A00;
+}
+
+button.admin_order_btn:focus {
+  border-color: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #FCB629;
+}
+
+div.d-flex {
+  margin-top: 10px;
+}
+
+a.page-link {
+  background-color: #01B3A7;
+  color: white;
+  border: 1px solid #395762;
+}
+
+a.page-link:hover {
+  background-color: #395762;
+  color: white;
+  border: 1px solid #395762;
+}
+
+div.admin_commodity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button.admin_commodity_btn {
+  width: 100px;
+  padding: 8px 5px;
+  background-color: #FCB629;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  margin-left: 10px;
+}
+
+button.admin_commodity_btn:hover {
+  background-color: #FF7A00;
+}
+
+button.admin_commodity_btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #FCB629;
+}
+
+div.admin_commodity_header {
+  background-color: #FCB629;
+}
+
+#app {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+button.admin_commodity_file {
+  width: 150px;
+  padding: 8px 5px;
+  background-color: #01B3A7;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+}
+
+button.admin_commodity_file:hover {
+  background-color: #02776F;
+}
+
+label.admin_commodity_text {
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-bottom: none;
+}
+
+textarea.admin_commodity_textarea {
+  border-radius: 0 0 0.25rem 0.25rem;
+  border-top: none;
+}
+
+textarea.admin_commodity_textarea:focus {
+  border-color: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #FCB629;
+}
+
+input.admin_commodity_focus:focus {
+  border-color: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #FCB629;
+}
+
+select.admin_commodity_focus:focus {
+  border-color: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #FCB629;
+}
+
+body {
+  margin: 0 auto;
+}
+
+div.admin_member {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url("../images/admin/adminbk2.jpg");
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 10px;
+}
+
+div.admin_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #EDF0F4;
+}
+
+div.admin_header_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.admin_header_logo img {
+  width: 55px;
+  height: 71px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+div.admin_header_logo p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 24px;
+}
+
+div.admin_header_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px 0 0;
+}
+
+button.admin_btn_signOut {
+  width: 85px;
+  padding: 8px 5px;
+  background-color: #FCB629;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  height: 100%;
+}
+
+button.admin_btn_signOut:hover {
+  background-color: #FF7A00;
+}
+
+div.admin_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+div.admin_main_tltle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.admin_search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.admin_search p {
+  font-size: 36px;
+  color: black;
+}
+
+div.admin_search_bar input {
+  border: 2px solid #01B3A7;
+  border-radius: 5px 0 0 5px;
+  outline-color: #FCB629;
+}
+
+button.admin_search-btn {
+  border: none;
+  background-color: #01B3A7;
+  float: right;
+  padding: 6px 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+div.admin_main_content {
+  border: 2px solid #395762;
+  margin-top: 10px;
+  width: 1000px;
+  text-align: center;
+}
+
+div.admin_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 20px 0 0;
+}
+
+button.admin_aside_btn {
+  width: 150px;
+  padding: 8px 5px;
+  background-color: #01B3A7;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px 0;
+}
+
+button.admin_aside_btn:hover {
+  background-color: #02776F;
+}
+
+i.fas {
+  color: white;
+}
+
+button.admin_order_btn {
+  width: 130px;
+  padding: 8px 5px;
+  background-color: #FCB629;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+}
+
+button.admin_order_btn:hover {
+  background-color: #FF7A00;
+}
+
+div.d-flex {
+  margin-top: 10px;
+}
+
+a.page-link {
+  background-color: #01B3A7;
+  color: white;
+  border: 1px solid #395762;
+}
+
+a.page-link:hover {
+  background-color: #395762;
+  color: white;
+  border: 1px solid #395762;
 }
 /*# sourceMappingURL=style.css.map */
