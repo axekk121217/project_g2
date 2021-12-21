@@ -10,6 +10,10 @@
 
 </head>
 <body>
+
+    <!-- header  -->
+    @@include('./layout/header.html')
+
     <!-- 最新消息彈窗 -->
     <div class="container-fluid nb_overlay">
         <div class="row modal_article">
@@ -293,15 +297,19 @@
         </div>
     </div> 
 
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<script>
-    $('div.nb_clickable').click(function(){
-        $("div.nb_overlay").fadeIn();
-    });
-    $('.btn_modal_close').click(function(){
-        $("div.nb_overlay").fadeOut();
-    });
-</script>
+    <!-- footer -->
+    @@include('./layout/footer.html')
+
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $('div.nb_clickable').click(function(){
+            $("div.nb_overlay").fadeIn();
+        });
+        $('.btn_modal_close').click(function(){
+            $("div.nb_overlay").fadeOut();
+        });
+    </script>
 
  
 

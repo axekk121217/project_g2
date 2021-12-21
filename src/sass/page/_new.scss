@@ -151,18 +151,13 @@
 
 // ============= 最新資訊 ============= 
 .newsB3{
-    border: 1px solid red;
-    // width: 1200px;
-    // @include center;
-    // display: flex;
-    // justify-content: space-between;
-    // height: 600px;
-    margin-bottom: 50px;
+    margin: 20px auto 50px;
 }
+
 .nb_left_row{
     // width: 48%;
     height: 620px;
-    border: 1px solid blue;
+    // border: 1px solid blue;
     padding: 0;
     background: url('../images/news/forest.jpg');
     background-repeat: no-repeat;
@@ -171,7 +166,6 @@
     margin-bottom: 20px;
 }
 .nb_right_row{
-    // width: 48%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -179,9 +173,9 @@
 .news_content1{
     color: #fff;
     padding: 20px;
-    margin-top: 120px;
     background-color: $color_primary;
     cursor: pointer;
+    transform: translateY(157px);
 }
 .news_content1:hover{
     background-color: $btn_color_primary;
@@ -262,13 +256,7 @@
     text-align: center;
     margin-bottom: 20px;
 }
-// .newsB4{
-//     @include center;
-//     width: 1200px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-between;
-// }
+
 .newsB4 .row{
     justify-content: center;
 }
@@ -348,7 +336,7 @@
     height: 100vh;
     background-color: hsla(0, 0%, 0%, .75);
     display: none;
-    z-index: 100;
+    z-index: 1000;
     margin: 0 auto;
     overflow-y: auto;
 
