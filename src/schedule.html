@@ -307,7 +307,6 @@
                             <div class="sch_week_theme -on" data-week="1">時尚產業地圖</div>
                         </div>
                     </div>
-                    <!-- <div class="sch_week_line"></div> -->
                     <div class="sch_week_process">
                         <div class="sch_week_num">2</div>
                         <div class="sch_week_content">
@@ -315,7 +314,6 @@
                             <div class="sch_week_theme" data-week="2">藝術品鑑與設計概論</div>
                         </div>
                     </div>
-                    <!-- <div class="sch_week_line"></div> -->
                     <div class="sch_week_process">
                         <div class="sch_week_num">3</div>
                         <div class="sch_week_content">
@@ -323,7 +321,6 @@
                             <div class="sch_week_theme" data-week="3">成為一位設計師：打造個人品牌</div>
                         </div>
                     </div>
-                    <!-- <div class="sch_week_line"></div> -->
                     <div class="sch_week_process">
                         <div class="sch_week_num">4</div>
                         <div class="sch_week_content">
@@ -331,7 +328,6 @@
                             <div class="sch_week_theme" data-week="4">時尚設計與創意方法</div>
                         </div>
                     </div>
-                    <!-- <div class="sch_week_line"></div> -->
                     <div class="sch_week_process">
                         <div class="sch_week_num">5</div>
                         <div class="sch_week_content">
@@ -339,7 +335,6 @@
                             <div class="sch_week_theme" data-week="5">永續未來：21世紀的時尚設計素養</div>
                         </div>
                     </div>
-                    <!-- <div class="sch_week_line"></div> -->
                     <div class="sch_week_process">
                         <div class="sch_week_num">6</div>
                         <div class="sch_week_content">
@@ -539,6 +534,20 @@
 
 
             // 各週進度條
+            $(window).scroll(function() {
+                for(let i = 1; i < 7; i++){
+                    let nowArea = $('#sch_week' + i).offset().top;
+                    // let nextArea = $('#sch_week' + ).offset().top;
+                    //  && ($(this).scrollTop() < nextArea)
+                    
+                    if($(this).scrollTop() >= (nowArea - 100)){
+                        $('.sch_week_theme').removeClass('-on');
+                        $('.sch_week_theme[data-week=' + i + ']').addClass('-on');
+                    }
+                
+
+                }
+            }); 
             
 
         });
