@@ -1,5 +1,5 @@
 .memberSignUp_container {
-    @include flexcenter;
+    @include flex-center;
     background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(../images/member/accountBanner.jpg);
     background-repeat: no-repeat;
     background-size: cover;

@@ -318,7 +318,7 @@ img.sch_info_content_img{
     border-radius: 20px;
     height: 450px;
     padding: 40px 30px;
-    @include flexcenter;
+    @include flex-center;
     flex-direction: column;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -338,7 +338,7 @@ img.sch_info_content_img{
 }
 .sch_second_right_card .sch_action{
     flex-direction: column;
-    @include flexcenter;
+    @include flex-center;
     
 }
 .sch_second_right_card .sch_action .sch_heart{
@@ -375,7 +375,7 @@ img.sch_info_content_img{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    @include flexcenter;
+    @include flex-center;
     font-weight: 700;
     color: #fff;
     background: $color_primary;
@@ -434,7 +434,7 @@ img.sch_info_content_img{
     margin: 30px 0 40px;
 }
 .sch_rate{
-    @include flexcenter;
+    @include flex-center;
     width: 80px;
     height: 80px;
     border-radius: 8px;

@@ -22,7 +22,7 @@
     margin: -20px 0;
     height: 100px;
     padding: 10px;
-    @include flexcenter;
+    @include flex-center;
     background-color: $btn_color_primary;
     color: #fff;
     font-size: $fontSize_Banner;
@@ -82,7 +82,7 @@
     height: 450px;
     color: #fff;
     text-align: center;
-    @include flexcenter;
+    @include flex-center;
     overflow: hidden;
     z-index: 1;
     margin-bottom: 20px;
@@ -405,7 +405,7 @@
     position: absolute;
     right: 0;
     top: -100px;
-    @include flexcenter;
+    @include flex-center;
     text-align: center;
     line-height: 150%;
     font-weight: 700;

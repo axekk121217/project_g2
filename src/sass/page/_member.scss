@@ -80,7 +80,7 @@
     }
 }
 
-.-on {
+.member_listItem-on {
     background-color: #01B3A7;
     color: #fff;
 }
@@ -124,7 +124,7 @@
     animation-timing-function: linear;
 }
 
-.-show {
+.member_board-show {
     display: block;
 }
 
@@ -172,11 +172,11 @@ h1.member_accountTitle {
 }
 
 .member_accountAll {
-    @include flexcenter;
+    @include flex-center;
 }
 
 .member_passwordAll {
-    @include flexcenter;
+    @include flex-center;
 }
 
 img.member_icon {
@@ -344,7 +344,7 @@ img.member_icon {
             }
         }
     }
-    .-show {
+    .member_board-show {
         display: block;
     }
 }
@@ -696,7 +696,7 @@ button.dropdown-toggle:focus {
     box-shadow: none;
 }
 
-.-show {
+.member_board-show {
     display: block;
 }
 
