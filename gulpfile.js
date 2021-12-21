@@ -24,10 +24,18 @@ exports.copy = move;
 
 // sass編譯
 const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps'); // 在瀏覽器開發者工具可追蹤 sass 引用檔案來源
+
 function sassstyle(){
-   return src('src/sass/*.scss') // 來源路徑
+   return src('src/sass/*.scss') // 
+   .pipe(sourcemaps.init()) 
    .pipe(sass().on('error', sass.logError))
-   .pipe(dest('dist/css/')) // 目的地路徑
+   .pipe(sourcemaps.write())
+   .pipe(autoprefixer({ // 注意順序
+            cascade: false
+        })) // 解決 css 跨瀏覽器問題
+   .pipe(dest('dist/css/' , 'src/sass/')) // 目的地路徑
 }
 
 exports.style =sassstyle;
@@ -47,17 +55,34 @@ function html(){
 
 exports.template = html;
 
+
+// babel：將 ES6 轉譯成 ES5，加入以下 jsmini
+
+const babel = require('gulp-babel');
+
+function babel5() {
+    return src('dev/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(dest('js'));
+}
+
 // js uglify
 
 const uglify = require('gulp-uglify');
 
 function jsmini(){
    return src('src/js/*.js')
+   .pipe(babel({
+            presets: ['@babel/env']
+        })) // ES6 轉譯成 ES5："use strict"; const -> var
    .pipe(uglify())
    .pipe(dest('dist/js'))
 }
 
 exports.js =jsmini;
+
 
 //壓縮圖片
 const imagemin = require('gulp-imagemin');
@@ -83,6 +108,16 @@ function watchall(){
 exports.w = watchall;
 
 
+// 刪除舊檔案：會用在打包的第一個步驟
+const clean = require('gulp-clean');
+
+function clear() {
+  return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+  .pipe(clean({force: true})); //強制刪除檔案 
+}
+
+exports.c = clear;
+
 // 瀏覽器整合
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
@@ -103,3 +138,10 @@ function browser(done) {
 }
 
 exports.default = browser;
+
+
+// 打包上線
+
+sassstyle | html | jsmini | min_images 
+// 執行順序用, 隔開，同時執行用 parallel() 包起來
+exports.package = series(clear, parallel(sassstyle, html, jsmini), min_images);

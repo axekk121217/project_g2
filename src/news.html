@@ -6,19 +6,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最新消息</title>
     <link rel="stylesheet" href="css/style.css">
+    
 
 </head>
 <body>
-    <div class="newsFullBanner">
-        <div class="container news_banner">
+
+    <!-- header  -->
+    @@include('./layout/header.html')
+
+    <!-- 最新消息彈窗 -->
+    <div class="container-fluid nb_overlay">
+        <div class="row modal_article">
+            <div class="col-12 modal_header">
+              <div class="modal_header_title">最新消息</div>
+              <button type="button" class="btn_modal_close">×</button>
+            </div>
+
+            <div class="col-12 nb_modal_img">
+                <img src="./images/news/canada.jpg">
+            </div>
+            
+            <!-- Modal body -->
+            <div class="col-12 modal_body">
+                <div class="nb_modal_title_block">
+                    <div class="nb_modal_title">加拿大入境規定 – 邊境和旅行措施新變化</div>
+                    <div class="nb_modal_date">26 Nov<br>2021</div>
+                </div>
+                <div class="nb_modal_content">
+                    <div class="nb_modal_content_plot">
+                        2021年11月30日起加拿大增新認可疫苗<br>本來認可的疫苗有:
+                        <ul>
+                            <li>．Moderna</li>
+                            <li>．Pfizer (BNT)</li>
+                            <li>．AstraZeneca (AZ)</li>
+                            <li>．anssen (Johnson&Johnson)</li>
+                        </ul>
+                    </div>
+                    <div class="nb_modal_content_plot">
+                        自 2021 年 11 月 30 日起，加拿大完全接種疫苗的 COVID-19 疫苗清單增加囉！<br>
+                        增加認可疫苗有:
+                        <ul>
+                            <li>．Sinopharm</li>
+                            <li>．Sinovac (Coronavac)</li>
+                            <li>．COVAXIN</li>
+                        </ul>
+                    </div>
+                    <div class="nb_modal_content_plot">
+                        雖然這些疫苗台灣學生打到的機會不多，但好消息是將有更多國際學生可以前往加拿大就讀，表示加拿大恢復多樣性的日子不遠啦！<br>
+                        延伸閱讀：<a href="https://reurl.cc/kLjg0K" target="_blank">加拿大認可疫苗查詢</a><br>
+                        2022年1月15日起新規定<br>自 2022 年 1 月 15 日起，年滿 18 歲的國際學生只有在完整接種了認可的疫苗後才能進入加拿大。<br>要被視為完全接種疫苗，國際學生必須在進入加拿大前至少 14 天接受加拿大政府接受的全系列疫苗或混合疫苗。<br>也就是說2022 年 1 月 15 日起只有完整接種疫苗的學生可以入境加拿大！
+                    </div>
+                    <div class="nb_modal_content_plot">
+                        資料來源：<a href="https://www.canada.ca/en/public-health/news/2021/11/government-of-canada-announces-adjustments-to-canadas-border-measures.html?fbclid=IwAR2MXm4m1tqBVeRMq8bdiLnCnOivt2RBeEfEOmx1iD1XcXZhV_qjt0hqTmA" target="_blank">官方新聞稿</a>  
+                    </div>
+
+                </div>
+            </div>
+          </div>  
+        </div>
+
+    </div>
+
+    <!-- 第一欄 banner -->
+    <div class="container-fluid newsFullBanner">
+        <div class="nfb">
             <div class="row">
-                <div class="col-6">這是第一欄</div>
-                <div class="col-6">這是第二欄</div>
+                <div class="col-md-8 col-sm-12 news_banner nb_top"></div>
+            </div>
+            <div class="row justify-content-center align-self-center">
+                <div class="col-sm-8 col-md-5 col-xs-7 news_banner nb_center">最新消息</div>
+            </div>
+            <div class="news_banner ">
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-md-8 col-sm-12 news_banner nb_bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 即將成團 -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-5 nb_soon">即將成團</div>
+        </div>
+    </div>
+    <div class="newsFB2_container">
+        <div class="newsFB2_bg"></div>
+        <div class="container newsFB2">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="nb_soon_card nb_info1">
+                        <div class="nb_info_text">
+                            <div class="nb_card_title">【美國-紐約】<br>百老匯表演藝術營</div>
+                            <div class="nb_card_remain">剩餘5人</div>
+                            <div class="nb_card_bottom">
+                                <a href="" class="news_content_more_link">More>></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="nb_soon_card nb_info2">
+                        <div class="nb_info_text">
+                            <div class="nb_card_title">【美國-洛杉磯】<br>微電影創作營</div>
+                            <div class="nb_card_remain">剩餘3人</div>
+                            <div class="nb_card_bottom">
+                                <a href="" class="news_content_more_link">More>></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="nb_soon_card nb_info3">
+                        <div class="nb_info_text">
+                            <div class="nb_card_title">【英國-曼徹斯特】<br>英超曼城足球營</div>
+                            <div class="nb_card_remain">剩餘2人</div>
+                            <div class="nb_card_bottom">
+                                <a href="" class="news_content_more_link">More>></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="nb_soon_card nb_info4">
+                        <div class="nb_info_text">
+                            <div class="nb_card_title">【英國-牛津】<br>應用科學營</div>
+                            <div class="nb_card_remain">剩餘5人</div>
+                            <div class="nb_card_bottom">
+                                <a href="" class="news_content_more_link">More>></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
     </div>
-    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-5 nb_soon">最新資訊</div>
+        </div>
+    </div>
+
+    <!-- 最新資訊 -->
+    <div class="container newsB3">
+        <div class="row">
+            <div class="col-lg-5 col-md-12">
+                <div class="nb_left_row">
+                    <div class="news_content1">
+                        <div class="news_content_title">
+                            2022冬夏令營<br>報名開跑囉！
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-12  col-xs-12">
+                <div class="row nb_right_row">
+                    <div class="news_content">
+                        <div class="news_content2">
+                            <div class="news_content_text nb_clickable">
+                                <div class="news_content_title_right">
+                                    第九屆「紐約老派功夫影展」<br>70年代武俠電影上映
+                                </div>
+                                <div class="news_content_more">
+                                    <a href="" class="news_content_more_link">More>></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_content">
+                        <div class="news_content3">
+                            <div class="news_content_text nb_clickable">
+                                <div class="news_content_title_right">
+                                    倫敦城市雕塑展登場「奇花仙境」<br>巨型花卉療癒疫後世界
+                                </div>
+                                <div class="news_content_more">
+                                    <a href="" class="news_content_more_link">More>></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container newsB4">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc1">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            加拿大入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc7">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            德國入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc3">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            美國入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc4">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            法國入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc5">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            澳洲入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc2">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            英國入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc6">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            紐西蘭入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="news_more_card nmc8">
+                    <div class="news_content_text nb_clickable">
+                        <div class="news_content_title_right">
+                            瑞士入境規定<br>邊境和旅行措施新變化
+                        </div>
+                        <div class="news_content_more">
+                            <a href="" class="news_content_more_link">More>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- footer -->
+    @@include('./layout/footer.html')
+
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $('div.nb_clickable').click(function(){
+            $("div.nb_overlay").fadeIn();
+        });
+        $('.btn_modal_close').click(function(){
+            $("div.nb_overlay").fadeOut();
+        });
+    </script>
+
  
 
 
