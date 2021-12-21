@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>付款資訊</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    @@include('./layout/header.html')
+    <section class="processNext_buyItem">
+        <div class="processNext_ballAll container">
+            <div class="processNext_ballName">
+                <div class="processNext_ball">1</div>
+                <p>訂單資料</p>
+            </div>
+            <i class="bi bi-arrow-right"></i>
+            <div class="processNext_ballName">
+                <div class="processNext_ball ball">2</div>
+                <p>付款資訊</p>
+            </div>
+            <i class="bi bi-arrow-right"></i>
+            <div class="processNext_ballName">
+                <div class="processNext_ball">3</div>
+                <p>訂單確認</p>
+            </div>
+        </div>
+
+        <div class="processNext_cardContent container">
+            <h1 class="processNext_cardContentTitle">付款資訊</h1>
+            <hr>
+            <div class="row">
+                <div class="processNext_InformationAll col-md-6"> 
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <label for="inputAddress2" class="form-label">持卡人姓名</label>
+                            <input type="text" class="form-control" id="inputAddress2">
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="inputPassword4" class="form-label">信用卡卡號</label>
+                            <input type="text" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">有效日期</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">後三碼</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="processNext_cardInformationAll col-md-6">
+                    <div class="processNext_image text-end">
+                        <img src="../src/images/member/card.png" alt="">
+                    </div>
+                    <div class="processNext_number">
+                        <p>0842</p>
+                        <p>5971</p>
+                        <p>7748</p>
+                        <p>0012</p>
+                    </div>
+                    
+                    <div class="processNext_cardName">
+                        <h1>Wang Traveler</h1>
+                        <div class="processNext_cardDate">
+                            <div class="processNext_cardNameTitle">
+                                <p>VALID</p>
+                                <p>THRU</p>
+                            </div>
+                            <p>01/22</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="processNext_btnAll text-center">
+            <a href="process.html"><button class="processNext_btnTop btn_sub">上一步</button></a>
+            <a href="process_final.html"><button class="processNext_btnNext btn_sub">確認付款</button></a>
+        </div>
+    </section>
+    @@include('./layout/footer.html')
+</body>
+</html>

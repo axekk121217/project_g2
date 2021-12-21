@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/8c41348ce8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/vue.js"></script>
+
+    <title>商品管理</title>
+  </head>
+  <body>
+    <div>
+      <div class="admin_member">
+        <div class="admin_header">
+          <div class="admin_header_logo">
+            <img src="images/admin/logo.png" alt="" />
+            <p>CAMPION後臺管理系統</p>
+          </div>
+          <div class="admin_header_btn">
+            <a href="../admin.html">
+              <button class="admin_btn_signOut">登出</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="admin_main">
+          <div class="admin_aside">
+            <a href="./admin_system.html">
+              <button class="admin_aside_btn">會員管理</button>
+            </a>
+            <a href="./admin_order.html">
+              <button class="admin_aside_btn">訂單管理</button>
+            </a>
+            <a href="./admin_commodity.html">
+              <button class="admin_aside_btn">商品管理</button>
+            </a>
+            <a href="./admin_review.html">
+              <button class="admin_aside_btn">評論管理</button>
+            </a>
+          </div>
+
+          <div class="admin_main_tltle">
+            <div class="admin_commodity">
+              <div class="admin_search">
+                <p>商品管理</p>
+                <div class="admin_commodity_add justify-content-start">
+                  <button class="admin_commodity_btn">
+                    <i class="fas fa-plus admin_search_icon">新增商品</i>
+                  </button>
+                </div>
+              </div>
+              <div class="admin_search_bar">
+                <input
+                  class="search-bar"
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="輸入名稱"
+                />
+                <button class="admin_search-btn">
+                  <i class="fas fa-search admin_search_icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="admin_main_content">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">行程編號</th>
+                    <th scope="col">行程名稱</th>
+                    <th scope="col">行程場次</th>
+                    <th scope="col">行程日期</th>
+                    <th scope="col">單價</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程類別</label
+                                    >
+
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇行程類別</option>
+                                      <option value="1">冬令營</option>
+                                      <option value="2">夏令營</option>
+                                      <option value="3">當地主題</option>
+                                    </select>
+
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程主題</label
+                                    >
+
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇行程主題</option>
+                                      <option value="1">運動</option>
+                                      <option value="2">電影</option>
+                                      <option value="4">設計</option>
+                                      <option value="5">科學</option>
+                                      <option value="6">藝術</option>
+                                      <option value="7">語言</option>
+                                      <option value="8">程式</option>
+                                      <option value="9">自然</option>
+                                      <option value="10">音樂</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程國家</label
+                                    >
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇行程國家</option>
+                                      <option value="1">美國</option>
+                                      <option value="2">英國</option>
+                                      <option value="3">加拿大</option>
+                                      <option value="4">法國</option>
+                                      <option value="5">德國</option>
+                                      <option value="6">澳洲</option>
+                                      <option value="7">紐西蘭</option>
+                                    </select>
+
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程地點</label
+                                    >
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇行程地點</option>
+                                      <option value="1">紐約</option>
+                                      <option value="2">洛杉磯</option>
+                                      <option value="3">舊金山</option>
+                                      <option value="3">巴黎</option>
+                                      <option value="3">倫敦</option>
+                                      <option value="3">溫哥華</option>
+                                      <option value="3">多倫多</option>
+                                      <option value="3">柏林</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >招生年齡</label
+                                    >
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇招生年齡</option>
+                                      <option value="1">10歲~12歲</option>
+                                      <option value="2">13歲~15歲</option>
+                                      <option value="2">16歲~18歲</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >成團人數</label
+                                    >
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇成團人數</option>
+                                      <option value="1">10</option>
+                                      <option value="2">15</option>
+                                      <option value="2">20</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >成團梯次</label
+                                    >
+                                    <select
+                                      class="form-select admin_commodity_focus"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇梯次</option>
+                                      <option value="1">梯次一</option>
+                                      <option value="2">梯次二</option>
+                                      <option value="2">梯次三</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >成團日期</label
+                                    >
+                                    <input
+                                      class="form-select datetime"
+                                      type="text"
+                                      name="dates"
+                                    />
+                                  </div>
+
+                                  <div class="mb-3" id="app">
+                                    <div v-if="!image">
+                                      <input
+                                        class="
+                                          form-control
+                                          admin_commodity_focus
+                                        "
+                                        accept="image/*"
+                                        id="formFile"
+                                        type="file"
+                                        @change="onFileChange"
+                                      />
+                                    </div>
+                                    <div v-else>
+                                      <img :src="image" />
+                                      <button
+                                        class="admin_commodity_file"
+                                        @click="removeImage"
+                                      >
+                                        重新選擇
+                                      </button>
+                                    </div>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                儲存
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">S-9855634862</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S-9855634861</th>
+                    <td>2022 Hawaii親子遊學冬令營</td>
+                    <td>梯次一</td>
+                    <td>01/21-02/15</td>
+                    <td>$38,000</td>
+                    <td>
+                      <button class="admin_order_btn">
+                        編輯&nbsp;&frasl;&nbsp;查看
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="../js/js.js"></script>
+  </body>
+</html>
