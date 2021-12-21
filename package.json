@@ -10,17 +10,26 @@
     "執行js打包": "gulp js",
     "監看開發": "gulp w",
     "壓縮圖片": "gulp img",
-    "瀏覽器同步": "gulp"
+    "清除舊檔案": "gulp c",
+    "瀏覽器同步": "gulp",
+    "打包上線": "gulp package"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
     "browser-sync": "^2.27.7",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.44.0"
   },

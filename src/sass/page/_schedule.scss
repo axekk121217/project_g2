@@ -7,12 +7,23 @@ img, embed{
 // =========== breadcrumb 麵包屑 =========== 
 .sch_breadcrumb{
     margin: 50px auto;
+    // display: flex;
+    // flex-direction: row;
     // width: 1080px;
     font-size: $fontSize_footer;
     color: $font_color_Sub;
 }
+.sch_breadcrumb > .row{
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+.sch_breadcrumb > .row > * {
+    width: auto;
+    padding: 0 3px;
+}
 .sch_breadcrumb a{
     color: $font_color_Sub;
+    display: inline-block;
 }
 .sch_breadcrumb a:hover{
     color: $color_primary;
@@ -33,11 +44,11 @@ img, embed{
 }
 // =========== 第一欄行程資訊 =========== 
 .sch_first_banner{
-    // width: 1080px;
-    margin: 50px auto 60px;
-    display: flex;
-    justify-content: space-between;
+    // border: 1px solid red; 
+    margin: 50px auto 80px;
+
 }
+
 // ======== 左邊資訊欄 ========
 .sch_info_left{
     // width: 40%;
@@ -53,7 +64,7 @@ img, embed{
     display: flex;
     align-items: baseline;
     margin-bottom: 20px;
-
+    
 }
 .sch_info_loc{
     margin-right: 40px;
@@ -71,6 +82,16 @@ img, embed{
     margin: 20px 0;
     line-height: 150%;
     letter-spacing: 0.04em;
+}
+.sch_info_left form{
+    align-items: flex-start;
+}
+.sch_form{
+    display: flex;
+    align-items: baseline;
+}
+.sch_form p{
+    flex-shrink: 0;
 }
 .sch_select{
     // margin-left: 14px;
@@ -138,13 +159,13 @@ embed.sch_liked.-on{
 
 // ========== 右邊圖邊欄 ==========
 .sch_img_right{
-    // width: 55%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 .sch_img_shown_area{
     position: relative;
+    // border: 1px solid red;
+    height: 400px;
 }
 img.sch_img{
     position: absolute;
@@ -216,28 +237,79 @@ img.sch_img.-on{
 .sch_img_shift.-on{
     border: 3px solid $btn_color_primary;
 }
+@media  screen and (min-width: 320px) and (max-width: 991.98px) {
+    .sch_first_banner{
+        display: flex;
+        flex-direction: column;
+    }
+    .sch_img_right{
+        order: 1;
+        margin-bottom: 50px;
+        flex-shrink: 0;
+    }
+    .sch_info_left{
+        order: 2;
+    }
+}
+@media  screen and (min-width: 320px) and (max-width: 767.98px){
+    .sch_img_shown_area{
+        height: 300px;
+    }
+    img.sch_img.-on{
+        height: 300px;
+    }
+    .sch_img_shift{
+        height: 45px;
+    }
 
+}
 // ======= 第二欄行程資訊 =======
 .sch_second_banner{
-    width: 1080px;
+    position: relative;
+    // width: 1080px;
     margin: 0 auto;
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
 
 // 左邊行程資訊
 .sch_second_left{
-    width: 66%;
-    border: 1px solid red;
+    // width: 66%;
+    // border: 1px solid red;
     position: relative;
 
 }
 .sch_info_shift_area{
     display: flex;
     justify-content: space-between;
+    // position: sticky;
+    // top: 0;
+    
 }
+
+// 行程區塊
+.sch_second_left_sticky{
+    position: sticky !important;
+    top: 0px;
+    opacity: 1;
+    z-index: 100;
+    padding: 150px 0 20px;
+    background-color: #fff;
+}
+
+// 卡片
+.sch_card_sticky{
+    position: sticky !important;
+    top: 120px;
+    opacity: 1;
+    z-index: 100;
+    // padding-top: 350px;
+    // background-color: #fff;
+}
+
 .sch_info_btn{
+    background-color: #fff;
     width: calc((100% - 60px) / 4);
     border: 1.5px solid $color_primary_sub;
     text-align: center;
@@ -246,6 +318,9 @@ img.sch_img.-on{
     letter-spacing: 0.05em;
     cursor: pointer;
 } 
+.sch_info_btn:hover{
+    background-color: $color_primary_sub;
+}
 // 顯示進行區塊
 .sch_info_btn.-on{
     background-color: $color_primary_sub;
@@ -290,6 +365,17 @@ img.sch_img.-on{
     color: $font_color_Sub;
     letter-spacing: 0.04rem;
 } 
+
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .sch_info_feature_area{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .sch_info_feature{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
 .sch_info_context{
     letter-spacing: 0.04rem;
 }
@@ -309,16 +395,16 @@ img.sch_info_content_img{
 
 // 右邊報名卡片
 .sch_second_right{
-    width: 32%;
-    border: 1px solid blue;
+    // width: 32%;
+    // border: 1px solid blue;
     position: relative;
 }
 .sch_second_right_card{
     border: 1px solid $btn_color_primary;
     border-radius: 20px;
-    height: 450px;
-    padding: 40px 30px;
-    @include flexcenter;
+    height: 400px;
+    padding: 30px 20px;
+    @include flex-center;
     flex-direction: column;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -333,12 +419,17 @@ img.sch_info_content_img{
     margin-bottom: 30px;
 
 }
+.sch_form_parent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .sch_second_right_card form{
     margin-top: 20px;
 }
 .sch_second_right_card .sch_action{
     flex-direction: column;
-    @include flexcenter;
+    @include flex-center;
     
 }
 .sch_second_right_card .sch_action .sch_heart{
@@ -349,17 +440,31 @@ img.sch_info_content_img{
     order: 2;
 }
 
+@media  screen and (min-width: 320px) and (max-width: 991.98px){
+    .sch_card_hide{
+        display: none;
+    }
+}
+
 // ============= 學習重點二欄排版 ============= 
 // 左邊各週主題
 .sch_info_content_img{
-    height: 450px;
-    // width: 100%;
+    height: auto;
+    max-height: 450px;
+    width: 100%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 575.98px){
+    .sch_info_content_img{
+        height: auto;
+    }
+
 }
 
 // 右邊動態進度
 .sch_week_process_area{
-    position: absolute;
-    top: 0;
+    position: sticky;
+    top: 130px;
     left: 0;
     right: 0;
     overflow: hidden;
@@ -375,11 +480,11 @@ img.sch_info_content_img{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    @include flexcenter;
+    @include flex-center;
     font-weight: 700;
     color: #fff;
     background: $color_primary;
-    margin-right: 20px;
+    margin-right: 10px;
     position: relative;
 }
 .sch_week_num::before{
@@ -392,7 +497,7 @@ img.sch_info_content_img{
 }
 .sch_week_name{
     font-weight: 700;
-    font-size: $fontSize_Nav;
+    font-size: $fontSize_Sub;
     margin-bottom: 10px;
 }
 .sch_week_theme{
@@ -434,7 +539,7 @@ img.sch_info_content_img{
     margin: 30px 0 40px;
 }
 .sch_rate{
-    @include flexcenter;
+    @include flex-center;
     width: 80px;
     height: 80px;
     border-radius: 8px;
@@ -487,4 +592,7 @@ img.sch_info_content_img{
 }
 .sch_second_left.sch_last{
     margin-bottom: 60px;
+}
+.sch_card_sticky_area2{
+    margin-top: 60px;
 }
