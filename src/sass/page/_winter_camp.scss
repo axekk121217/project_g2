@@ -223,6 +223,7 @@
 }
 
 
+// =======
 // 桌機板顯示目前頁面
 .tab_container li a#page_active2::before {
     content: "";
@@ -240,3 +241,4 @@
   ul.menu a li#h_page_active2{
       color: $btn_color_primary;
   }
+
