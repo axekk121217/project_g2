@@ -1,3 +1,9 @@
+  // 漢堡選單顯示目前頁面
+  ul.menu a li#h_page_active7{
+    color: $btn_color_primary;
+}
+
+
 @media (max-width: 991.98px) {
     .member_pageAside {
         display: none;
@@ -33,17 +39,16 @@
 }
 
 .member_box {
-    border: solid 1px black;
     background-color: #fff;
     padding: 15px;
     border-radius: 5px;
     opacity: .95;
 
     .member_editorLogo {
-        width: 80px;
+        width: 82px;
         height: 80px;
         margin: 0 auto;
-        background-image: url(../images/member/Ellipse\ 8.jpg);
+        background: url("../images/member/Ellipse 8.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -64,7 +69,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
     list-style: none;
-    border: solid 1px black;
     padding-left: 0;
     opacity: .95;
 
@@ -77,6 +81,14 @@
         img.member_icon {
             margin-right: 10px;
         }
+    }
+
+    .member_listItem:first-child {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .member_listItem:last-child {
+        border-radius: 0 0 5px 5px;
     }
 }
 
@@ -109,7 +121,6 @@
 
 .member_board {
     display: none;
-    border: solid 1px black;
     padding: 15px;
     border-radius: 5px;
     background-color: #fff;

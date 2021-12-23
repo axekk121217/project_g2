@@ -1,20 +1,48 @@
+// 桌機板顯示目前頁面
+.tab_container li a#page_active6::before {
+  content: "";
+  background-color: $btn_color_primary;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  top: 26px;
+  display: block;
+  transform: scaleX(1);
+}
+
+// 漢堡選單顯示目前頁面
+ul.menu a li#h_page_active6{
+    color: $btn_color_primary;
+}
+
+
 .faq_banner {
-  background-image: url("../images/faq/faq_banner.png");
-  background-size: cover;
   position: relative;
-  height: 400px;
-  margin: 60px 100px;
+  padding: 40px 100px;
+  width: 100%;
+}
+
+.faq_banner img {
   max-width: 100%;
 }
 
-.faq_banner::after {
-  content: "Q & A";
+.faq_banner p {
   position: absolute;
   top: 50%;
-  left: 44%;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 48px;
-  font-weight: bold;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .faq_banner {
+    padding: 16px;
+  }
+  .faq_banner p {
+    font-size: 32px;
+  }
 }
 
 //分類區
@@ -25,10 +53,18 @@
 }
 
 @media screen and (max-width: 996px) {
-    .faq_container{
-        display: block;
-    }
+  .faq_container {
+    display: block;
+    margin: 20px 100px;
+  }
 }
+
+@media screen and (max-width: 768px) {
+  .faq_container {
+    margin: 20px 16px;
+  }
+}
+
 
 .left_container {
   text-align: center;
@@ -36,21 +72,21 @@
   margin: 25px 40px;
 }
 
-.left_container_rwd{
-    display: none;
+.left_container_rwd {
+  display: none;
 }
 
 @media screen and (max-width: 996px) {
-    .left_container{
-        display: none;
-    }
+  .left_container {
+    display: none;
+  }
 
-    .left_container_rwd{
-        display: block;
-    }
+  .left_container_rwd {
+    display: block;
+  }
 }
 
-.left_container p{
+.left_container p {
   font-size: 24px;
   line-height: 2;
   color: $color_primary;
@@ -63,45 +99,45 @@
   margin: 8px 0;
 }
 
-
 .left_container ul li:hover {
   background-color: $color_primary_sub;
   cursor: pointer;
 }
 
-.left_container ul li a,.left_container_rwd ul li a {
+.left_container ul li a {
   text-decoration: none;
   color: $font_color_content;
 }
 
 // 分類區RWD
-
-.left_container_rwd p {
-    font-size: 24px;
-    line-height: 2;
-    color: $color_primary;
-    border-bottom: 6px solid $color_primary;
-    text-align: center;
-    width: 100%;
-}
-
-.left_container_rwd ul{
-    display: flex;
-    justify-content: space-evenly;
+.left_container_rwd ul {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .left_container_rwd ul li {
-    font-size: 18px;
-    line-height: 2.5;
-    margin: 8px 0;
+  font-size: 18px;
+  margin-bottom: 8px;
+  border: 1px solid $color_primary_sub;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+@media screen and (max-width: 576px) {
+  .left_container_rwd ul li {
+    font-size: 16px;
   }
+}
 
-  .left_container_rwd ul li:hover {
-    background-color: $color_primary_sub;
-    cursor: pointer;
-  }
+.left_container_rwd ul li:hover {
+  background-color: $color_primary_sub;
+  cursor: pointer;
+}
 
-
+.left_container_rwd ul li a {
+  text-decoration: none;
+  color: $font_color_content;
+}
 
 // 問題區
 .right_container {
@@ -123,6 +159,7 @@
   color: $color_primary;
   position: relative;
   cursor: pointer;
+  line-height: 1.8;
 }
 
 .open-close {
@@ -137,7 +174,7 @@
   width: 100%;
   color: $font_color_content;
   background-color: #f2f5f7;
-  transition: 1s -.3s linear;
+  transition: 1s -0.3s linear;
 }
 
 //問題隱藏

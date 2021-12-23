@@ -1,0 +1,1480 @@
+/* ----------- 首頁 ------------ */
+/* =========== 首頁滿版影片&文字  =========== */
+.indexFullBanner{
+    // border: 1px solid red;
+    @include flex-center;
+    // max-width: 1440px;
+    width: 100%;
+    position: relative;
+    .bannerVideo{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #indexBannerVideo {
+        width: 100%;
+        object-fit:cover;
+    }
+    .indexBannerText{
+        // border: 1px solid blue;
+        width: 400px;
+        position: absolute;
+        h3{
+            font-size: $fontSize_Title;
+            font-weight: bold;
+            color: white;
+            margin: 5px;
+        }
+        h3:last-child{
+            text-align-last: right;
+        }
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+    .indexFullBanner{
+        overflow: hidden;
+        #indexBannerVideo {
+            left: -5%;
+            width: 130%;
+        }
+        .indexBannerText{
+            width: 300px;
+            h3{
+                font-size: $fontSize_CardTitle;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576.98px) {
+    .indexFullBanner{
+        #indexBannerVideo {
+            left: -25%;
+            width: 200%;
+        }
+        .indexBannerText{
+            width: 200px;
+            h3{
+                font-size: $fontSize_Nav;
+            }
+        }
+    }
+}
+
+
+/* =========== 首頁內容文字 =========== */
+.index_ContentText{
+    margin: 120px auto;
+}
+
+@keyframes opacity {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.index_ContentText_row{
+    // border: 1px solid green;
+
+    .index_ContentText_col_1{
+        // border: 1px solid rebeccapurple ;
+        padding: 40px;
+        position: relative;
+        animation: opacity  3s ease-in;
+        h2{
+            font-size: $fontSize_Title;
+            font-weight: bold;
+            color: $color_primary;
+            padding: 10px;
+        }
+        h2.index_h2_sub{
+            text-align-last: center;
+        }
+        
+    }
+    .index_ContentText_col_2{
+        // border: 1px solid rebeccapurple ;
+        padding: 20px;
+        h3{
+            color: $font_color_content;
+            font-size: $fontSize_CardTitle;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        span{
+            color: $font_color_content;
+            font-size: $fontSize_Sub;
+            line-height: 35px;
+        };
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+    .index_ContentText_row{
+        .index_ContentText_col_1{
+            padding: 40px 20px;
+            h2{
+                font-size: 28px;
+            }
+        }
+        .index_ContentText_col_2{
+            h3{
+                font-size: $fontSize_Nav;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            span{
+                font-size: $fontSize;
+                line-height: 35px;
+            };
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .index_ContentText_row{
+        .index_ContentText_col_1{
+            display: none;
+        }
+        .index_ContentText_col_2{
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (max-width: 576.98px) {
+    .index_ContentText_row{
+        .index_ContentText_col_2{
+            h3{
+                // font-size: $fontSize;
+            }
+            span{
+                font-size: $fontSize_footer;
+                line-height: 30px;
+            };
+        }
+    }
+}
+
+/* ======= 首頁-發現世界 ======== */
+section.index_world{
+    margin-top: 150px;
+}
+.index_world_container{
+    // border: 1px solid blue;
+    width: 100%;
+    margin: 50px auto;
+    // @include flex-center;
+}
+
+.index_world_col{
+    // border: 1px solid green;
+    position: relative;
+    margin-bottom: 40px;
+    overflow: hidden;
+    .index_world_Title{
+        // border: 1px solid red;
+        width: 200px;
+        margin-bottom: 80px;
+        position: relative;
+        h3{
+            color: $color_primary;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        h5{
+            color: $font_color_Sub;
+            font-size: $fontSize;
+            position: relative;
+            left: 20%;
+        }
+    }
+    .index_world_Text{
+        // border: 1px solid orange;
+        margin: 0 auto;
+        width: 80%;
+        padding-left: 10px;
+        margin-bottom: 80px;
+        position: relative;
+        .verticle_line{
+            border-left: 2px solid $color_primary_el;
+            width: 1px;
+            height: 900px;
+            position: absolute;
+            left: -30px;
+            top: 0;
+            z-index: -1;
+        }
+        h4{
+            color: $color_primary;
+            font-size: $fontSize_Nav;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        h5{
+            color: $font_color_Sub;
+            font-size: $fontSize_footer;
+            margin-bottom: 15px;
+        }
+        span{
+            color: $font_color_content;
+            font-size: $fontSize;
+            letter-spacing: 1.3px;
+            line-height: 25px;
+        }
+    }
+}
+
+// 發現世界 偽元素(1,2,3)
+.index_world_col .Text_1::before{
+    content: '1';
+    border: 1px solid $color_primary_el;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: $color_primary_el;
+    background-color: white;
+    font-weight: 700;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    left: -50px;
+    z-index: 3;
+}
+
+.index_world_col .Text_2::before{
+    content: '2';
+    border: 1px solid $color_primary_el;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: $color_primary_el;
+    background-color: white;
+    font-weight: 700;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    left: -50px;
+    z-index: 3;
+}
+
+.index_world_col .Text_3::before{
+    content: '3';
+    border: 1px solid $color_primary_el;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: $color_primary_el;
+    background-color: white;
+    font-weight: 700;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    left: -50px;
+    z-index: 3;
+}
+
+// 發現世界RWD
+@media screen and (max-width:991.98px){
+    .index_world_col{
+        overflow: inherit;
+        .index_world_Text{
+            margin-bottom: 80px;
+        }
+    }
+}
+
+@media (max-width: 767.98px){
+    .index_world_container{
+        max-width: 90%;
+    }
+    .index_world_row{
+        .index_world_col{
+            width: 90%;
+            margin: 0 auto;
+            overflow: hidden;
+            .index_world_Title{
+                margin: 0 auto;
+                text-align: center;
+                margin-bottom: 80px;
+                h5{
+                    position: relative;
+                    left: 0;
+                }
+            }
+            .index_world_Text{
+                margin-bottom: 50px;
+            }
+        }
+        .index_map_col{
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 575.98px){
+    .index_world_row{
+        .index_world_col{
+            .index_world_Title{
+                margin-bottom: 40px;
+                h3{
+                    font-size: $fontSize_CardTitle;
+                }
+                h5{
+                    font-size: $fontSize_mobile;
+                }
+            }
+            .index_world_Text{
+                h4{
+                    font-size: $fontSize;
+                }
+                h5{
+                    font-size: $fontSize_mobile;
+                }
+                span{
+                    font-size: $fontSize_mobile;
+                    letter-spacing: 1px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    // 偽元素RWD
+    .index_world_col .Text_1::before{
+        width: 30px;
+        height: 30px;
+        line-height: 25px;
+        left: -45px;
+    }
+    
+    .index_world_col .Text_2::before{
+        width: 30px;
+        height: 30px;
+        line-height: 25px;
+        left: -45px;
+    }
+    
+    .index_world_col .Text_3::before{
+        width: 30px;
+        height: 30px;
+        line-height: 25px;
+        left: -45px;
+    }
+}
+
+/* 首頁 - Map */
+.index_map_col{
+    #map{
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+/* ========== 首頁 - 主題營 ========== */
+.index_slider{
+    // border: 1px solid red;
+    margin: 0 auto;
+    margin-top: 150px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1440px;
+}
+
+// 首頁 - 主題營 - 導覽列
+.index_slider{
+    .index_slider_nav{
+        height: 750px;
+        width: 400px;
+        display: inline-block;
+        background-color: $color_primary;
+        position: relative;
+        i{  
+            margin: 16px;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 28px;
+            color:white;
+            text-align: center;
+            line-height: 50px;
+            // position: absolute;
+            // left: 20px;
+            position: relative;
+            left: 25%;
+            top:55%;
+        }
+        i:hover{  
+            background-color: white;
+            color: $color_primary;
+            cursor: pointer;
+        }
+    }
+}
+
+// 首頁 - 主題營 - 標題
+.index_slider{
+    .index_slider_Title{
+        display: inline-block;
+        width: 40%;
+        margin: 10px 20px;
+        position: absolute;
+        top: 0;
+        h3{
+            font-size: 28px;
+            color: $color_primary;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        span{
+            font-size: $fontSize;
+            color: $font_color_Sub;
+            letter-spacing: 1.2px;
+            line-height: 25px;
+        }
+    }
+}
+
+// 首頁 - 主題營 - 卡片
+.index_slider{
+    .index_swiper{
+        width: 1200px;
+        height: 550px;
+        position: absolute;
+        left:  25%;
+        bottom: 3%;
+        cursor: pointer;
+        img{
+            width: 100%;
+        }
+        .index_slider_container{
+            // border: 1px solid #0000ff;
+            @include flex-center;
+            z-index: 3;
+            position: absolute;
+            bottom: 2%;
+            left: 5%;
+            .slider_item{
+                // border: 1px solid black;
+                margin: 0 8px;
+                border-radius: 10px;
+                width: 280px;
+                height: 520px;
+                background-color: white;
+                overflow: hidden;
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+                position: relative;
+                i.fa-heart{
+                    cursor: pointer;
+                    position: absolute;
+                    top: 2%;
+                    left: 5%;
+                    color: white;
+                }
+                i.fa-heart:hover{
+                    color: rgb(255, 95, 89);
+                }
+                img{
+                    width: 100%;
+                }
+                .slider_item_Text{
+                    margin-top: 8px;
+                    margin-bottom: 16px;
+                    padding: 10px 20px;
+                    width: 100%;
+                    text-align: left;
+                    h3{
+                        margin: 8px auto;
+                        font-size: $fontSize_Nav;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    h4{
+                        margin: 0 auto;
+                        margin-bottom: 24px;
+                        font-size: $fontSize_Nav;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    span{
+                        // color: $font_color_content;
+                        line-height: 25px;
+                        letter-spacing: 1px;
+                        margin: 10px auto;
+                    }
+                }
+                .slider_item_el{
+                    margin-top: 16px;
+                    margin-bottom: 16px;
+                    padding-top: 10px;
+                    width: 100%;
+                    text-align: center;
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+                    bottom: 0;
+                    button.slider_item_btn{
+                        border: none;
+                        background-color: rgba(255, 255, 255, 0);
+                        font-size: $fontSize_footer;
+                        color: $font_color_Sub; 
+                        text-decoration: underline;
+                        i.fa-arrow-right{
+                            margin-left: 10px;
+                            font-size: $fontSize_footer;
+                            color: $font_color_Sub;
+                            cursor: pointer; 
+                        }
+                    }
+                    button.slider_item_btn:hover{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 首頁 - 主題營 - RWD
+@media (min-width:768px) and (max-width:991.98px) {
+    .index_slider {
+        .index_swiper{
+            position: absolute;
+            bottom: 3%;
+        }
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    // 首頁 - 主題營 - 導覽列
+    .index_slider{
+        .index_slider_nav{
+            width: 100%;
+            background-color: white;
+            i{  
+                border: 1px solid $color_primary;
+                color: $color_primary;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+                line-height: 40px;
+                position: relative;
+                left: 5%;
+                top:55%;
+            }
+            i:hover{  
+                background-color: $color_primary;;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+    // 主題營 - 標題
+    .index_slider{
+        .index_slider_Title{
+            width: 80%;
+            margin: 10px auto;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            h3{
+                text-align: center;
+                margin-bottom: 16px;
+            }
+        }
+    }
+    // 主題營 - 卡片
+    .index_slider {
+        .index_swiper{
+            .index_slider_container{
+                // position: absolute;
+                // bottom: 2%;
+                // left: 16%;
+                .slider_item{
+                    height: 480px;
+                    .slider_item_Text{
+                        margin-top: 0;
+                        margin-bottom: 16px;
+                        padding: 10px 20px;
+                        width: 100%;
+                        text-align: left;
+                        h3{
+                            margin: 8px auto;
+                            font-size: $fontSize_Sub;
+                        }
+                        h4{
+                            margin: 0 auto;
+                            margin-bottom: 10px;
+                            font-size: $fontSize_Sub;
+                        }
+                        span{
+                            line-height: 25px;
+                            letter-spacing: 1px;
+                            margin: 10px auto;
+                            font-size: $fontSize_mobile;
+                        }
+                    }
+    
+                    .slider_item_el{
+                        margin-top: 16px;
+                        margin-bottom: 16px;
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    // 首頁 - 主題營 - 導覽列
+    .index_slider{
+        .index_slider_nav{
+            i{  
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+                line-height: 35px;
+                position: relative;
+                left: 0;
+                top:55%;
+            }
+        }
+    }
+    // 主題營 - 標題
+    .index_slider{
+        .index_slider_Title{
+            h3{
+                font-size: $fontSize_CardTitle;
+            }
+            span{
+                font-size: $fontSize_mobile;
+            }
+        }
+    }
+    // 主題營 - 卡片
+    .index_slider {
+        .index_swiper{
+            left: 20%;
+            .index_slider_container{
+                .slider_item{
+                    width: 250px;
+                    .slider_item_Text{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========== 首頁 - 啟發之旅 ========== */
+.index_theme{
+    margin: 150px auto;
+    .index_theme_container{
+        .index_theme_Title{
+            // border: 1px solid green;
+            margin-bottom: 50px;
+            display: inline-block;
+            position: relative;
+            
+            h2{
+                color: $color_primary;
+                font-size: 28px;
+                font-weight: bold;
+                z-index: 3;
+            }
+        }
+        .index_theme_row{
+            // border: 1px solid red;
+            margin-bottom: 70px;
+            
+            .index_theme_col{
+                // border: 1px solid blue;
+                h3{
+                    font-size: $fontSize_Nav;
+                    color: $color_primary;
+                    font-weight: bold;
+                    margin: 80px 0 24px 0;
+                }
+                span{
+                    letter-spacing: 1px;
+                    line-height: 30px;
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// 啟發之旅 偽元素
+.index_theme{
+    overflow: hidden;
+    .index_theme_container{
+        padding-top: 20px;
+        .index_theme_Title{
+            h2::before{
+                // border: 1px solid rebeccapurple;
+                display: block;
+                content: '';
+                width: 150px;
+                height: 30px;
+                background-color: #EDF0F4;
+                position: absolute;
+                left: -10%;
+                top: -30%;
+                z-index: -1;
+            }
+        }
+        .index_theme_row{
+            .theme_el_1::after{
+                display: block;
+                content: '';
+                width: 160px;
+                height: 25px;
+                background-color: #EDF0F4;
+                margin-top: 10px;
+                position: absolute;
+                right: 0;
+                z-index: -1;
+            }
+            .theme_el_2{
+                h3::before{
+                    display: block;
+                    content: '';
+                    width: 120px;
+                    height: 25px;
+                    margin-top: 10px;
+                    background-color: #EDF0F4;
+                    position: absolute;
+                    left: 0;
+                    // top: 10%;
+                    z-index: -1;
+                }
+            }
+            
+        }
+    }
+}
+// 啟發之旅RWD
+@media screen and (max-width:1198.98px){
+    .index_theme{
+        .index_theme_container{
+            .index_theme_row{
+                .index_theme_col{
+                    h3{
+                        margin: 50px 0 24px 0;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width:991.98px){
+    .index_theme{
+        .index_theme_container{
+            .index_theme_row{
+                .index_theme_col{
+                    h3{
+                        margin: 20px 0 24px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767.98px){
+    .index_theme{
+        .index_theme_container{
+            .index_theme_Title{
+                margin: 0 auto;
+                margin-bottom: 50px;
+                display: block;
+                text-align: center;
+                h2::before{
+                    display: none;
+                }
+            }
+            
+            .index_theme_row{
+                .index_theme_col{
+                    width: 90%;
+                    margin: 0 auto;
+                    h3{
+                        font-size: $fontSize_Sub;
+                    }
+                }
+                .col_order_1{
+                    order: 1;
+                }
+                .col_order_2{
+                    order: 2;
+                }
+                // 偽元素none
+                .theme_el_1::after{
+                    display: none;
+                }
+                .theme_el_2{
+                    h3::before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:575.98px){
+    .index_theme{
+        .index_theme_container{
+            .index_theme_Title{
+                h2{
+                    color: $color_primary;
+                    font-size: $fontSize_CardTitle;
+                    font-weight: bold;
+                }
+
+                h2::before{
+                    display: block;
+                    content: '';
+                    width: 50px;
+                    height: 10px;
+                    // padding-top: 100%;
+                    background-color: #EDF0F4;
+                    position: absolute;
+                    left: 35%;
+                    top: 20%;
+                    z-index: -1;
+                }
+                h2::after{
+                    display: block;
+                    content: '';
+                    width: 50px;
+                    height: 10px;
+                    // padding-top: 100%;
+                    background-color: #EDF0F4;
+                    position: absolute;
+                    right: 35%;
+                    bottom: -15%;
+                    z-index: -1;
+                }
+            }
+            .index_theme_row{
+                .index_theme_col{
+                    h3{
+                        font-size: $fontSize;
+                    }
+                    span{
+                        font-size: $fontSize_mobile;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========== 首頁 - 靈感 ========== */
+.index_ideas{
+    // border: 1px solid blue;
+    background-color: #F4EADE;
+    margin: 0 auto;
+    margin-bottom: 150px;
+    width: 100%;
+    max-width: 1440px;
+    
+    .index_ideas_Banner{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        h4{
+            display: none;
+            font-size: $fontSize_Nav;
+            font-weight: bold;
+            margin: 20px auto;
+        }
+    }
+    #svgContainer{
+        width: 400px;
+        display: flex;
+        margin-right: 70px;
+        margin-left: 120px;
+    }
+    .index_ideas_Text{
+        // border: 1px solid red;
+        h3{
+            font-size: $fontSize_CardTitle;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        span{
+            display: block;
+            margin-bottom: 50px;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            button{
+                @include flex-center;
+                border: none;
+                background-color: rgba(255, 255, 255, 0);
+                color: $color_primary;
+                font-size: $fontSize_CardTitle;
+                font-weight: bold;
+                padding: 0;
+                i{
+                    display: inline-block;
+                    margin-left: 10px;
+                    color: #fff;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background-color: $color_primary;
+                    line-height: 25px;
+                    font-size: 14px;
+                }
+            }
+            button:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:991.98px){
+    .index_ideas{
+        // border: 1px solid blue;
+        background-color: #F4EADE;
+        
+        .index_ideas_Banner{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+        }
+        #svgContainer{
+            width: 400px;
+            display: flex;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+        .index_ideas_Text{
+            // border: 1px solid red;
+            h3{
+                font-size: $fontSize_CardTitle;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+            span{
+                display: block;
+                margin-bottom: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767.98px){
+    .index_ideas{
+        .index_ideas_Banner{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        #svgContainer{
+            width: 300px;
+            display: flex;
+            margin: 0;
+        }
+        .index_ideas_Text{
+            margin-right: 10px;
+            button{
+                font-size: $fontSize_Nav;
+                i{
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    font-size: 16px;
+                }
+            };
+        }
+    }
+}
+
+@media screen and (max-width:576.98px){
+    .index_ideas{
+        .index_ideas_Banner{
+            display: block;
+            padding: 20px 0;
+            h4{
+                display: block;
+                text-align: center;
+            }
+        }
+        #svgContainer{
+            width: 300px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .index_ideas_Text{
+            display: inline-block;
+            margin-right: 5px;
+            h3{
+                display: none;
+            }
+            span{
+                display: none;
+            }
+            button{
+                font-size: $fontSize_Nav;
+                i{
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    font-size: $fontSize;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:430px){
+    .index_ideas{
+        #svgContainer{
+            width: 200px;
+        }
+        .index_ideas_Text{
+            margin-right: 5px;
+            button{
+                font-size: $fontSize;
+                i{
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* ========== 首頁 - 最新消息 ========== */
+.index_news{
+    margin-bottom: 150px;
+    .index_news_container{
+        h2{
+            margin: 0 auto;
+            color: $color_primary;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .index_news_row{
+            // border: 1px solid red;
+            margin-top: 50px;
+            .index_news_col{
+                // border: 1px solid blue;
+                position: relative;
+                p{
+                    writing-mode: vertical-lr;
+                    font-weight: bold;
+                    font-size: $fontSize_mobile;
+                    position: absolute;
+                    left: 0;
+                }
+                img{
+                    width: 100%;
+                }
+                .index_news_item{
+                    margin: 0 10px;
+                    position: relative;
+                    overflow: hidden;
+                    .index_news_Text{
+                        // border: 1px solid green;
+                        background: rgba(255, 255, 255, 0.8);
+                        padding: 10px;
+                        width: 100%;
+                        height: 200px;
+                        transform: translateY(60%);
+                        
+                        position: absolute;
+                        bottom: 0;
+
+                        overflow:hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        h4{
+                            margin-bottom: 8px;
+                            font-weight: bold;
+                            text-decoration: underline;
+                        }
+                        span{
+                            font-size: $fontSize_mobile;
+                        }
+                    }
+                    .index_news_Text:hover{
+                        cursor: pointer;
+                        transform: translateY(0%);
+                        transition: all 0.5s;
+
+                        overflow:hidden;
+                        white-space: inherit;
+                        text-overflow: inherit;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 首頁 最新消息-偽元素
+.index_news{
+    position: relative;
+    .index_news_container::before{
+        // border: 1px solid rebeccapurple;
+        display: block;
+        content: '';
+        width: 160px;
+        height: 8px;
+        background-color: #EDF0F4;
+        margin-left: 50px;
+        position: absolute;
+        top: 5%;
+        z-index: -1;
+    }
+    .index_news_container::after{
+        display: block;
+        content: '';
+        width: 180px;
+        height: 8px;
+        background-color: #EDF0F4;
+        position: absolute;
+        top: 10%;
+        z-index: -1;
+    }
+}
+
+// 首頁 最新消息-手機板
+.index_news{
+    .index_news_mobile{
+        // border: 1px solid red;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: none;
+        h4{
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        h5{
+            cursor: pointer;
+            font-size: $fontSize_mobile;
+            margin: 20px auto;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        h5:hover{
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
+
+// 首頁 最新消息-RWD
+@media (min-width:768px) and (max-width:991.98px){
+    .index_news{
+        .index_news_container{
+            max-width: 760px;
+            // width: 100%;
+        } 
+    }
+}
+@media (min-width:576px) and (max-width:767.98px){
+    .index_news{
+        .index_news_container{
+            .index_news_row{
+                .index_news_col{
+                    width: 50%;
+                    margin-bottom: 20px;
+                }
+            }
+        } 
+    }
+
+    // 偽元素RWD
+    .index_news{
+        .index_news_container::before{
+            width: 90px;
+            position: absolute;
+            top: 1%;
+        }
+        .index_news_container::after{
+            width: 130px;
+            position: absolute;
+            top: 3%;
+        }
+    }
+}
+
+@media screen and (max-width:575.98px){
+    .index_news{
+        .index_news_container{
+            h2{
+                font-size: $fontSize_CardTitle;
+            }
+            .index_news_row{
+                display: none;
+            }
+        }
+        .index_news_mobile{
+            display: block;
+        } 
+    }
+
+    // 偽元素RWD
+    .index_news{
+        .index_news_container::before{
+            width: 70px;
+            position: absolute;
+            top: 3%;
+        }
+        .index_news_container::after{
+            width: 100px;
+            position: absolute;
+            top: 8%;
+        }
+    }
+}
+
+/* ========== 首頁 - 學員好評 ========== */
+.index_message{
+    margin-bottom: 60px;
+    .index_message_container{
+        margin-bottom: 60px;
+        h2{
+            margin: 0 auto;
+            color: $color_primary;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+        h3{
+            margin: 16px auto;
+            color: $color_primary;
+            font-size: $fontSize;
+            text-align: center;
+        }
+        .index_message_row{
+            // border: 1px solid red;
+            margin-top: 80px;
+            .index_message_col{
+                // border: 1px solid blue;
+                .index_message_item{
+                    margin-bottom: 60px;
+                    .index_message_item_Name{
+                        // border: 1px solid green;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        
+                        h4{
+                            display: inline-block;
+                            font-weight: bold;
+                            font-size: $fontSize_Sub;
+                            margin-left: 20px;
+                        }
+                    }
+                    .index_message_item_Text{
+                        margin: 20px auto;
+                        padding: 10px 40px;
+                        span{
+                            line-height: 25px;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+                .index_message_banner{
+                    @include flex-center;
+                    .index_message_img{
+                        width: 80%;
+                        img{
+                            padding: 10px;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 探索更多按鈕
+    a{
+        // display: inline-block;
+        text-decoration: none;
+        button.index_travel_btn{
+            @include btn_module(200px, 0, $btn_color_primary, $btn_color_primary_hover);
+            border: none;
+            display: block;
+            content: inherit;
+            font-size: $fontSize_Nav;
+            margin: 0 auto;
+            color: white;
+            line-height: 20px;
+        }
+        button.index_travel_btn:hover{
+            background-color: $btn_color_primary_hover;
+        }
+    }
+    #index_travel_svg{
+        display: block;
+        width: 150px;
+        margin: 30px auto;
+    }
+}
+
+// 首頁 學員好評-偽元素
+.index_message_col{
+    .index_message_item{
+        .index_message_item_Text{
+            // border: 1px solid blue;
+            position: relative;
+        }
+        .index_message_item_Text::before{
+            content: '“';
+            color: $btn_color_primary;
+            font-size: 48px;
+            
+            position: absolute;
+            left: -5%;
+            top: 5%;
+        }
+        .index_message_item_Text::after{
+            content: '“';
+            color: $btn_color_primary;
+            font-size: 48px;
+            
+            position: absolute;
+            right: 0;
+            top: 5%;
+        }
+
+        .item_Text_el::before{
+            content: '“';
+            color: $btn_color_sub;
+            font-size: 48px;
+            
+            position: absolute;
+            left: -5%;
+            top: 5%;
+        }
+        .item_Text_el::after{
+            content: '“';
+            color: $btn_color_sub;
+            font-size: 48px;
+            
+            position: absolute;
+            right: 0;
+            top: 5%;
+        }
+    }
+}
+
+// 首頁 學員好評-RWD
+@media screen and (max-width:1198.98px){
+    .index_message{
+        .index_message_container{
+            .index_message_row{
+                .index_message_col{
+                    .index_message_item{
+                        .index_message_item_Name{
+                            // height: 70px;
+                        }
+                    }
+                    .index_message_banner{
+                        width: 100%;
+                        .index_message_img{
+                            width: 50%;
+                            margin: 0 auto;
+                            img{
+                                padding: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767.98px){
+    .index_message{
+        .index_message_container{
+            .index_message_row{
+                .index_message_col{
+                    width: 90%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:575.98px){
+    .index_message{
+        .index_message_container{
+            h2{
+                font-size: $fontSize_CardTitle;
+            }
+            .index_message_row{
+                .index_message_col{
+                    .index_message_item{
+                        .index_message_item_Name{
+                            img{
+                                width: 60px;
+                                height: 60px;
+                            }
+                            h4{
+                                font-size: $fontSize;
+                            }
+                        }
+                        .index_message_item_Text{
+                            span{
+                                line-height: 25px;
+                                letter-spacing: 1.1px;
+                                font-size: $fontSize_mobile;
+                            }
+                        }
+                    }
+
+                    .index_message_banner{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ---- 首頁 END ----- */

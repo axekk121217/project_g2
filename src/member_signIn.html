@@ -37,5 +37,23 @@
         </div>
     </section>
     @@include('./layout/footer.html')
+
+    <script>
+        // 設定當前頁面 css：桌機版 header
+        let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active7"){
+                page[i].removeAttribute('id');
+            }
+        }
+         // 設定當前頁面 css：漢堡選單
+         let ham_page = document.getElementsByClassName("ham_pg");
+        for(let i = 0; i < (ham_page.length); i++){
+            if(ham_page[i].id !== "h_page_active7"){
+                ham_page[i].removeAttribute('id');
+            }
+        }
+
+    </script>
 </body>
 </html>

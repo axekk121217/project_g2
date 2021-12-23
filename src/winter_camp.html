@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 </head>
 <body>
     @@include('./layout/header.html')
@@ -414,5 +415,33 @@
    <script>
       
    </script>
+=======
+
+</head>
+<body>
+    @@include('./layout/header.html')
+
+
+
+    @@include('./layout/footer.html')
+
+
+    <script>
+        // 設定當前頁面 css：桌機版 header
+      let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active2"){
+                page[i].removeAttribute('id');
+            }
+        }
+      // 設定當前頁面 css：漢堡選單
+      let ham_page = document.getElementsByClassName("ham_pg");
+      for(let i = 0; i < (ham_page.length); i++){
+          if(ham_page[i].id !== "h_page_active2"){
+              ham_page[i].removeAttribute('id');
+          }
+      }
+    </script>
+>>>>>>> 537cb8ec17cf805968a6d487c8fc3c37ce7269c6
 </body>
 </html>
