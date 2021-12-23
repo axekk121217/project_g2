@@ -4,10 +4,14 @@ body {
 
 div.admin {
   // border: 2px solid red;
+<<<<<<< HEAD
   @include rect(100%, 600px);
+=======
+  @include rect(100%, 100vh);
+>>>>>>> 5dced7cde66849ffa69fcc0f173d97ca96b0313a
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
   background-position: center center;
 }
 

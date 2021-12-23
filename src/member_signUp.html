@@ -12,7 +12,7 @@
     @@include('./layout/header.html')
     <section class="memberSignIn_container">
         <div class="memberSignIn_banner">
-            <img src="../src/images/member/logo.png" alt="" class="memberSignIn_logo rounded mx-auto d-block">
+            <img src="./images/member/logo.png" alt="" class="memberSignIn_logo rounded mx-auto d-block">
             <h1 class="memberSignIn_title text-center">註冊會員</h1>
             <form action="#" method="post">
                 <label>會員帳號</label>
@@ -21,7 +21,7 @@
                 <br>
                 <label>設定會員密碼</label>
                 <br>
-                <input type="password" placeholder="請輸入您的密碼(8~16位數字以上英數字混合)" size="40">
+                <input type="password" placeholder="請輸入您的密碼" size="40">
                 <br>
                 <label>再次確認會員密碼</label>
                 <br>
@@ -33,12 +33,14 @@
                 <br>
                 <label>性別</label>
                 <br>
-                <input type="radio" name="member_gender" id="member_first">
-                <label for="member_first">男性</label>
-                <input type="radio" name="member_gender" id="member_second">
-                <label for="member_second">女性</label>
-                <input type="radio" name="member_gender" id="member_third">
-                <label for="member_third">暫不提供</label>
+                <div class="memberSignIn_gender">
+                    <input type="radio" name="member_gender" id="member_first">
+                    <label for="member_first">男性</label>
+                    <input type="radio" name="member_gender" id="member_second">
+                    <label for="member_second">女性</label>
+                    <input type="radio" name="member_gender" id="member_third">
+                    <label for="member_third">暫不提供</label>
+                </div>
                 <br>
                 <label>聯絡電話</label>
                 <br>

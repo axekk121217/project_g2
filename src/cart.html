@@ -6,9 +6,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>購物車</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    @@include('./layout/header.html')
 
+    <section class="cart_container">
+        <div class="container">
+            <div class="cart_head">
+                <h1 class="cart_headTitle">購物車</h1>
+                <hr>
+            </div>
+            <div class="cart_board">
+                <div class="cart_item cart_item-lg">
+                    <div class="cart_checkBox">
+                        <i class="fa fa-lg fa-square-o"></i>
+                    </div>
+                    <img src="./images/member/image1.png" alt="">
+                    <div class="cart_detail">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="cart_productDetail">
+                                    <h3 class="cart_productDetailTitle">[美國-洛杉磯] 微電影創作營</h3>
+                                    <div class="cart_productOption">
+                                        <h3><i class="bi bi-calendar-check-fill"></i>課程期間: 3週</h3>
+                                        <h3><i class="bi bi-person-fill"></i>13~17歲</h3>
+                                    </div>
+                                    <div class="cart_content">
+                                        我們將英語課程結合了影視課程，為喜愛美國文化及影視有興趣學生提供最佳的機會，深入了解好萊塢。配合好萊塢著名景點及名人居住區域介紹，讓喜愛美國明星的你，感受進一步的接觸。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="cart_people">人數</h3>
+                                <div class="cart_personItem">
+                                    <div class="cart_substract">-</div>
+                                    <input type="text" id="cart_text" value="1">
+                                    <div class="cart_add">+</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="cart_price">TWD 38000</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div data-toggle="modal" data-target="#cart_confirm_modal" class="cart_btn btn-trash">
+                                    <i class="fa fa-lg fa-trash-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- 手機板 -->
+                    <div class="cart_detailPhone">
+                        <div class="cart_productDetailPhone">
+                            <h3 class="cart_productDetailTitlePhone">[美國-洛杉磯] 微電影創作營</h3>
+                            <div class="cart_productOptionPhone">
+                                <h3><i class="bi bi-calendar-check-fill"></i>課程期間: 3週</h3>
+                                <h3><i class="bi bi-person-fill"></i>13~17歲</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="cart_personItemPhone">
+                            <div class="cart_personAll">
+                                <h3 class="cart_peoplePhone">人數</h3>
+                                <div class="cart_substract">-</div>
+                                <input type="text"id="cart_text" value="1">
+                                <div class="cart_add">+</div>
+                            </div>
+                        </div>
+                        <div class="cart_pricePhone text-end">TWD 38000</div>
+                        <div data-toggle="modal" data-target="#cart_confirm_modal" class="cart_btnPhone btn-trash text-end">
+                            <i class="fa fa-lg fa-trash-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart_board">
+                <div class="cart_item cart_item-lg">
+                    <div class="cart_checkBox">
+                        <i class="fa fa-lg fa-square-o"></i>
+                    </div>
+                    <img src="./images/member/image2.png" alt="">
+                    <div class="cart_detail">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="cart_productDetail">
+                                    <h3 class="cart_productDetailTitle">[美國-紐約] 百老匯表演藝術營</h3>
+                                    <div class="cart_productOption">
+                                        <h3><i class="bi bi-calendar-check-fill"></i>課程期間: 3週</h3>
+                                        <h3><i class="bi bi-person-fill"></i>13~17歲</h3>
+                                    </div>
+                                    <div class="cart_content">
+                                        透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="cart_people">人數</h3>
+                                <div class="cart_personItem">
+                                    <div class="cart_substract">-</div>
+                                    <input type="text" id="cart_text" value="1">
+                                    <div class="cart_add">+</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="cart_price ">TWD 38000</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div data-toggle="modal" data-target="#cart_confirm_modal" class="cart_btn btn-trash">
+                                    <i class="fa fa-lg fa-trash-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 手機板 -->
+                    <div class="cart_detailPhone">
+                        <div class="cart_productDetailPhone">
+                            <h3 class="cart_productDetailTitlePhone">[美國-洛杉磯] 微電影創作營</h3>
+                            <div class="cart_productOptionPhone">
+                                <h3><i class="bi bi-calendar-check-fill"></i>課程期間: 3週</h3>
+                                <h3><i class="bi bi-person-fill"></i>13~17歲</h3>
+                            </div>
+                        </div>
+                        <div class="cart_personItemPhone">
+                            <div class="cart_personAll">
+                                <h3 class="cart_peoplePhone">人數</h3>
+                                <div class="cart_substract">-</div>
+                                <input type="text" id="cart_text" value="1">
+                                <div class="cart_add">+</div>
+                            </div>
+                        </div>
+                        <div class="cart_pricePhone text-end">TWD 38000</div>
+                        <div data-toggle="modal" data-target="#cart_confirm_modal" class="cart_btnPhone btn-trash text-end">
+                            <i class="fa fa-lg fa-trash-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart_footer">
+                <div class="cart_boardAction">
+                    <div class="cart_checkBox">
+                        <i class="fa fa-lg fa-square-o"></i>
+                        <span class="cart_CheckBoxTitle">全選</span>
+                        <span class="cart_gap">|</span>
+                        <span class="cart_delectAll">刪除所有項目</span>
+                    </div>
+                    <div class="cart_boardBtnAll text-end">
+                        <div class="cart_total">
+                            <span class="cart_priceTitle">1件商品合計</span>
+                            <span class="cart_totalPrice">TWD 38000</span>
+                        </div>
+                        <a href="process.html"><button class="btn_sub">前往結帳</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @@include('./layout/footer.html')
+
+    <script>
+        // 打勾
+        const checkbox = document.querySelectorAll('i.fa-square-o');
+        for(let i = 0; i < checkbox.length; i++) {
+            checkbox[i].addEventListener('click', function(){
+                if(checkbox[i].classList.contains('fa-square-o')) {
+                    checkbox[i].classList.remove('fa-square-o');
+                    checkbox[i].classList.add('fa-check-square-o');
+                } else {
+                    checkbox[i].classList.remove('fa-check-square-o');
+                    checkbox[i].classList.add('fa-square-o');
+                }
+            });
+        }
+
+        // 設定當前頁面 css：桌機版 header
+        let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active0"){
+                page[i].removeAttribute('id');
+            }
+        }
+        // 設定當前頁面 css：漢堡選單
+        let ham_page = document.getElementsByClassName("ham_pg");
+        for(let i = 0; i < (ham_page.length); i++){
+            if(ham_page[i].id !== "h_page_active0"){
+                ham_page[i].removeAttribute('id');
+            }
+        }
+    </script>
 </body>
 </html>

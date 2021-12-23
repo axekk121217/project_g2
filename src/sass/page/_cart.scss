@@ -1,0 +1,238 @@
+section.cart_container {
+    padding-top: 20px;
+    margin-bottom: 40px;
+    font-family: $fontFamily_Ch;
+    color: $font_color_content;
+    letter-spacing: 2px;
+    color: $font_color_content;
+
+    .cart_board {
+        padding: 20px;
+    }
+
+    .cart_head {
+        font-size: $fontSize_CardTitle;
+        
+        h1.cart_headTitle {
+            font-weight: bold;
+        }
+    }
+
+    .cart_item {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        border-bottom: solid 1px #eee;
+    }
+
+    .fa-square-o {
+        cursor: pointer;
+    }
+
+    .fa-check-square-o {
+        cursor: pointer;
+    }
+
+    .cart_item-lg {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    img {
+        width: 150px;
+        padding-left: 20px;
+    }
+    @media (max-width: 576.98px) {
+        img {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+    }
+
+    .cart_productDetail {
+        padding-left: 20px;
+
+        h3.cart_productDetailTitle {
+            font-weight: bold;
+        }
+    }
+
+    .cart_productOption {
+        display: flex;
+        margin-top: 10px;
+
+        .bi-person-fill {
+            padding-left: 10px;
+        }
+    }
+
+    .cart_content {
+        margin-top: 10px;
+        line-height: 1.2;
+    }
+
+    .cart_personItem {
+        display: flex;
+
+        .cart_add {
+            border: solid 1px black;
+            padding: 6px;
+            cursor: pointer;
+        }
+        #cart_text {
+            width: 20px;
+            padding: 3px;
+            border: solid 1px black;
+        }
+
+        .cart_substract {
+            border: solid 1px black;
+            padding: 6px;
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .cart_productOption {
+            display: block;
+            .bi-person-fill {
+                padding-left: 0px;
+            }
+        }
+        .cart_content {
+            display: none;
+        }
+    }
+
+    .fa-trash-o {
+        cursor: pointer;
+    }
+
+
+
+    @media (max-width: 769.98px) {
+        .cart_detail {
+            display: none;
+        }
+    }
+}
+
+.cart_people {
+    margin-bottom: 10px;
+    margin-left: 13px;
+}
+
+.cart_productDetailPhone {
+    display: none;
+}
+
+.cart_personItemPhone {
+    display: none;
+}
+
+.cart_pricePhone {
+    display: none;
+}
+
+.cart_btnPhone {
+    display: none;
+}
+
+.cart_peoplePhone {
+    display: none;
+} 
+
+@media (max-width:769.98px) {
+    .cart_productDetailPhone {
+        display: block;
+
+        .cart_productDetailTitlePhone {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cart_productOptionPhone {
+            margin-bottom: 10px;
+            h3 {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .cart_peoplePhone {
+        display: block;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+
+    .cart_personItemPhone {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .cart_personAll {
+            display: flex;
+        }
+        .cart_substract {
+            border: solid 1px black;
+            padding: 6px;
+            cursor: pointer;
+        }
+        #cart_text {
+            width: 20px;
+            padding: 3px;
+            border: solid 1px black;
+        }
+        .cart_add {
+            border: solid 1px black;
+            padding: 6px;
+            cursor: pointer;
+        }
+    }
+    
+    .cart_pricePhone {
+        display: block;
+    }
+    
+    .cart_btnPhone {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+.cart_footer {
+    padding: 0 20px;
+
+    .cart_checkBox {
+        display: flex;
+
+
+        .cart_CheckBoxTitle {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .cart_gap {
+            margin-right: 10px;
+        }
+
+        .cart_delectAll {
+            cursor: pointer;
+        }
+    }
+    .cart_total {
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        .cart_priceTitle {
+            margin-right: 10px;
+            color: $font_color_Sub;
+            font-size: $fontSize_footer;
+        }
+
+        .cart_totalPrice {
+            font-size: $fontSize_Nav;
+            font-weight: bold;
+        }
+    }
+
+}

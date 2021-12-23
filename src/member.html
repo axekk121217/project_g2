@@ -22,19 +22,19 @@
                         </div>
                         <ul class="member_asideMenuItem">
                             <li class="member_listItem member_listItem-on">
-                                <img src="../src/images/member/setting.png" alt="" class="member_icon">
+                                <img src="./images/member/setting.png" alt="" class="member_icon">
                                 <span class="member_accountBox">會員資料</span>
                             </li>
                             <li class="member_listItem">
-                                <img src="../src/images/member/type=order.png" alt="" class="member_icon">
+                                <img src="./images/member/type=order.png" alt="" class="member_icon">
                                 <span class="member_accountBox">訂單管理</span>
                             </li>
                             <li class="member_listItem">
-                                <img src="../src/images/member/type=heart.png" alt="" class="member_icon">
+                                <img src="./images/member/type=heart.png" alt="" class="member_icon">
                                 <span class="member_accountBox">收藏管理</span>
                             </li>
                             <li class="member_listItem">
-                                <img src="../src/images/member/type=message.png" alt="" class="member_icon">
+                                <img src="./images/member/type=message.png" alt="" class="member_icon">
                                 <span class="member_accountBox">行程評論</span>
                             </li>
                         </ul>
@@ -47,7 +47,7 @@
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu2">
                         <li><button class="dropdown-item dropdown-item-active" type="button">會員資料</button></li>
                         <li><button class="dropdown-item" type="button">訂單管理</button></li>
-                        <li><button class="dropdown-item" type="button">行程管理</button></li>
+                        <li><button class="dropdown-item" type="button">收藏管理</button></li>
                         <li><button class="dropdown-item" type="button">行程評論</button></li>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@
                         <!-- 會員資料 -->
                         <div class="member_accountHeader">
                             <h1 class="member_accountTitle">會員資料</h1>
-                            <a href="#"><button class="btn_sub">登出</button></a>
+                            <a href="index.html"><button class="btn_sub">登出</button></a>
                         </div>
                         
                         <hr>
@@ -66,30 +66,32 @@
                                 <br>
                                 <label class="member_accountItemTitle">會員帳號</label>
                                 <br>
-                                <input type="text" class="memeber_account member_item" placeholder="abc123@gmail.com" disabled size="40">
+                                <input type="text" class="memeber_account member_item" value="abc123@gmail.com" disabled size="40">
                                 <br>
 
                                 <label class="member_accountItemTitle">姓名</label>
                                 <br>
-                                <input type="text" class="member_accountName member_item" size="40" placeholder="流川風" >
+                                <input type="text" class="member_accountName member_item" size="40" value="流川風" >
                                 <br>
 
                                 <label class="member_accountItemTitle">聯絡電話</label>
                                 <br>
-                                <input type="text" class="member_phone member_item" size="40">
+                                <input type="text" class="member_phone member_item" size="40" value="0987654321">
                                 <br>
 
                                 <label class="member_accountItemTitle">性別</label>
                                 <br>
-                                <input type="radio" name="member_gender" id="member_first">
+                                <input type="radio" name="member_gender" id="member_first" checked>
                                 <label for="member_first">男性</label>
                                 <input type="radio" name="member_gender" id="member_second">
                                 <label for="member_second">女性</label>
                                 <input type="radio" name="member_gender" id="member_third">
                                 <label for="member_third">暫不提供</label>
                                 <br>
-
-                                <button class="member_save btn_sub">儲存</button>
+                                <div class="member_saveItem text-end">
+                                    <button class="member_save btn_sub">儲存</button>
+                                </div>
+                                
                             </form>
                         </div>
                         <!-- 密碼變更 -->
@@ -113,7 +115,9 @@
                                 <input type="password" class="member_
                                 confirmPassword member_item" size="40">
                                 <br>
-                                <button class="member_revisePassword btn_sub">修改</button>
+                                <div class="member_resive text-end">
+                                    <button class="member_revisePassword btn_sub">修改</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -121,7 +125,7 @@
                     <div class="member_board">
                         <div class="member_accountHeader">
                             <h1 class="member_orderTitle">訂單管理</h1>
-                            <a href="#"><button class="btn_sub">登出</button></a>
+                            <a href="index.html"><button class="btn_sub">登出</button></a>
                         </div>
                         <hr>
                         <div class="member_orderSearch text-end">
@@ -156,9 +160,9 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div class="member_orderButtonAll">
+                                    <div class="member_orderButtonAll text-end">
                                         <button class="member_orderCancel btn_sub">申請取消訂單</button>
-                                        <button class="member_orderContact btn_sub">聯絡客服</button>
+                                        <button class="member_contact btn_sub">聯絡客服</button>
                                     </div>
                                 </div>
                             </div>
@@ -194,9 +198,9 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div class="member_orderButtonAll">
+                                    <div class="member_orderButtonAll text-end">
                                         <button class="member_orderCancel btn_sub">訂單取消進度</button>
-                                        <button class="member_orderContact btn_sub">聯絡客服</button>
+                                        <button class="member_contact btn_sub">聯絡客服</button>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +219,7 @@
                     <div class="member_board">
                         <div class="member_accountHeader">
                             <h1 class="member_collectTitle">收藏管理</h1>
-                            <a href="#"><button class="btn_sub">登出</button></a>
+                            <a href="index.html"><button class="btn_sub">登出</button></a>
                         </div>
                         
                         <hr>
@@ -240,7 +244,7 @@
 
                                         <li class="member_collectList">
                                             <div class="member_collectSmallContent">
-                                                <h4><i class="bi bi-calendar-fill"></i>課程期間3週</h4>
+                                                <h4 class="member_collectDate"><i class="bi bi-calendar-fill"></i>課程期間3週</h4>
                                                 <h4><i class="bi bi-person-fill"></i>15~18歲</h4>
                                             </div>
                                         </li>
@@ -255,7 +259,7 @@
                                                     <i class="bi bi-star-fill"></i>
                                                     <p>(12)</p>
                                                 </div>
-                                                <h4>TWD 38,000</h4>
+                                                <h4 class="member_collectCost">TWD 38,000</h4>
                                             </div>
                                         </li>
 
@@ -290,7 +294,7 @@
 
                                         <li class="member_collectList">
                                             <div class="member_collectSmallContent">
-                                                <h4><i class="bi bi-calendar-fill"></i>課程期間3週</h4>
+                                                <h4 class="member_collectDate"><i class="bi bi-calendar-fill"></i>課程期間3週</h4>
                                                 <h4><i class="bi bi-person-fill"></i>13~17歲</h4>
                                             </div>
                                         </li>
@@ -306,7 +310,7 @@
                                                     <p>(12)</p>
                                                 </div>
                                                 
-                                                <h4>TWD 38,000</h4>
+                                                <h4 class="member_collectCost">TWD 38,000</h4>
                                             </div>
                                         </li>
 
@@ -325,7 +329,7 @@
                     <div class="member_board">
                         <div class="member_accountHeader">
                             <h1 class="member_commentTitle">行程評論</h1>
-                            <a href="#"><button class="btn_sub">登出</button></a>
+                            <a href="index.html"><button class="btn_sub">登出</button></a>
                         </div>
                         <hr>
                         <div class="member_commentAll">
@@ -370,7 +374,7 @@
                                 </div>
                                 <div class="member_commentButtonAll">
                                     <button class="btn_sub">存成草稿</button>
-                                    <button class="btn_sub">送出評論</button>
+                                    <button class="btn_sub member_commentButton">送出評論</button>
                                 </div>
                             </div>
                         </div>
@@ -383,21 +387,21 @@
                             <li class="member_orderCancelList">
                                 <div class="member_orderCancelNumber">
                                     <p>訂單編號: A2154879</p>
-                                    <p>付款日期 :  2021/11/11</p>
+                                    <p class="member_Item1">付款日期 :  2021/11/11</p>
                                 </div>
                             </li>
 
                             <li class="member_orderCancelList">
                                 <div class="member_orderCancelNameContent">
                                     <p class="member_orderCancelName">訂單名稱: 微電影創作營</p>
-                                    <p>付款人姓名: 流川風</p>
+                                    <p class="member_Item1">付款人姓名: 流川風</p>
                                 </div>
                             </li>
 
                             <li class="member_orderCancelList">
                                 <div class="member_orderCancelPay">
                                     <p>付款方式: 信用卡</p>
-                                    <p>付款金額: TWD 38,000</p>
+                                    <p class="member_Item1">付款金額: TWD 38,000</p>
                                 </div>
                             </li>
 
@@ -433,7 +437,7 @@
                             </li>
 
                             <li class="member_orderCancelList">
-                                <div class="member_orderCancelButtonItem">
+                                <div class="member_orderCancelButtonItem text-end">
                                     <button class="member_orderCancelPage btn_sub">上一頁</button>
                                     <button class="btn_sub">確認</button>
                                 </div>

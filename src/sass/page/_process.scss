@@ -154,6 +154,14 @@ h1.process_buyItemAllTitle {
             margin-right: 20px;
         }
     }
+    @media (max-width: 400px) {
+        .process_buyWordIcon {
+            display: block;
+            p {
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
 
 @media (max-width:769.98px) {
@@ -173,3 +181,8 @@ h1.process_buyItemAllTitle {
     padding-bottom: 20px;
 }
 
+@media (max-width: 400px) {
+    .process_nextStep {
+        margin-top: 10px;
+    }
+}

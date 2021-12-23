@@ -144,7 +144,7 @@ button.admin_aside_btn:hover {
 
 i.admin_search_icon {
   color: white;
-  font-size: 17px
+  font-size: 16px;
 }
 
 
@@ -222,13 +222,13 @@ div.admin_commodity_header {
 }
 
 
- .admin_newItem_img > img {
-     // border: 2px solid blue;
-     width: 100%;
-     margin: auto;
-     display: block;
-     margin-bottom: 10px;
-   }
+.admin_newItem_img>img {
+  // border: 2px solid blue;
+  width: 100%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
 
 button.admin_commodity_file {
   // border: 2px solid black;
@@ -274,13 +274,12 @@ select.admin_commodity_focus:focus {
   border: 2px solid#FCB629;
 }
 
-input.datetime{
-position: relative;
+input.datetime {
+  position: relative;
 }
 
-input.datetime:focus{
+input.datetime:focus {
   border-color: none;
   box-shadow: none;
   border: 2px solid#FCB629;
 }
-

@@ -76,7 +76,6 @@
     width: 45%;
     font-family: $fontFamily_Ch;
     font-size: $fontSize_Nav;
-    color: #fff;
     letter-spacing: 1.5px;
     position: relative;
 
@@ -94,6 +93,9 @@
         justify-content: space-around;
         align-items: center;
         margin-top: 30px;
+        p.processNext_numberAll {
+            color: #fff;
+        }
     }
 
     .processNext_cardName {
@@ -103,6 +105,10 @@
         padding-top: 50px;
         padding-left: 20px;
 
+        h1.processNext_cardNameAll {
+            color: #fff;
+        }
+
         p {
             margin: 0 20px;
         }
@@ -110,6 +116,15 @@
         .processNext_cardDate {
             display: flex;
             align-items: flex-end;
+
+            .processNext_cardNameTitleAll {
+                color: #fff;
+                font-size: $fontSize_footer;
+            }
+
+            .processNext_date {
+                color: #fff;
+            }
         }
     }
 }

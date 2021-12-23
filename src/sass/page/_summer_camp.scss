@@ -44,15 +44,33 @@
     background-position: 0px 0px;
     margin: 0 auto;
     @include flex-center;
-    height: 500px;
-    
+    height: 500px; 
+    // display: none;
 }
+// .bannerr-winter{
+//     // border: 1px solid red;
+//     background: url("../images/summer_camp/Rectangle 119.png");
+//     width: 100%;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: 0px 0px;
+//     margin: 0 auto;
+//     @include flex-center;
+//     height: 500px;
+//     display: none;
+// }
+// .-onn{
+//     display: block;
+// }
+
 
 .scope{
     // border: 1px solid red;
     width: 80%;
     margin: 0 auto;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .summercamp{
@@ -62,6 +80,25 @@
     left: -50px;
     top: -20px;
 }
+@media screen and (max-width: 1200px){
+    .summercamp{
+        position: static;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+    .summercamp br{
+        display: none;
+    }
+}
+@media screen and (max-width: 576px){
+    .summercamp{
+        text-align: center;
+    }
+    .summercamp br{
+        display: block;
+    }
+}
+
 
 .summercamp-summer{
     font-size: $fontSize_Banner;
@@ -77,7 +114,6 @@
     // border: 1px solid black;
     width: 90%;
     background: #82828280;
-    height: 150px;
     margin: 0 auto;
     // text-align: center;
     @include flex-center;
@@ -88,8 +124,14 @@
     color: white;
     line-height: 30px; 
     letter-spacing: 2px;
+    padding: 35px 60px;
 }
-
+@media screen and (max-width: 576px){
+    .bg-text{
+        line-height: 25px; 
+        padding: 20px 40px; 
+    }
+}
 
 
 
@@ -113,7 +155,7 @@
 }
 
 .camp-sw{
-    border: 1px solid black;
+    border: 2px solid #666666;
     padding: 12px 0;   
     font-size: $fontSize_CardTitle; 
     cursor: pointer;
@@ -125,7 +167,7 @@
 .arr_icon{
     position: absolute;
     right: 20px;
-    top: 15px;
+    top: 16px;
 }
 
 .camp_two{
@@ -137,7 +179,6 @@
 .sum{
     background-color: white;
     margin: 80px 0 0 0;
-    
 }
 
 .win{
@@ -215,5 +256,25 @@
 .row .button:hover{
     background-color: #ffaa00;
 }
+
+.local_theme_two{
+    text-align: center;
+}
+
+.local_theme-sum{
+    width: 30%;
+    display: inline-block;
+    margin-right: 30px;
+    color: white;
+    background-color: $color_primary;
+}
+
+.local_theme-win{
+    width: 30%;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+
 
 
