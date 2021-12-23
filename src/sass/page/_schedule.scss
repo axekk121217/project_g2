@@ -1,0 +1,600 @@
+img, embed{
+    max-width: 100%;;
+}
+
+// =========== breadcrumb 麵包屑 =========== 
+.sch_breadcrumb{
+    margin: 50px auto;
+    // display: flex;
+    // flex-direction: row;
+    // width: 1080px;
+    font-size: $fontSize_footer;
+    color: $font_color_Sub;
+}
+.sch_breadcrumb > .row{
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+.sch_breadcrumb > .row > * {
+    width: auto;
+    padding: 0 3px;
+}
+.sch_breadcrumb a{
+    color: $font_color_Sub;
+    display: inline-block;
+}
+.sch_breadcrumb a:hover{
+    color: $color_primary;
+}
+.sch_now_page{
+    position: relative;
+}
+.sch_now_page::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    // border-bottom: 1px solid $font_color_Sub;
+}
+.sch_now_page{
+    color: $font_color_Sub;
+}
+// =========== 第一欄行程資訊 =========== 
+.sch_first_banner{
+    // border: 1px solid red; 
+    margin: 50px auto 80px;
+
+}
+
+// ======== 左邊資訊欄 ========
+.sch_info_left{
+    // width: 40%;
+    position: relative;
+}
+.sch_info_title{
+    font-weight: 700;
+    font-size: $fontSize_Title;
+    margin-bottom: 20px;
+    line-height: 120%;
+}
+.sch_info_loc_star{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+    
+}
+.sch_info_loc{
+    margin-right: 40px;
+    color: $font_color_Sub;
+}
+.sch_info_star{
+    font-weight: 700;
+    color: $btn_color_sub;
+}
+.sch_info_price{
+    font-weight: 700;
+    font-size: $fontSize_CardTitle;
+}
+.sch_info_intro{
+    margin: 20px 0;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+}
+.sch_info_left form{
+    align-items: flex-start;
+}
+.sch_form{
+    display: flex;
+    align-items: baseline;
+}
+.sch_form p{
+    flex-shrink: 0;
+}
+.sch_select{
+    // margin-left: 14px;
+    margin-bottom: 10px;
+    // border: none;
+}
+.sch_select::after{
+    content: "a";
+    width: 100%;
+    border-bottom: 1px solid $font_color_Sub;
+}
+.sch_select_data{ 
+    margin: 10px 0;
+    width: 100%;
+}
+.sch_count{
+    font-size: 20px;
+    font-weight: 700;
+}
+input.sch_count_input{
+    font-size: 16px;
+    width: 60px;
+    // border: none;
+}
+.sch_action{
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    
+}
+.sch_heart{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    width: 150px;
+}
+.sch_like_svg{
+    cursor: pointer;
+    margin-right: 5px;
+}
+.sch_like_svg object {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sch_like_svg:hover embed.sch_like{
+    opacity: 0;
+}
+.sch_like_svg:hover embed.sch_liked{
+    display: block;
+}
+embed.sch_liked{
+    width: 40px;
+    height: 29px;
+    position: absolute;
+    display: none;
+}
+embed.sch_like.-hide{
+    opacity: 0;
+}
+embed.sch_liked.-on{
+    display: block;
+}
+
+// ========== 右邊圖邊欄 ==========
+.sch_img_right{
+    display: flex;
+    flex-direction: column;
+}
+.sch_img_shown_area{
+    position: relative;
+    // border: 1px solid red;
+    height: 400px;
+}
+img.sch_img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+img.sch_img.-on{
+    display: block;
+    height: 400px;
+    width: 100%;
+}
+
+// 下方圖片點擊切換區塊
+.sch_img_shift_area{
+    // border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+.sch_img_shift{
+    width: calc((100% - 60px) / 7);
+    height: 60px;
+    cursor: pointer;
+}
+.sch_shift1{
+    background: url('../images/schedule/paris.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift2{
+    background: url('../images/schedule/eiffel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift3{
+    background: url('../images/schedule/scene.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift4{
+    background: url('../images/schedule/louvre.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift5{
+    background: url('../images/schedule/script.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift6{
+    background: url('../images/schedule/studio.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_shift7{
+    background: url('../images/schedule/archi.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_img_shift.-on{
+    border: 3px solid $btn_color_primary;
+}
+@media  screen and (min-width: 320px) and (max-width: 991.98px) {
+    .sch_first_banner{
+        display: flex;
+        flex-direction: column;
+    }
+    .sch_img_right{
+        order: 1;
+        margin-bottom: 50px;
+        flex-shrink: 0;
+    }
+    .sch_info_left{
+        order: 2;
+    }
+}
+@media  screen and (min-width: 320px) and (max-width: 767.98px){
+    .sch_img_shown_area{
+        height: 300px;
+    }
+    img.sch_img.-on{
+        height: 300px;
+    }
+    .sch_img_shift{
+        height: 45px;
+    }
+
+}
+// ======= 第二欄行程資訊 =======
+.sch_second_banner{
+    position: relative;
+    // width: 1080px;
+    margin: 0 auto;
+    // border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+// 左邊行程資訊
+.sch_second_left{
+    // width: 66%;
+    // border: 1px solid red;
+    position: relative;
+
+}
+.sch_info_shift_area{
+    display: flex;
+    justify-content: space-between;
+    // position: sticky;
+    // top: 0;
+    
+}
+
+// 行程區塊
+.sch_second_left_sticky{
+    position: sticky !important;
+    top: 0px;
+    opacity: 1;
+    z-index: 100;
+    padding: 150px 0 20px;
+    background-color: #fff;
+}
+
+// 卡片
+.sch_card_sticky{
+    position: sticky !important;
+    top: 120px;
+    opacity: 1;
+    z-index: 100;
+    // padding-top: 350px;
+    // background-color: #fff;
+}
+
+.sch_info_btn{
+    background-color: #fff;
+    width: calc((100% - 60px) / 4);
+    border: 1.5px solid $color_primary_sub;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+} 
+.sch_info_btn:hover{
+    background-color: $color_primary_sub;
+}
+// 顯示進行區塊
+.sch_info_btn.-on{
+    background-color: $color_primary_sub;
+
+}
+.sch_info_content{
+    margin-top: 50px;
+    width: 100%;
+}
+.sch_info_content_title{
+    font-weight: 700;
+    font-size: $fontSize_CardTitle;
+}
+.sch_info_content_subtitle{
+    color: $font_color_Sub;
+    margin: 30px 0;
+}
+.sch_info_feature_area{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+.sch_info_feature{
+    width: calc((100% - 60px) / 4);
+    color: $font_color_Sub;
+}
+.sch_info_feature_top{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.sch_info_feature_title{
+    color: $font_color_Sub;
+}
+.sch_info_feature_top embed{
+    width: 25px;
+    margin-right: 5px;
+}
+.sch_info_feature_bottom{
+    font-size: 12px;
+    line-height: 150%;
+    color: $font_color_Sub;
+    letter-spacing: 0.04rem;
+} 
+
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .sch_info_feature_area{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .sch_info_feature{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+.sch_info_context{
+    letter-spacing: 0.04rem;
+}
+.sch_info_context_para{
+    margin-bottom: 30px;
+    line-height: 150%;
+
+}
+.sch_info_context_week{
+    font-weight: 700;
+    font-size: $fontSize_Nav;
+    margin: 30px 0 20px;
+}
+img.sch_info_content_img{
+    margin-bottom: 30px;
+}
+
+// 右邊報名卡片
+.sch_second_right{
+    // width: 32%;
+    // border: 1px solid blue;
+    position: relative;
+}
+.sch_second_right_card{
+    border: 1px solid $btn_color_primary;
+    border-radius: 20px;
+    height: 400px;
+    padding: 30px 20px;
+    @include flex-center;
+    flex-direction: column;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+.sch_info_card_title{
+    font-size: $fontSize_CardTitle;
+    font-weight: 700;
+    text-align: center;
+    margin: 30px 0;
+    line-height: 150%;
+}
+.sch_second_right_card .sch_info_price{
+    margin-bottom: 30px;
+
+}
+.sch_form_parent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.sch_second_right_card form{
+    margin-top: 20px;
+}
+.sch_second_right_card .sch_action{
+    flex-direction: column;
+    @include flex-center;
+    
+}
+.sch_second_right_card .sch_action .sch_heart{
+    order: 1;
+    margin-bottom: 10px;
+}
+.sch_second_right_card .sch_action .sch_signup{
+    order: 2;
+}
+
+@media  screen and (min-width: 320px) and (max-width: 991.98px){
+    .sch_card_hide{
+        display: none;
+    }
+}
+
+// ============= 學習重點二欄排版 ============= 
+// 左邊各週主題
+.sch_info_content_img{
+    height: auto;
+    max-height: 450px;
+    width: 100%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 575.98px){
+    .sch_info_content_img{
+        height: auto;
+    }
+
+}
+
+// 右邊動態進度
+.sch_week_process_area{
+    position: sticky;
+    top: 130px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.sch_week_process{
+    display: flex;
+    // border: 1px solid red;
+    margin-bottom: 26px;
+}
+.sch_week_content{
+    height: 50px;
+}
+
+.sch_week_num{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    @include flex-center;
+    font-weight: 700;
+    color: #fff;
+    background: $color_primary;
+    margin-right: 10px;
+    position: relative;
+}
+.sch_week_num::before{
+    content: "";
+    position: absolute;
+    height: 48px;
+    top: -48px;
+    border: .5px solid $color_primary;
+    background-color: $color_primary;
+}
+.sch_week_name{
+    font-weight: 700;
+    font-size: $fontSize_Sub;
+    margin-bottom: 10px;
+}
+.sch_week_theme{
+    padding-bottom: 5px;
+}
+.sch_week_theme.-on{
+    padding-bottom: 5px;
+    border-bottom: 3px solid $btn_color_primary;
+}
+
+// ============= 行程須知二欄排版 ============= 
+.sch_notion_card{
+    margin: 30px 0 60px;
+    padding: 40px 30px 50px;
+    border-radius: 8px;
+    background-color: $color_primary_sub;
+}
+.sch_notion_para{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.sch_notion_para embed{
+    padding-top: 2px;
+    margin-right: 8px;
+}
+.sch_notion_content{
+    line-height: 120%;
+    letter-spacing: 0.04em;
+}
+.btn_sch{
+    margin-top: 10px;
+    width: 230px;
+}
+
+// ============= 學員評價 ============= 
+.sch_comments_star{
+    display: flex;
+    align-items: center;
+    margin: 30px 0 40px;
+}
+.sch_rate{
+    @include flex-center;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: $fontSize_CardTitle;
+    background-color: $btn_color_sub;
+}
+.sch_rate_star embed{
+    width: 25px;
+}
+.sch_comments_area{
+    display: flex;
+    margin-bottom: 40px;
+}
+.sch_commemts_member{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+.sch_member1{
+    background: url('../images/schedule/member1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_member2{
+    background: url('../images/schedule/member2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_member3{
+    background: url('../images/schedule/member3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center center;
+}
+.sch_comments_text{
+    line-height: 150%;
+    padding-right: 20px;
+}
+.sch_comments_name{
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.sch_second_left.sch_last{
+    margin-bottom: 60px;
+}
+.sch_card_sticky_area2{
+    margin-top: 60px;
+}

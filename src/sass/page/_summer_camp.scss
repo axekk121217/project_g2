@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+  }
+  body{
+    margin: 0px;
+  }
+  
+  img{
+    max-width: 100%;
+  }
+
+//   =========== banner ===========
+.header{
+    border: 1px solid red;
+    max-width: 1400px;
+    height: 100px;
+    background-color: blue;
+}
+
+.bannerr{
+    // border: 1px solid red;
+    background: url("../images/summer_camp/Rectangle119.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 0px;
+    margin: 0 auto;
+    @include flex-center;
+    height: 500px;
+    
+}
+
+.scope{
+    // border: 1px solid red;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.summercamp{
+    // border: 1px solid red; 
+    display: inline-block;
+    position: absolute;
+    left: -50px;
+    top: -20px;
+}
+
+.summercamp-summer{
+    font-size: $fontSize_Banner;
+    color: white;
+}
+
+.summercamp-camp{
+    font-size: $fontSize_BigTitle;
+    color: white;
+}
+
+.bg-gray{
+    // border: 1px solid black;
+    width: 90%;
+    background: #82828280;
+    height: 150px;
+    margin: 0 auto;
+    // text-align: center;
+    @include flex-center;
+}
+
+.bg-text{
+    font-size: $fontSize_Sub; 
+    color: white;
+    line-height: 30px; 
+    letter-spacing: 2px;
+}
+
+
+
+
+//   =========== 內容 ===========
+
+// ====== aside ======
+.col3-aside{
+    background-color: #f2f2f2;
+}
+
+.accordion-header .accordion-button, .accordion-item .accordion-collapse{
+    background-color: #f2f2f2; 
+}
+
+.accordion-header .accordion-button{
+    font-size: $fontSize_CardTitle;
+}
+
+.accordion-body .form-check{
+    margin: 20px 0;
+}
+
+.camp-sw{
+    border: 1px solid black;
+    padding: 12px 0;   
+    font-size: $fontSize_CardTitle; 
+    cursor: pointer;
+    text-align: left;
+    padding-left: 20px;
+    position: relative;
+}
+
+.arr_icon{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.camp_two{
+    margin: 0 auto;
+    // border: 1px solid blue;
+    width: 80%;
+}
+
+.sum{
+    background-color: white;
+    margin: 80px 0 0 0;
+    
+}
+
+.win{
+    background-color: $color_primary;
+    margin: 60px 0 60px 0;
+    color: white;
+}
+
+.find-trip{
+    font-size: 40px;
+    text-align: center;
+    margin: 0 0 60px 0;
+}
+
+
+
+
+
+// ====== main ======
+// .container, .row, .col-3, .col-9{
+// //  border: 1px solid red;
+// }
+
+.change-page {
+    display: block;
+}
+
+.row .card{
+    padding: 0;
+    margin: 50px 10px 5px 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: 0.5px solid #66666633;
+    box-shadow: 0px 1px 5px 0px #66666633;
+    position: relative;
+}
+
+.card-body .card-title{
+    font-size: $fontSize_CardTitle;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 600; 
+}
+
+.card-body .card-text{
+    font-size: $fontSize;
+    line-height: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.card-body .a{
+    // border: 1px solid red;
+    color: $font_color_content;
+    display: inline-block;
+    margin-left: 70px;
+    position: absolute;
+    bottom: 30px;
+}
+
+.card-body .a img{
+    transform: translateY(25%);
+}
+
+.row .button{
+    margin: 70px auto;
+    background-color: $btn_color_primary;
+    color: white;
+    width: 250px;
+    height: 50px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.row .button:hover{
+    background-color: #ffaa00;
+}
+
+

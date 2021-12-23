@@ -1,0 +1,96 @@
+.memberSignUp_container {
+    @include flex-center;
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(../images/member/accountBanner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .memberSignUp_banner {
+        background-color: rgba(255, 255, 255, .9);
+        padding: 20px 50px;
+        margin: 50px 0;
+        border-radius: 5px;
+    }
+
+    input {
+        margin-bottom: 20px;
+        padding: 5px 10px;
+    }
+
+    label {
+        margin-bottom: 10px;
+        font-family: $fontFamily_Ch;
+        font-size: $fontSize;
+        color: $font_color_content;
+        letter-spacing: 1.5px;
+    }
+
+    img.memberSignUp_logo {
+        width: 120px;
+        height: 145px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    h1.memberSignUp_title {
+        font-family: $fontFamily_Ch;
+        font-size: $fontSize_Title;
+        font-weight: bold;
+        color: $font_color_content;
+        margin-bottom: 20px
+    }
+
+    button.memberSignUp_confirm {
+        margin-bottom: 20px;
+        @include btn_module(400px, 5px, $btn_color_sub, $btn_color_sub_hover);
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        letter-spacing: 0.05em;
+        padding: 20px;
+    }
+    button.memberSignUp_confirm:hover {
+        background-color: $btn_color_sub_hover;
+    }
+
+    h4.memberSignUp_word {
+        font-family: $fontFamily_Ch;
+        font-size: $fontSize;
+        color: $font_color_content;
+        letter-spacing: 1.5px;
+
+        a.memberSignUp_signInButton {
+            text-decoration: none;
+            color: $btn_color_sub;
+            border-bottom: solid 1px $btn_color_sub;
+            font-family: $fontFamily_Ch;
+            font-size: $fontSize;
+        }
+
+        a.memberSignUp_signInButton:hover {
+            color: $btn_color_sub_hover;
+            
+        }
+    }
+}
+
+a.memberSignUp_forgrtPassword {
+    text-decoration: none;
+    color: $btn_color_sub;
+    font-family: $fontFamily_Ch;
+    font-size: $fontSize;
+}
+a.memberSignUp_forgrtPassword:hover {
+    color: $btn_color_sub_hover;
+}
+
+@media (max-width:575.98px) {
+    .memberSignUp_banner {
+        background-color: rgba(255, 255, 255, .9);
+        padding: 20px 50px;
+        margin: 50px 0;
+        border-radius: 5px;
+        width: 100%;
+    }
+}

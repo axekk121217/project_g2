@@ -1,0 +1,161 @@
+.processFinal_buyItem {
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(../images/member/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    
+    .processFinal_ballAll {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+
+        .processFinal_ballName {
+            margin-right: 50px;
+        
+        @media (max-width: 776.98px) {
+            margin-right: 20px;
+        }
+
+            .processFinal_ball {
+                border: solid 1px black;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 15px;
+                background-color: #fff;
+            }
+
+            @media (max-width: 776.98px) {
+                .processFinal_ball {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            .ball {
+                background: #E7C29E;
+            }
+        }
+    }
+}
+
+.processFinal_container {
+    margin-top: 30px;
+    padding: 30px;
+    background-color:#fff;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-family: $fontFamily_Ch;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9));
+    width: 80%;
+
+    h1.processFinal_cardContentTitle {
+        font-size: $fontSize_CardTitle;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    p.processFinal_cardContent {
+        width: 95%;
+        margin: 30px auto;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width:576.98px) {
+    .processFinal_container {
+        width: 100%;
+    }
+}
+
+.processFinal_image {
+    img {
+        height: 220px;
+    }
+
+    @media(max-width: 1199.98px) {
+        img {
+            height: 190px;
+        }
+    }
+    @media (max-width: 991.98px) {
+        img {
+            height: 150px;
+        }
+    }
+    @media (max-width:769.98px) {
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom:20px;
+        }
+    }
+}
+
+.processFinal_content {
+    .processFinal_nameItemAll {
+        font-size: $fontSize_Nav;
+        margin-bottom: 20px;
+        h1 {
+            font-weight: bold;
+        }
+
+        h4 {
+            color: $font_color_Sub;
+            font-size: $fontSize;
+            margin-top: 10px;
+        }
+    }
+}
+
+.processFinal_dateWeek {
+    .processFinal_orderWord {
+        margin-bottom: 20px;
+    }
+}
+
+.processFinal_ItemAll {
+    .processFinal_Item {
+        margin: 20px 0;
+        font-family: $fontFamily_Ch;
+        font-size: $fontSize;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 769.98px) {
+    .processFinal_ItemAll {
+        display: none;
+    }
+}
+
+.processFinal_btn {
+    padding-bottom: 20px;
+}
+
+.processFinal_numberAll {
+    font-family: $fontFamily_Ch;
+    font-size: $fontSize;
+    letter-spacing: 2px;
+    display: none;
+    p {
+        margin-bottom: 20px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 769.98px) {
+    .processFinal_numberAll {
+        display: block;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    @@include('./layout/header.html')
+    <section class="memberSignIn_container">
+        <div class="memberSignIn_banner">
+            <img src="../src/images/member/logo.png" alt="" class="memberSignIn_logo rounded mx-auto d-block">
+            <h1 class="memberSignIn_title text-center">註冊會員</h1>
+            <form action="#" method="post">
+                <label>會員帳號</label>
+                <br>
+                <input type="text" placeholder="請輸入您的Email" size="40">
+                <br>
+                <label>設定會員密碼</label>
+                <br>
+                <input type="password" placeholder="請輸入您的密碼(8~16位數字以上英數字混合)" size="40">
+                <br>
+                <label>再次確認會員密碼</label>
+                <br>
+                <input type="password" placeholder="請再次輸入密碼" size="40">
+                <br>
+                <label>會員姓名</label>
+                <br>
+                <input type="text" placeholder="請輸入您的姓名" size="40">
+                <br>
+                <label>性別</label>
+                <br>
+                <input type="radio" name="member_gender" id="member_first">
+                <label for="member_first">男性</label>
+                <input type="radio" name="member_gender" id="member_second">
+                <label for="member_second">女性</label>
+                <input type="radio" name="member_gender" id="member_third">
+                <label for="member_third">暫不提供</label>
+                <br>
+                <label>聯絡電話</label>
+                <br>
+                <input type="text" placeholder="請輸入您的聯絡電話" size="40">
+                <br>
+                <input type="checkbox" id="memberSignIn_Privacy">
+                <label for="memberSignIn_Privacy">我已閱讀並同意會員條款</label>
+                <br>
+                <button class="memberSignIn_confirm">註冊</button>
+            </form>
+            <h4 class="memberSignIn_word text-center">已經是會員?<a href="member_signIn.html" class="memberSignIn_signInButton">登入</a></h4>
+            
+        </div>
+    </section>
+    @@include('./layout/footer.html')
+</body>
+</html>

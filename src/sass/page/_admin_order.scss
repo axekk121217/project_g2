@@ -1,0 +1,199 @@
+body {
+  margin: 0 auto;
+}
+
+div.admin_member {
+  // border: 2px solid red;
+  @include rect(100%, 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 10px;
+}
+
+//header
+div.admin_header {
+  // border: 2px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EDF0F4;
+  padding: 10px;
+}
+
+div.admin_header_logo {
+  // border: 2px solid blue;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center
+}
+
+div.admin_header_logo img {
+  @include rect(55px, 71px);
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+
+}
+
+div.admin_header_logo p {
+  // border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px
+}
+
+div.admin_header_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 10px 0 0;
+}
+
+button.admin_btn_signOut {
+  @include btn_module(85px, 5px, $btn_color_primary, $btn_color_primary_hover);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  height: 100%;
+}
+
+button.admin_btn_signOut:hover {
+  background-color: $btn_color_primary_hover;
+}
+
+//搜尋
+div.admin_main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+div.admin_main_tltle {
+  // border: 2px solid blue;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+div.admin_search {
+  // border: 2px solid yellow;
+  @include flex-center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.admin_search p {
+  font-size: 36px;
+  color: black;
+}
+
+div.admin_search_bar input {
+  border: 2px solid #01B3A7;
+  border-radius: 5px 0 0 5px;
+  outline-color: #FCB629;
+}
+
+button.admin_search-btn {
+  // border: 4px solid red;
+  border: none;
+  background-color: #01B3A7;
+  float: right;
+  padding: 6px 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+div.admin_main_content {
+  border: 2px solid #395762;
+  margin-top: 10px;
+  width: 1000px;
+  text-align: center;
+}
+
+div.admin_aside {
+  // border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 20px 0 0;
+}
+
+button.admin_aside_btn {
+  @include btn_module(150px, 5px, $btn_color_sub, $btn_color_sub_hover);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px 0;
+
+}
+
+button.admin_aside_btn:hover {
+  background-color: $btn_color_sub_hover;
+}
+
+i.admin_search_icon {
+  color: white;
+  font-size: 17px
+}
+
+
+button.admin_order_btn {
+  @include btn_module(100px, 5px, $btn_color_primary, $btn_color_primary_hover);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  padding: 5px 5px;
+}
+
+button.admin_order_btn.bg-primary {
+  color: #01B3A7;
+}
+
+button.admin_order_btn:hover {
+  background-color: $btn_color_primary_hover;
+}
+
+div.d-flex {
+  margin-top: 10px;
+}
+
+a.page-link {
+  background-color: #01B3A7;
+  color: white;
+  border: 1px solid #395762;
+}
+
+a.page-link:hover {
+  background-color: #395762;
+  color: white;
+  border: 1px solid #395762;
+}
+
+div.admin_order_header {
+  background-color: #FCB629;
+}
+
+div.admin_order_title {}
+
+div.admin_order_edit {
+  // border: 2px solid red;
+}
+
+
+// div.admin_edit_main {
+//   padding: 10px;
+
+// }
