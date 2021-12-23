@@ -5,7 +5,7 @@ body {
 div.admin_member {
   // border: 2px solid red;
   @include rect(100%, 100%);
-  // background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -144,7 +144,7 @@ button.admin_aside_btn:hover {
 
 i.admin_search_icon {
   color: white;
-  font-size: 17px
+  font-size: 16px;
 }
 
 i.admin_review_start {

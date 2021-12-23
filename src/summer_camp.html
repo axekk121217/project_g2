@@ -12,7 +12,7 @@
 <body>
     @@include('./layout/header.html')
     <!-- summer-image -->
-    <div class="bannerr">
+    <div class="change-baner bannerr -onn">
         <div class="scope">
             <div class="summercamp">
                 <span class="summercamp-summer">夏令營</span>              
@@ -28,14 +28,35 @@
         </div>
     </div>
 
+    <!-- <div class="change-baner bannerr-winter">
+      <div class="scope">
+          <div class="wintercamp">
+              <span class="wintercamp-winter">冬令營</span>              
+              <br>
+              <span class="wintercamp-camp">CAMP</span>
+          </div>
+          <div class="bg-gray">
+              <span class="bg-text">
+                  充分運用寒假的時間，讓孩子換個地方體驗生活，在最適合的環境學習<br>一門新的語言，與外國朋友和寄宿家庭相互溝通，累積成長過程中的適<br>應及應變能力。一切充滿可能！
+              </span>
+          </div>
+      </div>
+    </div> -->
+
+
+
     <!-- 內容 -->
     <div class="container-fluid">
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-3 col3-aside"> <!-- aside --> 
+            <div class="col-md-3 col3-aside"> <!-- aside --> 
               <div class="camp_two">
-                <div class="camp-sw sum">夏令營 <img class="arr_icon img_1" src="./images/summer_camp/akar-icons_chevron-right.png"></div>
-                <div class="camp-sw win">冬令營 <img class="arr_icon img_2" src="./images/summer_camp/akar-icons_chevron-right_1.png"></div>
+                <a href="./summer_camp.html">
+                  <div class="camp-sw sum">夏令營 <img class="arr_icon img_1" src="./images/summer_camp/akar-icons_chevron-right.png"></div>
+                </a>
+                <a href="./winter_camp.html">
+                  <div class="camp-sw win">冬令營 <img class="arr_icon img_2" src="./images/summer_camp/akar-icons_chevron-right_1.png"></div>
+                </a>
               </div>
               <div class="find-trip">Find a Trip!</div>
               <hr style="border: 0.5px solid #00000000;">
@@ -272,18 +293,19 @@
 
             <div class="col-9 change-page"> <!-- main -->
                 <div class="row justify-content-evenly" align-items-start>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 90.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【法國-巴黎】<br>時尚設計工作坊夏令營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">踏訪蘊藏深邃歷史文化的時尚之都
-                            巴黎，從食衣住行育樂各方面開啟
-                            豐富的感官體驗。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div> 
+                    <a href="./schedule.html">
+                      <div class="card" style="width: 18rem;">
+                          <img src="./images/summer_camp/Rectangle 90.png" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">【法國-巴黎】<br>時尚設計工作坊夏令營</h5>
+                            <hr style="border: 0.5px solid #000000;">
+                            <p class="card-text">踏訪蘊藏深邃歷史文化的時尚之都
+                              巴黎，從食衣住行育樂各方面開啟
+                              豐富的感官體驗。</p>
+                            <a href="./schedule.html" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+                          </div>
+                      </div>
+                    </a> 
     
                     <div class="card" style="width: 18rem;">
                         <img src="./images/summer_camp/unsplash_E-_I18oX5NQ.png" class="card-img-top">
@@ -406,6 +428,24 @@
 
     @@include('./layout/footer.html')
 
+<<<<<<< HEAD
+   <!-- <script>
+      let changeBaner = document.querySelectorAll("div.change-baner");
+      // console.log(changeBaner);
+      let camp = document.querySelectorAll("div.camp-sw");
+      // console.log(camp);
+      for(let i = 0; i < camp.length; i++){
+        // console.log(camp[i]);
+        camp[i].addEventListener("click", function(){
+          // console.log("1");
+          for(let j = 0; j < changeBaner.length; j++){
+            changeBaner[j].classList.remove("-onn");
+          }
+          changeBaner[i].classList.add("-onn");
+        });
+      }
+   </script> -->
+=======
    <script>
       // 設定當前頁面 css：桌機版 header
       let page = document.getElementsByClassName("header_pg");
@@ -423,5 +463,6 @@
       }
       
    </script>
+>>>>>>> 537cb8ec17cf805968a6d487c8fc3c37ce7269c6
 </body>
 </html>

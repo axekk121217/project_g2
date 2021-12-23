@@ -1,3 +1,265 @@
+* {
+    box-sizing: border-box;
+  }
+  body{
+    margin: 0px;
+  }
+  
+  img{
+    max-width: 100%;
+  }
+
+
+//   =========== banner ===========
+  .local_theme_bg{
+    background-image: url("../images/summer_camp/Rectangle 260.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner_test{
+    color: white;
+    font-size: $fontSize_Sub;
+    line-height: 35px;
+    letter-spacing: 3px;
+    padding: 25px 35px;
+  }
+ 
+  .local_theme_color{
+    background-color: #FFF06666;
+    display: inline-block;
+    transform: translate(-100px,-50px);
+    // margin-left: 100px;
+  }
+  @media screen and (max-width: 1000px){
+    .local_theme_color{
+      margin-left: 120px;
+    }
+  }
+
+
+
+  // summer
+ .summer-season{
+    background-image: url("../images/summer_camp/Rectangle 281.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+ }
+
+  .season-gray{
+    height: 100%;
+    width: 30%;
+    background-color: #5E5E5E80;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .summer-s{
+    color: white;
+    font-size: 60px;
+    transform: translate(-60px,-20px);
+  }
+  .summer-word{
+    font-size: $fontSize;
+    color: white;
+    line-height: 22px;
+    letter-spacing: 1px;   
+  }
+
+  .white{
+    border-top: 2px solid white;
+    width: 90%;
+  }
+
+  .Local-events{
+    color: white;
+    transform: translateX(-40px);
+  }
+
+  .one-s{
+    transform: translateX(30%);
+  }
+
+  .two-s{
+    text-align: end;
+  }
+
+
+
+  // 輪播
+  .divvvv{
+    // border: 1px solid red;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  .swiperr {
+    width: 100%;
+    height: 90%;
+  }
+
+  .swiperr-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    width: 286px !important;
+    border-radius: 20px;
+  }
+
+  .hrr{
+    display: inline-block;
+    margin: 0 auto;
+    border-top: 1px solid #0000004D;
+    width: 90%;
+    padding-bottom: 8px;
+  }
+
+  .card-text{
+    line-height: 26px; 
+    letter-spacing: 1px; 
+    text-align: left;
+    padding: 10px 5px 20px 5px;
+  }
+
+  // .aaaa{
+  //   padding-top: 20px;
+  // }
+
+  .testt{
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 28px; 
+  }
+
+
+
+
+  // winter
+  .winter-season{
+    background-image: url("../images/summer_camp/Rectangle 2sss62.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .winter-season-gray{
+    height: 100%;
+    width: 30%;
+    background-color: #5E5E5E80;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .winter-s{
+    color: white;
+    font-size: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .winter-word{
+    font-size: $fontSize;
+    color: white;
+    line-height: 22px;
+    letter-spacing: 1px;  
+  }
+
+  .winter-white{
+    border-top: 2px solid white;
+    width: 90%;
+    transform: translateX(38px);
+  }
+
+  .winter-Local-events{
+    color: white;
+    display: inline-block;
+    transform: translateX(38px);
+  }
+
+  .one-w{
+    transform: translateX(-50%);
+    // border: 1px solid red;
+  }
+
+  .festival-ss{
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+
+  .winter-bgg, .summer-bgg{
+    display: none;
+    padding-bottom: 50px;
+  }
+
+  .winter-bgg{
+    background-image: url("../images/summer_camp/Rectangle 2sss62.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+  .summer-bgg{
+    background-image: url("../images/summer_camp/Rectangle 281.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px){
+    .winter-bgg, .summer-bgg{
+      display: block;
+    }
+    .winter-season, .summer-season{
+      display: none;
+    }
+  }
+
+
+  // festival
+  .festival{
+    text-align: center;
+    font-size: 60px;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+  
+  .festival-bg{
+    background-image: url("../images/summer_camp/Rectangle 311.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding-bottom: 50px;
+  }
+
+  @media screen and (max-width: 576px){
+    .arr_icon{
+      display: none;
+    }
+  }
 // 桌機板顯示目前頁面
 .tab_container li a#page_active3::before {
     content: "";
