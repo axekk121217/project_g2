@@ -105,6 +105,7 @@
         "page/_faq.scss",
         "page/_member.scss",
         "page/_admin.scss",
+        "page/_admin.scss",
         "page/_admin_system.scss",
         "page/_admin_order.scss",
         "page/_admin_commodity.scss",

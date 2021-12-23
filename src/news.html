@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最新消息</title>
     <link rel="stylesheet" href="css/style.css">
+     <!--Start of Tawk.to Script-->
+     <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/61c18c64c82c976b71c27581/1fne0or75';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
+
     
 
 </head>
@@ -303,12 +318,44 @@
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
-        $('div.nb_clickable').click(function(){
-            $("div.nb_overlay").fadeIn();
-        });
-        $('.btn_modal_close').click(function(){
-            $("div.nb_overlay").fadeOut();
-        });
+        // 設定當前頁面 css：桌機版 header
+        let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active1"){
+                page[i].removeAttribute('id');
+            }
+        }
+        // 設定當前頁面 css：漢堡選單
+        let ham_page = document.getElementsByClassName("ham_pg");
+        for(let i = 0; i < (ham_page.length); i++){
+            if(ham_page[i].id !== "h_page_active1"){
+                ham_page[i].removeAttribute('id');
+            }
+        }
+
+        $(function(){
+
+            // let page_id = $('#page_active1').attr("id");
+            // console.log(page_id);
+          
+            // if($('.header_pg').attr('id') !== page_id){
+            //     $('.header_pg').not(this).removeAttr('id');
+            // }
+
+            // let h_page_id = $('#h_page_active1').attr("id");
+            // if(!$('.ham_pg').attr('id') == page_id){
+            //     $('.ham_pg').removeAttr('id');
+            // }
+
+            // 彈窗
+            $('div.nb_clickable').click(function(){
+                $("div.nb_overlay").fadeIn();
+            });
+            $('.btn_modal_close').click(function(){
+                $("div.nb_overlay").fadeOut();
+            });
+
+        })
     </script>
 
  

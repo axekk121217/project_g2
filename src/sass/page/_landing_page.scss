@@ -19,10 +19,13 @@
 .landing_left_title {
   position: absolute;
   top: 30%;
-  color: white;
   font-size: 48px;
   line-height: 1.6;
   text-align: right;
+}
+
+.landing_left_title p{
+  color: white;
 }
 
 .landing_right_title a,.landing_left_title a{
@@ -41,9 +44,12 @@
   position: absolute;
   top: 50%;
   right: 0;
-  color: white;
   font-size: 48px;
   line-height: 1.6;
+}
+
+.landing_right_title p{
+  color: white;
 }
 
 .right_line {

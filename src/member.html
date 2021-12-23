@@ -450,6 +450,21 @@
     <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"crossorigin="anonymous"></script>
     <script>
+        // 設定當前頁面 css：桌機版 header
+        let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active7"){
+                page[i].removeAttribute('id');
+            }
+        }
+        // 設定當前頁面 css：漢堡選單
+        let ham_page = document.getElementsByClassName("ham_pg");
+        for(let i = 0; i < (ham_page.length); i++){
+            if(ham_page[i].id !== "h_page_active7"){
+                ham_page[i].removeAttribute('id');
+            }
+        }
+
         // 取消訂單進度
         const member_orderCancel = document.getElementsByClassName("member_orderCancel")[1];
         const member_line = document.querySelectorAll("div.member_line")[0];
