@@ -9,7 +9,7 @@ div.admin_member {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
 }
 
 //header
@@ -20,6 +20,7 @@ div.admin_header {
   justify-content: space-between;
   align-items: center;
   background-color: #EDF0F4;
+  padding: 10px;
 }
 
 div.admin_header_logo {
