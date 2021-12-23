@@ -7,7 +7,7 @@ div.admin {
   @include rect(100%, 100vh);
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/admin/adminbk1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
   background-position: center center;
 }
 
