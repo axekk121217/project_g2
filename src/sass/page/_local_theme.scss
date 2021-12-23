@@ -12,7 +12,7 @@
 
 //   =========== banner ===========
   .local_theme_bg{
-    background-image: url("../../images/summer_camp/Rectangle 260.png");
+    background-image: url("../images/summer_camp/Rectangle 260.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -46,7 +46,7 @@
 
   // summer
  .summer-season{
-    background-image: url("../../images/summer_camp/Rectangle 281.png");
+    background-image: url("../images/summer_camp/Rectangle 281.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -106,32 +106,17 @@
     align-items: center;
   }
 
-  .swiper {
+  .swiperr {
     width: 100%;
     height: 90%;
   }
 
-  .swiper-slide{
+  .swiperr-slide{
     text-align: center;
     font-size: 18px;
     background: #fff;
     width: 286px !important;
     border-radius: 20px;
-
-    
-    /* Center slide text vertically */
-    // display: -webkit-box;
-    // display: -ms-flexbox;
-    // display: -webkit-flex;
-    // display: inline-flex;
-    // -webkit-box-pack: center;
-    // -ms-flex-pack: center;
-    // -webkit-justify-content: center;
-    // justify-content: center;
-    // -webkit-box-align: center;
-    // -ms-flex-align: center;
-    // -webkit-align-items: center;
-    // align-items: center;
   }
 
   .hrr{
@@ -140,14 +125,6 @@
     border-top: 1px solid #0000004D;
     width: 90%;
     padding-bottom: 8px;
-  }
-
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .card-text{
@@ -173,7 +150,7 @@
 
   // winter
   .winter-season{
-    background-image: url("../../images/summer_camp/Rectangle 2sss62.png");
+    background-image: url("../images/summer_camp/Rectangle 2sss62.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -237,14 +214,14 @@
   }
 
   .winter-bgg{
-    background-image: url("../../images/summer_camp/Rectangle 2sss62.png");
+    background-image: url("../images/summer_camp/Rectangle 2sss62.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
   }
   .summer-bgg{
-    background-image: url("../../images/summer_camp/Rectangle 281.png");
+    background-image: url("../images/summer_camp/Rectangle 281.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -270,7 +247,7 @@
   }
   
   .festival-bg{
-    background-image: url("../../images/summer_camp/Rectangle 311.png");
+    background-image: url("../images/summer_camp/Rectangle 311.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
