@@ -39,7 +39,6 @@
 }
 
 .member_box {
-    border: solid 1px black;
     background-color: #fff;
     padding: 15px;
     border-radius: 5px;
@@ -70,7 +69,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
     list-style: none;
-    border: solid 1px black;
     padding-left: 0;
     opacity: .95;
 
@@ -83,6 +81,14 @@
         img.member_icon {
             margin-right: 10px;
         }
+    }
+
+    .member_listItem:first-child {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .member_listItem:last-child {
+        border-radius: 0 0 5px 5px;
     }
 }
 
@@ -115,7 +121,6 @@
 
 .member_board {
     display: none;
-    border: solid 1px black;
     padding: 15px;
     border-radius: 5px;
     background-color: #fff;
