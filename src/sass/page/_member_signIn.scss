@@ -30,6 +30,33 @@
         letter-spacing: 1.5px;
     }
 
+    @media (max-width:575.98px) {
+        input {
+            width: 100%;
+        }
+    }
+
+    .memberSignUp_checkBoxAll {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 576.98px) {
+        #memberSignUp_Privacy {
+            width: auto;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .memberSign_forget {
+            text-align: right;
+        }
+        .memberSignUp_checkBoxAll {
+            display: block;
+        }
+    }
+
     img.memberSignUp_logo {
         width: 120px;
         height: 145px;
@@ -53,10 +80,17 @@
         font-weight: bold;
         border-radius: 5px;
         letter-spacing: 0.05em;
-        padding: 20px;
+        padding: 15px;
     }
     button.memberSignUp_confirm:hover {
         background-color: $btn_color_sub_hover;
+    }
+
+    @media (max-width:575.98px) {
+        button.memberSignUp_confirm {
+            @include btn_module(100%, 5px, $btn_color_sub, $btn_color_sub_hover);
+            padding: 15px;
+        }
     }
 
     h4.memberSignUp_word {
@@ -72,6 +106,8 @@
             font-family: $fontFamily_Ch;
             font-size: $fontSize;
         }
+
+        
 
         a.memberSignUp_signInButton:hover {
             color: $btn_color_sub_hover;
@@ -96,6 +132,6 @@ a.memberSignUp_forgrtPassword:hover {
         padding: 20px 50px;
         margin: 50px 0;
         border-radius: 5px;
-        width: 100%;
+        width: 90%;
     }
 }

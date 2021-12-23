@@ -1,5 +1,5 @@
   // 漢堡選單顯示目前頁面
-  ul.menu a li#h_page_active7{
+ul.menu a li#h_page_active7{
     color: $btn_color_primary;
 }
 
@@ -161,6 +161,12 @@ input.member_item {
     padding: 3px 10px;
 }
 
+@media (max-width: 576.98px) {
+    input.member_item {
+        width: 100%;
+    }
+}
+
 button.member_revisePassword, button.member_save {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -302,6 +308,20 @@ img.member_icon {
             
         }
 
+        @media (max-width: 400px) {
+            .member_orderPriceAll {
+                display: block;
+
+                .memeber_orderdate {
+                    margin-bottom: 10px;
+                }
+
+                .member_orderPrice {
+                    text-align: right;
+                }
+            }
+        }
+
         .member_orderButtonAll {
             margin-right: 10px;
             font-size: $fontSize;
@@ -357,6 +377,15 @@ img.member_icon {
     }
     .member_board-show {
         display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    #member_orderBtn {
+        display: none;
+    }
+    .member_orderCancel {
+        font-size: $fontSize_footer;
     }
 }
 
@@ -426,7 +455,6 @@ img.member_icon {
             
         }
     }
-
     .member_collectPrice {
         display: flex;
         justify-content: space-between;
@@ -443,7 +471,27 @@ img.member_icon {
         text-align: end;
         margin-bottom: 10px;
     }
+
+    @media (max-width: 400px) {
+        .member_collectSmallContent {
+            display: block
+        }
+        h4.member_collectDate {
+            margin-bottom: 10px;
+        }
+        .member_collectPrice {
+            display: block;
+        }
+        .member_star {
+            margin-bottom: 10px;
+        }
+        h4.member_collectCost {
+            text-align: end;
+        }
+    }
 }
+
+
 
 // 行程評論
 .member_commentTitle {
@@ -505,7 +553,7 @@ li.member_commenttList {
 }
 
 .member_commentStar {
-    margin: 20px 0;
+    margin: 10px 0;
     font-family: $fontFamily_Ch;
     letter-spacing: 1.5px;
 
@@ -519,6 +567,7 @@ li.member_commenttList {
 }
 
 .member_commentWriteItem {
+    margin-top: 10px;
     margin-bottom: 20px;
     font-family: $fontFamily_Ch;
     letter-spacing: 1.5px;
@@ -589,6 +638,15 @@ li.member_orderCancelList {
         }
     }
 
+    @media (max-width: 400px) {
+        .member_orderCancelNumber {
+            display: block;
+            p.member_Item1 {
+                margin-top: 10px;
+            }
+        }
+    }
+
     .member_orderCancelNameContent {
         display: flex;
         justify-content: space-between;
@@ -601,6 +659,15 @@ li.member_orderCancelList {
         .member_orderCancelNameContent {
             margin-right: 37px;
             margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .member_orderCancelNameContent {
+            display: block;
+            p.member_Item1 {
+                margin-top: 10px;
+            }
         }
     }
 
@@ -626,6 +693,15 @@ li.member_orderCancelList {
         }
     }
 
+    @media (max-width: 400px) {
+        .member_orderCancelPay {
+            display: block;
+            p.member_Item1 {
+                margin-top: 10px;
+            }
+        }
+    }
+
     p.member_orderCancelPrice {
         margin-left: 50px;
     }
@@ -647,6 +723,12 @@ li.member_orderCancelList {
     @media (max-width: 769.98px) {
         .member_orderCancelSelect {
             margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        #member_orderCancelCause {
+            width: 100%;
         }
     }
 
@@ -702,6 +784,20 @@ li.member_orderCancelList {
         }
     }
 }
+
+@media (max-width: 400px) {
+    .member_commentButton {
+        margin-top: 10px;
+    }
+    .member_contact {
+        margin-top: 10px;
+    }
+    .member_orderCancelPage {
+        margin-bottom: 10px;
+    } 
+}
+
+
 
 button.dropdown-toggle:focus {
     box-shadow: none;

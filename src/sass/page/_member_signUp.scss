@@ -30,6 +30,12 @@
         letter-spacing: 1.5px;
     }
 
+    @media (max-width:575.98px) {
+        input {
+            width: 100%;
+        }
+    }
+
     img.memberSignIn_logo {
         width: 120px;
         height: 145px;
@@ -53,7 +59,14 @@
         font-weight: bold;
         border-radius: 5px;
         letter-spacing: 0.05em;
-        padding: 20px;
+        padding: 15px;
+    }
+
+    @media (max-width: 576.98px) {
+        button.memberSignIn_confirm {
+            @include btn_module(100%, 5px, $btn_color_sub, $btn_color_sub_hover);
+            padding: 15px;
+        }
     }
     button.memberSignIn_confirm:hover {
         background-color: $btn_color_sub_hover;
@@ -86,5 +99,9 @@
         margin: 50px 0;
         border-radius: 5px;
         width: 100%;
+    }
+
+    #member_first ,#member_second, #member_third, #memberSignIn_Privacy {
+        width: auto;
     }
 }

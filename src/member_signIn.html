@@ -12,7 +12,7 @@
     @@include('./layout/header.html')
     <section class="memberSignUp_container">
         <div class="memberSignUp_banner">
-            <img src="../src/images/member/logo.png" alt="" class="memberSignUp_logo rounded mx-auto d-block">
+            <img src="./images/member/logo.png" alt="" class="memberSignUp_logo rounded mx-auto d-block">
             <h1 class="memberSignUp_title text-center">會員登入</h1>
             <form action="member.html">
                 <label>會員帳號</label>
@@ -21,16 +21,19 @@
                 <br>
                 <label>會員密碼</label>
                 <br>
-                <input type="password" placeholder="請輸入您的密碼(8~16位數字以上英數字混合)" size="40">
+                <input type="password" placeholder="請輸入您的密碼" size="40">
                 <br>
-                <div class="memberSignUp_checkBoxAll d-flex justify-content-between">
+                <div class="memberSignUp_checkBoxAll">
                     <div class="memberSignUp_checkBox">
                         <input type="checkbox" id="memberSignUp_Privacy">
                         <label for="memberSignUp_Privacy">保持登入狀態</label>
                     </div>
-                    <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
+                    <div class="memberSign_forget">
+                        <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
+                    </div>
                 </div>
                 <br>
+                
                 <a href="member.html"><button class="memberSignUp_confirm">登入</button></a>
             </form>
             <h4 class="memberSignUp_word text-center">還不是會員?<a href="member_signUp.html" class="memberSignUp_signInButton">註冊</a></h4>
@@ -47,7 +50,7 @@
             }
         }
          // 設定當前頁面 css：漢堡選單
-         let ham_page = document.getElementsByClassName("ham_pg");
+        let ham_page = document.getElementsByClassName("ham_pg");
         for(let i = 0; i < (ham_page.length); i++){
             if(ham_page[i].id !== "h_page_active7"){
                 ham_page[i].removeAttribute('id');
