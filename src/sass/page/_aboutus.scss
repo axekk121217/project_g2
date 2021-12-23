@@ -85,6 +85,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .aboutus_container_right img{
+    display: none;
+  }
+}
+
 // 向下的箭頭
 .aboutus_arrow {
   position: relative;
@@ -290,30 +296,56 @@
   transform: translateX(-50%);
 }
 
-.aboutus_step p {
+.aboutus_step a{
+  color: $color_primary;
+  
+}
+
+.aboutus_step a > p {
   background-color: $color_primary_el;
   color: white;
+  margin-left: 12px;
+  margin-bottom: 12px;
   padding-top: 10px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   text-align: center;
+  cursor: pointer;
 }
 
-.aboutus_step :first-child::before {
+.aboutus_step::before {
   position: absolute;
   content: "";
-  width: 100%;
+  width: 90%;
   height: 2px;
   background-color: $color_primary_el;
   top: 16px;
-  left: 0px;
+  left: 16px;
   z-index: -1;
+}
+
+//-------------------------------問題隱藏
+
+.aboutus_step ~ div.tab {
+  display: none;
+}
+.aboutus-on{
+  display: flex !important;
+}
+
+//-------------------------------step樣式保留
+.aboutus_step > a.aboutus-on {
+  display: block !important;
+}
+
+.aboutus_step > a.aboutus-on > p{
+  background-color: $color_primary;
 }
 
 //服務圖文
 .aboutus_service_container {
-  padding: 0 100px;
+  padding: 0px 100px;
 }
 
 @media screen and (max-width: 996px) {
@@ -325,7 +357,7 @@
 .aboutus_service_content {
   display: flex;
   justify-content: space-between;
-  margin: 0px 100px;
+  margin: 20px 100px;
 }
 
 @media screen and (max-width: 996px) {
@@ -343,6 +375,7 @@
 @media screen and (max-width: 996px) {
   .aboutus_service_left {
     width: 100%;
+    margin: 0 16px;
   }
 }
 
@@ -354,7 +387,7 @@
 }
 
 .aboutus_service_left :last-child {
-  margin-top: 28px;
+  margin-top: 12px;
   font-size: 16px;
   line-height: 1.8;
   color: $font_color_Sub;
