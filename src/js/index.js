@@ -37,13 +37,38 @@ function doFirst(){
         loop: true,
         path: 'https://assets7.lottiefiles.com/packages/lf20_aiapd4ct.json'
     });
+    
+    
+    function auto(){
+        const aniplay = lottie.loadAnimation({
+            wrapper: index_travel_svg,
+            animType: 'svg',
+            autoplay: false,
+            loop: true,
+            path: 'https://assets1.lottiefiles.com/packages/lf20_wofwoz8o.json'
+        });
+    
+        const svgplay = document.querySelector('#index_travel_svg');
+        // console.log(svgplay);
+    
+        svgplay.addEventListener('click', function(){
+            // console.log();
+            if(svgplay.className == '-stop'){
+                aniplay.play();
+                svgplay.classList.add('-on');
+                svgplay.classList.remove('-stop');
+            }else{
+                aniplay.pause();
+                svgplay.classList.add('-stop');
+                svgplay.classList.remove('-on');
+            }
+        });
+    }
+    // auto();
+    
+    
 
-    lottie.loadAnimation({
-        wrapper: index_travel_svg,
-        animType: 'svg',
-        loop: true,
-        path: 'https://assets1.lottiefiles.com/packages/lf20_wofwoz8o.json'
-    });
+
 
     // ---- 文字省略 (...) ---- //
     // let len = 15; // 超過15個字以"..."取代
