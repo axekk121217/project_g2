@@ -1,3 +1,8 @@
+  // 漢堡選單顯示目前頁面
+  ul.menu a li#h_page_active7{
+    color: $btn_color_primary;
+}
+
 .memberSignIn_container {
     @include flex-center;
     background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(../images/member/accountBanner.jpg);

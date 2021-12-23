@@ -1,6 +1,8 @@
-// * {
-//     font-size: 0px;
-// }
+  // 漢堡選單顯示目前頁面
+  ul.menu a li#h_page_active7{
+    color: $btn_color_primary;
+}
+
 
 @media (max-width: 991.98px) {
     .member_pageAside {
