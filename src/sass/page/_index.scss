@@ -374,6 +374,7 @@ section.index_world{
 .index_map_col{
     #map{
         height: 100%;
+        z-index: -1;
     }
 }
 

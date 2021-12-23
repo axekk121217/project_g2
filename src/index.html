@@ -21,6 +21,7 @@
     <script src="./js/index.js"></script>
 </head>
 <body>
+    @@include('./layout/header.html')
     <!-- banner -->
     <div class="indexFullBanner">
         <div class="bannerVideo">
@@ -561,7 +562,7 @@
             <div id="index_travel_svg"></div>
         </section>
     </main>
-
+    @@include('./layout/footer.html')
 
     <script>
         AOS.init();
@@ -577,6 +578,20 @@
             },
         });
         
+        // 設定當前頁面 css：桌機版 header
+        let page = document.getElementsByClassName("header_pg");
+        for(let i = 0; i < (page.length); i++){
+            if(page[i].id !== "page_active0"){
+                page[i].removeAttribute('id');
+            }
+        }
+        // 設定當前頁面 css：漢堡選單
+        let ham_page = document.getElementsByClassName("ham_pg");
+        for(let i = 0; i < (ham_page.length); i++){
+            if(ham_page[i].id !== "h_page_active0"){
+                ham_page[i].removeAttribute('id');
+            }
+        }
     </script>
 </body>
 </html>
