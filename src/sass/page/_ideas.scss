@@ -1,0 +1,702 @@
+// .ideas_index,
+// .ideas_frist,
+// .ideas_second,
+// .ideas_three,
+// .ideas_four,
+// .ideas_end{
+//   display: none;
+// }
+/* ========== 獲得靈感 - 首頁 ========== */
+.ideas_container {
+  position: relative;
+  background-image: url("../images/ideas/ideasbanner.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 120px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+    h4 {
+      font-size: $fontSize_Sub;
+      text-align: center;
+      color: #828282;
+      margin-top: 10px;
+    }
+  }
+  .ideas_img {
+    margin: 70px auto;
+    text-align: center;
+    width: 90%;
+    img {
+      max-width: 100%;
+    }
+  }
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感RWD
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .ideas_container {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: 24px;
+      }
+      h4 {
+        font-size: $fontSize;
+        margin-top: 20px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      width: 70%;
+    }
+    .ideas_el {
+      .ideas_btn {
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_container {
+    .ideas_Title {
+      width: 90%;
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+      h4 {
+        font-size: $fontSize_mobile;
+        margin-top: 20px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      width: 70%;
+    }
+    .ideas_el {
+      .ideas_btn {
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+/* ========== 獲得靈感 - 第一題 ========== */
+.ideas_frist {
+  position: relative;
+  background-image: url("../images/ideas/ideas_banner1.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  // 第一題選項
+  .ideas_img {
+    // border: 1px solid red;
+    margin: 70px auto;
+    width: 95%;
+    @include flex-center;
+    padding: 10px 0;
+    .ideas_img_item {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      h3 {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .ideas_img_item:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+
+  // 第一題按鈕
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      margin: 0 20px;
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感 - 第一題RWD
+@media screen and (max-width: 767.98px) {
+  .ideas_frist {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Nav;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        width: 150px;
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_frist {
+    .ideas_Title {
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+    }
+    .ideas_img {
+      display: block;
+      width: 70%;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_CardTitle;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        margin: 0 10px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+/* ========== 獲得靈感 - 第二題 ========== */
+.ideas_second {
+  position: relative;
+  background-image: url("../images/ideas/ideas_banner2.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  // 選項
+  .ideas_img {
+    // border: 1px solid red;
+    margin: 70px auto;
+    width: 95%;
+    @include flex-center;
+    padding: 10px 0;
+    .ideas_img_item {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      h3 {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .ideas_img_item:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+
+  // 按鈕
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      margin: 0 20px;
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感 - 第二題RWD
+@media screen and (max-width: 767.98px) {
+  .ideas_second {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Nav;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        width: 150px;
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_second {
+    .ideas_Title {
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+    }
+    .ideas_img {
+      display: block;
+      width: 70%;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_CardTitle;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        margin: 0 10px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+/* ========== 獲得靈感 - 第三題 ========== */
+.ideas_third {
+  position: relative;
+  background-image: url("../images/ideas/ideas_banner3.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  // 選項
+  .ideas_img {
+    // border: 1px solid red;
+    margin: 70px auto;
+    width: 95%;
+    @include flex-center;
+    padding: 10px 0;
+    .ideas_img_item {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      h3 {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .ideas_img_item:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+
+  // 按鈕
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      margin: 0 20px;
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感 - 第三題RWD
+@media screen and (max-width: 767.98px) {
+  .ideas_third {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Nav;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        width: 150px;
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_third {
+    .ideas_Title {
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+    }
+    .ideas_img {
+      display: block;
+      width: 70%;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_CardTitle;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        margin: 0 10px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+/* ========== 獲得靈感 - 第四題 ========== */
+.ideas_fourth {
+  position: relative;
+  background-image: url("../images/ideas/ideas_banner4.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  // 選項
+  .ideas_img {
+    // border: 1px solid red;
+    margin: 70px auto;
+    width: 95%;
+    @include flex-center;
+    padding: 10px 0;
+    .ideas_img_item {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      h3 {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .ideas_img_item:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+
+  // 按鈕
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      margin: 0 20px;
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感 - 第四題RWD
+@media screen and (max-width: 767.98px) {
+  .ideas_fourth {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .ideas_img {
+      margin: 50px auto;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Nav;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        width: 150px;
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_fourth {
+    .ideas_Title {
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+    }
+    .ideas_img {
+      display: block;
+      width: 70%;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_CardTitle;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        margin: 0 10px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+/* ========== 獲得靈感 - 結果 ========== */
+.ideas_end {
+  position: relative;
+  background-image: url("../images/ideas/ideas_banner5.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  .ideas_Title {
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  // 選項
+  .ideas_img {
+    // border: 1px solid red;
+    margin: 70px auto;
+    width: 95%;
+    @include flex-center;
+    padding: 10px 0;
+    .ideas_img_item {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+      h3 {
+        color: white;
+        font-size: $fontSize_CardTitle;
+        font-weight: bold;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .ideas_img_item:hover {
+      transform: scale(1.1);
+      z-index: 4;
+    }
+  }
+
+  // 按鈕
+  .ideas_el {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    text-align: center;
+    .ideas_btn {
+      @include btn_module(200px, 0, $btn_color_sub, $btn_color_sub_hover);
+      margin: 0 20px;
+      border: none;
+      color: white;
+      font-size: $fontSize_CardTitle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .ideas_btn:hover {
+      background-color: $btn_color_sub_hover;
+    }
+  }
+}
+
+// 獲得靈感 - 結果RWD
+@media screen and (max-width: 991.98px) {
+  .ideas_end {
+    .ideas_img {
+      margin: 50px auto;
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Nav;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .ideas_end {
+    .ideas_Title {
+      padding: 80px 0 0 0;
+      width: 90%;
+      h2 {
+        font-size: $fontSize_CardTitle;
+      }
+    }
+    .ideas_img {
+      .ideas_img_item {
+        h3 {
+          font-size: $fontSize_Sub;
+        }
+      }
+    }
+    .ideas_el {
+      .ideas_btn {
+        font-size: $fontSize_Nav;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .ideas_end {
+    .ideas_Title {
+      width: 90%;
+      h2 {
+        font-size: $fontSize_Nav;
+      }
+    }
+    .ideas_img {
+      display: block;
+      width: 70%;
+    }
+  }
+}

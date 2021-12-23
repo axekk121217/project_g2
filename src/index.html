@@ -6,11 +6,577 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campion</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="./js/index.js"></script>
 </head>
 <body>
-    <button class="btn">立即展開旅程</button>
-    <button class="btn_sub">立即展開旅程</button>
+    <!-- banner -->
+    <div class="indexFullBanner">
+        <div class="bannerVideo">
+             <video  id="indexBannerVideo" src="./images/index/indexBanner.mp4" autoplay loop muted Playsinline type="video/mp4"></video>
+        </div> 
+        <div class="indexBannerText" data-aos="fade-up" data-aos-duration="3000">
+            <h3>旅遊為知識之路</h3>
+            <h3>——麥金托什</h3>
+        </div>    
+    </div>
 
-    
+    <!-- index_ContentText -->
+    <div class="index_ContentText container">
+        <div class="index_ContentText_row row">
+            <div class="index_ContentText_col_1 col-6 ">
+                <h2 class="index_h2">Tours for Travelers</h2>
+                <h2 class="index_h2_sub">Who Love to Learn</h2>
+            </div>
+            <div class="index_ContentText_col_2 col-6 ">
+                <h3>海外夏令營，對孩子最值得的投資</h3>
+                <span>
+                    接觸國際視野、培養無國界的競爭力，為未來海外留學暖身
+                    參加體驗團體生活，培養孩子獨立自主能力
+                    興趣還不明確的孩子，透過各式活動培養興趣，探索未來
+                    豐富課程與有趣多樣的課後活動，加速與深化學習成效
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- 發現世界 -->
+        <section class="index_world">
+            <div class="container index_world_container">
+                <div class="row index_world_row">
+                    <div class="col-6 index_world_col">
+                        
+                        <div class="index_world_Title">
+                            <h3>發現世界</h3>
+                            <h5>Discover the world</h5>
+                        </div>
+                        
+                        <div class="index_world_Text Text_1">
+                            <hr class="verticle_line">
+                            <!-- <div id="verticle_line"></div>    -->
+                            <h4>英國愛丁堡國際藝術節</h4>
+                            <h5>Edinburgh International Festiva</h5>
+                            <span>
+                                愛丁堡國際藝術節於每年八月在蘇格蘭首府愛丁堡舉辦，
+                                創辦於1947年，和愛丁堡國際藝穗節在同一時期舉辦，
+                                為世界歷史最悠久、規模最大的國際藝術節之一。
+                            </span>
+                        </div>
+                        <div class="index_world_Text Text_2">
+                            <!-- <div id="verticle_line_2"></div> -->
+                            <h4>加拿大魁北克冬季嘉年華</h4>
+                            <h5>Quebec Winter Carnival</h5>
+                            <span>
+                                魁北克冬季嘉年華在每年一月最後一星期的週五揭開序幕，
+                                活動持續三週，到二月中落幕。冬季嘉年華的活動十分豐富，
+                                攀登冰山、冰雕、遊行、獨木舟橫越聖羅倫斯河、音樂會、
+                                化裝舞會等等，讓冬季熱鬧到最高點。
+                            </span>
+                        </div>
+                        <div class="index_world_Text Text_3">
+                            <h4>日本大阪天神祭</h4>
+                            <h5>てんじんまつり</h5>
+                            <span>
+                                日本三大節慶活動之一，是世界上最大規模的水上慶典，
+                                神轎、小船、煙火交織而成的夢幻天神祭已有1千多年歷史，
+                                祭奉日本的學問與學習之神菅原道。
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6 index_map_col">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主題營 -->
+        <section class="index_slider">
+            <div class="index_slider_nav">
+                <i class="fas fa-arrow-right"></i>
+                <br>
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="index_slider_Title">
+                <h3>精選國家主題營</h3>
+                <span>
+                    主題型課程，有別於遊學團，切合當地特色活動並搭配各種專業的主題，
+                    讓孩子沈浸在自己的興趣中，加強專業領域的實際經驗，並且增強語言能力
+                </span>
+            </div>
+            <div class="swiper index_swiper">
+                <div class="index_slider_container swiper-wrapper">
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme1.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【加拿大-基洛納】</h3>
+                            <h4>滑雪冬令營</h4>
+                            <span>
+                                加拿大基洛納滑雪冬令營結合了英語學習與寒假假期，
+                                在加拿大海拔最高的滑雪度假勝地大白山滑雪，
+                                不管初學或進階者，都有合適的雪道。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html"><button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button></a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme2.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【法國-巴黎】</h3>
+                            <h4>時尚設計工作坊夏令營</h4>
+                            <span>
+                                踏訪蘊藏深邃歷史文化的時尚之都
+                                巴黎，從食衣住行育樂各方面開啟
+                                豐富的感官體驗。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme3.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【瑞士-日內瓦】</h3>
+                            <h4>阿爾卑斯山歡樂夏日營</h4>
+                            <span>
+                                夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），
+                                完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme4.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【德國-柏林】</h3>
+                            <h4>城市探索德語營</h4>
+                            <span>
+                                德語課程為初階至高階；營隊安排英語和德語輔導員，
+                                課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，
+                                更加安心以英語作為輔助來來溝通。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme1.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【加拿大-基洛納】</h3>
+                            <h4>滑雪冬令營</h4>
+                            <span>
+                                加拿大基洛納滑雪冬令營結合了英語學習與寒假假期，
+                                在加拿大海拔最高的滑雪度假勝地大白山滑雪，
+                                不管初學或進階者，都有合適的雪道。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme2.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【法國-巴黎】</h3>
+                            <h4>時尚設計工作坊夏令營</h4>
+                            <span>
+                                踏訪蘊藏深邃歷史文化的時尚之都
+                                巴黎，從食衣住行育樂各方面開啟
+                                豐富的感官體驗。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme3.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【瑞士-日內瓦】</h3>
+                            <h4>阿爾卑斯山歡樂夏日營</h4>
+                            <span>
+                                夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），
+                                完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme4.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【德國-柏林】</h3>
+                            <h4>城市探索德語營</h4>
+                            <span>
+                                德語課程為初階至高階；營隊安排英語和德語輔導員，
+                                課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，
+                                更加安心以英語作為輔助來來溝通。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme3.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【瑞士-日內瓦】</h3>
+                            <h4>阿爾卑斯山歡樂夏日營</h4>
+                            <span>
+                                夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），
+                                完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme4.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【德國-柏林】</h3>
+                            <h4>城市探索德語營</h4>
+                            <span>
+                                德語課程為初階至高階；營隊安排英語和德語輔導員，
+                                課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，
+                                更加安心以英語作為輔助來來溝通。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme1.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【加拿大-基洛納】</h3>
+                            <h4>滑雪冬令營</h4>
+                            <span>
+                                加拿大基洛納滑雪冬令營結合了英語學習與寒假假期，
+                                在加拿大海拔最高的滑雪度假勝地大白山滑雪，
+                                不管初學或進階者，都有合適的雪道。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider_item swiper-slide">
+                        <i class="fas fa-heart"></i>
+                        <img src="./images/index/theme2.png" alt="theme1">
+                        <div class="slider_item_Text">
+                            <h3>【法國-巴黎】</h3>
+                            <h4>時尚設計工作坊夏令營</h4>
+                            <span>
+                                踏訪蘊藏深邃歷史文化的時尚之都
+                                巴黎，從食衣住行育樂各方面開啟
+                                豐富的感官體驗。
+                            </span>
+                        </div>
+                        <div class="slider_item_el">
+                            <a href="./schedule.html">
+                                <button class="slider_item_btn">Learn more<i class="fas fa-arrow-right"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 啟發之旅 -->
+        <section class="index_theme">
+            <div class="container index_theme_container">
+                <div class="index_theme_Title">
+                    <h2>啟發之旅：探索孩子的未來發展潛能</h2>
+                </div>
+                <div class="row index_theme_row">
+                    <div class="col-6 index_theme_col col_order_2">
+                        <h3>探索在地大學城</h3>
+                        <span>
+                            每年暑期(六月下旬至八月底)享受美國頂尖私立國高中、
+                            大學名校為全球各地學生開設的專業學分課程、暑期課程或語言課程，
+                            提前進入美國一流名校體驗大學生活，感受海外留學生活，提升學生的綜合素質背景，
+                            為將來的留學生活做好充分的準備！
+                        </span>
+                    </div>
+                    <div class="col-6 index_theme_col col_order_1">
+                        <img src="./images/index/travel4.png" alt="">
+                    </div>
+                </div>
+                <div class="row index_theme_row">
+                    <div class="col-6 index_theme_col">
+                        <img src="./images/index/travel5.png" alt="">
+                    </div>
+                    <div class="col-6 index_theme_col theme_el_1">
+                        <h3>親子遊學夏令營</h3>
+                        <span>
+                            親子遊學，讓家長和孩子在暑假期間可以完美結合學習與家庭假期。
+                            孩子參加夏令營的時候，家長將參加成人英語課程，學校會提供完整的英語課程、
+                            各式的體育活動、藝術課程及其他多樣的文化課後活動。
+                        </span>
+                    </div>
+                </div>
+                <div class="row index_theme_row">
+                    <div class="col-6 index_theme_col col_order_2 theme_el_2">
+                        <h3>探索未來職涯與興趣</h3>
+                        <span>
+                            提供五種選修課程：醫學、商業財務、工程、媒體與溝通、電腦科學，
+                            課程分為理論、實作、參訪三部分，並以小組合作完成專案報告。
+                            鼓勵學生透過認識新朋友、課後社交活動，降低學生對於新環境的焦慮，在團體活動中得到自我肯定、
+                            建立使用英語溝通和學習專業科目的自信心、加強交際能力。
+                        </span>
+                    </div>
+                    <div class="col-6 index_theme_col col_order_1">
+                        <img src="./images/index/travel6.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 靈感 -->
+        <article class="index_ideas">
+            <div class="index_ideas_Banner">
+                <h4>不確定自己適合什麼課程 ?</h4>
+                <div id="svgContainer"></div>
+                <div class="index_ideas_Text">
+                    <h3>不確定自己適合什麼課程 ?</h3>
+                    <span>透過互動問答，快速為您推薦最適合的課程</span>
+                    <a href="./ideas.html">
+                        <button>前往探索<i class="fas fa-arrow-right"></i></button>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- 最新消息 -->
+        <section class="index_news">
+            <div class="index_news_container container">
+                <h2>最新消息</h2>
+                <div class="row index_news_row">
+                    <div class="col-3 index_news_col">
+                        <p>2021.12.01</p>
+                        <div class="index_news_item">
+                            <img src="./images/index/news1.png" alt="">
+                            <div class="index_news_Text">
+                                <h4>NEWS</h4>
+                                <span class="Text_len">
+                                    LAX 的全球入境登記中心今天重新開放，自 2022 年 1 月 15 日起，
+                                    年滿 18 歲的國際學生只有在完整接種了認可的疫苗後才能入境。
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 index_news_col">
+                        <p>2021.11.30</p>
+                        <div class="index_news_item">
+                            <img src="./images/index/news2.png" alt="">
+                            <div class="index_news_Text">
+                                <h4>NEWS</h4>
+                                <span class="Text_len">
+                                    2022冬令營即日起開放報名，享早鳥報名優惠，興趣還不明確的孩子，透過各式活動培養興趣，探索未來
+                                    豐富課程與有趣多樣的課後活動，加速與深化學習成效。
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 index_news_col">
+                        <p>2021.11.25</p>
+                        <div class="index_news_item">
+                            <img src="./images/index/news3.png" alt="">
+                            <div class="index_news_Text">
+                                <h4>NEWS</h4>
+                                <span class="Text_len">
+                                    加拿大要求所有航空旅客全面接種疫苗，國際學生必須在進入加拿大前至少 14 天接受加拿大政府接受的全系列疫苗或混合疫苗。
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 index_news_col">
+                        <p>2021.11.03</p>
+                        <div class="index_news_item">
+                            <img src="./images/index/news4.png" alt="">
+                            <div class="index_news_Text">
+                                <h4>NEWS</h4>
+                                <span class="Text_len">
+                                    東倫敦最新的街頭藝術，在倫敦只待一個週末是不夠的，
+                                    特別是你不僅僅只打算要看經典的倫敦”必看”的景點，
+                                    還希望看到一個不尋常的倫敦或發現一些不同有趣的事物。
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="index_news_mobile">
+                <h4>NEWS</h4>
+                <h5 class="Text">
+                    LAX 的全球入境登記中心今天重新開放，自 2022 年 1 月 15 日起，
+                    年滿 18 歲的國際學生只有在完整接種了認可的疫苗後才能入境。
+                </h5>
+                <h5 class="Text">
+                    2022冬令營即日起開放報名，享早鳥報名優惠，興趣還不明確的孩子，透過各式活動培養興趣，探索未來
+                    豐富課程與有趣多樣的課後活動，加速與深化學習成效。
+                </h5>
+                <h5 class="Text">
+                    加拿大要求所有航空旅客全面接種疫苗，國際學生必須在進入加拿大前至少 14 天接受加拿大政府接受的全系列疫苗或混合疫苗。
+                </h5>
+                <h5 class="Text">
+                    東倫敦最新的街頭藝術，迄今為止倫敦最大的公共藝術品之一，在倫敦只待一個週末是不夠的，
+                    特別是你不僅僅只打算要看經典的倫敦”必看”的景點，還希望看到一個不尋常的倫敦或發現一些不同有趣的事物。
+                </h5>
+            </div>
+        </section>
+
+        <!-- 學員好評 -->
+        <section class="index_message">
+            <div class="index_message_container container">
+                <h2>學員好評</h2>
+                <h3>CAMPION是您的海外夏/冬令營、主題課程最佳選擇</h3>
+                <div class="row index_message_row">
+                    <div class="col-6 index_message_col">
+                        <div class="index_message_item">
+                            <div class="index_message_item_Name">
+                                <img src="./images/index/student1.png" alt="">
+                                <h4>Sharon Chang</h4>
+                            </div>
+                            <div class="index_message_item_Text">
+                                <span>
+                                    夏令營對我收穫最大的，就是有機會以英文對話了，
+                                    這個機會促使我以往不敢和外國人對話的勇氣得以出現，
+                                    「沒有做不到，只有是否肯去嘗試」。
+                                </span>
+                            </div>
+                        </div>
+                        <div class="index_message_item">
+                            <div class="index_message_item_Name">
+                                <img src="./images/index/student2.png" alt="">
+                                <h4>Tina Lai</h4>
+                            </div>
+                            <div class="index_message_item_Text item_Text_el">
+                                <span>
+                                    我是個不算被家長嬌慣的孩子。從小到大，很多家務事我都會做，
+                                    但獨自出國生活後我發現，自立不是那麼簡單的，想讓自己的生活過得順利，
+                                    就得將很多事情安排妥當，感謝團隊中的大家，給我最大的支援。
+                                </span>
+                            </div>
+                        </div>
+                        <div class="index_message_item">
+                            <div class="index_message_item_Name">
+                                <img src="./images/index/student4.png" alt="">
+                                <h4>Craig Wu</h4>
+                            </div>
+                            <div class="index_message_item_Text">
+                                <span>
+                                    我通常被認為是一個害羞的人，但是我認為透過這個活動能令我更加積極外向。
+                                    共同相處的時光雖然短暫，我卻得到了許多的經驗，我希望在未來能善加利用這些經驗。
+                                    謝謝CAMPION讓我參與其中，如果有可能的話，我希望還能再次參加。 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 index_message_col">
+                        <div class="index_message_item">
+                            <div class="index_message_item_Name">
+                                <img src="./images/index/student3.png" alt="">
+                                <h4>Ashley Lin</h4>
+                            </div>
+                            <div class="index_message_item_Text item_Text_el">
+                                <span>
+                                    在課程中大家分工合作，彼此討論，交換想法與心得，並檢討優缺點，
+                                    使得營隊在進行時能夠將失誤降到最低。與不同人相處過程中的摩擦碰撞，
+                                    也使我們學習接納容忍，並改進自己的缺點，成為更好的人。許多突發狀況，
+                                    更令我深切體認到隨機應變的重要順利的突破了一項項的難關。
+                                </span>
+                            </div>
+                        </div>
+                        <div class="index_message_banner">
+                            <div class="index_message_img">
+                                <img src="./images/index/bk1.png" alt="">
+                                <img src="./images/index/bk3.png" alt="">
+                            </div>
+                            <div class="index_message_img">
+                                <img src="./images/index/bk2.png" alt="">
+                                <img src="./images/index/bk4.png" alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <a href="./summer_camp.html">
+                <button class="index_travel_btn">立即展開旅程</button>
+            </a>
+            <div id="index_travel_svg"></div>
+        </section>
+    </main>
+
+
+    <script>
+        AOS.init();
+
+        let swiper = new Swiper(".index_swiper", {
+            setWrapperSize: true,
+            slidesPerView: 4,
+            spaceBetween: 30,
+            // centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+        
+    </script>
 </body>
 </html>

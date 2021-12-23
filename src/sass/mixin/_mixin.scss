@@ -10,7 +10,7 @@
 }
 
 // 水平垂直置中
-@mixin flexcenter {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
