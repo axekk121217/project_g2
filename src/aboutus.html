@@ -10,6 +10,7 @@
       src="https://kit.fontawesome.com/8c41348ce8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   </head>
   <body>
     @@include('./layout/header.html')
@@ -98,11 +99,21 @@
     <div class="aboutus_service_container">
       <p class="aboutus_service_title">Campion 服務</p>
       <div class="aboutus_step">
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
+        <a href="#" data-target="tab1" class="tab aboutus-on"
+          ><p>1</p>
+          特色行程</a
+        >
+        <a href="#" data-target="tab2" class="tab"
+          ><p>2</p>
+          專業諮詢</a
+        >
+        <a href="#" data-target="tab3" class="tab"
+          ><p>3</p>
+          後援服務</a
+        >
       </div>
-      <div class="aboutus_service_content">
+
+      <div class="aboutus_service_content tab tab1 aboutus-on">
         <div class="aboutus_service_left">
           <p>特色行程規劃</p>
           <p>
@@ -111,6 +122,30 @@
         </div>
         <div class="aboutus_container_right">
           <img src="./images/aboutus/picture03.png" />
+        </div>
+      </div>
+
+      <div class="aboutus_service_content tab tab2">
+        <div class="aboutus_service_left">
+          <p>一對一專業諮詢</p>
+          <p>
+            親切專業一對一諮詢服務並提供留學/遊學定型化標準合約，讓您的權益有保障，諮詢後顧問會針對學生需求把在當地會需要的所有費用列出，讓學生在出發前能做好安排也有心理準備，讓每個來任何國家的學員能有更完善的服務和美好的遊學回憶，讓台灣的家人能放心，這是我們最大的目標。
+          </p>
+        </div>
+        <div class="aboutus_container_right">
+          <img src="./images/aboutus/consult.png" />
+        </div>
+      </div>
+
+      <div class="aboutus_service_content tab tab3">
+        <div class="aboutus_service_left">
+          <p>全程後援服務</p>
+          <p>
+            我們在各個地點城市多倫多/溫哥華/卡加利/維多利亞/蒙特婁/愛爾蘭設置駐點人員協助當地生活事務，當地生活不擔心，也安排了在當地遊學的舊生，帶著新同學開戶辦手機、認識國外的環境，期待同學們都可以快速進入狀態。
+          </p>
+        </div>
+        <div class="aboutus_container_right">
+          <img src="./images/aboutus/support.png" />
         </div>
       </div>
     </div>
@@ -167,6 +202,20 @@
     </div>
     @@include('./layout/footer.html')
 
-    <script></script>
+    <script>
+      // 問題類型切換
+      $("a.tab").on("click", function (e) {
+        e.preventDefault();
+        console.log("test");
+
+        /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
+        $(this).closest(".aboutus_step").find("a.tab").removeClass("aboutus-on");
+        $(this).addClass("aboutus-on");
+
+        /* 找到對應的頁籤內容，加上 -on 來顯示 */
+        $("div.tab").removeClass("aboutus-on");
+        $("div.tab." + $(this).attr("data-target")).addClass("aboutus-on");
+      });
+    </script>
   </body>
 </html>
