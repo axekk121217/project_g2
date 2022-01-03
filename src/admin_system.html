@@ -9,6 +9,8 @@
       src="https://kit.fontawesome.com/8c41348ce8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
     <title>會員管理</title>
   </head>
   <body>
@@ -20,9 +22,14 @@
             <p>CAMPION後臺管理系統</p>
           </div>
           <div class="admin_header_btn">
-            <a href="./admin.html">
-              <button class="admin_btn_signOut">登出</button>
-            </a>
+            <!-- <button class="admin_btn_signOut">登出</button> -->
+            <td align="right">
+              <input
+                type="button"
+                value="帳號登出"
+                onclick="javascript: location.href = './admin.html';"
+              />
+            </td>
           </div>
         </div>
 
@@ -65,7 +72,6 @@
                     <th scope="col">會員編號</th>
                     <th scope="col">會員姓名</th>
                     <th scope="col">性別</th>
-                    <th scope="col">生日</th>
                     <th scope="col">會員帳號</th>
                     <th scope="col">聯絡電話</th>
                     <th scope="col">註冊日期</th>
@@ -77,98 +83,1050 @@
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">438115684</th>
                     <td>王大明</td>
                     <td>男</td>
-                    <td>1994-12-16</td>
                     <td>mingwang@gmail.com</td>
                     <td>0912345678</td>
                     <td>2021-12-12</td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         編輯&nbsp;&frasl;&nbsp;查看
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_order_header">
+                              <h5
+                                class="modal-title admin_order_title"
+                                id="staticBackdropLabel"
+                              >
+                                編輯&nbsp;&frasl;&nbsp;查看
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員編號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員姓名</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >性別</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >會員帳號</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >聯絡電話</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >註冊日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >帳號狀態</label
+                                    >
+                                    <select
+                                      class="form-select"
+                                      id="inputGroupSelect01"
+                                    >
+                                      <option selected>選擇帳號狀態</option>
+                                      <option value="1">正常</option>
+                                      <option value="2">停權</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button type="button" class="btn">儲存</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>

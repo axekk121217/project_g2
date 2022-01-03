@@ -9,6 +9,7 @@
       src="https://kit.fontawesome.com/8c41348ce8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <title>評論管理</title>
   </head>
   <body>
@@ -56,7 +57,7 @@
                 <button class="admin_search-btn">
                   <i class="fas fa-search admin_search_icon"></i>
                 </button>
-              </div> 
+              </div>
             </div>
             <div class="admin_main_content">
               <table class="table table-hover">
@@ -65,7 +66,7 @@
                     <th scope="col">發佈日期</th>
                     <th scope="col">會員編號</th>
                     <th scope="col">評論編號</th>
-                    <th scope="col">行程編號</th>
+                    <th scope="col">訂單編號</th>
                     <th scope="col">給予星數</th>
                     <th scope="col"></th>
                   </tr>
@@ -83,9 +84,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -100,9 +198,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -117,9 +312,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -134,9 +426,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -151,9 +540,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -168,9 +654,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -185,9 +768,106 @@
                       ><i class="fas fa-star admin_review_start"></i>
                     </td>
                     <td>
-                      <button class="admin_order_btn">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn admin_order_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
                         內容查看&nbsp;&frasl;&nbsp;隱藏
                       </button>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header admin_commodity_header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                內容查看&nbsp;&frasl;&nbsp;隱藏
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="admin_order_edit">
+                                <div class="admin_edit_main">
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >行程名稱</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label
+                                      class="input-group-text"
+                                      for="inputGroupSelect01"
+                                      >發佈日期</label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control admin_commodity_focus"
+                                      aria-label="Text input with segmented dropdown button"
+                                    />
+                                  </div>
+                                  <div class="mb-3">
+                                    <label
+                                      class="
+                                        input-group-text
+                                        admin_commodity_text
+                                      "
+                                      for="inputGroupSelect01"
+                                      >文案內容</label
+                                    >
+                                    <textarea
+                                      class="
+                                        form-control
+                                        admin_commodity_textarea
+                                      "
+                                      id="exampleFormControlTextarea1"
+                                      rows="3"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                                data-bs-dismiss="modal"
+                              >
+                                關閉
+                              </button>
+                              <button
+                                type="button"
+                                class="btn admin_commodity_btn"
+                              >
+                                隱藏
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>

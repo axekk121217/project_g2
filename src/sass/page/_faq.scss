@@ -100,7 +100,6 @@ ul.menu a li#h_page_active6{
 }
 
 .left_container ul li:hover {
-  background-color: $color_primary_sub;
   cursor: pointer;
 }
 
@@ -130,7 +129,6 @@ ul.menu a li#h_page_active6{
 }
 
 .left_container_rwd ul li:hover {
-  background-color: $color_primary_sub;
   cursor: pointer;
 }
 
@@ -186,6 +184,9 @@ ul.menu a li#h_page_active6{
   display: block !important;
 }
 
+.hight-light{
+  background-color: $color_primary_sub;
+}
 //faq CLICK保留樣式
 .faq_container .left_container ul > li > a.qa-on {
   background-color: $color_primary_sub;
