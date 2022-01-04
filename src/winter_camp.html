@@ -7,8 +7,33 @@
 @@include('./layout/chat.html')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script>
+      function init(){
+        showMember();
+      }
+      
+     
+      // 顯示會員資訊
+      function showMember() {
+        $.ajax({
+          method: "POST",
+          url: "./Frontend/Member.php",
+          data: {},
+          dataType: "text",
+          success: function (response) {
+            $('.guest_icon').css('display', 'none');
+            $('.icon_create').after(response);
+          },
+          error: function (exception) {
+            alert("數據載入失敗: " + exception.status);
+          },
+        });
+      }
+      // 顯示會員資訊結束
+      
+    </script>
 </head>
-<body>
+<body onload="init()">
     @@include('./layout/header.html')
     <!-- summer-image -->
     <div class="bannerr-winter">

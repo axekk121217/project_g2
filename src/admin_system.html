@@ -10,6 +10,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue.min.js"></script>
 
     <title>會員管理</title>
   </head>
@@ -1133,7 +1135,7 @@
               </table>
             </div>
 
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -1151,10 +1153,32 @@
                   </li>
                 </ul>
               </nav>
+            </div> -->
+
+            <div class="d-flex justify-content-end">
+              <div id="app">
+                <ul class="pagination">
+                  <li class="page-item" @click.prevent>
+                    <a class="page-link" href>&laquo;</a>
+                  </li>
+                  <li class="page-item" v-for="page in 5" @click.prevent>
+                    <a class="page-link" href>{{ page }}</a>
+                  </li>
+                  <li class="page-item" @click.prevent>
+                    <a class="page-link" href>&raquo;</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+      });
+    </script>
   </body>
 </html>
