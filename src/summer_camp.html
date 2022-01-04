@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-@@include('./layout/meta.html', {
-  "title" : "summer_camp" 
-}) 
-@@include('./layout/chat.html')
+  <head>
+    @@include('./layout/meta.html', { "title" : "夏令營 Summer Camp" })
+    @@include('./layout/chat.html')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+    <script src="./js/vue.js"></script>
     <script>
       function init(){
         showMember();
@@ -38,456 +36,627 @@
     @@include('./layout/header.html')
     <!-- summer-image -->
     <div class="change-baner bannerr -onn">
-        <div class="scope">
-            <div class="summercamp">
-                <span class="summercamp-summer">夏令營</span>              
-                <br>
-                <span class="summercamp-camp">CAMP</span>
-            </div>
-            <div class="bg-gray">
-                <span class="bg-text">選擇 Campion 海外夏令營，度過一個開心而又有教育意義的暑假。<br>
-                提前讓孩子體驗異國生活，培養獨立性，同時建立文化交流的視野，<br>
-                看待世界的眼光更加寬廣！
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <!-- <div class="change-baner bannerr-winter">
       <div class="scope">
-          <div class="wintercamp">
-              <span class="wintercamp-winter">冬令營</span>              
-              <br>
-              <span class="wintercamp-camp">CAMP</span>
-          </div>
-          <div class="bg-gray">
-              <span class="bg-text">
-                  充分運用寒假的時間，讓孩子換個地方體驗生活，在最適合的環境學習<br>一門新的語言，與外國朋友和寄宿家庭相互溝通，累積成長過程中的適<br>應及應變能力。一切充滿可能！
-              </span>
-          </div>
+        <div class="summercamp">
+          <span class="summercamp-summer">夏令營</span>
+          <br />
+          <span class="summercamp-camp">CAMP</span>
+        </div>
+        <div class="bg-gray">
+          <span class="bg-text"
+            >選擇 Campion 海外夏令營，度過一個開心而又有教育意義的暑假。<br />
+            提前讓孩子體驗異國生活，培養獨立性，同時建立文化交流的視野，<br />
+            看待世界的眼光更加寬廣！
+          </span>
+        </div>
       </div>
-    </div> -->
-
-
+    </div>
 
     <!-- 內容 -->
     <div class="container-fluid">
-        <div class="row justify-content-center">
-
-            <div class="col-md-3 col3-aside"> <!-- aside --> 
-              <div class="camp_two">
-                <a href="./summer_camp.html">
-                  <div class="camp-sw sum">夏令營 <img class="arr_icon img_1" src="./images/summer_camp/akar-icons_chevron-right.png"></div>
-                </a>
-                <a href="./winter_camp.html">
-                  <div class="camp-sw win">冬令營 <img class="arr_icon img_2" src="./images/summer_camp/akar-icons_chevron-right_1.png"></div>
-                </a>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col3-aside">
+          <!-- aside -->
+          <div class="camp_two">
+            <!-- <a href="./summer_camp.html"> -->
+            <div class="camp-sw sum camp-sw-now">夏令營</div>
+            <!-- </a> -->
+            <a href="./winter_camp.html">
+              <div class="camp-sw win">
+                冬令營
+                <img
+                  class="arr_icon img_2"
+                  src="./images/summer_camp/akar-icons_chevron-right.png"
+                />
               </div>
-              <div class="find-trip">Find a Trip!</div>
-              <hr style="border: 0.5px solid #00000000;">
+            </a>
+          </div>
+          <div class="find-trip">Find a Trip!</div>
+          <hr style="border: 0.5px solid #00000000" />
 
-              <!-- 國家 -->
-              <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                      國家
-                    </button>
-                  </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-
-                      <!-- 選單 -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          美國
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          英國
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          加拿大
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          法國
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          德國
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          澳洲
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          紐西蘭
-                        </label>
-                      </div>
-                    </div>
+          <!-- 國家 -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  國家
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <!-- 選單 -->
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      美國
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                      英國
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      加拿大
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      法國
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      德國
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      澳洲
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      紐西蘭
+                    </label>
                   </div>
                 </div>
-
-                 <!-- 城市 -->
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      城市
-                    </button>
-                  </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                      
-                      <!-- 選單 -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          紐約
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          洛杉磯
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          舊金山
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          巴黎
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          倫敦
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          溫哥華
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          多倫多
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          柏林
-                        </label>
-                      </div>
-                    
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 主題 -->
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      主題
-                    </button>
-                  </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-
-                      <!-- 選單 -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          運動
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          電影
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          設計
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          科學
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          設計
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          語言
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          程式
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          自然
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          音樂
-                        </label>
-                      </div>                     
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 年齡 -->
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapsFour">
-                      年齡
-                    </button>
-                  </h2>
-                  <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-
-                      <!-- 選單 -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          10-12歲
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          13-15歲
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          16-18歲
-                        </label>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                  
               </div>
             </div>
 
-
-            <div class="col-9 change-page"> <!-- main -->
-                <div class="row justify-content-evenly" align-items-start>
-                    <a href="./schedule.html">
-                      <div class="card" style="width: 18rem;">
-                          <img src="./images/summer_camp/Rectangle 90.png" class="card-img-top">
-                          <div class="card-body">
-                            <h5 class="card-title">【法國-巴黎】<br>時尚設計工作坊夏令營</h5>
-                            <hr style="border: 0.5px solid #000000;">
-                            <p class="card-text">踏訪蘊藏深邃歷史文化的時尚之都
-                              巴黎，從食衣住行育樂各方面開啟
-                              豐富的感官體驗。</p>
-                            <a href="./schedule.html" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                          </div>
-                      </div>
-                    </a> 
-    
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/unsplash_E-_I18oX5NQ.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【瑞士-日內瓦】<br>阿爾卑斯山歡樂夏日營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/unsplash_E-_I18oX5NQ1.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【德國-柏林】<br>城市探索德語營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">德語課程為初階至高階；營隊安排英語和德語輔導員，課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，更加安心以英語作為輔助來來溝通。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-    
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 219.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【美國-洛杉磯】<br>微電影創作營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。</p>                          
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 217.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【英國-曼徹斯特】<br>英超曼城足球營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">喜愛英式足球的孩子，透過專業足球課程體驗足球員的日常生活。包括體能鍛鍊、營養規劃、賽况分析，體驗足球的多樣性。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 221.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【英國-牛津】<br>應用科學營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">使用最新的實驗室設備，並選定的領域計畫執行科學實驗，課程中也將安排劍橋大學科學家分享研究及討論如何成為科學家，激勵孩子向上的心。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 137.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【美國-舊金山】<br>矽谷科技創業營</h5>
-                          <hr style="border: 0.5px solid #000000;">
-                          <p class="card-text">聚焦時事和科技對社會的影響，選取具有影響力的創業家或公司作個案研究，幫助孩子對未來職涯能更加具體地描繪。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 210.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【美國-紐約】<br>運動文化夏令營</h5>
-                          <hr style="border: 0.5px solid hsl(0, 0%, 0%);">
-                          <p class="card-text">從美國運動介紹、探討運動經濟商機和運動商品商標及著名球場幕後直擊，深入的解析與認識美國運動文化。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/unsplash_E-_I18oX5NQ2.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【美國-紐約】<br>百老匯表演藝術營</h5>
-                          <hr style="border: 0.5px solid hsl(0, 0%, 0%);">
-                          <p class="card-text">透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 261.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【美國-加州長堤】<br>陽光衝浪營</h5>
-                          <hr style="border: 0.5px solid hsl(0, 0%, 0%);">
-                          <p class="card-text">在長堤陽光普照的海濱度假勝地，學習衝浪策略以及水上安全培訓，接受完整的英語語言理論和實踐課程。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/Rectangle 262.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【英國-倫敦】<br>明日之星音樂營</h5>
-                          <hr style="border: 0.5px solid hsl(0, 0%, 0%);">
-                          <p class="card-text">在專業導師的帶領下，每天進行音樂表演，發展成為音樂巨星所需要的能力。在準備最後演出時，您將在教室和工作室中提高音樂才能。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/summer_camp/unsplash_E-_I18oX5NQ3.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">【加拿大-多倫多】<br>多倫多大學全球領袖營</h5>
-                          <hr style="border: 0.5px solid hsl(0, 0%, 0%);">
-                          <p class="card-text">透過學習領袖、溝通、問題解決等技巧，以及專長工作坊、社群時間、專案規劃，讓孩子培養批判思考、個人發展及價值探索和寶貴的團隊合作技巧。</p>
-                          <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="button">SHOW MORE</button>
-
-
+            <!-- 城市 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo"
+                >
+                  城市
+                </button>
+              </h2>
+              <div
+                id="flush-collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <!-- 選單 -->
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      紐約
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                      洛杉磯
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      舊金山
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      巴黎
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      倫敦
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      溫哥華
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      多倫多
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      柏林
+                    </label>
+                  </div>
                 </div>
+              </div>
             </div>
+
+            <!-- 主題 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseThree"
+                >
+                  主題
+                </button>
+              </h2>
+              <div
+                id="flush-collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingThree"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <!-- 選單 -->
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      運動
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                      電影
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      設計
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      科學
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      設計
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      語言
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      程式
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      自然
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      音樂
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 年齡 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseFour"
+                  aria-expanded="false"
+                  aria-controls="flush-collapsFour"
+                >
+                  年齡
+                </button>
+              </h2>
+              <div
+                id="flush-collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingFour"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <!-- 選單 -->
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      10-12歲
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                      13-15歲
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      16-18歲
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="col-md-9 col-sm-12 change-page">
+          <!-- main -->
+          <div id="app">
+            <card></card>
+          </div>
+          <div class="row btn_show_more">
+            <button type="submit" class="button showMore">SHOW MORE</button>
+          </div>
+        </div>
+      </div>
     </div>
-        
 
     @@include('./layout/footer.html')
 
-<<<<<<< HEAD
-   <!-- <script>
-      let changeBaner = document.querySelectorAll("div.change-baner");
-      // console.log(changeBaner);
-      let camp = document.querySelectorAll("div.camp-sw");
-      // console.log(camp);
-      for(let i = 0; i < camp.length; i++){
-        // console.log(camp[i]);
-        camp[i].addEventListener("click", function(){
-          // console.log("1");
-          for(let j = 0; j < changeBaner.length; j++){
-            changeBaner[j].classList.remove("-onn");
-          }
-          changeBaner[i].classList.add("-onn");
-        });
-      }
-   </script> -->
-=======
-   <script>
+    <script>
+      Vue.component("card", {
+        data() {
+          return {
+            items: [
+              {
+                imgUrl: "./images/summer_camp/Rectangle 90.png",
+                loc: "【法國-巴黎】",
+                cardTitle: "時尚設計工作坊夏令營",
+                cardText:
+                  "踏訪蘊藏深邃歷史文化的時尚之都巴黎，從食衣住行育樂各方面開啟豐富的感官體驗。",
+              },
+              {
+                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ.png",
+                loc: "【瑞士-日內瓦】",
+                cardTitle: "阿爾卑斯山歡樂夏日營",
+                cardText:
+                  "夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。",
+              },
+              {
+                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ1.png",
+                loc: "【德國-柏林】",
+                cardTitle: "城市探索德語營",
+                cardText:
+                  "德語課程為初階至高階；營隊安排英語和德語輔導員，課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，更加安心以英語作為輔助來來溝通。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 219.png",
+                loc: "【美國-洛杉磯】",
+                cardTitle: "微電影創作營",
+                cardText:
+                  "我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 217.png",
+                loc: "【英國-曼徹斯特】",
+                cardTitle: "英超曼城足球營",
+                cardText:
+                  "喜愛英式足球的孩子，透過專業足球課程體驗足球員的日常生活。包括體能鍛鍊、營養規劃、賽况分析，體驗足球的多樣性。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 221.png",
+                loc: "【英國-牛津】",
+                cardTitle: "應用科學營",
+                cardText:
+                  "使用最新的實驗室設備，並選定的領域計畫執行科學實驗，課程中也將安排劍橋大學科學家分享研究及討論如何成為科學家，激勵孩子向上的心。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 137.png",
+                loc: "【美國-舊金山】",
+                cardTitle: "矽谷科技創業營",
+                cardText:
+                  "聚焦時事和科技對社會的影響，選取具有影響力的創業家或公司作個案研究，幫助孩子對未來職涯能更加具體地描繪。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 210.png",
+                loc: "【美國-紐約】",
+                cardTitle: "運動文化夏令營",
+                cardText:
+                  "從美國運動介紹、探討運動經濟商機和運動商品商標及著名球場幕後直擊，深入的解析與認識美國運動文化。",
+              },
+              {
+                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ2.png",
+                loc: "【美國-紐約】",
+                cardTitle: "百老匯表演藝術營",
+                cardText:
+                  "透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 261.png",
+                loc: "【美國-加州長堤】",
+                cardTitle: "陽光衝浪營",
+                cardText:
+                  "在長堤陽光普照的海濱度假勝地，學習衝浪策略以及水上安全培訓，接受完整的英語語言理論和實踐課程。",
+              },
+              {
+                imgUrl: "./images/summer_camp/Rectangle 262.png",
+                loc: "【英國-倫敦】",
+                cardTitle: "明日之星音樂營",
+                cardText:
+                  "在專業導師的帶領下，每天進行音樂表演，發展成為音樂巨星所需要的能力。在準備最後演出時，您將在教室和工作室中提高音樂才能。",
+              },
+              {
+                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ3.png",
+                loc: "【加拿大-多倫多】",
+                cardTitle: "多倫多大學全球領袖營",
+                cardText:
+                  "透過學習領袖、溝通、問題解決等技巧，以及專長工作坊、社群時間、專案規劃，讓孩子培養批判思考、個人發展及價值探索和寶貴的團隊合作技巧。",
+              },
+            ],
+          };
+        },
+        template: `
+          <div class="row justify-content-center" align-items-start>
+            <div v-for="item in items" class="card" style="width: 18rem">
+              <i class="fas fa-heart"></i>
+              <a href="./schedule.html">
+                <img
+                  :src= "item.imgUrl"
+                  class="card-img-top"/>
+                <div class="card-body">
+                  <h5 class="card-title">
+                  {{item.loc}}<br>
+                  {{item.cardTitle}}
+                  </h5>
+                  <hr style="border: 0.5px solid #000000" />
+                  <p class="card-text">
+                  {{item.cardText}}
+                  </p>
+                  <a href="./schedule.html" class="a">
+                    Learn more 
+                    <img src="./images/summer_camp/icon.png"/>
+                  </a>
+                </div>
+              </a>
+            </div>
+          </div>
+          `,
+      });
+
+      // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
+      // Vue2 template 一定要記得寫根節點！ <div></div>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          // new Vue 的 data 是物件
+        },
+        computed: {},
+        methods: {},
+      });
+
+      // ---- 文字省略 (...) ----
+      let len = 55; // 超過n個字以"..."取代
+      $(".card-text").each(function (i) {
+        if ($(this).text().length > len) {
+          $(this).attr("title", $(this).text());
+          let text =
+            $(this)
+              .text()
+              .substring(0, len - 1) + "...";
+          $(this).text(text);
+        }
+      });
+
+      // 點擊 show more 展開更多
+      $(".showMore").click(function () {
+        $("#app").toggleClass("-open");
+        $(".showMore").addClass("-off");
+      });
+
+      // ===========================
       // 設定當前頁面 css：桌機版 header
       let page = document.getElementsByClassName("header_pg");
-        for(let i = 0; i < (page.length); i++){
-            if(page[i].id !== "page_active2"){
-                page[i].removeAttribute('id');
-            }
+      for (let i = 0; i < page.length; i++) {
+        if (page[i].id !== "page_active2") {
+          page[i].removeAttribute("id");
         }
+      }
       // 設定當前頁面 css：漢堡選單
       let ham_page = document.getElementsByClassName("ham_pg");
-      for(let i = 0; i < (ham_page.length); i++){
-          if(ham_page[i].id !== "h_page_active2"){
-              ham_page[i].removeAttribute('id');
-          }
+      for (let i = 0; i < ham_page.length; i++) {
+        if (ham_page[i].id !== "h_page_active2") {
+          ham_page[i].removeAttribute("id");
+        }
       }
-      
-   </script>
->>>>>>> 537cb8ec17cf805968a6d487c8fc3c37ce7269c6
-</body>
+    </script>
+  </body>
 </html>
