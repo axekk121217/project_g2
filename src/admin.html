@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>後臺管理系統</title>
-  </head>
 
-  <body>
-    <div class="admin">
-      <div class="admin_logo_header">
-        <img src="./images/admin/logo.png" />
-      </div>
-      <div class="admin_AI"><p>後臺管理系統</p></div>
+<head>
+	@@include('./layout/meta.html', {
+	"title" : "後臺管理系統"
+	})
+	<script src="./js/vue.js"></script>
+</head>
 
-      <form class="admin_AI" action="./backend/Login.php" method="post">
-        <div class="admin_AI_account">
-          <label for="admin_account">帳號</label>
-          <input
-            type="text"
-            id="account"
-            name="account"
-            placeholder="請輸入帳號"
-          />
-        </div>
+<body>
+	<div class="admin">
+		<div class="admin_logo_header">
+			<img src="./images/admin/logo.png" />
+		</div>
+		<div class="admin_AI">
+			<p>後臺管理系統</p>
+		</div>
 
-        <br />
+		<form class="admin_AI" action="./backend/Login.php" method="post">
+			<div class="admin_AI_account">
+				<label for="admin_account">帳號</label>
+				<input type="text" id="account" name="account" placeholder="請輸入帳號" />
+			</div>
 
-        <div class="admin_AI_password">
-          <label for="admin_password">密碼</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="請輸入密碼"
-          />
-        </div>
+			<br />
 
-        <br />
+			<div class="admin_AI_password">
+				<label for="admin_password">密碼</label>
+				<input type="password" id="password" name="password" placeholder="請輸入密碼" />
+			</div>
 
-        <div class="admin_AI_login">
-          <button class="admin_btn_login" onclick="return doSubmit()">登入</button>
+			<br />
 
-        </div>
-      </form>
+			<div class="admin_AI_login">
+				<button class="admin_btn_login" onclick="return doSubmit()">登入</button>
 
-      <div class="admin_AI_forget">
-        <p>忘記帳號&nbsp;&frasl;&nbsp;密碼 &nbsp;請洽工程師</p>
-      </div>
-    </div>
+			</div>
+		</form>
 
-    <script type="text/javascript">
-      function doSubmit() {
-        if (document.getElementById("ACCOUNT").value == "") {
-          alert("請填寫[帳號]");
-          return false;
-        }
-        if (document.getElementById("PASSWORD").value == "") {
-          alert("請填寫[密碼]");
-          return false;
-        }
-      }
-    </script>
-  </body>
+		<div class="admin_AI_forget">
+			<p>忘記帳號&nbsp;&frasl;&nbsp;密碼 &nbsp;請洽工程師</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function doSubmit() {
+			if (document.getElementById("account").value == "") {
+				alert("請填寫[帳號]");
+				return false;
+			}
+			if (document.getElementById("password").value == "") {
+				alert("請填寫[密碼]");
+				return false;
+			}
+		}
+	</script>
+</body>
+
 </html>

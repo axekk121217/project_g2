@@ -15,36 +15,36 @@
             <form action="#" method="post">
                 <label>會員帳號</label>
                 <br>
-                <input type="text" placeholder="請輸入您的Email" size="40">
+                <input type="text" placeholder="請輸入您的Email" size="40" name="account">
                 <br>
                 <label>設定會員密碼</label>
                 <br>
-                <input type="password" placeholder="請輸入您的密碼" size="40">
+                <input type="password" placeholder="請輸入您的密碼" size="40" name="password">
                 <br>
                 <label>再次確認會員密碼</label>
                 <br>
-                <input type="password" placeholder="請再次輸入密碼" size="40">
+                <input type="password" placeholder="請再次輸入密碼" size="40" name="password">
                 <br>
                 <label>會員姓名</label>
                 <br>
-                <input type="text" placeholder="請輸入您的姓名" size="40">
+                <input type="text" placeholder="請輸入您的姓名" size="40" name="memberName">
                 <br>
                 <label>性別</label>
                 <br>
                 <div class="memberSignIn_gender">
-                    <input type="radio" name="member_gender" id="member_first">
+                    <input type="radio" name="member_gender" id="member_first" value="male">
                     <label for="member_first">男性</label>
-                    <input type="radio" name="member_gender" id="member_second">
+                    <input type="radio" name="member_gender" id="member_second" value="female">
                     <label for="member_second">女性</label>
-                    <input type="radio" name="member_gender" id="member_third">
+                    <input type="radio" name="member_gender" id="member_third" value="unknown">
                     <label for="member_third">暫不提供</label>
                 </div>
                 <br>
                 <label>聯絡電話</label>
                 <br>
-                <input type="text" placeholder="請輸入您的聯絡電話" size="40">
+                <input type="text" placeholder="請輸入您的聯絡電話" size="40" name="phone">
                 <br>
-                <input type="checkbox" id="memberSignIn_Privacy">
+                <input type="checkbox" id="memberSignIn_Privacy" name="agree">
                 <label for="memberSignIn_Privacy">我已閱讀並同意會員條款</label>
                 <br>
                 <button class="memberSignIn_confirm">註冊</button>
