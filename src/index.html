@@ -1,26 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campion</title>
-    <link rel="stylesheet" href="./css/style.css">
+@@include('./layout/meta.html', {
+    "title" : "Campion" 
+})
+@@include('./layout/chat.html')
+
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <script src="./js/index.js"></script>
+
+    <script>
+      function init(){
+        showMember();
+      }
+      
+     
+      // 顯示會員資訊
+      function showMember() {
+        $.ajax({
+          method: "POST",
+          url: "./Frontend/Member.php",
+          data: {},
+          dataType: "text",
+          success: function (response) {
+            $('.guest_icon').css('display', 'none');
+            $('.icon_create').after(response);
+          },
+          error: function (exception) {
+            alert("數據載入失敗: " + exception.status);
+          },
+        });
+      }
+      // 顯示會員資訊結束
+      
+    </script>
 </head>
-<body>
+
+<body onload="init()">
+    
+
     @@include('./layout/header.html')
     <!-- banner -->
     <div class="indexFullBanner">
@@ -57,46 +85,72 @@
         <section class="index_world">
             <div class="container index_world_container">
                 <div class="row index_world_row">
-                    <div class="col-6 index_world_col">
+                    <div class="col-5 index_world_col">
                         
                         <div class="index_world_Title">
                             <h3>發現世界</h3>
                             <h5>Discover the world</h5>
                         </div>
                         
-                        <div class="index_world_Text Text_1">
-                            <hr class="verticle_line">
-                            <!-- <div id="verticle_line"></div>    -->
-                            <h4>英國愛丁堡國際藝術節</h4>
-                            <h5>Edinburgh International Festiva</h5>
-                            <span>
-                                愛丁堡國際藝術節於每年八月在蘇格蘭首府愛丁堡舉辦，
-                                創辦於1947年，和愛丁堡國際藝穗節在同一時期舉辦，
-                                為世界歷史最悠久、規模最大的國際藝術節之一。
-                            </span>
-                        </div>
-                        <div class="index_world_Text Text_2">
-                            <!-- <div id="verticle_line_2"></div> -->
-                            <h4>加拿大魁北克冬季嘉年華</h4>
-                            <h5>Quebec Winter Carnival</h5>
-                            <span>
-                                魁北克冬季嘉年華在每年一月最後一星期的週五揭開序幕，
-                                活動持續三週，到二月中落幕。冬季嘉年華的活動十分豐富，
-                                攀登冰山、冰雕、遊行、獨木舟橫越聖羅倫斯河、音樂會、
-                                化裝舞會等等，讓冬季熱鬧到最高點。
-                            </span>
-                        </div>
-                        <div class="index_world_Text Text_3">
-                            <h4>日本大阪天神祭</h4>
-                            <h5>てんじんまつり</h5>
-                            <span>
-                                日本三大節慶活動之一，是世界上最大規模的水上慶典，
-                                神轎、小船、煙火交織而成的夢幻天神祭已有1千多年歷史，
-                                祭奉日本的學問與學習之神菅原道。
-                            </span>
+                        <div class="world_overflowY">
+
+                            <div class="index_world_Text -on" id="world_1">
+                                <i class="fas fa-map-marker-alt" id="marker_1"></i>
+                                <h4>英國愛丁堡國際藝術節</h4>
+                                <h5>Edinburgh International Festival</h5>
+                                <img src="./images/index/edinburgh.png" alt="">
+                            </div>
+                            <div class="index_world_Text" id="world_2">
+                                <i class="fas fa-map-marker-alt" id="marker_2"></i>
+                                <h4>加拿大魁北克冬季嘉年華</h4>
+                                <h5>Quebec Winter Carnival</h5>
+                                <img src="./images/index/Quebec.png" alt="">
+                            </div>
+                            <div class="index_world_Text" id="world_3">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>日本大阪天神祭</h4>
+                                <h5>てんじんまつり</h5>
+                                <img src="./images/index/Osaka.png" alt="">
+                            </div>
+                            <div class="index_world_Text" id="world_4">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>義大利威尼斯嘉年華</h4>
+                                <h5>Carnevale Di Venezia</h5>
+                                <img src="./images/index/Venezia.png" alt="">
+                            </div>
+                            <div class="index_world_Text" id="world_5">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>美國火人祭</h4>
+                                <h5>Burning Man</h5>
+                                <img src="./images/index/Burning.png" alt="">
+                            </div>
+                            <div class="index_world_Text">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>日本大阪天神祭</h4>
+                                <h5>てんじんまつり</h5>
+                                <img src="./images/index/edinburgh.png" alt="">
+                            </div>
+                            <div class="index_world_Text">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>英國愛丁堡國際藝術節</h4>
+                                <h5>Edinburgh International Festiva</h5>
+                                <img src="./images/index/edinburgh.png" alt="">
+                            </div>
+                            <div class="index_world_Text">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>加拿大魁北克冬季嘉年華</h4>
+                                <h5>Quebec Winter Carnival</h5>
+                                <img src="./images/index/edinburgh.png" alt="">
+                            </div>
+                            <div class="index_world_Text">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>日本大阪天神祭</h4>
+                                <h5>てんじんまつり</h5>
+                                <img src="./images/index/edinburgh.png" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 index_map_col">
+                    <div class="col-7 index_map_col">
                         <div id="map"></div>
                     </div>
                 </div>
@@ -559,11 +613,12 @@
             <a href="./summer_camp.html">
                 <button class="index_travel_btn">立即展開旅程</button>
             </a>
-            <div id="index_travel_svg"></div>
+            <div id="index_travel_svg" class="index_travel_svg-on"></div>
         </section>
     </main>
     @@include('./layout/footer.html')
 
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
         AOS.init();
 
@@ -571,6 +626,7 @@
             setWrapperSize: true,
             slidesPerView: 4,
             spaceBetween: 30,
+            autoplay:true,
             // centeredSlides: true,
             pagination: {
                 el: ".swiper-pagination",

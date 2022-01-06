@@ -37,7 +37,7 @@
 
 .bannerr{
     // border: 1px solid red;
-    background: url("../images/summer_camp/Rectangle119.png");
+    background: url("../images/summer_camp/Rectangle119.jpg");
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -147,7 +147,7 @@
 }
 
 .accordion-header .accordion-button{
-    font-size: $fontSize_CardTitle;
+    font-size: $fontSize_Nav;
 }
 
 .accordion-body .form-check{
@@ -155,25 +155,21 @@
 }
 
 .camp-sw{
-    border: 2px solid #666666;
-    padding: 12px 0;   
-    font-size: $fontSize_CardTitle; 
-    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;   
+    font-size: $fontSize_Nav; 
     text-align: left;
-    padding-left: 20px;
     position: relative;
-}
-
-.arr_icon{
-    position: absolute;
-    right: 20px;
-    top: 16px;
 }
 
 .camp_two{
     margin: 0 auto;
     // border: 1px solid blue;
     width: 80%;
+    a:hover{
+    color: $font_color_content;        
+    }
 }
 
 .sum{
@@ -182,13 +178,20 @@
 }
 
 .win{
+    background-color: white;
+    margin: 30px 0 60px 0;
+    color: $font_color_content;
+    border: 2px solid #666666;
+
+}
+.camp-sw-now{
     background-color: $color_primary;
-    margin: 60px 0 60px 0;
     color: white;
+
 }
 
 .find-trip{
-    font-size: 40px;
+    font-size: $fontSize_Title;
     text-align: center;
     margin: 0 0 60px 0;
 }
@@ -206,41 +209,91 @@
     display: block;
 }
 
+#app{
+    height: 1750px;
+    overflow: hidden;
+    position: relative;
+    transition: 1s ease;
+    padding-bottom: 30px;
+}
+#app.-open{
+    height: auto;
+    position: relative;
+}
+.btn_show_more{
+    display: flex;
+    justify-content: center;
+}
+button.showMore.-off{
+    display: none;
+}
+
 .row .card{
     padding: 0;
     margin: 50px 10px 5px 10px;
+    height: 520px;
     border-radius: 20px 20px 20px 20px;
     border: 0.5px solid #66666633;
-    box-shadow: 0px 1px 5px 0px #66666633;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
     position: relative;
+    i{
+        margin: 12px;
+        width: 40px;
+        height: 50px;
+        font-size: 24px;
+        color:white;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    i:hover{  
+        color: #EB5757;
+        cursor: pointer;
+    }
+    a:hover{
+        color: black;        
+    }
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    hr{
+        width: 100%;
+    }
+    .card-title{
+        font-size: $fontSize_CardTitle;
+        text-align: center;
+        line-height: 35px;
+        font-weight: 600; 
+    }
+    .card-text{
+        text-align: left;
+        font-size: $fontSize;
+        line-height: 25px;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+    }
+    .a{
+        // border: 1px solid red;
+        color: $font_color_content;
+        display: block;
+        position: absolute;
+        bottom: 30px;
+    }
+    a.a:hover{
+        color: $btn_color_primary;
+    }
+    .a img{
+        transform: translateY(25%);
+    }
 }
 
-.card-body .card-title{
-    font-size: $fontSize_CardTitle;
-    text-align: center;
-    line-height: 35px;
-    font-weight: 600; 
-}
 
-.card-body .card-text{
-    font-size: $fontSize;
-    line-height: 25px;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-}
 
-.card-body .a{
-    // border: 1px solid red;
-    color: $font_color_content;
-    display: inline-block;
-    margin-left: 70px;
-    position: absolute;
-    bottom: 30px;
-}
 
-.card-body .a img{
-    transform: translateY(25%);
-}
 
 .row .button{
     margin: 70px auto;

@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>夏令營 > 【法國-巴黎】時尚與藝術設計工作坊夏令營</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/61c18c64c82c976b71c27581/1fne0or75';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-    <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
-    
+@@include('./layout/meta.html', {
+    "title" : "【法國-巴黎】時尚與藝術設計工作坊夏令營" 
+}) 
 
+<script>
+  function init(){
+    showMember();
+  }
+  
+ 
+  // 顯示會員資訊
+  function showMember() {
+    $.ajax({
+      method: "POST",
+      url: "./Frontend/Member.php",
+      data: {},
+      dataType: "text",
+      success: function (response) {
+        $('.guest_icon').css('display', 'none');
+        $('.icon_create').after(response);
+      },
+      error: function (exception) {
+        alert("數據載入失敗: " + exception.status);
+      },
+    });
+  }
+  // 顯示會員資訊結束
+  
+</script>
 </head> 
-<body>
+<body onload="init()">
     
     <!-- header  -->
     @@include('./layout/header.html')
@@ -494,13 +502,15 @@
 
         $(function(){
             // 收藏行程
-            $('.sch_like_svg').click(function(){
+            $('.sch_like_svg').click(function(e){
+                e.stopPropagation();
                 $('embed.sch_liked').toggleClass('-on');
                 $('embed.sch_like').toggleClass('-hide');
             });
     
             // 圖片點擊切換
-            $('.sch_img_shift').click(function(){
+            $('.sch_img_shift').click(function(e){
+                e.stopPropagation();
 
                 let img_id = $(this).attr("id");
                 // 底下圖片點擊黃框
@@ -513,7 +523,8 @@
             })
     
             // 行程資訊區塊切換：a, b, c, d
-            $('.sch_info_btn').click(function(){
+            $('.sch_info_btn').click(function(e){
+                e.preventDefault();
                 let sec_id = $(this).attr("id");
                 // 按鈕變色
                 $(this).addClass('-on');
@@ -521,7 +532,7 @@
 
                 // 頁面跳到對應區域
                 $('html, body').animate({
-                    scrollTop: $('.sch_info_content[data-sec=' + sec_id + ']').offset().top
+                    scrollTop: $('.sch_info_content[data-sec=' + sec_id + ']').offset().top - 120
                 }, 800);
 
             });

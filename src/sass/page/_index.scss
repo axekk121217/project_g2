@@ -153,9 +153,6 @@
 @media screen and (max-width: 576.98px) {
     .index_ContentText_row{
         .index_ContentText_col_2{
-            h3{
-                // font-size: $fontSize;
-            }
             span{
                 font-size: $fontSize_footer;
                 line-height: 30px;
@@ -179,11 +176,11 @@ section.index_world{
     // border: 1px solid green;
     position: relative;
     margin-bottom: 40px;
-    overflow: hidden;
+    // overflow: hidden;
     .index_world_Title{
         // border: 1px solid red;
         width: 200px;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
         position: relative;
         h3{
             color: $color_primary;
@@ -204,15 +201,7 @@ section.index_world{
         padding-left: 10px;
         margin-bottom: 80px;
         position: relative;
-        .verticle_line{
-            border-left: 2px solid $color_primary_el;
-            width: 1px;
-            height: 900px;
-            position: absolute;
-            left: -30px;
-            top: 0;
-            z-index: -1;
-        }
+        
         h4{
             color: $color_primary;
             font-size: $fontSize_Nav;
@@ -233,59 +222,66 @@ section.index_world{
     }
 }
 
-// 發現世界 偽元素(1,2,3)
-.index_world_col .Text_1::before{
-    content: '1';
-    border: 1px solid $color_primary_el;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: $color_primary_el;
-    background-color: white;
-    font-weight: 700;
-    text-align: center;
-    line-height: 35px;
-    position: absolute;
-    left: -50px;
-    z-index: 3;
+// 發現世界-偽元素
+// overflowY
+.world_overflowY{
+    // height: 900px;
+    // overflow-y: scroll;
+    padding-top: 20px;
+}
+// 地標icon
+.index_world_Text{
+    // border: 1px solid red;
+    cursor: pointer;
+    .fa-map-marker-alt{
+        font-size: 28px;
+        position: absolute;
+        left: -8%;
+        top: 0;
+        color: rgb(211, 211, 211);
+        background-color: white;
+        &::after{
+            content: '';
+            display: block;
+            width: 1px;
+            height: 320px;
+            border-left: 2px solid $color_primary_el;
+            opacity: .3;
+            position: relative;
+            left: 50%;
+        }
+    }
+}
+// 地標icon變色
+.index_world_Text.-on{
+    .fa-map-marker-alt{
+        color: $color_primary;
+    }
+    img{
+        display: block;
+    }
+}
+// 地標icon變色
+.index_world_Text{
+    .fa-map-marker-alt{
+        color: rgb(211, 211, 211);
+    }
+    img{
+        display: none;
+    }
 }
 
-.index_world_col .Text_2::before{
-    content: '2';
-    border: 1px solid $color_primary_el;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: $color_primary_el;
-    background-color: white;
-    font-weight: 700;
-    text-align: center;
-    line-height: 35px;
-    position: absolute;
-    left: -50px;
-    z-index: 3;
-}
-
-.index_world_col .Text_3::before{
-    content: '3';
-    border: 1px solid $color_primary_el;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: $color_primary_el;
-    background-color: white;
-    font-weight: 700;
-    text-align: center;
-    line-height: 35px;
-    position: absolute;
-    left: -50px;
-    z-index: 3;
+// 地標文字
+.leaflet-popup-content{
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 1px;
 }
 
 // 發現世界RWD
 @media screen and (max-width:991.98px){
     .index_world_col{
-        overflow: inherit;
+        // overflow: inherit;
         .index_world_Text{
             margin-bottom: 80px;
         }
@@ -295,88 +291,98 @@ section.index_world{
 @media (max-width: 767.98px){
     .index_world_container{
         max-width: 90%;
-    }
-    .index_world_row{
-        .index_world_col{
-            width: 90%;
+        .index_world_Title{
             margin: 0 auto;
-            overflow: hidden;
-            .index_world_Title{
-                margin: 0 auto;
-                text-align: center;
-                margin-bottom: 80px;
-                h5{
-                    position: relative;
-                    left: 0;
-                }
-            }
-            .index_world_Text{
-                margin-bottom: 50px;
+            text-align: center;
+            margin-bottom: 80px;
+            h5{
+                position: relative;
+                left: 0;
             }
         }
-        .index_map_col{
-            display: none;
+    }
+    
+    .index_world_col{
+        width: 90%;
+        margin: 0 auto;
+        
+        overflow: hidden;
+        .index_world_Text{
+            margin-bottom: 50px;
+            text-align: center;
+        }
+    }
+    .index_map_col{
+        display: none;
+    }
+    
+}
+
+@media (max-width: 575.98px){
+    .index_world_col{
+        .index_world_Title{
+            margin-bottom: 40px;
+            h3{
+                font-size: $fontSize_CardTitle;
+            }
+            h5{
+                font-size: $fontSize_mobile;
+            }
+        }
+        .index_world_Text{
+            h4{
+                font-size: $fontSize;
+            }
+            h5{
+                font-size: $fontSize_mobile;
+            }
+            // 地標icon
+            .fa-map-marker-alt{
+                font-size: 24px;
+                &::after{
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 250px;
+                    border-left: 2px solid $color_primary_el;
+                    opacity: .3;
+                    position: relative;
+                    left: 50%;
+                }
+            }
         }
     }
 }
 
-@media (max-width: 575.98px){
-    .index_world_row{
-        .index_world_col{
-            .index_world_Title{
-                margin-bottom: 40px;
-                h3{
-                    font-size: $fontSize_CardTitle;
-                }
-                h5{
-                    font-size: $fontSize_mobile;
-                }
-            }
-            .index_world_Text{
-                h4{
-                    font-size: $fontSize;
-                }
-                h5{
-                    font-size: $fontSize_mobile;
-                }
-                span{
-                    font-size: $fontSize_mobile;
-                    letter-spacing: 1px;
-                    line-height: 20px;
-                }
-            }
-        }
-    }
-    // 偽元素RWD
-    .index_world_col .Text_1::before{
-        width: 30px;
-        height: 30px;
-        line-height: 25px;
-        left: -45px;
-    }
-    
-    .index_world_col .Text_2::before{
-        width: 30px;
-        height: 30px;
-        line-height: 25px;
-        left: -45px;
-    }
-    
-    .index_world_col .Text_3::before{
-        width: 30px;
-        height: 30px;
-        line-height: 25px;
-        left: -45px;
+@media (min-width: 768px){
+    .index_world_container {
+        max-width: 90%;
     }
 }
+
 
 /* 首頁 - Map */
 .index_map_col{
     #map{
-        height: 100%;
-        z-index: -1;
+        height: 50%;
+        z-index: 1;
     }
 }
+
+.index_world_sticky{
+    position: sticky !important;
+    top: 120px;
+    opacity: 1;
+    z-index: 100;
+}
+
+// .Text_1.map-no{
+//     display: none;
+// }
+// .Text_1.map-on{
+//     display: block;
+// }
+
 
 /* ========== 首頁 - 主題營 ========== */
 .index_slider{
@@ -475,6 +481,7 @@ section.index_world{
                 position: relative;
                 i.fa-heart{
                     cursor: pointer;
+                    font-size: 20px;
                     position: absolute;
                     top: 2%;
                     left: 5%;
@@ -1210,6 +1217,7 @@ section.index_world{
         } 
     }
 }
+
 @media (min-width:576px) and (max-width:767.98px){
     .index_news{
         .index_news_container{
@@ -1350,6 +1358,7 @@ section.index_world{
         display: block;
         width: 150px;
         margin: 30px auto;
+        cursor: pointer;
     }
 }
 
@@ -1410,7 +1419,7 @@ section.index_world{
                         .index_message_item_Name{
                             // height: 70px;
                         }
-                    }
+                    } 
                     .index_message_banner{
                         width: 100%;
                         .index_message_img{

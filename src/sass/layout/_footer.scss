@@ -60,6 +60,9 @@
     text-decoration: none;
     color: white;
     cursor: pointer;
+    &:hover{
+        color: $btn_color_primary;
+    }
 }
 
 .footer_contact li{

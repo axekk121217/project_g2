@@ -108,7 +108,7 @@
   right: 0;
   margin: -120px 0px 0px 0px;
   padding: 30px 100px;
-  padding-top: 125px;
+  padding-top: 100px;
 
   background: $color_primary;
   list-style-type: none;
@@ -123,7 +123,16 @@
   font-weight: bold;
 }
 
-.menu li {
+.menu a{
+  display: block;
+  margin-top: 10px;
+  li{
+    &:hover{
+      color: $btn_color_primary;
+    }
+  }
+}
+.menu a li {
   padding: 10px 0;
   font-size: 22px;
   color: #E7C29E;
