@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+<html lang="zh-Hant">
+<head>
+@@include('./layout/meta.html', {
+    "title" : "商品管理" 
+})
     <link
       rel="stylesheet"
       type="text/css"
@@ -22,14 +21,10 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
     ></script>
-    <script
-      src="https://kit.fontawesome.com/8c41348ce8.js"
-      crossorigin="anonymous"
-    ></script>
+
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/vue.js"></script>
 
-    <title>商品管理</title>
   </head>
   <body>
     <div>
@@ -40,7 +35,7 @@
             <p>CAMPION後臺管理系統</p>
           </div>
           <div class="admin_header_btn">
-            <a href="../admin.html">
+            <a href="admin.html">
               <button class="admin_btn_signOut">登出</button>
             </a>
           </div>
@@ -104,45 +99,23 @@
                           <div class="admin_order_edit">
                             <div class="admin_edit_main">
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >行程名稱</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control admin_commodity_focus"
-                                  aria-label="Text input with segmented dropdown button"
-                                />
+                                <label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
+                                <input type="text" class="form-control admin_commodity_focus" aria-label="Text input with segmented dropdown button"/>
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >行程類別</label
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">行程類別</label>
 
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇行程類別</option>
                                   <option value="1">冬令營</option>
                                   <option value="2">夏令營</option>
                                   <option value="3">當地主題</option>
                                 </select>
 
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >行程主題</label
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">行程主題</label>
 
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇行程主題</option>
                                   <option value="1">運動</option>
                                   <option value="2">電影</option>
@@ -157,15 +130,8 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >行程國家</label
-                                >
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">行程國家</label>
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇行程國家</option>
                                   <option value="1">美國</option>
                                   <option value="2">英國</option>
@@ -176,15 +142,8 @@
                                   <option value="7">紐西蘭</option>
                                 </select>
 
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >行程地點</label
-                                >
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">行程地點</label>
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇行程地點</option>
                                   <option value="1">紐約</option>
                                   <option value="2">洛杉磯</option>
@@ -198,15 +157,8 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >招生年齡</label
-                                >
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇招生年齡</option>
                                   <option value="1">10歲~12歲</option>
                                   <option value="2">13歲~15歲</option>
@@ -215,15 +167,8 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >成團人數</label
-                                >
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">成團人數</label>
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇成團人數</option>
                                   <option value="1">10</option>
                                   <option value="2">15</option>
@@ -232,15 +177,8 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >成團梯次</label
-                                >
-                                <select
-                                  class="form-select admin_commodity_focus"
-                                  id="inputGroupSelect01"
-                                >
+                                <label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
+                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
                                   <option selected>選擇梯次</option>
                                   <option value="1">梯次一</option>
                                   <option value="2">梯次二</option>
@@ -249,27 +187,13 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <label
-                                  class="input-group-text"
-                                  for="inputGroupSelect01"
-                                  >成團日期</label
-                                >
-                                <input
-                                  class="form-select datetime"
-                                  type="text"
-                                  name="dates"
-                                />
+                                <label class="input-group-text" for="inputGroupSelect01">成團日期</label>
+                                <input class="form-select datetime" type="text" name="dates"/>
                               </div>
 
                               <div class="mb-3" id="app">
                                 <div v-if="!image">
-                                  <input
-                                    class="form-control admin_commodity_focus"
-                                    accept="image/*"
-                                    id="formFile"
-                                    type="file"
-                                    @change="onFileChange"
-                                  />
+                                  <input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @change="onFileChange"/>
                                 </div>
                                 <div v-else class="admin_newItem_img">
                                   <img :src="image" />

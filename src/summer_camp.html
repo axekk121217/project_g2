@@ -10,6 +10,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+
   </head>
   <body>
     @@include('./layout/header.html')
@@ -459,11 +461,11 @@
 
         <div class="col-md-9 col-sm-12 change-page">
           <!-- main -->
-          <div id="app">
+          <div id="app-summer">
             <card></card>
           </div>
           <div class="row btn_show_more">
-            <button type="submit" class="button showMore">SHOW MORE</button>
+            <button type="submit" class="button showMore" style="margin-top: 30px">SHOW MORE</button>
           </div>
         </div>
       </div>
@@ -472,152 +474,69 @@
     @@include('./layout/footer.html')
 
     <script>
-      Vue.component("card", {
-        data() {
-          return {
-            items: [
-              {
-                imgUrl: "./images/summer_camp/Rectangle 90.png",
-                loc: "【法國-巴黎】",
-                cardTitle: "時尚設計工作坊夏令營",
-                cardText:
-                  "踏訪蘊藏深邃歷史文化的時尚之都巴黎，從食衣住行育樂各方面開啟豐富的感官體驗。",
-              },
-              {
-                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ.png",
-                loc: "【瑞士-日內瓦】",
-                cardTitle: "阿爾卑斯山歡樂夏日營",
-                cardText:
-                  "夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。",
-              },
-              {
-                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ1.png",
-                loc: "【德國-柏林】",
-                cardTitle: "城市探索德語營",
-                cardText:
-                  "德語課程為初階至高階；營隊安排英語和德語輔導員，課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，更加安心以英語作為輔助來來溝通。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 219.png",
-                loc: "【美國-洛杉磯】",
-                cardTitle: "微電影創作營",
-                cardText:
-                  "我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 217.png",
-                loc: "【英國-曼徹斯特】",
-                cardTitle: "英超曼城足球營",
-                cardText:
-                  "喜愛英式足球的孩子，透過專業足球課程體驗足球員的日常生活。包括體能鍛鍊、營養規劃、賽况分析，體驗足球的多樣性。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 221.png",
-                loc: "【英國-牛津】",
-                cardTitle: "應用科學營",
-                cardText:
-                  "使用最新的實驗室設備，並選定的領域計畫執行科學實驗，課程中也將安排劍橋大學科學家分享研究及討論如何成為科學家，激勵孩子向上的心。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 137.png",
-                loc: "【美國-舊金山】",
-                cardTitle: "矽谷科技創業營",
-                cardText:
-                  "聚焦時事和科技對社會的影響，選取具有影響力的創業家或公司作個案研究，幫助孩子對未來職涯能更加具體地描繪。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 210.png",
-                loc: "【美國-紐約】",
-                cardTitle: "運動文化夏令營",
-                cardText:
-                  "從美國運動介紹、探討運動經濟商機和運動商品商標及著名球場幕後直擊，深入的解析與認識美國運動文化。",
-              },
-              {
-                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ2.png",
-                loc: "【美國-紐約】",
-                cardTitle: "百老匯表演藝術營",
-                cardText:
-                  "透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 261.png",
-                loc: "【美國-加州長堤】",
-                cardTitle: "陽光衝浪營",
-                cardText:
-                  "在長堤陽光普照的海濱度假勝地，學習衝浪策略以及水上安全培訓，接受完整的英語語言理論和實踐課程。",
-              },
-              {
-                imgUrl: "./images/summer_camp/Rectangle 262.png",
-                loc: "【英國-倫敦】",
-                cardTitle: "明日之星音樂營",
-                cardText:
-                  "在專業導師的帶領下，每天進行音樂表演，發展成為音樂巨星所需要的能力。在準備最後演出時，您將在教室和工作室中提高音樂才能。",
-              },
-              {
-                imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ3.png",
-                loc: "【加拿大-多倫多】",
-                cardTitle: "多倫多大學全球領袖營",
-                cardText:
-                  "透過學習領袖、溝通、問題解決等技巧，以及專長工作坊、社群時間、專案規劃，讓孩子培養批判思考、個人發展及價值探索和寶貴的團隊合作技巧。",
-              },
-            ],
-          };
-        },
-        template: `
-          <div class="row justify-content-center" align-items-start>
-            <div v-for="item in items" class="card" style="width: 18rem">
-              <i class="fas fa-heart"></i>
-              <a href="./schedule.html">
-                <img
-                  :src= "item.imgUrl"
-                  class="card-img-top"/>
-                <div class="card-body">
-                  <h5 class="card-title">
-                  {{item.loc}}<br>
-                  {{item.cardTitle}}
-                  </h5>
-                  <hr style="border: 0.5px solid #000000" />
-                  <p class="card-text">
-                  {{item.cardText}}
-                  </p>
-                  <a href="./schedule.html" class="a">
-                    Learn more 
-                    <img src="./images/summer_camp/icon.png"/>
-                  </a>
-                </div>
-              </a>
-            </div>
-          </div>
-          `,
-      });
+
+		Vue.component("card", {
+			data() {
+				return {
+					data: [],
+				};
+			},
+			template: `
+			<div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
+				<div v-for="item in data" class="card" style="width: 18rem">
+				<i class="fas fa-heart"></i>
+				<a href="./schedule.html">
+					<img
+					:src= "./images/summer_camp/ + item.IMG"
+					class="card-img-top"/>
+					<div class="card-body">
+					<h5 class="card-title">
+					【{{item.COUNTRY}}-{{item.CITY}}】<br>
+					{{item.NAME}}
+					</h5>
+					<hr style="border: 0.5px solid #000000" />
+					<p class="card-text">
+					{{checkTitle(item.CONTEXT)}}...
+					</p>
+					<a href="./schedule.html" class="a">
+						Learn more 
+						<img src="./images/summer_camp/icon.png"/>
+					</a>
+					</div>
+				</a>
+				</div>
+			</div>
+			`,
+			methods: {
+				checkTitle(theTitle){
+					return theTitle.slice(0, 40); // 只取40個字，以免破版
+				},
+			},
+			mounted(){
+				$.getJSON('./Frontend/summer.php').then((res) => {
+					// console.log(res);
+					this.data = res;
+				});
+			},
+		});
 
       // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
       // Vue2 template 一定要記得寫根節點！ <div></div>
       let vm = new Vue({
-        el: "#app",
+        el: "#app-summer",
         data: {
           // new Vue 的 data 是物件
         },
         computed: {},
-        methods: {},
+        methods: {
+			
+		    },
       });
 
-      // ---- 文字省略 (...) ----
-      let len = 55; // 超過n個字以"..."取代
-      $(".card-text").each(function (i) {
-        if ($(this).text().length > len) {
-          $(this).attr("title", $(this).text());
-          let text =
-            $(this)
-              .text()
-              .substring(0, len - 1) + "...";
-          $(this).text(text);
-        }
-      });
 
       // 點擊 show more 展開更多
       $(".showMore").click(function () {
-        $("#app").toggleClass("-open");
+        $("#app-summer").toggleClass("-open");
         $(".showMore").addClass("-off");
       });
 
