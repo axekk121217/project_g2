@@ -2,10 +2,36 @@
 <html lang="zh-Hant">
 <head>
 @@include('./layout/meta.html', {
-    "title" : "夏令營 > 【法國-巴黎】時尚與藝術設計工作坊夏令營" 
+    "title" : "【法國-巴黎】時尚與藝術設計工作坊夏令營" 
 }) 
+
+<script>
+  function init(){
+    showMember();
+  }
+  
+ 
+  // 顯示會員資訊
+  function showMember() {
+    $.ajax({
+      method: "POST",
+      url: "./Frontend/Member.php",
+      data: {},
+      dataType: "text",
+      success: function (response) {
+        $('.guest_icon').css('display', 'none');
+        $('.icon_create').after(response);
+      },
+      error: function (exception) {
+        alert("數據載入失敗: " + exception.status);
+      },
+    });
+  }
+  // 顯示會員資訊結束
+  
+</script>
 </head> 
-<body>
+<body onload="init()">
     
     <!-- header  -->
     @@include('./layout/header.html')
@@ -476,13 +502,15 @@
 
         $(function(){
             // 收藏行程
-            $('.sch_like_svg').click(function(){
+            $('.sch_like_svg').click(function(e){
+                e.stopPropagation();
                 $('embed.sch_liked').toggleClass('-on');
                 $('embed.sch_like').toggleClass('-hide');
             });
     
             // 圖片點擊切換
-            $('.sch_img_shift').click(function(){
+            $('.sch_img_shift').click(function(e){
+                e.stopPropagation();
 
                 let img_id = $(this).attr("id");
                 // 底下圖片點擊黃框
@@ -495,7 +523,8 @@
             })
     
             // 行程資訊區塊切換：a, b, c, d
-            $('.sch_info_btn').click(function(){
+            $('.sch_info_btn').click(function(e){
+                e.preventDefault();
                 let sec_id = $(this).attr("id");
                 // 按鈕變色
                 $(this).addClass('-on');

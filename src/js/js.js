@@ -2,7 +2,8 @@
 new Vue({
   el: '#app',
   data: {
-    image: ''
+    image: '',
+    count: 1
   },
   methods: {
     onFileChange(e) {

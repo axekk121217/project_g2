@@ -12,7 +12,7 @@
 
 //   =========== banner ===========
   .local_theme_bg{
-    background-image: url("../images/summer_camp/Rectangle 260.png");
+    background-image: url("../images/summer_camp/Rectangle 260.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -31,6 +31,7 @@
   }
  
   .local_theme_color{
+    width: 65%;
     background-color: #FFF06666;
     display: inline-block;
     transform: translate(-100px,-50px);
@@ -46,11 +47,11 @@
 
   // summer
  .summer-season{
-    background-image: url("../images/summer_camp/Rectangle 281.png");
+    background-image: url("../images/summer_camp/Rectangle 281.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 600px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -69,12 +70,16 @@
     color: white;
     font-size: 60px;
     transform: translate(-60px,-20px);
+    // margin-bottom: -10px;
   }
   .summer-word{
+    transform: translateX(-25px);
     font-size: $fontSize;
     color: white;
-    line-height: 22px;
-    letter-spacing: 1px;   
+    line-height: 150%;
+    letter-spacing: 1px;  
+    padding: 30px;
+    background-color: hsl(33, 50%, 91%, .35); 
   }
 
   .white{
@@ -88,7 +93,7 @@
   }
 
   .one-s{
-    transform: translateX(30%);
+    transform: translateX(80px);
   }
 
   .two-s{
@@ -105,18 +110,57 @@
     display: flex;
     align-items: center;
   }
+  .swiperr{
+    height: 520px;
 
+  }
+  .swiper-wrapperr{
+    height: 600px !important;
+  }
   .swiperr {
     width: 100%;
-    height: 90%;
+    height: 100%;
   }
 
   .swiperr-slide{
+    position: relative;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     background: #fff;
     width: 286px !important;
+    height: 520px !important;
     border-radius: 20px;
+    border: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 50px 10px 5px 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    i{
+        margin: 12px;
+        width: 40px;
+        height: 50px;
+        font-size: 24px;
+        color:white;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    i:hover{  
+        color: #EB5757;
+        cursor: pointer;
+    }
+    a{
+      display: block;
+      img{
+        box-sizing: border-box !important;
+      }
+    }
+    a:hover{
+        color: black;        
+    }
+  }
+  img.card-img-top{
+    height: 190px;
   }
 
   .hrr{
@@ -126,13 +170,20 @@
     width: 90%;
     padding-bottom: 8px;
   }
+  .card-body{
+    padding: 16px;
+    a{
+      display: block;
+      .card-text{
+        font-size: $fontSize;
+        line-height: 25px;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+      }
 
-  .card-text{
-    line-height: 26px; 
-    letter-spacing: 1px; 
-    text-align: left;
-    padding: 10px 5px 20px 5px;
+    }
   }
+
 
   // .aaaa{
   //   padding-top: 20px;
@@ -154,7 +205,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -177,10 +228,14 @@
   }
 
   .winter-word{
+    transform: translateX(30px);
+    // text-align: right;
     font-size: $fontSize;
     color: white;
-    line-height: 22px;
-    letter-spacing: 1px;  
+    line-height: 150%;
+    letter-spacing: 1px; 
+    padding: 30px;
+    background-color: hsl(33, 50%, 91%, .35);  
   }
 
   .winter-white{
@@ -196,7 +251,10 @@
   }
 
   .one-w{
-    transform: translateX(-50%);
+    transform: translateX(-80px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     // border: 1px solid red;
   }
 
@@ -221,7 +279,7 @@
     width: 100%;
   }
   .summer-bgg{
-    background-image: url("../images/summer_camp/Rectangle 281.png");
+    background-image: url("../images/summer_camp/Rectangle 281.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -239,6 +297,8 @@
 
 
   // festival
+ 
+
   .festival{
     text-align: center;
     font-size: 60px;
@@ -247,7 +307,7 @@
   }
   
   .festival-bg{
-    background-image: url("../images/summer_camp/Rectangle 311.png");
+    background-image: url("../images/summer_camp/Rectangle 311.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -255,11 +315,77 @@
     padding-bottom: 50px;
   }
 
-  @media screen and (max-width: 576px){
-    .arr_icon{
-      display: none;
+  
+  .arr_icon_hover{
+    display: none;
+  }
+  
+  .local_theme_two{
+    @include flex-center;
+    margin: 60px auto;
+    a{
+      display: inline-flex;
+      justify-content: center;
+      margin: 0 20px;
+      &:hover{
+        color: white;
+        .local_theme-sw{
+          background: $color_primary;
+          border: none;
+        }
+        .arr_icon{
+          display: none;
+        } 
+        .arr_icon_hover{
+          display: block;
+        }
+      }
+      .local_theme-sw{
+        padding: 15px 20px;
+        margin: 0;
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        border: 2px solid #666666;
+      }
     }
   }
+  
+  @media screen and (max-width: 576px){
+    .local_theme_two{
+      flex-direction: column;
+      margin-bottom: 10px;
+      a{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .loc_showMore{
+    display: none;
+  }
+
+  @media screen and (max-width: 992px){
+    #app1{
+      height: 1750px;
+      overflow: hidden;
+    }
+    #app1.-open{
+      height: auto;
+    }
+    .loc_showMore{
+      display: block;
+      margin: 20px auto 50px !important;
+    } 
+  }
+
+  .loc_showMore.-off{
+    display: none;
+  }
+
+  
 // 桌機板顯示目前頁面
 .tab_container li a#page_active3::before {
     content: "";
