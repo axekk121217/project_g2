@@ -1,60 +1,179 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-@@include('./layout/meta.html', {
-    "title" : "會員登入" 
-})
-@@include('./layout/chat.html')
-</head>
-<body>
-    @@include('./layout/header.html')
+  <head>
+    <head>
+      @@include('./layout/meta.html', {
+        "title" : "會員註冊" 
+      });
+      @@include('./layout/chat.html');
+  
+      <script>
+        function init(){
+          showMember();
+        }
+        
+       
+        // 顯示會員資訊
+        function showMember() {
+          $.ajax({
+            method: "POST",
+            url: "./Frontend/Member.php",
+            data: {},
+            dataType: "text",
+            success: function (response) {
+              $('.guest_icon').css('display', 'none');
+              $('.icon_create').after(response);
+            },
+            error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+            },
+          });
+        }
+        // 顯示會員資訊結束
+  
+        //登入檢查 ---------------------------------------------------------------------------------
+          function loginCheck(pid) {
+            $.ajax({
+              method: "POST",
+              url: "Frontend/LoginCheck.php",
+              data: {},
+              dataType: "text",
+              success: function (response) {
+                if (response == "") {
+                  //尚未登入->前往Login.php
+                  alert("請先登入，將前往登入頁");
+                  location.href = "/member_signIn.html";
+                } else {
+                  addToCar(pid);
+                }
+              },
+              error: function (exception) {
+                alert("數據載入失敗: " + exception.status);
+              },
+            });
+          }
+        
+      </script>
+    </head>
+    <body onload="init()">
+      @@include('./layout/header.html');
+
     <section class="memberSignUp_container">
-        <div class="memberSignUp_banner">
-            <img src="./images/member/logo.png" alt="" class="memberSignUp_logo rounded mx-auto d-block">
-            <h1 class="memberSignUp_title text-center">會員登入</h1>
-            <form action="member.html">
-                <label>會員帳號</label>
-                <br>
-                <input type="email" placeholder="請輸入您的Email" size="40">
-                <br>
-                <label>會員密碼</label>
-                <br>
-                <input type="password" placeholder="請輸入您的密碼" size="40">
-                <br>
-                <div class="memberSignUp_checkBoxAll">
-                    <div class="memberSignUp_checkBox">
-                        <input type="checkbox" id="memberSignUp_Privacy">
-                        <label for="memberSignUp_Privacy">保持登入狀態</label>
-                    </div>
-                    <div class="memberSign_forget">
-                        <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
-                    </div>
-                </div>
-                <br>
-                
-                <a href="member.html"><button class="memberSignUp_confirm">登入</button></a>
-            </form>
-            <h4 class="memberSignUp_word text-center">還不是會員?<a href="member_signUp.html" class="memberSignUp_signInButton">註冊</a></h4>
-        </div>
+      <div class="memberSignUp_banner">
+        <img
+          src="./images/member/logo.png"
+          alt=""
+          class="memberSignUp_logo rounded mx-auto d-block"
+        />
+        <h1 class="memberSignUp_title text-center">會員登入</h1>
+        <form action="./Frontend/Login.php" method="post">
+          <label>會員帳號</label>
+          <br />
+          <input
+            type="email"
+            placeholder="請輸入您的Email"
+            size="40"
+            name="ACCOUNT"
+            id="ACCOUNT"
+          />
+          <br />
+          <label>會員密碼</label>
+          <br />
+          <input
+            type="password"
+            placeholder="請輸入您的密碼"
+            size="40"
+            name="PASSWORD"
+            id="PASSWORD"
+          />
+          <br />
+          <div class="memberSignUp_checkBoxAll">
+            <div class="memberSignUp_checkBox">
+              <input type="checkbox" id="memberSignUp_Privacy" />
+              <label for="memberSignUp_Privacy">保持登入狀態</label>
+            </div>
+            <div class="memberSign_forget">
+              <a href="#" class="memberSignUp_forgrtPassword">忘記密碼?</a>
+            </div>
+          </div>
+          <br />
+
+          <a href="member.html"
+            ><button class="memberSignUp_confirm" onclick="return doSubmit()">
+              登入
+            </button></a
+          >
+        </form>
+        <h4 class="memberSignUp_word text-center">
+          還不是會員?<a
+            onclick="location.href='member_signUp.html'"
+            class="memberSignUp_signInButton"
+            >註冊</a
+          >
+        </h4>
+      </div>
     </section>
-    @@include('./layout/footer.html')
+    <footer>
+      <div class="footer_container">
+        <ul class="footer_list">
+          <li><a href="./news.html">最新消息</a></li>
+          <li><a href="./summer_camp.html">冬夏令營</a></li>
+          <li><a href="./local_theme.html">當地主題</a></li>
+          <li><a href="./ideas.html">獲得靈感</a></li>
+          <li><a href="./aboutus.html">品牌故事</a></li>
+          <li><a href="./faq.html">常見問題</a></li>
+          <li><a href="./member_signIn.html">會員專區</a></li>
+        </ul>
+        <ul class="footer_contact">
+          <li>聯絡我們</li>
+          <li>campion_service@gmail.com</li>
+          <li>02 2712 0589</li>
+          <li>104506台北市中山區南京東路三段219號5樓</li>
+        </ul>
+        <div class="footer_subscribe">
+          <p>訂閱我們</p>
+          <p>隨時取得冬夏令營資訊</p>
+          <div class="footer_subscribe_mail">
+            <input type="text" placeholder="Your email" style="padding: 8px" />
+            <div class="btn footer_btn">訂閱</div>
+          </div>
+        </div>
+      </div>
+      <hr class="hr-solid" />
+      <div class="footer_tibame">
+        本網站為緯育TibaMe前端設計工程師班第72期第二組學員專題成果作品，本平台僅供學習、展示之用。參考資源：＿＿＿＿＿＿＿＿。
+      </div>
+    </footer>
 
     <script>
-        // 設定當前頁面 css：桌機版 header
-        let page = document.getElementsByClassName("header_pg");
-        for(let i = 0; i < (page.length); i++){
-            if(page[i].id !== "page_active7"){
-                page[i].removeAttribute('id');
-            }
+      // 設定當前頁面 css：桌機版 header
+      let page = document.getElementsByClassName("header_pg");
+      for (let i = 0; i < page.length; i++) {
+        if (page[i].id !== "page_active7") {
+          page[i].removeAttribute("id");
         }
-         // 設定當前頁面 css：漢堡選單
-        let ham_page = document.getElementsByClassName("ham_pg");
-        for(let i = 0; i < (ham_page.length); i++){
-            if(ham_page[i].id !== "h_page_active7"){
-                ham_page[i].removeAttribute('id');
-            }
+      }
+      // 設定當前頁面 css：漢堡選單
+      let ham_page = document.getElementsByClassName("ham_pg");
+      for (let i = 0; i < ham_page.length; i++) {
+        if (ham_page[i].id !== "h_page_active7") {
+          ham_page[i].removeAttribute("id");
         }
-
+      }
     </script>
-</body>
+
+    <script type="text/javascript">
+
+      function doSubmit() {
+        if (document.getElementById("ACCOUNT").value == "") {
+          alert("請填寫[帳號]");
+          return false;
+        }
+        if (document.getElementById("PASSWORD").value == "") {
+          alert("請填寫[密碼]");
+          return false;
+        }
+      }
+    </script>
+  </body>
 </html>

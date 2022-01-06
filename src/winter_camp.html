@@ -10,9 +10,35 @@
     <script src="./js/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
 
+    <script>
+      function init(){
+        showMember();
+      }
+      
+     
+      // 顯示會員資訊
+      function showMember() {
+        $.ajax({
+          method: "POST",
+          url: "./Frontend/Member.php",
+          data: {},
+          dataType: "text",
+          success: function (response) {
+            $('.guest_icon').css('display', 'none');
+            $('.icon_create').after(response);
+          },
+          error: function (exception) {
+            alert("數據載入失敗: " + exception.status);
+          },
+        });
+      }
+      // 顯示會員資訊結束
+      
+    </script>
+    
 
 </head>
-<body>
+<body onload="init()">
     @@include('./layout/header.html')
     <!-- summer-image -->
     <div class="bannerr-winter">
