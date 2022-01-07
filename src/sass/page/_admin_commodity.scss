@@ -283,3 +283,8 @@ input.datetime:focus {
   box-shadow: none;
   border: 2px solid#FCB629;
 }
+
+//彈窗
+.modal-dialog{
+  max-width: 800px !important;
+}

@@ -1,0 +1,250 @@
+items: [
+   {
+     imgUrl: "./images/summer_camp/Rectangle 90.png",
+     loc: "【法國-巴黎】",
+     cardTitle: "時尚設計工作坊夏令營",
+     cardText:
+       "踏訪蘊藏深邃歷史文化的時尚之都巴黎，從食衣住行育樂各方面開啟豐富的感官體驗。",
+   },
+   {
+     imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ.png",
+     loc: "【瑞士-日內瓦】",
+     cardTitle: "阿爾卑斯山歡樂夏日營",
+     cardText:
+       "夏令營地點在瑞士萊森阿爾卑斯中心（Swiss Alpine Centre Leysin），完備的營地設施擁有兩個大型運動場及娛樂中心，與大自然做最親近的接觸。",
+   },
+   {
+     imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ1.png",
+     loc: "【德國-柏林】",
+     cardTitle: "城市探索德語營",
+     cardText:
+       "德語課程為初階至高階；營隊安排英語和德語輔導員，課程、活動和城市探索觀光時，讓德語初級或即便不會說德語的國際學生，更加安心以英語作為輔助來來溝通。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 219.png",
+     loc: "【美國-洛杉磯】",
+     cardTitle: "微電影創作營",
+     cardText:
+       "我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 217.png",
+     loc: "【英國-曼徹斯特】",
+     cardTitle: "英超曼城足球營",
+     cardText:
+       "喜愛英式足球的孩子，透過專業足球課程體驗足球員的日常生活。包括體能鍛鍊、營養規劃、賽况分析，體驗足球的多樣性。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 221.png",
+     loc: "【英國-牛津】",
+     cardTitle: "應用科學營",
+     cardText:
+       "使用最新的實驗室設備，並選定的領域計畫執行科學實驗，課程中也將安排劍橋大學科學家分享研究及討論如何成為科學家，激勵孩子向上的心。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 137.png",
+     loc: "【美國-舊金山】",
+     cardTitle: "矽谷科技創業營",
+     cardText:
+       "聚焦時事和科技對社會的影響，選取具有影響力的創業家或公司作個案研究，幫助孩子對未來職涯能更加具體地描繪。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 210.png",
+     loc: "【美國-紐約】",
+     cardTitle: "運動文化夏令營",
+     cardText:
+       "從美國運動介紹、探討運動經濟商機和運動商品商標及著名球場幕後直擊，深入的解析與認識美國運動文化。",
+   },
+   {
+     imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ2.png",
+     loc: "【美國-紐約】",
+     cardTitle: "百老匯表演藝術營",
+     cardText:
+       "透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 261.png",
+     loc: "【美國-加州長堤】",
+     cardTitle: "陽光衝浪營",
+     cardText:
+       "在長堤陽光普照的海濱度假勝地，學習衝浪策略以及水上安全培訓，接受完整的英語語言理論和實踐課程。",
+   },
+   {
+     imgUrl: "./images/summer_camp/Rectangle 262.png",
+     loc: "【英國-倫敦】",
+     cardTitle: "明日之星音樂營",
+     cardText:
+       "在專業導師的帶領下，每天進行音樂表演，發展成為音樂巨星所需要的能力。在準備最後演出時，您將在教室和工作室中提高音樂才能。",
+   },
+   {
+     imgUrl: "./images/summer_camp/unsplash_E-_I18oX5NQ3.png",
+     loc: "【加拿大-多倫多】",
+     cardTitle: "多倫多大學全球領袖營",
+     cardText:
+       "透過學習領袖、溝通、問題解決等技巧，以及專長工作坊、社群時間、專案規劃，讓孩子培養批判思考、個人發展及價值探索和寶貴的團隊合作技巧。",
+   },
+],
+
+items: [
+  {
+      imgUrl: "./images/summer_camp/Rectangle 90_1.png",
+      loc: "【加拿大-基洛納】",
+      cardTitle: "滑雪冬令營",
+      cardText:
+      "加拿大基洛納滑雪冬令營結合了英語學習與寒假假期，在加拿大海拔最高的滑雪度假勝地大白山滑雪，不管初學或進階者，都有合適的雪道。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 2100.png",
+      loc: "【美國-紐約】",
+      cardTitle: "專業舞蹈訓練營",
+      cardText:
+      "在紐約著名的 Steps on Broadway 國際級舞蹈教學機構，除了學習英語之外，同時接受專業的舞蹈指導，學習時下最流行的舞步。",
+  },
+  {
+      imgUrl: "./images/summer_camp/unsplash_E-_I18o0X5NQ.png",
+      loc: "【瑞士-日內瓦】",
+      cardTitle: "國際領袖營",
+      cardText:
+      "在絕美的阿爾卑斯山，純大自然的景色環繞中，體驗瑞士之美。課程設計提升孩子的信心及興趣的啟發，除了獲得難忘的友誼之外更讓暑假增添更多活力！",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 21s9.png",
+      loc: "【紐西蘭-奧克蘭】",
+      cardTitle: "親子遊學冬令營",
+      cardText:
+      "學校會提供完整的英語課程及其他多樣的課後社交活動等，讓您的孩子可以在這裡，學習到英文的應用、瞭解紐西蘭當地的生活、文化與學習環境。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 21s7.png",
+      loc: "【美國-波士頓】",
+      cardTitle: "費雪大學攝影營",
+      cardText:
+      "攝影課程聘請專業的指導老師，在課堂上教導影像構圖、光線的應用原理等攝影技巧，讓學生瞭解如何將主體以最佳的效果呈現在影像中。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 22s1.png",
+      loc: "【美國-洛杉磯】",
+      cardTitle: "好萊塢表演營",
+      cardText:
+      "在美麗的加州，與來自好萊塢的教師一起開發您的表演潛能。表演營的學生將有機會和電影營的學生一起策畫演出節目或短片。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 13s7.png",
+      loc: "【法國-巴黎】",
+      cardTitle: "法國藍帶廚藝烹飪營",
+      cardText:
+      "藍帶國際是世界著名的廚藝餐旅教育機構之一，通過先進的教學理念，專注于提供高水準的美食和款待教程，讓學生通過實踐學習，積累經驗。",
+  },
+  {
+      imgUrl: "./images/summer_camp/unsplash_E-_I18oX5sNQ.png",
+      loc: "【澳洲-布里斯本】",
+      cardTitle: "親子遊學冬令營",
+      cardText:
+      "澳洲布里斯本親子遊學結合英語學習與家庭假期，透過團隊遊戲及活動，挖掘並激發學生潛在的領導力，進而培養學生合作思考、獨立自主生活能力和正確的人生觀！",
+  },
+  {
+      imgUrl: "./images/summer_camp/unsplash_E-_I18osX5NQ.png",
+      loc: "【英國-倫敦】",
+      cardTitle: "商業金融研習營",
+      cardText:
+      "在學習英語的同時，同時精進專業商務英語與財務金融相關的能力！學生每兩週會前往參訪倫敦首屈一指的商業與金融機構，實際參與會議與專業人士溝通想法。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 27s2.png",
+      loc: "【英國-牛津】",
+      cardTitle: "藝術設計創意營",
+      cardText:
+      "在專屬的藝術工作室擁有教授繪畫、素描及開模的專業設備，由專業的指導老師開設藝術設計相關的課程，讓學生可以在課後完成個人藝術設計的作品。",
+  },
+  {
+      imgUrl: "./images/summer_camp/Rectangle 2s73.png",
+      loc: "【美國-洛杉磯】",
+      cardTitle: "資訊科學營",
+      cardText:
+      "想要為自己設計專屬自己的網頁嗎？為期三週的資訊營，讓孩子親自利用簡單小程式設計專屬網頁，加強學習對於設計流程的認知。",
+  },
+  {
+      imgUrl: "./images/summer_camp/unsplash_E-_I18oX5sNsQ.png",
+      loc: "【美國-西雅圖】",
+      cardTitle: "華盛頓大學遊學營",
+      cardText:
+      "華盛頓大學是商業和工程等多樣專業課程的頂尖大學之一。寒假短期英語課程，可以讓您在課堂上學習到美國文化，練習英語，加強聽與說的能力。",
+  },
+],
+};
+
+items: [
+                    {
+                        imgUrl: "./images/summer_camp/bordeaux.jpg",
+                        loc: "【法國】",
+                        cardTitle: "波爾多紅酒節",
+                        cardText:"每隔兩年，世界各地的愛酒之人都雲集波爾多，以舌尖見證波爾多紅酒的魅力，以味蕾見識波爾多紅酒變化萬千的酒味。波爾多葡萄酒節每年吸引全球逾50萬名杯中物愛好者，邊嚐美酒邊欣賞音樂表演等。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/munich.jpg",
+                        loc: "【德國】",
+                        cardTitle: "慕尼黑啤酒節",
+                        cardText:"在各式遊樂場歡樂氣氛包圍下，與世界各地慕名而來的觀光客共同為啤酒節喝采，金黃色的啤酒芳香撲鼻、豪爽入喉的舒服滋味，一口就上癮！恣意狂歡，將是此生最難忘的體驗！",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/lamerce.jpg",
+                        loc: "【西班牙】",
+                        cardTitle: "巴塞隆納聖梅爾塞節",
+                        cardText:"聖梅爾塞為巴塞隆納的守護神，起源是由於聖梅爾塞在西元1637年時，幫助城市度過一次蝗蟲災害，因而被封為巴塞隆納的保護之神。一般會從9月18日一直持續到9月24日，而最後一日則是整個節日的最高潮，尤其在加泰隆尼亞廣場和西班牙廣場上都會有各式慶祝項目，夜晚西班牙廣場還會施放煙火。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/encierro.jpg",
+                        loc: "【西班牙】",
+                        cardTitle: "潘普洛納奔牛節",
+                        cardText:"提到西班牙，最有名的莫過於一年一次的人牛決鬥「奔牛節」在西班牙北部一個叫潘普洛納小鎮，每年七月份吸引了世界各地數百萬的遊客前來觀看鬥牛及享受狂野又熱情的氛圍。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/Glastonbury.jpg",
+                        loc: "【英國】",
+                        cardTitle: "格拉斯頓伯里音樂節",
+                        cardText:"夏季是音樂會百花齊放的好時光，要數最大型、最具代表性的例子，莫過於逾17.5萬民眾參與的格拉斯頓伯里音樂節。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/Strasbourg.jpg",
+                        loc: "【法國】",
+                        cardTitle: "史特拉斯堡聖誕市集",
+                        cardText:"位於法國的史特拉斯堡，不僅是法國當地最為知名的聖誕市集，也是從1570年一路舉辦至今的老市集，更時常被旅人們選為此生必定拜訪的聖誕市集之一。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/lumieres.jpg",
+                        loc: "【法國】",
+                        cardTitle: "里昂燈光節",
+                        cardText:"據說聖母瑪麗亞在1843年解救受瘟疫所苦的里昂，從此，每年12月會在窗前點燃蠟燭感謝聖母拯救之恩。演變迄今，結合了現代科技與專業團隊規劃後，儼然成為世界知名的國際燈光節。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/sakura.jpg",
+                        loc: "【美國】",
+                        cardTitle: "華盛頓櫻花季",
+                        cardText:"3月中～4月初是華盛頓一年一度的櫻花季，主要栽植於傑佛遜總統紀念堂周邊、東波多馬克河、西波多馬克河公園，滿樹櫻花成了浪漫而美麗的註腳。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/edinburgh.jpg",
+                        loc: "【英國】",
+                        cardTitle: "愛丁堡藝術節",
+                        cardText:"每年8月舉行，橫跨3週，有逾3,000場精彩表演，演出人數超過50,000，是全球規模最大的藝術盛會，節目包羅萬象，舞蹈、戲劇、藝術展覽、馬戲、英語表演、歌劇等，多不勝數。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/stpatrick.jpg",
+                        loc: "【英國】",
+                        cardTitle: "聖派翠克節",
+                        cardText:"這是全球愛爾蘭人共慶的節日，英國多個城市都會舉行聖博德節慶祝活動。穿上一身綠衣，手拿一瓶啤酒，便可外出與友人一起享受節日氣氛。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/hawaii.jpg",
+                        loc: "【美國】",
+                        cardTitle: "夏威夷花環節",
+                        cardText:"夏威夷花環(Lei)用顏色鮮明蘭花、雞蛋花、晚香玉，玫瑰或康乃馨等串接而成。夏威夷人一整年都用贈送花環的方式，來表達友誼及歡迎之意。",
+                    },
+                    {
+                        imgUrl: "./images/summer_camp/Rectangle 292.png",
+                        loc: "【巴西】",
+                        cardTitle: "里約熱內盧嘉年華",
+                        cardText:"每年一到復活節前40 天就會開始舉行一年五日的嘉年華會，街道上歌舞喧天，舞者隨著熱情的森巴節奏起舞，引領活力四射的遊行隊伍前進，吸引了數百萬巴西民眾與世界各地的遊客齊聚。",
+                    },
+                    ],
+                };

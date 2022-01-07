@@ -167,7 +167,22 @@
 .change-page {
     display: block;
 }
+#app-winter{
+    height: 1750px;
+    overflow: hidden;
+    position: relative;
+    transition: 1s ease;
+    padding-bottom: 30px;
+}
+#app-winter.-open{
+    height: auto;
+    position: relative;
+    margin-bottom: 30px !important;
 
+}
+.sw-row{
+    margin-bottom: 30px !important;
+}
 .row .card{
     padding: 0;
     margin: 50px 10px 5px 10px;

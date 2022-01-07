@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="./js/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+
 
     <script>
       function init(){
@@ -204,7 +206,7 @@
                         <a href="./schedule.html">
                             <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top"/>
                             <div class="card-body">
-                                <h5 class="card-title">【意大利】<br>威尼斯嘉年華</h5>
+                                <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
                                 <hr style="border: 0.5px solid #000000" />
                                 <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
                                 <a href="./schedule.html" class="a">
@@ -277,7 +279,7 @@
                         <a href="./schedule.html">
                             <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">【意大利】<br>威尼斯嘉年華</h5>
+                                <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
                                 <hr style="border: 0.5px solid #000000;">
                                 <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
                                 <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
@@ -311,7 +313,7 @@
         <div class="container">
             <div class="row justify-content-evenly">
                 <div class="col-12 festival">各國節慶</div>
-                <div id="app1">
+                <div id="app-local">
                     <card></card>
                 </div>
                 <div class="row loc_btn_show_more">
@@ -346,97 +348,24 @@
         Vue.component("card", {
             data() {
                 return {
-                    items: [
-                    {
-                        imgUrl: "./images/summer_camp/bordeaux.jpg",
-                        loc: "【法國】",
-                        cardTitle: "波爾多紅酒節",
-                        cardText:"每隔兩年，世界各地的愛酒之人都雲集波爾多，以舌尖見證波爾多紅酒的魅力，以味蕾見識波爾多紅酒變化萬千的酒味。波爾多葡萄酒節每年吸引全球逾50萬名杯中物愛好者，邊嚐美酒邊欣賞音樂表演等。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/munich.jpg",
-                        loc: "【德國】",
-                        cardTitle: "慕尼黑啤酒節",
-                        cardText:"在各式遊樂場歡樂氣氛包圍下，與世界各地慕名而來的觀光客共同為啤酒節喝采，金黃色的啤酒芳香撲鼻、豪爽入喉的舒服滋味，一口就上癮！恣意狂歡，將是此生最難忘的體驗！",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/lamerce.jpg",
-                        loc: "【西班牙】",
-                        cardTitle: "巴塞隆納聖梅爾塞節",
-                        cardText:"聖梅爾塞為巴塞隆納的守護神，起源是由於聖梅爾塞在西元1637年時，幫助城市度過一次蝗蟲災害，因而被封為巴塞隆納的保護之神。一般會從9月18日一直持續到9月24日，而最後一日則是整個節日的最高潮，尤其在加泰隆尼亞廣場和西班牙廣場上都會有各式慶祝項目，夜晚西班牙廣場還會施放煙火。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/encierro.jpg",
-                        loc: "【西班牙】",
-                        cardTitle: "潘普洛納奔牛節",
-                        cardText:"提到西班牙，最有名的莫過於一年一次的人牛決鬥「奔牛節」在西班牙北部一個叫潘普洛納小鎮，每年七月份吸引了世界各地數百萬的遊客前來觀看鬥牛及享受狂野又熱情的氛圍。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/Glastonbury.jpg",
-                        loc: "【英國】",
-                        cardTitle: "格拉斯頓伯里音樂節",
-                        cardText:"夏季是音樂會百花齊放的好時光，要數最大型、最具代表性的例子，莫過於逾17.5萬民眾參與的格拉斯頓伯里音樂節。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/Strasbourg.jpg",
-                        loc: "【法國】",
-                        cardTitle: "史特拉斯堡聖誕市集",
-                        cardText:"位於法國的史特拉斯堡，不僅是法國當地最為知名的聖誕市集，也是從1570年一路舉辦至今的老市集，更時常被旅人們選為此生必定拜訪的聖誕市集之一。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/lumieres.jpg",
-                        loc: "【法國】",
-                        cardTitle: "里昂燈光節",
-                        cardText:"據說聖母瑪麗亞在1843年解救受瘟疫所苦的里昂，從此，每年12月會在窗前點燃蠟燭感謝聖母拯救之恩。演變迄今，結合了現代科技與專業團隊規劃後，儼然成為世界知名的國際燈光節。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/sakura.jpg",
-                        loc: "【美國】",
-                        cardTitle: "華盛頓櫻花季",
-                        cardText:"3月中～4月初是華盛頓一年一度的櫻花季，主要栽植於傑佛遜總統紀念堂周邊、東波多馬克河、西波多馬克河公園，滿樹櫻花成了浪漫而美麗的註腳。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/edinburgh.jpg",
-                        loc: "【英國】",
-                        cardTitle: "愛丁堡藝術節",
-                        cardText:"每年8月舉行，橫跨3週，有逾3,000場精彩表演，演出人數超過50,000，是全球規模最大的藝術盛會，節目包羅萬象，舞蹈、戲劇、藝術展覽、馬戲、英語表演、歌劇等，多不勝數。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/stpatrick.jpg",
-                        loc: "【英國】",
-                        cardTitle: "聖派翠克節",
-                        cardText:"這是全球愛爾蘭人共慶的節日，英國多個城市都會舉行聖博德節慶祝活動。穿上一身綠衣，手拿一瓶啤酒，便可外出與友人一起享受節日氣氛。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/hawaii.jpg",
-                        loc: "【美國】",
-                        cardTitle: "夏威夷花環節",
-                        cardText:"夏威夷花環(Lei)用顏色鮮明蘭花、雞蛋花、晚香玉，玫瑰或康乃馨等串接而成。夏威夷人一整年都用贈送花環的方式，來表達友誼及歡迎之意。",
-                    },
-                    {
-                        imgUrl: "./images/summer_camp/Rectangle 292.png",
-                        loc: "【巴西】",
-                        cardTitle: "里約熱內盧嘉年華",
-                        cardText:"每年一到復活節前40 天就會開始舉行一年五日的嘉年華會，街道上歌舞喧天，舞者隨著熱情的森巴節奏起舞，引領活力四射的遊行隊伍前進，吸引了數百萬巴西民眾與世界各地的遊客齊聚。",
-                    },
-                    ],
+                  data: [],
                 };
             },
             template: `
                 <div class="row justify-content-center" align-items-start>
-                <div v-for="item in items" class="card" style="width: 18rem">
+                <div v-for="item in data" class="card" style="width: 18rem">
                     <i class="fas fa-heart"></i>
                     <a href="./schedule.html">
                     <img
-                        :src= "item.imgUrl"
+                        :src= "item.IMG"
                         class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title">
-                        {{item.loc}}<br>
-                        {{item.cardTitle}}
+                        【{{item.COUNTRY}}】<br>
+                        {{item.NAME}}
                         </h5>
                         <hr style="border: 0.5px solid #000000" />
-                        <p class="card-text">{{item.cardText}}</p>
+                        <p class="card-text">{{checkTitle(item.CONTEXT)}}...</p>
                         <a href="./schedule.html" class="a">
                         Learn more 
                         <img src="./images/summer_camp/icon.png"/>
@@ -446,12 +375,23 @@
                 </div>
                 </div>
                 `,
-            });
+            methods: {
+                checkTitle(theTitle){
+                  return theTitle.slice(0, 40); // 只取書名20個字，以免破版
+                },
+            },
+            mounted(){
+                $.getJSON('./Frontend/local.php').then((res) => {
+                  // console.log(res);
+                  this.data = res;
+                });
+            },
+        });
 
         // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
         // Vue2 template 一定要記得寫根節點！ <div></div>
         let vm = new Vue({
-        el: "#app1",
+        el: "#app-local",
         data: {
             // new Vue 的 data 是物件
         },
@@ -461,7 +401,7 @@
 
         // 點擊 show more 展開更多
         $(".loc_showMore").click(function () {
-        $("#app1").toggleClass("-open");
+        $("#app-local").toggleClass("-open");
         $(".loc_showMore").addClass("-off");
         });
 
@@ -478,20 +418,21 @@
         });
    
         // ---- 文字省略 (...) ----
-        let len = 50; // 超過n個字以"..."取代
-        $(".card-text").each(function (i) {
-            if ($(this).text().length > len) {
-                $(this).attr("title", $(this).text());
-                let text =
-                $(this)
-                    .text()
-                    .substring(0, len - 1) + "...";
-                $(this).text(text);
-            }else{
-                $(this).attr("title", $(this).text());
+        // let len = 50; // 超過n個字以"..."取代
+        // $(".card-text").each(function (i) {
+        //     if ($(this).text().length > len) {
+        //         $(this).attr("title", $(this).text());
+        //         let text =
+        //         $(this)
+        //             .text()
+        //             .substring(0, len - 1) + "...";
+        //         $(this).text(text);
+        //     }else{
+        //         $(this).attr("title", $(this).text());
                
-            }
-        });
+        //     }
+        // });
+
         // 設定當前頁面 css：桌機版 header
         let page = document.getElementsByClassName("header_pg");
         for(let i = 0; i < (page.length); i++){

@@ -52,20 +52,37 @@ div.admin_header_btn {
   justify-content: flex-start;
   align-items: center;
   margin: 0 10px 0 0;
+  // #admin_logout{
+  //   @include btn_module(85px, 5px, $btn_color_primary, $btn_color_primary_hover);
+  //   border: none;
+  //   color: white;
+  //   font-weight: bold;
+  //   border-radius: 5px;
+  //   letter-spacing: 0.05em;
+  //   height: 100%;
+  // }
 }
 
-button.admin_btn_signOut {
-  @include btn_module(85px, 5px, $btn_color_primary, $btn_color_primary_hover);
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  letter-spacing: 0.05em;
-  height: 100%;
+.admin_header{
+  .admin_header_btn{
+    input.admin_btn_signOut{
+      @include btn_module(85px, 5px, $btn_color_primary, $btn_color_primary_hover);
+      border: none;  
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      letter-spacing: 0.05em;
+      height: 100%;
+    }
+  }
 }
 
-button.admin_btn_signOut:hover {
-  background-color: $btn_color_primary_hover;
+.admin_header{
+  .admin_header_btn{
+    .admin_btn_signOut:hover {
+      background-color: $btn_color_primary_hover;
+    }
+  }
 }
 
 //搜尋
@@ -151,13 +168,13 @@ div.d-flex {
   margin-top: 10px;
 }
 
-a.page-link {
+li.page-link {
   background-color: #01B3A7;
   color: white;
   border: 1px solid #395762;
 }
 
-a.page-link:hover {
+li.page-link:hover {
   background-color: #395762;
   color: white;
   border: 1px solid #395762;

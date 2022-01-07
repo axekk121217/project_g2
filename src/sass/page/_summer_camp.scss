@@ -209,21 +209,25 @@
     display: block;
 }
 
-#app{
+#app-summer{
     height: 1750px;
     overflow: hidden;
     position: relative;
     transition: 1s ease;
     padding-bottom: 30px;
 }
-#app.-open{
+#app-summer.-open{
     height: auto;
     position: relative;
+}
+.sw-row{
+    margin-bottom: 30px !important;
 }
 .btn_show_more{
     display: flex;
     justify-content: center;
 }
+
 button.showMore.-off{
     display: none;
 }

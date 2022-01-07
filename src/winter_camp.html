@@ -8,6 +8,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="./js/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+
     <script>
       function init(){
         showMember();
@@ -298,11 +300,11 @@
             </div>
 
             <div class="col-md-9 col-sm-12 change-page"> <!-- main -->
-                <div id="app">
+                <div id="app-winter">
                     <card></card>
                 </div>
                 <div class="row btn_show_more">
-                    <button type="submit" class="button showMore">SHOW MORE</button>
+                    <button type="submit" class="button showMore" style="margin-top: 30px">SHOW MORE</button>
                 </div>
             </div>
         </div>
@@ -313,151 +315,69 @@
 
 
 
-
     <script>
         Vue.component("card", {
-            data() {
+              data() {
                 return {
-                    items: [
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 90_1.png",
-                            loc: "【加拿大-基洛納】",
-                            cardTitle: "滑雪冬令營",
-                            cardText:
-                            "加拿大基洛納滑雪冬令營結合了英語學習與寒假假期，在加拿大海拔最高的滑雪度假勝地大白山滑雪，不管初學或進階者，都有合適的雪道。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 2100.png",
-                            loc: "【美國-紐約】",
-                            cardTitle: "專業舞蹈訓練營",
-                            cardText:
-                            "在紐約著名的 Steps on Broadway 國際級舞蹈教學機構，除了學習英語之外，同時接受專業的舞蹈指導，學習時下最流行的舞步。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/unsplash_E-_I18o0X5NQ.png",
-                            loc: "【瑞士-日內瓦】",
-                            cardTitle: "國際領袖營",
-                            cardText:
-                            "在絕美的阿爾卑斯山，純大自然的景色環繞中，體驗瑞士之美。課程設計提升孩子的信心及興趣的啟發，除了獲得難忘的友誼之外更讓暑假增添更多活力！",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 21s9.png",
-                            loc: "【紐西蘭-奧克蘭】",
-                            cardTitle: "親子遊學冬令營",
-                            cardText:
-                            "學校會提供完整的英語課程及其他多樣的課後社交活動等，讓您的孩子可以在這裡，學習到英文的應用、瞭解紐西蘭當地的生活、文化與學習環境。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 21s7.png",
-                            loc: "【美國-波士頓】",
-                            cardTitle: "費雪大學攝影營",
-                            cardText:
-                            "攝影課程聘請專業的指導老師，在課堂上教導影像構圖、光線的應用原理等攝影技巧，讓學生瞭解如何將主體以最佳的效果呈現在影像中。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 22s1.png",
-                            loc: "【美國-洛杉磯】",
-                            cardTitle: "好萊塢表演營",
-                            cardText:
-                            "在美麗的加州，與來自好萊塢的教師一起開發您的表演潛能。表演營的學生將有機會和電影營的學生一起策畫演出節目或短片。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 13s7.png",
-                            loc: "【法國-巴黎】",
-                            cardTitle: "法國藍帶廚藝烹飪營",
-                            cardText:
-                            "藍帶國際是世界著名的廚藝餐旅教育機構之一，通過先進的教學理念，專注于提供高水準的美食和款待教程，讓學生通過實踐學習，積累經驗。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/unsplash_E-_I18oX5sNQ.png",
-                            loc: "【澳洲-布里斯本】",
-                            cardTitle: "親子遊學冬令營",
-                            cardText:
-                            "澳洲布里斯本親子遊學結合英語學習與家庭假期，透過團隊遊戲及活動，挖掘並激發學生潛在的領導力，進而培養學生合作思考、獨立自主生活能力和正確的人生觀！",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/unsplash_E-_I18osX5NQ.png",
-                            loc: "【英國-倫敦】",
-                            cardTitle: "商業金融研習營",
-                            cardText:
-                            "在學習英語的同時，同時精進專業商務英語與財務金融相關的能力！學生每兩週會前往參訪倫敦首屈一指的商業與金融機構，實際參與會議與專業人士溝通想法。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 27s2.png",
-                            loc: "【英國-牛津】",
-                            cardTitle: "藝術設計創意營",
-                            cardText:
-                            "在專屬的藝術工作室擁有教授繪畫、素描及開模的專業設備，由專業的指導老師開設藝術設計相關的課程，讓學生可以在課後完成個人藝術設計的作品。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/Rectangle 2s73.png",
-                            loc: "【美國-洛杉磯】",
-                            cardTitle: "資訊科學營",
-                            cardText:
-                            "想要為自己設計專屬自己的網頁嗎？為期三週的資訊營，讓孩子親自利用簡單小程式設計專屬網頁，加強學習對於設計流程的認知。",
-                        },
-                        {
-                            imgUrl: "./images/summer_camp/unsplash_E-_I18oX5sNsQ.png",
-                            loc: "【美國-西雅圖】",
-                            cardTitle: "華盛頓大學遊學營",
-                            cardText:
-                            "華盛頓大學是商業和工程等多樣專業課程的頂尖大學之一。寒假短期英語課程，可以讓您在課堂上學習到美國文化，練習英語，加強聽與說的能力。",
-                        },
-                    ],
+                  data: [],
                 };
-            },
-            template: `
-            <div class="row justify-content-center" align-items-start>
-                <div v-for="item in items" class="card" style="width: 18rem">
+              },
+              template: `
+              <div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
+                <div v-for="item in data" class="card" style="width: 18rem">
                 <i class="fas fa-heart"></i>
                 <a href="./schedule.html">
-                    <img
-                    :src= "item.imgUrl"
-                    class="card-img-top"/>
-                    <div class="card-body">
-                    <h5 class="card-title">
-                    {{item.loc}}<br>
-                    {{item.cardTitle}}
-                    </h5>
-                    <hr style="border: 0.5px solid #000000" />
-                    <p class="card-text">
-                    {{item.cardText}}
-                    </p>
-                    <a href="./schedule.html" class="a">
-                        Learn more 
-                        <img src="./images/summer_camp/icon.png"/>
-                    </a>
-                    </div>
+                  <img
+                  :src= "item.IMG"
+                  class="card-img-top"/>
+                  <div class="card-body">
+                  <h5 class="card-title">
+                  【{{item.COUNTRY}}-{{item.CITY}}】<br>
+                  {{item.NAME}}
+                  </h5>
+                  <hr style="border: 0.5px solid #000000" />
+                  <p class="card-text">
+                  {{checkTitle(item.CONTEXT)}}...
+                  </p>
+                  <a href="./schedule.html" class="a">
+                    Learn more 
+                    <img src="./images/summer_camp/icon.png"/>
+                  </a>
+                  </div>
                 </a>
                 </div>
-            </div>
-            `,
-      });
+              </div>
+              `,
+              methods: {
+                checkTitle(theTitle){
+                  return theTitle.slice(0, 40); // 只取書名20個字，以免破版
+                },
+              },
+              mounted(){
+                $.getJSON('./Frontend/winter.php').then((res) => {
+                  // console.log(res);
+                  this.data = res;
+                });
+              },
+            });
 
       // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
       // Vue2 template 一定要記得寫根節點！ <div></div>
       let vm = new Vue({
-      el: "#app",
-      data: {
-        // new Vue 的 data 是物件
-      },
-      computed: {},
-      methods: {},
+        el: "#app-winter",
+        data: {
+          // new Vue 的 data 是物件
+        },
+        computed: {},
+        methods: {
+			
+		},
       });
 
-      // ---- 文字省略 (...) ---- 
-      let len = 55; // 超過n個字以"..."取代
-      $(".card-text").each(function(i){
-          if($(this).text().length > len){
-              $(this).attr("title", $(this).text());
-              let text = $(this).text().substring(0,len-1) + "...";
-              $(this).text(text);
-          }
-      });
       
       // 點擊 show more 展開更多
       $('.showMore').click(function(){
-        $('#app').toggleClass('-open');
+        $('#app-winter').toggleClass('-open');
         $('.showMore').addClass('-off');
       });
 

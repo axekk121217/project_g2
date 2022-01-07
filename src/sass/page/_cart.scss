@@ -8,6 +8,13 @@ section.cart_container {
 
     .cart_board {
         padding: 20px;
+
+        .cart_checkBox {
+            input {
+                width: 16px;
+                height: 16px;
+            }
+        }
     }
 
     .cart_head {
@@ -23,10 +30,17 @@ section.cart_container {
         justify-content: space-around;
         align-items: flex-start;
         border-bottom: solid 1px #eee;
+        padding-bottom: 10px;
     }
 
     .fa-square-o {
         cursor: pointer;
+    }
+
+    @media (max-width: 767.98px) {
+        i.fa-square-o {
+            font-size: 18px;
+        }
     }
 
     .fa-check-square-o {
@@ -44,8 +58,14 @@ section.cart_container {
     }
     @media (max-width: 576.98px) {
         img {
-            padding-left: 0;
+            padding-left: 10px;
             padding-right: 10px;
+        }
+    }
+
+    @media (max-width: 350px) {
+        img {
+            width: 80px;
         }
     }
 
@@ -54,6 +74,11 @@ section.cart_container {
 
         h3.cart_productDetailTitle {
             font-weight: bold;
+        }
+        @media (max-width: 991.98px) {
+            h3.cart_productDetailTitle {
+                font-size: 14px;
+            }
         }
     }
 
@@ -79,16 +104,37 @@ section.cart_container {
             padding: 6px;
             cursor: pointer;
         }
-        #cart_text {
-            width: 20px;
-            padding: 3px;
-            border: solid 1px black;
-        }
 
         .cart_substract {
             border: solid 1px black;
             padding: 6px;
             cursor: pointer;
+        }
+        p.cart_text {
+            border: solid 1px black;
+            padding: 6px;
+        }
+        @media (max-width: 991.98px) {
+            .cart_substract, p.cart_text, .cart_add {
+                padding: 3px;
+                padding-top: 5px;
+                // padding-left: 3px;
+                // padding-right: 3px;
+            }
+        }
+    }
+    @media (max-width: 776.98px) {
+        .cart_personItem {
+            justify-content: flex-end;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .cart_personItem {
+            margin-top: 10px;
+        }
+        .cart_substract, p.cart_text, .cart_add {
+            font-size: 14px;
         }
     }
 
@@ -104,100 +150,49 @@ section.cart_container {
         }
     }
 
+    @media (max-width: 400px) {
+        .cart_productOption {
+            display: none;
+        }
+    }
+
     .fa-trash-o {
         cursor: pointer;
     }
 
-
-
-    @media (max-width: 769.98px) {
-        .cart_detail {
-            display: none;
-        }
-    }
 }
 
 .cart_people {
-    margin-bottom: 10px;
-    margin-left: 13px;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 
-.cart_productDetailPhone {
-    display: none;
-}
-
-.cart_personItemPhone {
-    display: none;
-}
-
-.cart_pricePhone {
-    display: none;
-}
-
-.cart_btnPhone {
-    display: none;
-}
-
-.cart_peoplePhone {
-    display: none;
-} 
-
-@media (max-width:769.98px) {
-    .cart_productDetailPhone {
-        display: block;
-
-        .cart_productDetailTitlePhone {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .cart_productOptionPhone {
-            margin-bottom: 10px;
-            h3 {
-                margin-bottom: 10px;
-            }
-        }
-    }
-
-    .cart_peoplePhone {
-        display: block;
-        margin-bottom: 5px;
-        margin-right: 5px;
-    }
-
-    .cart_personItemPhone {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .cart_personAll {
-            display: flex;
-        }
-        .cart_substract {
-            border: solid 1px black;
-            padding: 6px;
-            cursor: pointer;
-        }
-        #cart_text {
-            width: 20px;
-            padding: 3px;
-            border: solid 1px black;
-        }
-        .cart_add {
-            border: solid 1px black;
-            padding: 6px;
-            cursor: pointer;
-        }
-    }
-    
-    .cart_pricePhone {
-        display: block;
-    }
-    
-    .cart_btnPhone {
-        display: block;
-        margin-top: 10px;
+@media (max-width: 400px) {
+    .cart_people {
+        font-size: 12px;
     }
 }
+
+@media (max-width: 776.98px) {
+    .cart_price {
+        text-align: end;
+        margin-top: 8px;
+    }
+    i.fa-trash-o {
+        text-align: end;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cart_price {
+        font-size: 14px;
+    }
+    i.fa-trash-o {
+        font-size: 18px;
+    }
+}
+
 
 .cart_footer {
     padding: 0 20px;
@@ -205,10 +200,16 @@ section.cart_container {
     .cart_checkBox {
         display: flex;
 
+        input {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
 
         .cart_CheckBoxTitle {
             margin-right: 10px;
             cursor: pointer;
+            font-size: 18px;
         }
 
         .cart_gap {
@@ -230,9 +231,25 @@ section.cart_container {
         }
 
         .cart_totalPrice {
-            font-size: $fontSize_Nav;
+            font-size: $fontSize_Sub;
             font-weight: bold;
         }
     }
 
+    @media (max-width: 767.98px) {
+        span.cart_CheckBoxTitle, span.cart_gap, span.cart_delectAll {
+            font-size: 14px;
+            
+        }
+        span.cart_CheckBoxTitle {
+            margin-left: 8px;
+        }
+        i.fa-square-o {
+            font-size: 16px;
+        }
+    }
+}
+
+#bodyBackgroundColor {
+    background-color: black;
 }
