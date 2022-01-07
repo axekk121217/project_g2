@@ -36,6 +36,7 @@
     // $statement->bindValue(11, $end_date);
     // $statement->bindValue(12, $item_ID);
     $statement->execute();
+    echo '更新成功!';
 
     // redirect 轉址
     // header("Location: Select.php");
