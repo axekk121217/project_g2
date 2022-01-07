@@ -37,8 +37,8 @@ section.process_buyItem {
 
             @media (max-width: 776.98px) {
                 .process_ball {
-                    width: 60px;
-                    height: 60px;
+                    width: 45px;
+                    height: 45px;
                 }
             }
             .ball {
@@ -51,7 +51,7 @@ section.process_buyItem {
 i.bi-arrow-right {
     font-size: 60px;
     margin-right: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 i.bi-calendar2-check-fill {
@@ -60,10 +60,16 @@ i.bi-calendar2-check-fill {
 
 @media (max-width: 776.98px) {
     i.bi-arrow-right {
-        font-size: 40px;
-        margin-right: 20px;
+        font-size: 30px;
+        margin-right: 15px;
     }
     
+}
+
+@media (max-width: 776.98px) {
+  div.process_ballName p{
+    font-size: 12px;
+  }
 }
 
 h1.process_buyItemAllTitle {
@@ -179,10 +185,13 @@ h1.process_buyItemAllTitle {
 
 .process_btnAll {
     padding-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
 @media (max-width: 400px) {
-    .process_nextStep {
-        margin-top: 10px;
+    .btn_sub {
+      width: 120px;
     }
 }
