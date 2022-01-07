@@ -21,6 +21,7 @@
     ></script>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/vue.js"></script>
   </head>
   <body>
@@ -366,7 +367,7 @@
 				<table class="table table-hover">
 					<tbody>
 						<tr v-for="(item, index) in data.slice(0, 30)">
-							<th scope="row">{{item.ID}}</th>
+							<th scope="row" id="item_ID">{{item.ID}}</th>
 							<td>【{{item.COUNTRY}}-{{item.CITY}}】{{item.NAME}}</td>
 							<td>{{item.BATCH}}</td>
 							<td>{{item.START_DATE}}-{{item.END_DATE}}</td>
@@ -378,140 +379,150 @@
 								</button>
 
 								<!-- Modal -->
-								<form method="post" action="./backend/admin-updateItem.php" enctype="multipart/form-data">
-									<div class="modal fade" :id="item.NAME" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header admin_commodity_header">
-													<h5 class="modal-title" id="staticBackdropLabel">
-													編輯&nbsp;&frasl;&nbsp;查看
-													</h5>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<div class="admin_order_edit">
-														<div class="admin_edit_main">
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
-																<input type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" :value="item.NAME"/>
-															</div>
+								<div class="modal fade" :id="item.NAME" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header admin_commodity_header">
+												<h5 class="modal-title" id="staticBackdropLabel">
+												編輯&nbsp;&frasl;&nbsp;查看
+												</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<div class="admin_order_edit">
+													<div class="admin_edit_main">
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
+															<input v-model="item.NAME" type="text" class="form-control admin_commodity_focus item_name" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
+															<!--:value="item.NAME"-->
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">行程類別</label>
-																<select class="form-select admin_commodity_focus select1" id="inputGroupSelect01">
-																	<option disabled>選擇行程主題</option>
-																	<option :value="cat.name" v-for="cat in cate" :selected="cat.name == item.CATEGORY">{{cat.name}}</option>
-																</select>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">行程類別</label>
+															<select v-model="item.CATEGORY" class="form-select admin_commodity_focus select1" id="inputGroupSelect01" @change="selectCategory">
+																<option disabled>選擇行程主題</option>
+																<option class="item_category" v-for="cat in cate" :selected="cat.name == item.CATEGORY">{{cat.name}}</option>
+																<!--  :value="cat.name" -->
+															</select>
 
-																<label class="input-group-text" for="inputGroupSelect01">行程主題</label>
+															<label class="input-group-text" for="inputGroupSelect01">行程主題</label>
+															<select v-model="item.THEME" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇行程主題</option>
+																<option class="item_theme" v-for="topic in theme" :selected="topic.name == item.THEME">{{topic.name}}</option>
+																<!--  :value="topic.name" -->
+															</select>
+														</div>
 
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇行程主題</option>
-																	<option :value="topic.name" v-for="topic in theme" :selected="topic.name == item.THEME">{{topic.name}}</option>
-																</select>
-															</div>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">行程國家</label>
+															<select v-model="item.COUNTRY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇行程國家</option>
+																<option class="item_country" v-for="nat in country" :selected="nat.name == item.COUNTRY">{{nat.name}}</option>
+																<!--  :value="nat.name" -->
+															</select>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">行程國家</label>
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇行程國家</option>
-																	<option :value="nat.name" v-for="nat in country" :selected="nat.name == item.COUNTRY">{{nat.name}}</option>
-																</select>
+															<label class="input-group-text" for="inputGroupSelect01">行程地點</label>
+															<select v-model="item.CITY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇行程地點</option>
+																<option class="item_city" v-for="ct in city" :selected="ct.name == item.CITY">{{ct.name}}</option>
+																<!--  :value="ct.name" -->
+															</select>
+														</div>
 
-																<label class="input-group-text" for="inputGroupSelect01">行程地點</label>
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇行程地點</option>
-																	<option :value="ct.name" v-for="ct in city" :selected="ct.name == item.CITY">{{ct.name}}</option>
-																</select>
-															</div>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
+															<select v-model="item.AGE" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇招生年齡</option>
+																<option class="item_age" v-for="ag in age" :selected="ag.range == item.AGE">{{ag.range}}</option>
+																<!--  :value="ag.range" -->
+															</select>
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇招生年齡</option>
-																	<option :value="ag.range" v-for="ag in age" :selected="ag.range == item.AGE">{{ag.range}}</option>
-																</select>
-															</div>
+														<!--
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">成團人數</label>
+															<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇成團人數</option>
+																<option v-for="ga in groupAmount" :selected="ga.num == item.AGE">{{ga.num}}</option>
+															</select>
+														</div>
+														-->
 
-															<!--
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">成團人數</label>
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇成團人數</option>
-																	<option :value="ga.num" v-for="ga in groupAmount" :selected="ga.num == item.AGE">{{ga.num}}</option>
-																</select>
-															</div>
-															-->
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
+															<select v-model="item.BATCH" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇梯次</option>
+																<option class="item_batch" v-for="ba in batch" :selected="ba.no == item.BATCH">{{ba.no}}</option>
+																<!--  :value="ba.no" -->
+															</select>
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
-																<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																	<option disabled>選擇梯次</option>
-																	<option :value="ba.no" v-for="ba in batch" :selected="ba.no == item.BATCH">{{ba.no}}</option>
-																</select>
-															</div>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">開始日期</label>
+															<input v-model="item.START_DATE" type="text" class="form-control admin_commodity_focus item_start_date" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-07-01"/>
+															<!--  :value="item.START_DATE" -->
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">開始日期</label>
-																<input :value="item.START_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-07-01"/>
-															</div>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">結束日期</label>
+															<input v-model="item.END_DATE" type="text" class="form-control admin_commodity_focus item_end_date" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-08-15"/>
+															<!--  :value="item.END_DATE" -->
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">結束日期</label>
-																<input :value="item.END_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-08-15"/>
-															</div>
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">行程價格</label>
+															<input v-model="item.PRICE" type="text" class="form-control admin_commodity_focus item_price" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
+															<!--  :value="item.PRICE" -->
+														</div>
 
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">行程價格</label>
-																<input type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" :value="item.PRICE"/>
-															</div>
-
-															<!-- 新增圖片 -->
-															<div class="mb-3">
-																<div v-if="!image" style="position: relative">
-																	<input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @change="onFileChange"/>
-																	
-																	<p class="item_showImg" v-if="item.IMG" style="position: absolute; top: 8px; left: 100px; width: 70%; text-align: left; background: #fff; padding: 3px; cursor: pointer">{{item.IMG}}</p>
-																	<div class="input-group mb-3">
-																		<img :src="'./images/summer_camp/' + item.IMG" style="width: 100%">  
-																	</div>
+														<!-- 新增圖片 -->
+														<div class="mb-3">
+															<div v-if="!image" style="position: relative">
+																<input class="form-control admin_commodity_focus item_img" accept="image/*" id="formFile" type="file" @change="onFileChange"/>
+																
+																<p class="item_showImg" v-if="item.IMG" style="position: absolute; top: 8px; left: 100px; width: 70%; text-align: left; background: #fff; padding: 3px; cursor: pointer">{{item.IMG}}</p>
+																<div class="input-group mb-3">
+																	<img :src="'./images/summer_camp/' + item.IMG" style="width: 100%">  
 																</div>
-																<div v-else class="admin_newItem_img">
-																	<input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @load="getImage" @change="onFileChange"/>
-																	<img :src="image" />
-																	<button class="admin_commodity_file" @click="removeImage">
-																	重新選擇
-																	</button>
-																</div>
-																<!--<img :src="item.IMG"/>-->
 															</div>
-														
-															<div class="mb-3">
-																<label class="input-group-text admin_commodity_text" for="inputGroupSelect01">文案內容</label>
-																<textarea class="form-control admin_commodity_textarea" id="exampleFormControlTextarea1" rows="3" placeholder="請輸入不超過 300 字" maxlength="300">{{item.CONTEXT}}</textarea>
+															<div v-else class="admin_newItem_img">
+																<input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @load="getImage" @change="onFileChange"/>
+																<img :src="image" />
+																<button class="admin_commodity_file" @click="removeImage">
+																重新選擇
+																</button>
 															</div>
+															<!--<img :src="item.IMG"/>-->
+														</div>
+													
+														<div class="mb-3">
+															<label class="input-group-text admin_commodity_text" for="inputGroupSelect01">文案內容</label>
+															<textarea v-model="item.CONTEXT" class="form-control admin_commodity_textarea item_context" id="exampleFormControlTextarea1" rows="3" placeholder="請輸入不超過 300 字" maxlength="300"></textarea>
+															<!-- {{item.CONTEXT}} -->
 														</div>
 													</div>
 												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal">
-													關閉
-													</button>
-													<button type="button" class="btn admin_commodity_btn" @click="updateItem">
-													儲存
-													</button>
-												</div>
-											</div> 
-										</div>	
-									</div>
-								</form>	
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal">
+												關閉
+												</button>
+												<button type="button" class="btn admin_commodity_btn" @click="updateItem">
+												儲存
+												</button>
+											</div>
+										</div> 
+									</div>	
+								</div>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			`,
-			computed: {},
-			methods: {
+			computed: {
+			
+			},
+			methods: {				
 				// 上傳圖片預覽
 				getImage() {
 					file.name = item.IMG;
@@ -526,7 +537,7 @@
 					let image = new Image();
 					let reader = new FileReader();
 					let vm = this;
-					// console.log(file.name);
+					// return file.name;
 
 					reader.onload = (e) => {
 						vm.image = e.target.result;
@@ -538,28 +549,46 @@
 					this.image = "";
 				},
 				// 「編輯查看」儲存按鈕：更新行程資訊
-				updateItem(){
+				updateItem(e){
+					// console.log(e.target.parentNode.parentNode.previousSibling.);
+					// console.log(e.target.parentNode.item);
+					// axios.post('./backend/admin-updateItem.php', {
+					// 	action:'update',
+					// 	firstName: application.first_name,
+					// 	lastName: application.last_name,
+					// 	hiddenId: application.hiddenId
+					// })
+					// .then(function(response){
+					// 	application.myModel = false;
+					// 	application.fetchAllData();
+					// 	application.first_name = '';
+					// 	application.last_name = '';
+					// 	application.hiddenId = '';
+					// 	alert(response.data.message);
+					// });
 					$.ajax({
 						method: "POST",
 						url: "./backend/admin-updateItem.php", // API 路徑
 						data: {
-							name: $('#name').val(), // input name // key 對應 php 中的 $_POST["Name"]
-							context: $('#context').val(),
-							category: $('#category').val(),
-							theme: $('#theme').val(),
-							country: $('#country').val(),
-							age: $('#age').val(),
-							img: $('#img').val(),
-							price: $('#price').val(),
-							batch: $('#batch').val(),
-							start_date: $('#start_date').val(),
-							end_date: $('#end_date').val(),
+							// item_ID: item.ID,
+							// name: item.NAME, // input name // key 對應 php 中的 $_POST["Name"]
+							// context: $('.item_context').val(),
+							// category: $('.item_category').val(),
+							// theme: $('.item_theme').val(),
+							// country: $('.item_country').val(),
+							// city: $('.item_city').val(),
+							// age: $('.item_age').val(),
+							// img: $('.item_img').val(),
+							// price: $('.item_price').val(),
+							// batch: $('.item_batch').val(),
+							// start_date: $('.item_start_date').val(),
+							// end_date: $('.item_end_date').val(),
 						},
 						dataType: "text", // 取決於 php 要回傳什麼樣的資料：Y/N
 		
 						// 設定 listener：
 						success: function (response) { // 網路傳輸成功
-							func2();
+							alert('新增成功');
 						},
 						error: function (exception) {
 							alert("發生錯誤: " + exception.status);
@@ -570,14 +599,20 @@
 				// newItem(){
 
 				// },
+				
+				// 取得行程類型的值
+				selectCategory(e){
+					return e.target.value;
+				}
 			},
 			mounted() {
 				// 先從資料庫抓全部的行程資料
 				$.getJSON("./backend/admin-comm.php").then((res) => {
-					// console.log(res);
+					console.log(res);
 					this.data = res;
 				});
 			},
+		
 		});
 
 		// 宣告一個 Vue 實體
@@ -585,6 +620,7 @@
 			el: "#app-comm",
 			data: {
 				// new Vue 的 data 是物件
+				// data: [],
 			},
 			computed: {},
 			methods: {},
