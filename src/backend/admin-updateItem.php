@@ -1,5 +1,4 @@
 <?php
-
     $name = $_POST[""];
     $context = $_POST[""];
     $category = $_POST[""];
@@ -14,7 +13,7 @@
     $end_date = $_POST[""];
 
     // 連線資料庫
-    include('./Lib/Util.php'); 
+    include('../Lib/Util.php'); 
     // include('./connection.php'); // 這是佩君的連線
 
     // 新增各欄位行程資訊至資料庫

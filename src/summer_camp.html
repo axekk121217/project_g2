@@ -501,7 +501,10 @@
 		Vue.component("card", {
 			data() {
 				return {
-					data: [],
+					data: [
+           
+
+          ],
 				};
 			},
 			template: `
@@ -510,7 +513,7 @@
 				<i class="fas fa-heart"></i>
 				<a href="./schedule.html">
 					<img
-					:src= "./images/summer_camp/ + item.IMG"
+					:src= "'./images/summer_camp/' + item.IMG"
 					class="card-img-top"/>
 					<div class="card-body">
 					<h5 class="card-title">

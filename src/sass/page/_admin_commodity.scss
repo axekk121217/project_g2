@@ -244,6 +244,10 @@ button.admin_commodity_file:hover {
   background-color: $btn_color_sub_hover;
 }
 
+p.item_showImg{
+  position: absolute;
+}
+
 label.admin_commodity_text {
   border-radius: 0.25rem 0.25rem 0 0;
   border-bottom: none;

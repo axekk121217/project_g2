@@ -1,5 +1,5 @@
 <?php
-    include('./Lib/Util.php'); 
+    include('../Lib/Util.php'); 
     // include('./connection.php'); // 這是佩君的連線
     
     $sql = "select * from CAMPION.ITINERARY";    

@@ -3,7 +3,7 @@
     // ---------- 使用函數的目的：在同一支 php 程式裡連線不同的資料庫 ----------
     // 透過參數 $env，在函式中使用 switch 語法，針對不同 case 建立不同的連線資料
     // 呼叫 getConn() 時，再代入不同的 $env 參數，決定連線資料
-    function getConn(){
+    function getPDO(){
         
         //MySQL相關資訊
         $db_host = "127.0.0.1";
