@@ -9,7 +9,6 @@ $statement = getPDO()->prepare($sql);
 $statement->bindValue(1, $_POST["ACCOUNT"]);
 $statement->bindValue(2, $_POST["PASSWORD"]);
 $statement->execute();
-// sleep(5);
 $data = $statement->fetchAll();
 
 $memberID = "";
@@ -26,11 +25,7 @@ if ($memberID != "" && $memberName != "") {
 
     //將會員資訊寫入session
     setMemberInfo($memberID, $memberName);
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 4a8808c62f8ffbc36e49e2716fe0525d10a40cf9
     //導回產品頁
     // echo "<script>alert('登入成功!'); location.href = '../member.html';</script>";
     echo 'ok';
