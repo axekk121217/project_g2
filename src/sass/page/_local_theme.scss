@@ -322,7 +322,7 @@
   
   .local_theme_two{
     @include flex-center;
-    margin: 60px auto;
+    margin: 30px auto 60px;
     a{
       display: inline-flex;
       justify-content: center;
@@ -368,16 +368,16 @@
   }
 
   @media screen and (max-width: 992px){
-    #app1{
+    #app-local{
       height: 1750px;
       overflow: hidden;
     }
-    #app1.-open{
+    #app-local.-open{
       height: auto;
     }
     .loc_showMore{
       display: block;
-      margin: 20px auto 50px !important;
+      margin: 60px auto 30px !important;
     } 
   }
 

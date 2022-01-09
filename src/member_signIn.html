@@ -11,8 +11,6 @@
         function init(){
           showMember();
         }
-        
-       
         // 顯示會員資訊
         function showMember() {
           $.ajax({
@@ -41,7 +39,7 @@
           function loginCheck(pid) {
             $.ajax({
               method: "POST",
-              url: "Frontend/LoginCheck.php",
+              url: "./Frontend/LoginCheck.php",
               data: {},
               dataType: "text",
               success: function (response) {
@@ -130,8 +128,16 @@
           </div>
           <br />
 
+<<<<<<< HEAD
           <button type="submit" class="memberSignUp_confirm" onclick="doLogin()">登入</button>
         <!-- </form> -->
+=======
+          <button class="memberSignUp_confirm" onclick="return doSubmit()">
+              登入
+            </button>
+          
+        </form>
+>>>>>>> 4a8808c62f8ffbc36e49e2716fe0525d10a40cf9
         <h4 class="memberSignUp_word text-center">
           還不是會員?<a
             onclick="location.href='member_signUp.html'"
