@@ -18,8 +18,14 @@
             data: {},
             dataType: "text",
             success: function (response) {
+              // console.log(response);
               $('.guest_icon').css('display', 'none');
               $('.icon_create').after(response);
+            //   if($('#memberSignUp_Privacy').is(':checked')) {
+            //   localStorage.setItem('account',  account);
+            // } else {
+            //   sessionStorage.setItem('account', account);
+            // }
             },
             error: function (exception) {
               alert("數據載入失敗: " + exception.status);
@@ -49,7 +55,33 @@
               },
             });
           }
-        
+          
+          function doLogin() {
+            $.ajax ({
+              method: 'POST',
+              url: './Frontend/Login.php',
+              data: {
+                ACCOUNT : $('#ACCOUNT').val(),
+                PASSWORD: $('#PASSWORD').val(),
+              },
+              dataType: 'text',
+              success: function (res) {
+                // let account = $('#ACCOUNT').val();
+                
+                // let password = $('#PASSWORD').val();
+                console.log(res);
+                // doSubmit();
+                if(res == 'ok'){
+                  alert('登入成功!'); location.href = './member.html';
+                }else if(res == 'error'){
+                  alert('帳號或密碼錯誤!!'); location.href = './member_signIn.html';
+                }
+              },
+              error: function (ero) {
+                alert("數據載入失敗: " + ero.status);
+              },
+            });
+          }
       </script>
     </head>
     <body onload="init()">
@@ -63,7 +95,7 @@
           class="memberSignUp_logo rounded mx-auto d-block"
         />
         <h1 class="memberSignUp_title text-center">會員登入</h1>
-        <form action="./Frontend/Login.php" method="post">
+        <!-- <form method="post"> -->
           <label>會員帳號</label>
           <br />
           <input
@@ -95,11 +127,8 @@
           </div>
           <br />
 
-          <button class="memberSignUp_confirm" onclick="return doSubmit()">
-              登入
-            </button>
-          
-        </form>
+          <button type="submit" class="memberSignUp_confirm" onclick="doLogin()">登入</button>
+        <!-- </form> -->
         <h4 class="memberSignUp_word text-center">
           還不是會員?<a
             onclick="location.href='member_signUp.html'"

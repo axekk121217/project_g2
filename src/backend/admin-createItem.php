@@ -1,20 +1,20 @@
 <?php
-
-    $name = $_POST[""];
-    $context = $_POST[""];
-    $category = $_POST[""];
-    $theme = $_POST[""];
-    $country = $_POST[""];
-    $city = $_POST[""];
-    $age = $_POST[""];
-    $img = $_POST[""];
-    $price = $_POST[""];
-    $batch = $_POST[""];
-    $start_date = $_POST[""];
-    $end_date = $_POST[""];
+    $item_ID = $_POST["item_ID"];
+    $name = $_POST["name"];
+    $context = $_POST["context"];
+    $category = $_POST["category"];
+    $theme = $_POST["theme"];
+    $country = $_POST["country"];
+    $city = $_POST["city"];
+    $age = $_POST["age"];
+    $img = $_POST["img"];
+    $price = $_POST["price"];
+    $batch = $_POST["batch"];
+    $start_date = $_POST["start_date"];
+    $end_date = $_POST["end_date"];
 
     // 連線資料庫
-    include('./Lib/Util.php'); 
+    include('../Lib/Util.php'); 
     // include('./connection.php'); // 這是佩君的連線
 
     // 新增各欄位行程資訊至資料庫
@@ -35,7 +35,7 @@
     $statement->execute();
 
     // redirect 轉址
-    header("Location: Select.php");
+    // header("Location: Select.php");
     
 
     // echo json_encode($data); // 打包成 json 格式
@@ -76,7 +76,7 @@
         
         // ********* 檔案最終存放位置 ********* 
         // 把 $fileName 寫進資料庫
-        $filePath = $ServerRoot."/FileUpload/".$fileName;
+        $filePath = $ServerRoot."/images/summer_camp/".$fileName;
   
         //先判斷檔案格式是否正確
         //再將暫存檔搬移到正確位置
@@ -84,15 +84,15 @@
             move_uploaded_file($filePath_Temp, $filePath); // (檔案原本的位置, 要搬移到哪裡)
             
             //顯示檔案資訊
-            echo "檔案存放位置：".$filePath;
-            echo "<br/>";
-            echo "類型：".$fileType;
-            echo "<br/>";
-            echo "大小：".$fileSize;
-            echo "<br/>";
-            echo "副檔名：".getExtensionName($filePath);
-            echo "<br/>";
-            echo "<img style='width: 600' src='/FileUpload/".$fileName."'/>";
+            // echo "檔案存放位置：".$filePath;
+            // echo "<br/>";
+            // echo "類型：".$fileType;
+            // echo "<br/>";
+            // echo "大小：".$fileSize;
+            // echo "<br/>";
+            // echo "副檔名：".getExtensionName($filePath);
+            // echo "<br/>";
+            // echo "<img style='width: 600' src='/FileUpload/".$fileName."'/>";
         }else{
             echo '檔案格式錯誤，請重新上傳';
             echo '<br>';
