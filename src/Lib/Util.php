@@ -6,7 +6,7 @@ function getPDO()
 
     $db_host = "127.0.0.1";
     $db_user = "root";
-    $db_pass = "password";
+    $db_pass = "azxs2764";
     $db_select = "CAMPION";
 
     //建立資料庫連線物件

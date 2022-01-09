@@ -9,10 +9,8 @@
     
     <script>
       function init(){
-        showMember();
+        showMember(); 
       }
-      
-     
       // 顯示會員資訊
       function showMember() {
         $.ajax({
@@ -23,16 +21,18 @@
           success: function (response) {
             $('.guest_icon').css('display', 'none');
             $('.icon_create').after(response);
+            getMemberInfo();
           },
           error: function (exception) {
             alert("數據載入失敗: " + exception.status);
           },
         });
       }
+
       // 顯示會員資訊結束
 
       //登入檢查 ---------------------------------------------------------------------------------
-        function loginCheck(pid) {
+      function loginCheck(pid) {
           $.ajax({
             method: "POST",
             url: "Frontend/LoginCheck.php",
@@ -53,11 +53,122 @@
           });
         }
       
+
+      // ------ 會員登入抓資料 ----------------- //
+      function getMemberInfo(){
+        $.ajax({
+          method: "POST",
+          url: "./Frontend/getMemberInfo.php",
+          data: {},
+          dataType: "json",
+          success: function (response) {
+            
+            // console.log(response);
+            $('.member_editorLogo img').attr('src', response[0]["PICTURE"]);
+            $('.member_name').html(response[0]['NAME']);
+
+            $('#ACCOUNT').val(response[0]['ACCOUNT']);
+            $('#NAME').val(response[0]['NAME']);
+            $('#PHONE').val(response[0]['PHONE']);
+            if (`${response[0]['GENDER']}` == '男') {
+                $('.member_gender input[name="GENDER"]')[0].checked = true;
+            } else if (`${response[0]['GENDER']}` == '女') {
+                $('.member_gender input[name="GENDER"]')[1].checked = true;
+            } else {
+                $('.member_gender input[name="GENDER"]')[2].checked = true;
+            }
+          },
+          error: function (exception) {
+            alert("數據載入失敗: " + exception.status);
+          },
+        });
+      }
+      
+      //  ==================== 修改會員資料 ========================
+        function updateMember() {
+          if($('#NAME').val() != '' && $('#PHONE').val() != '' && $('#ACCOUNT').val() != '') {
+          let memberGenderData = $('.member_gender input[name="GENDER"]:checked').val();
+          if(memberGenderData == '男') {
+            memberGenderData = '男';
+          } else if (memberGenderData == '女') {
+            memberGenderData = '女';
+          } else {
+            memberGenderData = '暫不提供';
+          }
+        }
+        // var name = $('#NAME').val();
+        // var phone = $('#PHONE').val();
+        // var account = $('#ACCOUNT').val();
+        // console.log(memberGenderData, name, phone, account);
+          $.ajax({
+            method: 'POST',
+            url: './Frontend/MemberUpdate.php',
+            data: {
+              NAME: $('#NAME').val(),
+              PHONE: $('#PHONE').val(), 
+              ACCOUNT: $('#ACCOUNT').val(), 
+              GENDER: $('.member_gender input[name="GENDER"]:checked').val()
+            },
+            dataType: 'text',
+            success: function(res) {
+              getMemberInfo();
+              alert('會員資料更改完成');
+            },
+            error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+            },
+          });
+        }
+
+        // =================== 修改密碼 ====================
+        function changePassword() {
+          let passwordCheck = [];
+          let oldPwd = $('#oldPassword').val();
+          let newPwd = $('#newPassword').val();
+          let newPwd2 = $('#newPassword2').val();
+          if(oldPwd == '') {
+            alert('請輸入密碼');
+            
+          } else {
+            passwordCheck.push('1');
+          }
+
+          if(newPwd == '') {
+            alert('請輸入密碼');
+          } else {
+            passwordCheck.push('2');
+          }
+
+          if(newPwd2 == newPwd) {
+            passwordCheck.push('3');
+            alert('密碼更改成功');
+          } else {
+            alert('第二次密碼不相同');
+          }
+          if(passwordCheck.length === 3) {
+            $.ajax({
+              method: 'post',
+              url: "./Frontend/memberPassword.php",
+              data: {
+                oldPassword: $('#oldPassword').val(),
+                newPassword: $('#newPassword').val(),
+                // newPassword2: $('#newPassword2').val(),
+              },
+              dataType: 'text',
+              success: function(res) {
+                getMemberInfo();
+              },
+              error: function (exception) {
+                alert("數據載入失敗: " + exception.status);
+              },
+            });
+          }
+      }
     </script>
   </head>
 
   <body onload="init()">
-    @@include('./layout/header.html');
+    @@include('./layout/header.html')
 
     <section class="member_accountItem">
       <div class="member_banner container">
@@ -66,8 +177,10 @@
           <div class="member_left col-md-3">
             <aside class="member_pageAside">
               <div class="member_box text-center">
-                <div class="member_editorLogo"></div>
-                <h4 class="member_name">流川風</h4>
+                <div class="member_editorLogo">
+                  <img src="" alt="">
+                </div>
+                <h4 class="member_name"></h4>
               </div>
               <ul class="member_asideMenuItem">
                 <li class="member_listItem member_listItem-on">
@@ -154,51 +267,34 @@
                   <br />
                   <label class="member_accountItemTitle">會員帳號</label>
                   <br />
-                  <input
-                    type="text"
-                    class="memeber_account member_item"
-                    value="abc123@gmail.com"
-                    disabled
-                    size="40"
+                  <input type="text" class="memeber_account member_item"  id= "ACCOUNT" name="ACCOUNT" disabled size="40"
                   />
                   <br />
 
                   <label class="member_accountItemTitle">姓名</label>
                   <br />
-                  <input
-                    type="text"
-                    class="member_accountName member_item"
-                    size="40"
-                    value="流川風"
-                  />
+                  <input type="text" class="member_accountName member_item" size="40"  id="NAME" name="NAME"/>
                   <br />
 
                   <label class="member_accountItemTitle">聯絡電話</label>
                   <br />
-                  <input
-                    type="text"
-                    class="member_phone member_item"
-                    size="40"
-                    value="0987654321"
-                  />
+                  <input type="text" class="member_phone member_item" size="40"  id="PHONE" name="PHONE"/>
                   <br />
-
-                  <label class="member_accountItemTitle">性別</label>
-                  <br />
-                  <input
-                    type="radio"
-                    name="member_gender"
-                    id="member_first"
-                    checked
-                  />
-                  <label for="member_first">男性</label>
-                  <input type="radio" name="member_gender" id="member_second" />
-                  <label for="member_second">女性</label>
-                  <input type="radio" name="member_gender" id="member_third" />
-                  <label for="member_third">暫不提供</label>
-                  <br />
+                  <div class="genderPart">
+                    <label class="member_accountItemTitle">性別</label>
+                    <br />
+                    <div class="member_gender">
+                      <input type="radio" name="GENDER" id="member_first" value="男"/>
+                      <label for="member_first">男性</label>
+                      <input type="radio" name="GENDER" id="member_second" value="女"/>
+                      <label for="member_second">女性</label>
+                      <input type="radio" name="GENDER" id="member_third" value="暫不提供"/>
+                      <label for="member_third">暫不提供</label>
+                    </div>
+                    <br />
+                  </div>
                   <div class="member_saveItem text-end">
-                    <button class="member_save btn_sub">儲存</button>
+                    <button type="submit" class="member_save btn_sub" onclick="updateMember()">儲存</button>
                   </div>
                 </form>
               </div>
@@ -206,36 +302,25 @@
               <h1 class="member_changePassword">密碼變更</h1>
               <hr />
               <div class="member_passwordAll">
-                <form action="#" method="post">
+                <form method="post">
                   <label class="member_accountItemTitle">舊密碼</label>
                   <br />
-                  <input
-                    type="password"
-                    class="member_oldPassword member_item"
-                    size="40"
-                  />
+                  <input type="password" class="member_oldPassword member_item" id="oldPassword" name="oldPassword" size="40"/>
                   <br />
 
                   <label class="member_accountItemTitle">新密碼</label>
                   <br />
-                  <input
-                    type="password"
-                    class="member_newPassword member_item"
-                    size="40"
-                  />
+                  <input type="password" class="member_newPassword member_item" id="newPassword" name="newPassword" size="40"/>
                   <br />
 
                   <label class="member_accountItemTitle">再次輸入新密碼</label>
+
                   <br />
 
-                  <input
-                    type="password"
-                    class="member_ confirmPassword member_item"
-                    size="40"
-                  />
+                  <input type="password" class="member_ confirmPassword member_item" id="newPassword2" name="newPassword2"  size="40"/>
                   <br />
                   <div class="member_resive text-end">
-                    <button class="member_revisePassword btn_sub">修改</button>
+                    <button type="submit" class="member_revisePassword btn_sub" onclick="changePassword()">修改</button>
                   </div>
                 </form>
               </div>
@@ -681,16 +766,10 @@
       </div>
     </footer>
 
-    <script
-      src="https://kit.fontawesome.com/8c41348ce8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"
-    ></script>
+    <script  src="https://kit.fontawesome.com/8c41348ce8.js"crossorigin="anonymous"></script>
+    <script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"crossorigin="anonymous"></script>
     <script>
+      
       // 設定當前頁面 css：桌機版 header
       let page = document.getElementsByClassName("header_pg");
       for (let i = 0; i < page.length; i++) {
@@ -774,8 +853,9 @@
           member_board[i].classList.add("member_board-show");
         });
       }
-    </script>
 
-    
+
+      
+    </script>
   </body>
 </html>

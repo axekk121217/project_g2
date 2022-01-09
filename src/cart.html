@@ -43,7 +43,7 @@
                 <h1 class="cart_headTitle">購物車</h1>
                 <hr>
             </div>
-            <div class="cart_board" v-for="cart_product in cart_products">
+            <!-- <div class="cart_board" v-for="cart_product in cart_products">
                 <div class="cart_item cart_item_lg">
                     <div class="cart_checkBox">
                         <input type="checkbox"  name="" @click="singleCheck(cart_product.id)" :checked="selectedProducts.indexOf(cart_product.id)!=-1">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="cart_footer">
                 <div class="cart_boardAction">
                     <div class="cart_checkBox">
@@ -157,16 +157,6 @@
                         price: 38000,
                         count: 1
                     },
-                    {   
-                        id: 2,
-                        image: './images/member/image2.png',
-                        title: '[美國-紐約] 百老匯表演藝術營',
-                        iconWeekWord: '課程期間: 3週',
-                        iconYearWord: '13~17歲',
-                        content: '透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。',
-                        price: 38000,
-                        count: 1
-                    }
                 ]
             },
             computed: {
@@ -215,7 +205,9 @@
                     });
                 }
             },
+           
         })
+    </script>
     </script>
 </body>
 </html>
