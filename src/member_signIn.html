@@ -4,9 +4,8 @@
     <head>
       @@include('./layout/meta.html', {
         "title" : "會員註冊" 
-      });
-      @@include('./layout/chat.html');
-  
+      })
+      @@include('./layout/chat.html')
       <script>
         function init(){
           showMember();
@@ -54,7 +53,7 @@
       </script>
     </head>
     <body onload="init()">
-      @@include('./layout/header.html');
+      @@include('./layout/header.html')
 
     <section class="memberSignUp_container">
       <div class="memberSignUp_banner">
@@ -68,17 +67,17 @@
           <label>會員帳號</label>
           <br />
           <input
-            type="email"
+            type="email" required
             placeholder="請輸入您的Email"
             size="40"
-            name="ACCOUNT"
-            id="ACCOUNT"
+            name="EMAIL"
+            id="EMAIL"
           />
           <br />
           <label>會員密碼</label>
           <br />
           <input
-            type="password"
+            type="password" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$"  required="required"
             placeholder="請輸入您的密碼"
             size="40"
             name="PASSWORD"
@@ -157,12 +156,53 @@
           ham_page[i].removeAttribute("id");
         }
       }
+      // 驗證帳號密碼是否錯誤
+      const verifyAccount = document.getElementById('EMAIL');
+      // console.log(verify)
+      verifyAccount.addEventListener('input', function (){
+        if (verifyAccount.checkValidity()){
+          verifyAccount.classList.add('valid')
+          verifyAccount.classList.remove('invalid')
+        }else{
+          verifyAccount.classList.remove('valid')
+          verifyAccount.classList.add('invalid')
+          // if(verifyAccount.validity.valueMissing){
+          //   verifyAccount.setCustomValidity("此欄位為必填")
+          //   return
+          // }
+          // if(verifyAccount.validity.valueMismatch){
+          //   verifyAccount.setCustomValidity("格式錯誤")
+          //   return
+          // }
+        }
+      });
+
+      const verifyPassword = document.getElementById('PASSWORD');
+      // console.log(verifyPassword)
+      verifyPassword.addEventListener('input', function (){
+        if (verifyPassword.checkValidity()){
+          verifyPassword.classList.add('valid')
+          verifyPassword.classList.remove('invalid')
+        }else{
+          verifyPassword.classList.remove('valid')
+          verifyPassword.classList.add('invalid')
+          // if(verifyPassword.validity.valueMissing){
+          //   verifyPassword.setCustomValidity("此欄位為必填")
+          //   return
+          // }
+          // if(verifyPassword.validity.valueMismatch){
+          //   verifyPassword.setCustomValidity("格式錯誤")
+          //   return
+          // }
+        }
+      });
+
     </script>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
       function doSubmit() {
-        if (document.getElementById("ACCOUNT").value == "") {
+        if (document.getElementById("EMAIL").value == "") {
           alert("請填寫[帳號]");
           return false;
         }
@@ -171,6 +211,6 @@
           return false;
         }
       }
-    </script>
+    </script> -->
   </body>
 </html>

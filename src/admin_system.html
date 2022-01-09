@@ -2,87 +2,89 @@
 <html lang="en">
 
 <head>
-	@@include('./layout/meta.html', {
-		"title" : "會員管理" 
-	})
-	<script src="./js/bootstrap.bundle.min.js"></script>
-	<script src="./js/vue.js"></script>
+  @@include('./layout/meta.html', {
+  "title" : "會員管理"
+  })
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/vue.js"></script>
 </head>
 
 <body>
-	<div style="height: auto;">
-		<div class="admin_member">
-			<!-- header -->
-			<div class="admin_header">
-				<div class="admin_header_logo">
-					<img src="images/admin/logo.png" alt="" />
-					<p>CAMPION後臺管理系統</p>
-				</div>
-				<div class="admin_header_btn">
-					<input  type="button" value="帳號登出" onclick="javascript: location.href = './backend/Logout.php';" class="admin_btn_signOut"/>
-				</div>
-			</div>
-	
-			<!-- main -->
-			<div class="admin_main">
-	
-				<!-- 切換按鈕 -->
-				<div class="admin_aside">
-					<a href="./admin_system.html">
-						  <button class="admin_aside_btn">會員管理</button>
-					</a>
-					<a href="./admin_order.html">
-						  <button class="admin_aside_btn">訂單管理</button>
-					</a>
-					<a href="./admin_commodity.html">
-						  <button class="admin_aside_btn">商品管理</button>
-					</a>
-					<a href="./admin_review.html">
-						  <button class="admin_aside_btn">評論管理</button>
-					</a>
-				</div>
-	
-				<!-- 表格 -->
-				<div class="admin_main_tltle">
-					<div class="admin_search">
-						<p>會員管理</p>
-						<div class="admin_search_bar">
-							<input class="search-bar" type="text" name="search" id="search" placeholder="以會員編號查詢" />
-							<button class="admin_search-btn">
-								<i class="fas fa-search admin_search_icon"></i>
-							</button>
-						</div>
-					</div>
-					
-					<!-- 會員管理表格 -->
-					<div id="app_m_comm">
-						<member-table></member-table>
-						<div class="d-flex justify-content-end">
-							<nav aria-label="Page navigation example">
-								<ul class="pagination">
-									<li class="page-item">
-										<a class="page-link" href="#" aria-label="Previous">
-											<span aria-hidden="true">&laquo;</span>
-										</a>
-									</li>
-									<li class="page-item page-link" v-for="page in pages" @click="getMemberData(page.link)">{{page.page}}</li>
-									<li class="page-item">
-										<a class="page-link" href="#" aria-label="Next">
-											<span aria-hidden="true">&raquo;</span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>						
-					
-				</div>
-			</div>
-	
-		</div>
-	</div>
-	
-  	<!-- <div>
+  <div style="height: auto;">
+    <div class="admin_member">
+      <!-- header -->
+      <div class="admin_header">
+        <div class="admin_header_logo">
+          <img src="images/admin/logo.png" alt="" />
+          <p>CAMPION後臺管理系統</p>
+        </div>
+        <div class="admin_header_btn">
+          <input type="button" value="帳號登出" onclick="javascript: location.href = './backend/Logout.php';"
+            class="admin_btn_signOut" />
+        </div>
+      </div>
+
+      <!-- main -->
+      <div class="admin_main">
+
+        <!-- 切換按鈕 -->
+        <div class="admin_aside">
+          <a href="./admin_system.html">
+            <button class="admin_aside_btn">會員管理</button>
+          </a>
+          <a href="./admin_order.html">
+            <button class="admin_aside_btn">訂單管理</button>
+          </a>
+          <a href="./admin_commodity.html">
+            <button class="admin_aside_btn">商品管理</button>
+          </a>
+          <a href="./admin_review.html">
+            <button class="admin_aside_btn">評論管理</button>
+          </a>
+        </div>
+
+        <!-- 表格 -->
+        <div class="admin_main_tltle">
+          <div class="admin_search">
+            <p>會員管理</p>
+            <div class="admin_search_bar">
+              <input class="search-bar" type="text" name="search" id="search" placeholder="以會員編號查詢" />
+              <button class="admin_search-btn">
+                <i class="fas fa-search admin_search_icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 會員管理表格 -->
+          <div id="app_m_comm">
+            <member-table></member-table>
+            <div class="d-flex justify-content-end">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item page-link" v-for="page in pages" @click="getMemberData(page.link)">{{page.page}}
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div>
     <div class="admin_member">
       <div class="admin_header">
         <div class="admin_header_logo">
@@ -258,41 +260,40 @@
               </nav>
             </div> -->
 
-            <div class="d-flex justify-content-end">
-              <div id="app">
-                <ul class="pagination">
-                  <li class="page-item" @click.prevent>
-                    <a class="page-link" href>&laquo;</a>
-                  </li>
-                  <li class="page-item" v-for="page in 5" @click.prevent>
-                    <a class="page-link" href>{{ page }}</a>
-                  </li>
-                  <li class="page-item" @click.prevent>
-                    <a class="page-link" href>&raquo;</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
->>>>>>> 73fb179fa917e2e5f0ad5aea614daf100e79d4c8
-          </div>
-        </div>
-      </div>
+  <div class="d-flex justify-content-end">
+    <div id="app">
+      <ul class="pagination">
+        <li class="page-item" @click.prevent>
+          <a class="page-link" href>&laquo;</a>
+        </li>
+        <li class="page-item" v-for="page in 5" @click.prevent>
+          <a class="page-link" href>{{ page }}</a>
+        </li>
+        <li class="page-item" @click.prevent>
+          <a class="page-link" href>&raquo;</a>
+        </li>
+      </ul>
     </div>
-<<<<<<< HEAD
-   -->
-	<script>
+  </div>
+  >>>>>>> 73fb179fa917e2e5f0ad5aea614daf100e79d4c8
+  </div>
+  </div>
+  </div>
+  </div>
+  <<<<<<< HEAD -->
+    <script>
 
-		// 會員管理表格
-		Vue.component('member-table',{
-			data(){
-				return{
-					titles: ['會員編號','會員姓名','性別','會員帳號','聯絡電話','註冊日期',''],
-					member_number: "",
-					members: [],
-				};
-			},
+      // 會員管理表格
+      Vue.component('member-table', {
+        data() {
+          return {
+            titles: ['會員編號', '會員姓名', '性別', '會員帳號', '聯絡電話', '註冊日期', ''],
+            member_number: "",
+            members: [],
+          };
+        },
 
-			template: `
+        template: `
 				<div class="admin_main_content">
 					<table class="table table-hover">
 						<thead>
@@ -371,88 +372,89 @@
 					</table>
 				</div>
 			`,
-			mounted() {
-				// 取得會員資料
-				$.getJSON('./backend/MemberSystem.php').then((res) => {
-					console.log(res);
-					this.members = res;
-				});
-			},	
-		});
+        mounted() {
+          // 取得會員資料
+          $.getJSON('./backend/MemberSystem.php').then((res) => {
+            console.log(res);
+            this.members = res;
+          });
+        },
+      });
 
 
-	  	let vm = new Vue({
-		  	el: '#app_m_comm',
-			data: {
-				current_edit: null,
-				dbcheck: false,
-				m_status: 0,
-				
-				mainbtn: [
-					{name: '會員管理', url: "./admin_system.html"},
-					{name: '訂單管理', url: "./admin_order.html"},
-					{name: '商品管理', url: "./admin_commodity.html"},
-					{name: '評論管理', url: "./admin_review.html"},
-				],
-				// titles: ['會員編號','會員姓名','性別','會員帳號','聯絡電話','註冊日期',''],
-				
-				pages:[
-					{page:"1", link: "1"},
-					{page:"2", link: "2"},
-					{page:"3", link: "3"},
-					{page:"4", link: "4"},
-					{page:"5", link: "5"},
-				],
-				nowpage:1,
-			},
+      let vm = new Vue({
+        el: '#app_m_comm',
+        data: {
+          current_edit: null,
+          dbcheck: false,
+          m_status: 0,
 
-			methods: {
-				getMemberData(gopage){
-					console.log(gopage);
-					if(isNaN(gopage)) return;
-					this.nowpage = gopage;
+          mainbtn: [
+            { name: '會員管理', url: "./admin_system.html" },
+            { name: '訂單管理', url: "./admin_order.html" },
+            { name: '商品管理', url: "./admin_commodity.html" },
+            { name: '評論管理', url: "./admin_review.html" },
+          ],
+          // titles: ['會員編號','會員姓名','性別','會員帳號','聯絡電話','註冊日期',''],
 
-					// $.ajax({
-					// 	method: "POST",
-					// 	url: "./backend/MemberSystem.php",
-					// 	data:{ 
-					// 		page : gopage,
-					// 	},            
-					// 	dataType: "json",
-					// 	success: function (res) {
-					// 		// appVue.pages = response[0];
-					// 		// appVue.members = response[1];
-					// 		this.members = res;
-					// 	},
-					// 	error: function(exception) {
-					// 		alert("發生錯誤: " + exception.status);
-					// 	},
-					// });
-				}
-			},
+          pages: [
+            { page: "1", link: "1" },
+            { page: "2", link: "2" },
+            { page: "3", link: "3" },
+            { page: "4", link: "4" },
+            { page: "5", link: "5" },
+          ],
+          nowpage: 1,
+        },
 
-			computed: {
-				
-			},
+        methods: {
+          getMemberData(gopage) {
+            console.log(gopage);
+            if (isNaN(gopage)) return;
+            this.nowpage = gopage;
 
-	  	});
+            // $.ajax({
+            // 	method: "POST",
+            // 	url: "./backend/MemberSystem.php",
+            // 	data:{ 
+            // 		page : gopage,
+            // 	},            
+            // 	dataType: "json",
+            // 	success: function (res) {
+            // 		// appVue.pages = response[0];
+            // 		// appVue.members = response[1];
+            // 		this.members = res;
+            // 	},
+            // 	error: function(exception) {
+            // 		alert("發生錯誤: " + exception.status);
+            // 	},
+            // });
+          }
+        },
 
-	  
+        computed: {
+
+        },
+
+      });
 
 
 
-  	</script>
+
+
+    </script>
 
 </body>
 
 </html>
 =======
 
-    <script>
-      new Vue({
-        el: "#app",
-      });
-    </script>
-  </body>
+<script>
+  new Vue({
+    el: "#app",
+  });
+</script>
+</body>
+
 </html>
 >>>>>>> 73fb179fa917e2e5f0ad5aea614daf100e79d4c8

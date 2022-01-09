@@ -135,3 +135,32 @@ a.memberSignUp_forgrtPassword:hover {
         width: 90%;
     }
 }
+
+// input#ACCOUNT:valid {
+//   border:2px solid #02776F;
+// }
+// input#ACCOUNT:invalid {
+//   border:2px solid #FF7A00;
+// }
+
+// input#PASSWORD:valid {
+//   border:2px solid #02776F;
+// }
+// input#PASSWORD:invalid {
+//   border:2px solid #FF7A00;
+// }
+
+input#ACCOUNT.valid{
+  border:2px solid #02776F;
+}
+input#ACCOUNT.invalid{
+  border:2px solid #FF7A00;
+}
+
+input#PASSWORD.valid{
+  border:2px solid #02776F;
+}
+input#PASSWORD.invalid{
+  border:2px solid #FF7A00;
+}
+

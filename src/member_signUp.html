@@ -4,8 +4,8 @@
 <head>
   @@include('./layout/meta.html', {
   "title" : "會員註冊"
-  });
-  @@include('./layout/chat.html');
+  })
+  @@include('./layout/chat.html')
 
   <script>
     function init() {
@@ -57,51 +57,56 @@
 </head>
 
 <body onload="init()">
-  @@include('./layout/header.html');
+  @@include('./layout/header.html')
 
   <section class="memberSignIn_container">
-      <div class="memberSignIn_banner">
-        <img src="../src/images/member/logo.png" alt="" class="memberSignIn_logo rounded mx-auto d-block" />
-        <h1 class="memberSignIn_title text-center">註冊會員</h1>
-        <form action="./Frontend/join.php" method="post">
-          <label>會員帳號</label>
-          <br />
-          <input type="text" placeholder="請輸入您的Email" id="ACCOUNT" name="ACCOUNT" size="40" value="" />
-          <br />
-          <label>設定會員密碼</label>
-          <br />
-          <input type="password" placeholder="請輸入您的密碼" id="PASSWORD" name="PASSWORD" size="40" value="" />
-          <br />
-          <label>再次確認會員密碼</label>
-          <br />
-          <input type="password" placeholder="請再次輸入密碼" size="40" value="" />
-          <br />
-          <label>會員姓名</label>
-          <br />
-          <input type="text" placeholder="請輸入您的姓名" size="40" id="NAME" name="NAME" value="" />
-          <br />
-          <label>性別</label>
-          <br />
-          <input type="radio" name="GENDER" id="member_first" value="男" />
-          <label for="member_first">男性</label>
-          <input type="radio" name="GENDER" id="member_second" value="女" />
-          <label for="member_second">女性</label>
-          <input type="radio" name="GENDER" id="member_third" value="暫不提供" />
-          <label for="member_third">暫不提供</label>
-          <br />
-          <label>聯絡電話</label>
-          <br />
-          <input type="text" placeholder="請輸入您的聯絡電話" name="PHONE" size="40" value="" />
-          <br />
-          <input type="checkbox" id="memberSignIn_Privacy" />
-          <label for="memberSignIn_Privacy">我已閱讀並同意會員條款</label>
-          <br />
-          <input type="submit" class="memberSignIn_confirm" value="註冊" />
-        </form>
-        <h4 class="memberSignIn_word text-center">
-          已經是會員?<a href="member_signIn.html" class="memberSignIn_signInButton">登入</a>
-        </h4>
-      </div>
+    <div class="memberSignIn_banner">
+      <img src="../src/images/member/logo.png" alt="" class="memberSignIn_logo rounded mx-auto d-block" />
+      <h1 class="memberSignIn_title text-center">註冊會員</h1>
+      <form action="./Frontend/join.php" method="post">
+        <label>會員帳號</label>
+        <br />
+        <input type="email" required placeholder="請輸入您的Email" id="EMAIL" name="EMAIL" size="40" value="" />
+        <br />
+        <label>設定會員密碼</label>
+        <br />
+        <input type="password" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$" required="required"
+          oninput="setCustomValidity('');" oninvalid="setCustomValidity('請輸入正確的密碼格式:含英數至少六個字元');" placeholder="請輸入您的密碼"
+          id="PASSWORD" name="PASSWORD" size="40" value="" />
+        <br />
+        <label>再次確認會員密碼</label>
+        <br />
+        <input type="password" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$" required="required"
+          oninput="setCustomValidity('');"
+          onchange="if(document.getElementById('PASSWORD').value != document.getElementById('PASSWORD2').value){setCustomValidity('密碼驗證錯誤');}"
+          placeholder="請再次輸入密碼" id="PASSWORD2" name="PASSWORD" size="40" value="" />
+        <br />
+        <label>會員姓名</label>
+        <br />
+        <input type="text" placeholder="請輸入您的姓名" size="40" id="NAME" name="NAME" value="" />
+        <br />
+        <label>性別</label>
+        <br />
+        <input type="radio" name="GENDER" id="member_first" value="男" />
+        <label for="member_first">男性</label>
+        <input type="radio" name="GENDER" id="member_second" value="女" />
+        <label for="member_second">女性</label>
+        <input type="radio" name="GENDER" id="member_third" value="暫不提供" />
+        <label for="member_third">暫不提供</label>
+        <br />
+        <label>聯絡電話</label>
+        <br />
+        <input type="text" placeholder="請輸入您的聯絡電話" name="PHONE" size="40" value="" />
+        <br />
+        <input type="checkbox" onclick="if (this.checked) {enable()} else {disable()}" id="memberSignIn_Privacy" />
+        <label for="memberSignIn_Privacy">我已閱讀並同意會員條款</label>
+        <br />
+        <input type="submit" disabled="true" class="memberSignIn_confirm" id="memberSignIn_confirm" value="註冊" />
+      </form>
+      <h4 class="memberSignIn_word text-center">
+        已經是會員?<a href="member_signIn.html" class="memberSignIn_signInButton">登入</a>
+      </h4>
+    </div>
   </section>
   <footer>
     <div class="footer_container">
@@ -150,6 +155,56 @@
         ham_page[i].removeAttribute("id");
       }
     }
+
+    // 驗證帳號密碼是否錯誤
+    const verifyEMAIL = document.getElementById('EMAIL');
+    // console.log(verify)
+    verifyEMAIL.addEventListener('input', function () {
+      if (verifyEMAIL.checkValidity()) {
+        verifyEMAIL.classList.add('valid')
+        verifyEMAIL.classList.remove('invalid')
+      } else {
+        verifyEMAIL.classList.remove('valid')
+        verifyEMAIL.classList.add('invalid')
+      }
+    });
+
+    const verifyPassword = document.getElementById('PASSWORD');
+    // console.log(verifyPassword)
+    verifyPassword.addEventListener('input', function () {
+      if (verifyPassword.checkValidity()) {
+        verifyPassword.classList.add('valid')
+        verifyPassword.classList.remove('invalid')
+      } else {
+        verifyPassword.classList.remove('valid')
+        verifyPassword.classList.add('invalid')
+      }
+    });
+
+    const verifyPasswords = document.getElementById('PASSWORD2');
+    // console.log(verifyPassword)
+    verifyPasswords.addEventListener('input', function () {
+      if (verifyPasswords.checkValidity()) {
+        verifyPasswords.classList.add('valid')
+        verifyPasswords.classList.remove('invalid')
+      } else {
+        verifyPasswords.classList.remove('valid')
+        verifyPasswords.classList.add('invalid')
+      }
+    });
+
+    function disable() {
+      document.getElementById("memberSignIn_confirm").disabled = true;
+      let registerBtn = document.getElementsByClassName("memberSignIn_confirm")[0];
+      registerBtn.style.backgroundColor = "#F2F4F6";
+    }
+    function enable() {
+      document.getElementById("memberSignIn_confirm").disabled = false;
+      let registerBtn = document.getElementsByClassName("memberSignIn_confirm")[0];
+      registerBtn.style.backgroundColor = "#02776F";
+
+    }
+
   </script>
 </body>
 
