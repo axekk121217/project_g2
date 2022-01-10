@@ -15,7 +15,7 @@ function getUncommentItinerary(account) {
   let result = [];
   $.ajax({
     method: "GET",
-    url: "./frontend/getUncompletedItinerary.php?account="+ account,
+    url: "./Frontend/getUncompletedItinerary.php?account="+ account,
     data: {},
     async: false,
     dataType: "json",
@@ -112,7 +112,7 @@ function sendOnClick(uncompletedItineraries,account){
     
     $.ajax({
         method: "POST",
-        url: "./frontend/saveEvaluation.php",
+        url: "./Frontend/saveEvaluation.php",
         data: fd,
         async: false,
         processData: false,

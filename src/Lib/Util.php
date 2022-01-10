@@ -3,18 +3,11 @@
     //取得PDO物件
     function getPDO(){
 
-<<<<<<< HEAD
-    $db_host = "127.0.0.1";
-    $db_user = "root";
-    $db_pass = "azxs2764";
-    $db_select = "CAMPION";
-=======
         $db_host = "127.0.0.1";
         $db_user = "root";
         $db_pass = "password";
         $db_select = "CAMPION";
->>>>>>> 4a8808c62f8ffbc36e49e2716fe0525d10a40cf9
-
+        
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
 
@@ -37,5 +30,18 @@
         return $ServerRoot.$filePath;
 
     }
+
+      // 取得用戶
+      function getMemberByAccount($account){
+        $member_sql = "SELECT * FROM MEMBER WHERE ACCOUNT = ?";
+    
+        //執行
+        $statement = getPDO()->prepare($member_sql);
+        $statement->bindValue(1 , $account);    
+        $statement->execute();
+        $data = $statement->fetchAll();
+    
+        return array_values($data)[0];
+        }
 
 ?>

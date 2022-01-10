@@ -8,7 +8,7 @@
     $sql = "UPDATE CAMPION.EVALUATION SET IS_VISIBLE = ? WHERE ID = ?";
 
     //執行
-    $statement = getDatabase()->prepare($sql);
+    $statement = getPDO()->prepare($sql);
     $statement->bindValue(1 , $visible);
     $statement->bindValue(2 , $evaluation_id);
     $statement->execute();

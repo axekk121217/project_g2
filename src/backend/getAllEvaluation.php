@@ -8,7 +8,7 @@
     JOIN ITINERARY ON ITINERARY.ID = EVALUATION.ITINERARY_ID ORDER BY EVALUATION.ID DESC;";
 
     //執行
-    $statement = getDatabase()->prepare($sql);
+    $statement = getPDO()->prepare($sql);
     $statement->execute();
     $data = $statement->fetchAll();
 

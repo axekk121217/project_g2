@@ -21,7 +21,7 @@
     ORDER BY EVALUATION.ID DESC";
 
     //執行
-    $statement = getDatabase()->prepare($sql);
+    $statement = getPDO()->prepare($sql);
     $statement->bindValue(1 , $itineraryId);
     $statement->execute();
     $data = $statement->fetchAll();

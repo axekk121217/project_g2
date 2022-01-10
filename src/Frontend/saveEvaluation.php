@@ -14,7 +14,7 @@
     $insertSql = "INSERT INTO `CAMPION`.`EVALUATION` (`ITINERARY_ID`, `MEMBER_ID`, `STAR`, `CONTENT`,`DATE`) VALUES (?,?,?,?,NOW());";
 
     //執行
-    $statement = getDatabase()->prepare($insertSql);
+    $statement = getPDO()->prepare($insertSql);
     $statement->bindValue(1 , $itineraryId);
     $statement->bindValue(2 , $member["ID"]);
     $statement->bindValue(3 , $star);

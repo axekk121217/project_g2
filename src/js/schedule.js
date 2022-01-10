@@ -1,4 +1,5 @@
 window.onload = function () {
+
     let currentUrl = new URL(window.location.href);
     let itineraryId = currentUrl.searchParams.get("id");
     
@@ -12,7 +13,7 @@ function getEvalations(itineraryId) {
     let result = [];
     $.ajax({
       method: "GET",
-      url: "./frontend/getEvaluationsByItinerary.php?itineraryId="+itineraryId,
+      url: "./Frontend/getEvaluationsByItinerary.php?itineraryId="+itineraryId,
       data: {},
       async: false,
       success: function (response) {

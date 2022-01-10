@@ -46,7 +46,7 @@
                 WHERE
                     MEMBER_ID = ?)";
 
-    $statement = getDatabase()->prepare($uncompleted_itinerary_sql);
+    $statement = getPDO()->prepare($uncompleted_itinerary_sql);
     $statement->bindValue(1 , $member_id);
     $statement->execute();
     $data = $statement->fetchAll();
