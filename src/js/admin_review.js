@@ -6,7 +6,7 @@ window.onload = function () {
 
   $(".admin_order_btn").on('click',function() {
       let dataIdx = parseInt($(this).attr("data-row-index"));
-      let current_evaluation = evaluations[dataIdx];
+      current_evaluation = evaluations[dataIdx];
       $("#itinerary_title").val(current_evaluation.NAME);
       $("#publish_date").val(current_evaluation.DATE);
       $("#comment").val(current_evaluation.CONTENT);

@@ -2,7 +2,7 @@
 include "../Lib/Util.php";
 
 //建立SQL
-$sql = "SELECT * FROM MEMBER WHERE ID > 2 and EMAIL = ? and PASSWORD = ?";
+$sql = "SELECT * FROM MEMBER WHERE ID > 2 and ACCOUNT = ? and PASSWORD = ?";
 
 //給值
 $statement = getPDO()->prepare($sql);
@@ -15,7 +15,7 @@ $memberID = "";
 $memberName = "";
 foreach ($data as $index => $row) {
     $memberID = $row["ID"];
-    $memberName = $row["EMAIL"];
+    $memberName = $row["ACCOUNT"];
 }
 
 //判斷是否有會員資料?
