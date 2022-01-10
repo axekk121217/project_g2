@@ -1,10 +1,10 @@
 <?php 
 
     // 在會員專區顯示尚未評論行程
-    
     include("../Lib/Util.php");
+    include("../Lib/Member.php");
     
-    $account = $_GET["account"];
+    $account = getMemberName();
 
     $member = getMemberByAccount($account);
 
