@@ -119,7 +119,50 @@
                         <div class="sch_img_shift sch_shift7" id=7 @click="changePhoto"></div>
                     </div>
                 </div>
+              </div>
             </div>
+            <div class="sch_info_context">
+              <div class="sch_info_context_para">
+                ・ 費用包含機票、營期行程交通、Campion
+                巴黎校區宿舍住宿、相關景點門票、餐食及其他行政手續辦理費<br />
+                ・由法籍老師授課，在 Campion
+                巴黎校區學習道地的法國語言和文化課程<br />
+                ・營隊結合密集的工作坊培訓，以及參訪博物館、設計工作室等景點，充分領略巴黎的時尚、藝術與建築之美，拓展學員的美學視野，動手創作個人作品集<br />
+                ・每週六晚上舉辦文化交流之夜，與來自世界各地的朋友分享彼此國家的文化與特色美食<br />
+              </div>
+              <div class="sch_info_context_para">
+                加入【法國-巴黎】時尚設計工作坊夏令營，讓您在進入大學、決定要主修哪一項專業之前，領先體驗時尚產業的各個面向。本營隊結合法國語言與文化的密集課程，以及工作坊的實作設計，規劃「時尚產業地圖」、「藝術品鑑與設計概論」、「成為一位設計師：打造個人品牌」、「時尚與永續未來」等核心主題，在時尚與藝文薈萃之都巴黎，開啟美的視野。
+              </div>
+            </div>
+          </div>
+          <div class="sch_info_content" data-sec="b">
+            <!-- 行程介紹 -->
+            <div class="sch_info_content_title">行程介紹</div>
+            <div class="sch_info_content_subtitle">- 行程特色 -</div>
+            <div class="sch_info_context_para">
+              在為期 45 天的營隊期間，學員的上課地點、工作坊與住宿主要集中在
+              Campion 巴黎校區，營隊最後的個人作品展，將在巴黎時尚學院 IFM Paris
+              舉行，並邀請專業講師參與評論。工作坊將以導師制分組進行，每組將在導師的手把手帶領下，逐步從靈感發想、繪製線稿到打造個人作品，找尋自我的風格，產出屬於自己的品牌。
+            </div>
+            <div class="sch_info_context_para">
+              創作的靈感來自生活中不經意瞥見的細節。除了參與 Campion
+              精心規劃的主題課程之外，我們也特別安排了羅浮宮（Musée du
+              Louvre）、奧賽美術館（Musée d'Orsay）、龐畢度中心（Le Centre
+              Pompidou）等巴黎博物館導覽，以及 Chanel、Dior
+              品牌參訪、法式料理饗宴、漫步巴黎等行程，讓學員在密集的課程與工作坊之餘，有豐富的時間可以獲得喘息，深度體驗巴黎這座城市之美。
+            </div>
+            <div class="sch_info_context_para">
+              透過本次營隊，學員將快速培養道地的法文語感，在日常生活中以法語無礙溝通；營隊最後，也特別安排一次法語能力測驗，通過的學員即可領取證書，做為日後申請相關升學準備之依據。
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10503.586517711494!2d2.3692753!3d48.8411104!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x94edcd3cd32e9f9c!2sInstitut%20Fran%C3%A7ais%20de%20la%20Mode!5e0!3m2!1szh-TW!2stw!4v1639812593886!5m2!1szh-TW!2stw"
+              width="100%"
+              height="350"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
         <div class="container">
             <div class="col-lg-8 col-md-12 sch_info_shift_area">
@@ -475,12 +518,8 @@
         </div>
     </div>
 
-
-
     <!-- footer -->
     @@include('./layout/footer.html')
-
-
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     
@@ -575,20 +614,21 @@
             }
         });
 
-                // 設定當前頁面 css：桌機版 header
+        // 設定當前頁面 css：桌機版 header
         let page = document.getElementsByClassName("header_pg");
         for(let i = 0; i < (page.length); i++){
             if(page[i].id !== "page_active2"){
                 page[i].removeAttribute('id');
             }
         }
-        // 設定當前頁面 css：漢堡選單
-        let ham_page = document.getElementsByClassName("ham_pg");
-        for(let i = 0; i < (ham_page.length); i++){
-            if(ham_page[i].id !== "h_page_active2"){
-                ham_page[i].removeAttribute('id');
-            }
+      
+      // 設定當前頁面 css：漢堡選單
+      let ham_page = document.getElementsByClassName("ham_pg");
+      for (let i = 0; i < ham_page.length; i++) {
+        if (ham_page[i].id !== "h_page_active2") {
+          ham_page[i].removeAttribute("id");
         }
+      }
 
         $(function(){
             // 收藏行程
@@ -620,34 +660,53 @@
                 $(this).addClass('-on');
                 $('.sch_info_btn').not(this).removeClass('-on');
 
-                // 頁面跳到對應區域
-                $('html, body').animate({
-                    scrollTop: $('.sch_info_content[data-sec=' + sec_id + ']').offset().top - 120
-                }, 800);
+          let img_id = $(this).attr("id");
+          // 底下圖片點擊黃框
+          $(this).addClass("-on");
+          $(".sch_img_shift").not(this).removeClass("-on");
 
-            });
+          // 上方區域要顯示點擊的圖片
+          $(".sch_img").removeClass("-on");
+          $(".sch_img[data-id=" + img_id + "]").addClass("-on");
+        });
 
-            // 卡片固定1
-            $(window).scroll(function() {
-                let anchor_start = $('.sch_anchor_start').offset().top;
-                let anchor_end = $('.sch_anchor_end').offset().top;
-                if (($(this).scrollTop() > anchor_start) && ($(this).scrollTop() < (anchor_end - 300 )))  {          /* 要滑動到選單的距離 */
-                    $('.sch_card_sticky_area').addClass('sch_card_sticky');   /* 幫選單加上固定效果 */
-                } else {
-                    $('.sch_card_sticky_area').removeClass('sch_card_sticky'); /* 移除選單固定效果 */
-                }
-            }); 
+        // 行程資訊區塊切換：a, b, c, d
+        $(".sch_info_btn").click(function (e) {
+          e.preventDefault();
+          let sec_id = $(this).attr("id");
+          // 按鈕變色
+          $(this).addClass("-on");
+          $(".sch_info_btn").not(this).removeClass("-on");
 
-            // 卡片固定2
-            $(window).scroll(function() {
-                let anchor_start = $('.sch_anchor_start2').offset().top;
-                if (($(this).scrollTop() > anchor_start))  {          /* 要滑動到選單的距離 */
-                    $('.sch_card_sticky_area2').addClass('sch_card_sticky');   /* 幫選單加上固定效果 */
-                } else {
-                    $('.sch_card_sticky_area2').removeClass('sch_card_sticky'); /* 移除選單固定效果 */
-                }
-            }); 
+          // 頁面跳到對應區域
+          $("html, body").animate(
+            {
+              scrollTop:
+                $(".sch_info_content[data-sec=" + sec_id + "]").offset().top -
+                120,
+            },
+            800
+          );
+        });
 
+        // 卡片固定1
+        $(window).scroll(function () {
+          let anchor_start = $(".sch_anchor_start").offset().top;
+          let anchor_end = $(".sch_anchor_end").offset().top;
+          if (
+            $(this).scrollTop() > anchor_start &&
+            $(this).scrollTop() < anchor_end - 300
+          ) {
+            /* 要滑動到選單的距離 */
+            $(".sch_card_sticky_area").addClass(
+              "sch_card_sticky"
+            ); /* 幫選單加上固定效果 */
+          } else {
+            $(".sch_card_sticky_area").removeClass(
+              "sch_card_sticky"
+            ); /* 移除選單固定效果 */
+          }
+        });
 
             // 各週進度條
             $(window).scroll(function() {
@@ -664,7 +723,35 @@
             }); 
         }); 
 
-    </script>
+        // 卡片固定2
+        $(window).scroll(function () {
+          let anchor_start = $(".sch_anchor_start2").offset().top;
+          if ($(this).scrollTop() > anchor_start) {
+            /* 要滑動到選單的距離 */
+            $(".sch_card_sticky_area2").addClass(
+              "sch_card_sticky"
+            ); /* 幫選單加上固定效果 */
+          } else {
+            $(".sch_card_sticky_area2").removeClass(
+              "sch_card_sticky"
+            ); /* 移除選單固定效果 */
+          }
+        });
 
-</body>
+        // 各週進度條
+        $(window).scroll(function () {
+          for (let i = 1; i < 7; i++) {
+            let nowArea = $("#sch_week" + i).offset().top;
+            // let nextArea = $('#sch_week' + ).offset().top;
+            //  && ($(this).scrollTop() < nextArea)
+
+            if ($(this).scrollTop() >= nowArea - 100) {
+              $(".sch_week_theme").removeClass("-on");
+              $(".sch_week_theme[data-week=" + i + "]").addClass("-on");
+            }
+          }
+        });
+      
+    </script>
+  </body>
 </html>

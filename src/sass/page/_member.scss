@@ -233,7 +233,6 @@ img.member_icon {
     border: solid 1px #8888;
     margin: 20px 0;
     padding: 10px;
-    padding-bottom: 0; 
     border-radius: 5px;
     font-size: $fontSize_Nav;
     font-family: $fontFamily_Ch;
@@ -262,16 +261,16 @@ img.member_icon {
 
     .member_orderName {
 
-        .member_orderNameicon {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+      .member_orderNameicon {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
-            .bi-heart-fill {
-                color: #FF6666;
-                margin-right: 10px;
-            }
-        }
+          .bi-heart-fill {
+              color: #FF6666;
+              margin-right: 10px;
+          }
+      }
 
         h1.member_orderName_Title {
             font-weight: bold;
@@ -324,8 +323,9 @@ img.member_icon {
 
         .member_orderButtonAll {
             margin-right: 10px;
-            font-size: $fontSize;
-            text-align: end;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         @media(max-width: 769.98px){
@@ -384,9 +384,7 @@ img.member_icon {
     #member_orderBtn {
         display: none;
     }
-    .member_orderCancel {
-        font-size: $fontSize_footer;
-    }
+    
 }
 
 // 收藏管理
@@ -402,8 +400,7 @@ img.member_icon {
 .member_collectNumberAll {
     border: solid 1px #8888;
     margin: 20px 0;
-    padding: 10px;
-    padding-bottom: 0; 
+    padding: 10px 10px 0;
     border-radius: 5px;
 
     .member_collectImage {
@@ -428,7 +425,9 @@ img.member_icon {
     .member_collectName {
         font-size: $fontSize_Nav;
         margin-bottom: 10px;
-        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         h1 {
             font-weight: bold;
             margin-bottom: 5px;
@@ -436,6 +435,9 @@ img.member_icon {
         h4 {
             color: $font_color_Sub;
             font-size: $fontSize;
+        }
+        i.bi-heart-fill {
+          color: #FF6666;
         }
     }
 
@@ -789,12 +791,13 @@ li.member_orderCancelList {
     .member_commentButton {
         margin-top: 10px;
     }
-    .member_contact {
-        margin-top: 10px;
-    }
     .member_orderCancelPage {
         margin-bottom: 10px;
     } 
+    .member_orderCancel, .member_contact{
+      width: 100px;
+      font-size: 16px;
+    }
 }
 
 

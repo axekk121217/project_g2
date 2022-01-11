@@ -105,3 +105,28 @@
         width: auto;
     }
 }
+
+input#ACCOUNT.valid{
+  border:2px solid #02776F;
+}
+input#ACCOUNT.invalid{
+  border:2px solid #FF7A00;
+}
+
+input#PASSWORD.valid{
+  border:2px solid #02776F;
+}
+input#PASSWORD.invalid{
+  border:2px solid #FF7A00;
+}
+
+input#PASSWORD2.valid{
+  border:2px solid #02776F;
+}
+input#PASSWORD2.invalid{
+  border:2px solid #FF7A00;
+}
+
+.memberSignIn_confirm{
+  border-radius: 5px;
+}
