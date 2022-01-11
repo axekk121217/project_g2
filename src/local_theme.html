@@ -348,37 +348,41 @@
         Vue.component("card", {
             data() {
                 return {
-                  data: [],
+                    data: [],
                 };
             },
             template: `
                 <div class="row justify-content-center" align-items-start>
-                <div v-for="item in data" class="card" style="width: 18rem">
-                    <i class="fas fa-heart"></i>
-                    <a href="./schedule.html">
-                    <img
-                        :src= "'./images/summer_camp/' + item.IMG"
-                        class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                        【{{item.COUNTRY}}】<br>
-                        {{item.NAME}}
-                        </h5>
-                        <hr style="border: 0.5px solid #000000" />
-                        <p class="card-text">{{checkTitle(item.CONTEXT)}}...</p>
-                        <a href="./schedule.html" class="a">
-                        Learn more 
-                        <img src="./images/summer_camp/icon.png"/>
-                        </a>
+                    <div v-for="(item, index)  in data" class="card" style="width: 18rem" @click="getStorage(index)">
+                        <i class="fas fa-heart"></i>
+                        <img
+                            :src= "'./images/summer_camp/' + item.IMG"
+                            class="card-img-top"/>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                            【{{item.COUNTRY}}】<br>
+                            {{item.NAME}}
+                            </h5>
+                            <hr style="border: 0.5px solid #000000" />
+                            <p class="card-text">{{checkTitle(item.CONTEXT)}}...</p>
+                            <a href="./schedule.html" class="a">
+                                Learn more 
+                                <img src="./images/summer_camp/icon.png"/>
+                            </a>
+                        </div>
                     </div>
-                    </a>
-                </div>
                 </div>
                 `,
             methods: {
                 checkTitle(theTitle){
                   return theTitle.slice(0, 40); // 只取書名20個字，以免破版
                 },
+                getStorage(index) {
+                    // alert(index);
+                    localStorage.setItem("product_NAME", JSON.stringify(this.data[index]['NAME'])) ;
+                    localStorage.setItem('getID', JSON.stringify(this.data[index]['ID']));
+                    location.href = `./schedule.html`;
+                }
             },
             mounted(){
                 $.getJSON('./Frontend/local.php').then((res) => {

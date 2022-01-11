@@ -3,17 +3,10 @@
     //取得PDO物件
     function getPDO(){
 
-<<<<<<< HEAD
-    $db_host = "127.0.0.1";
-    $db_user = "root";
-    $db_pass = "azxs2764";
-    $db_select = "CAMPION";
-=======
         $db_host = "127.0.0.1";
         $db_user = "root";
-        $db_pass = "password";
+        $db_pass = "azxs2764";
         $db_select = "CAMPION";
->>>>>>> 4a8808c62f8ffbc36e49e2716fe0525d10a40cf9
 
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;

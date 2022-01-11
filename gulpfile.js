@@ -98,11 +98,36 @@ function min_images(){
 exports.img =min_images;
 
 
+//php搬運
+
+//frontend
+function move_frontend_php(){
+    return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
+}
+exports.frontend_php = move_frontend_php;
+
+//backend
+function move_backend_php(){
+    return src("src/backend/*.php").pipe(dest("dist/backend"));
+}
+exports.backend_php = move_backend_php;
+
+//Lib
+function move_Lib_php(){
+    return src("src/Lib/*.php").pipe(dest("dist/Lib"));
+}
+exports.Lib_php = move_Lib_php;
+  
+  
+
 // watch
 function watchall(){
    watch(['src/*.html' , 'src/layout/*.html'] , html);
    watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
    watch('src/js/*.js' , jsmini)
+   watch('src/Frontend/*.php' , move_frontend_php)
+   watch('src/backend/*.php' , move_backend_php)
+   watch('src/Lib/*.php' , move_Lib_php)
 }
 
 exports.w = watchall;
@@ -134,6 +159,9 @@ function browser(done) {
     watch(['src/*.html' , 'src/layout/*.html'] , html).on("change", reload)
     watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on("change", reload)
     watch(['src/js/*.js'] , jsmini).on("change", reload);
+    watch(['src/Frontend/*.php'] , move_frontend_php).on("change", reload);
+    watch(['src/backend/*.php'] , move_backend_php).on("change", reload);
+    watch(['src/Lib/*.php'] , move_Lib_php).on("change", reload);
     done();
 }
 
@@ -142,6 +170,6 @@ exports.default = browser;
 
 // 打包上線
 
-sassstyle | html | jsmini | min_images 
+sassstyle | html | jsmini | min_images | move_frontend_php | move_backend_php | move_Lib_php
 // 執行順序用, 隔開，同時執行用 parallel() 包起來
-exports.package = series(clear, parallel(sassstyle, html, jsmini), min_images);
+exports.package = series(clear, parallel(sassstyle, html, jsmini, move_frontend_php, move_backend_php, move_Lib_php), min_images);
