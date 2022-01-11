@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     @@include('./layout/meta.html', {
-        "title" : "購物車" 
+    "title" : "購物車"
     })
     @@include('./layout/chat.html')
     <script src="js/vue.js"></script>
     <script src="js/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-<script>
-  function init(){
-    showMember();
-  }
-  
- 
-  // 顯示會員資訊
-  function showMember() {
-    $.ajax({
-      method: "POST",
-      url: "./Frontend/Member.php",
-      data: {},
-      dataType: "text",
-      success: function (response) {
-        $('.guest_icon').css('display', 'none');
-        $('.icon_create').after(response);
-      },
-      error: function (exception) {
-        alert("數據載入失敗: " + exception.status);
-      },
-    });
-  }
-  // 顯示會員資訊結束
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+        function init() {
+            loginCheck();
+        }
 
-</script>
+        // ===== 登入檢查 ===== //
+        function loginCheck(){    
+            $.ajax({            
+                method: "POST",
+                url: "./Frontend/LoginCheck.php",
+                data:{},            
+                dataType: "text",
+                success: function (response) {
+                    if(response == ""){
+                        //尚未登入->前往登入頁
+                        alert('請先登入，將前往登入頁'); 
+                        location.href = './member_signIn.html';
+                    }else{
+                        showMember();
+                    }              
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+        }
+
+        // ====== 顯示會員資訊 ======= //
+        function showMember() {
+            $.ajax({
+                method: "POST",
+                url: "./Frontend/Member.php",
+                data: {},
+                dataType: "text",
+                success: function (response) {
+                    $('.guest_icon').css('display', 'none');
+                    $('.icon_create').after(response);
+                    
+                    // 取得購物車資料
+                    // getCartData();
+                },
+                error: function (exception) {
+                    alert("數據載入失敗: " + exception.status);
+                },
+            });
+        }
+    </script>
 </head>
+
 <body onload="init()">
     @@include('./layout/header.html')
 
@@ -46,38 +71,39 @@
             <!-- <div class="cart_board" v-for="cart_product in cart_products">
                 <div class="cart_item cart_item_lg">
                     <div class="cart_checkBox">
-                        <input type="checkbox"  name="" @click="singleCheck(cart_product.id)" :checked="selectedProducts.indexOf(cart_product.id)!=-1">
+                        <input type="checkbox" @click="singleCheck" :value="cart_product.ID" v-model="selectedProducts">
                     </div>
-                    <img :src="cart_product.image" alt="">
+                    <img :src="'./images/summer_camp/' + cart_product.IMG" alt="">
                     <div class="cart_detail">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="cart_productDetail">
-                                    <h3 class="cart_productDetailTitle">{{ cart_product.title }}</h3>
+                                    <h3 class="cart_productDetailTitle">【{{ cart_product.COUNTRY }}-{{ cart_product.CITY }}】{{ cart_product.NAME }}</h3>
                                     <div class="cart_productOption">
-                                        <h3><i class="bi bi-calendar-check-fill"></i>{{ cart_product.iconWeekWord }}</h3>
-                                        <h3><i class="bi bi-person-fill"></i>{{ cart_product.iconYearWord }}</h3>
+                                        <h3 style="margin-right: 10px;"><i class="bi bi-calendar-check-fill"></i>{{ cart_product.BATCH }}：
+                                        </h3>
+                                        <h3>{{ cart_product.START_DATE }} ～ {{ cart_product.END_DATE }}</h3>
                                     </div>
                                     <div class="cart_content">
-                                        <p class="cart_contentWord">{{ cart_product.content }}</p>
+                                        <p class="cart_contentWord" style="font-size: 14px; line-height: 20px;">{{ cart_product.CONTEXT }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" >
+                            <div class="col-md-3">
                                 <div class="cart_personItem">
                                     <h3 class="cart_people">人數</h3>
                                     <div class="cart_substract" @click="reduce(cart_product)">-</div>
-                                    <p class="cart_text">{{ cart_product.count }}</p>
+                                    <p class="cart_text"> <input type="text" v-model="cart_product.ATTENDEES"></p>
                                     <div class="cart_add" @click="add(cart_product)">+</div>
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="cart_price">TWD {{ cart_product.price * cart_product.count  }}</div>
+                                <div class="cart_price">TWD {{ (parseInt(cart_product.PRICE) * parseInt(cart_product.ATTENDEES)).toLocaleString() }}</div>
                             </div>
                             <div class="col-md-1">
-                                <div data-toggle="modal" data-target="#cart_confirm_modal" class="cart_btn btn-trash text-end">
-                                    <i class="fa fa-lg fa-trash-o" 
-                                        @click="remove(cart_product.id)">
+                                <div data-toggle="modal" data-target="#cart_confirm_modal"
+                                    class="cart_btn btn-trash text-end">
+                                    <i class="fa fa-lg fa-trash-o" @click="remove(cart_product.ID)">
                                     </i>
                                 </div>
                             </div>
@@ -88,32 +114,34 @@
             <div class="cart_footer">
                 <div class="cart_boardAction">
                     <div class="cart_checkBox">
-                        <input type="checkbox"  name="" @click="selectAll" v-model="checkAll" id="checkBoxAll">
+                        <input type="checkbox" name="" @click="selectAll" :checked="checkAll" id="checkBoxAll">
                         <label for="checkBoxAll" class="cart_CheckBoxTitle">全選</label>
                         <span class="cart_gap">|</span>
-                        <button type="button" class="btn_sub" data-bs-toggle="modal" data-bs-target="#exampleModal">刪除</button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <button type="button" class="btn_sub" data-bs-toggle="modal" data-bs-target="#exampleModal">刪除所有項目</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered ">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>確定要刪除所有行程</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn_sub" data-bs-dismiss="modal">取消</button>
-                                    <button type="button" class="btn_sub" data-bs-dismiss="modal" @click="removeAll">確認</button>
+                                        <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>確定要刪除所有行程</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn_sub" data-bs-dismiss="modal">取消</button>
+                                        <button type="button" class="btn_sub" data-bs-dismiss="modal" @click="removeAll">確認</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                     <div class="cart_boardBtnAll text-end">
                         <div class="cart_total">
-                            <span class="cart_priceTitle">1件商品合計</span>
-                            <span class="cart_totalPrice">TWD {{ total }}</span>
+                            <span class="cart_priceTitle">{{count}}件商品合計</span>
+                            <span class="cart_totalPrice">TWD {{ parseInt(total).toLocaleString() }}</span>
                         </div>
                         <a href="process.html"><button class="btn_sub">結帳</button></a>
                     </div>
@@ -126,15 +154,15 @@
     <script>
         // 設定當前頁面 css：桌機版 header
         let page = document.getElementsByClassName("header_pg");
-        for(let i = 0; i < (page.length); i++){
-            if(page[i].id !== "page_active0"){
+        for (let i = 0; i < (page.length); i++) {
+            if (page[i].id !== "page_active0") {
                 page[i].removeAttribute('id');
             }
         }
         // 設定當前頁面 css：漢堡選單
         let ham_page = document.getElementsByClassName("ham_pg");
-        for(let i = 0; i < (ham_page.length); i++){
-            if(ham_page[i].id !== "h_page_active0"){
+        for (let i = 0; i < (ham_page.length); i++) {
+            if (ham_page[i].id !== "h_page_active0") {
                 ham_page[i].removeAttribute('id');
             }
         }
@@ -147,67 +175,134 @@
                 checkAll: false,
                 selectedProducts: [],
                 cart_products: [
-                    {
-                        id: 1,
-                        image: './images/member/image1.png',
-                        title: '[美國-洛杉磯] 微電影創作營',
-                        iconWeekWord: '課程期間: 3週',
-                        iconYearWord: '13~17歲',
-                        content: '我們將英語課程結合了影視課程，為喜愛美國文化及影視有興趣學生提供最佳的機會，深入了解好萊塢。配合好萊塢著名景點及名人居住區域介紹，讓喜愛美國明星的你，感受進一步的接觸。',
-                        price: 38000,
-                        count: 1
-                    },
-                ]
+                    // {
+                    //     id: 1,
+                    //     image: './images/member/image1.png',
+                    //     title: '[美國-洛杉磯] 微電影創作營',
+                    //     iconWeekWord: '課程期間: 3週',
+                    //     iconYearWord: '13~17歲',
+                    //     content: '我們將英語課程結合了影視課程，為喜愛美國文化及影視有興趣學生提供最佳的機會，深入了解好萊塢。配合好萊塢著名景點及名人居住區域介紹，讓喜愛美國明星的你，感受進一步的接觸。',
+                    //     price: 38000,
+                    //     count: 1
+                    // },
+                    // {
+                    //     id: 2,
+                    //     image: './images/member/image2.png',
+                    //     title: '[美國-紐約] 百老匯表演藝術營',
+                    //     iconWeekWord: '課程期間: 3週',
+                    //     iconYearWord: '13~17歲',
+                    //     content: '透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。',
+                    //     price: 38000,
+                    //     count: 1
+                    // }
+                ],
+                count: 0
+                
             },
             computed: {
                 total() {
                     let total = 0;
                     this.cart_products.forEach((v, k) => {
-                        if (this.selectedProducts.indexOf(v.id) != -1)
-							total += v.count * v.price;
+                        if (this.selectedProducts.indexOf(v.ID) != -1)
+                            total += v.ATTENDEES * v.PRICE;
+                            // count = this.selectedProducts.length;
+                            
                     });
+                    // console.log(this.count);
+                    this.count = this.selectedProducts.length;
+                    console.log(this.count);
                     return total;
-            }
+                }
             },
             methods: {
                 add(cart_product) {
-                    cart_product.count += 1;
+                    
+                    let ATTENDEES = parseInt(cart_product.ATTENDEES);
+                    let PARTICIPANTS = parseInt(cart_product.PARTICIPANTS);
+                    
+                    if(ATTENDEES < PARTICIPANTS){
+                        cart_product.ATTENDEES = (cart_product.ATTENDEES * 1) + 1;
+                        // return ATTENDEES = this.count;
+                    }else{
+                        alert("人數已達上限");
+                    }
                 },
                 reduce(cart_product) {
-                    if(cart_product.count > 1) {
-                        cart_product.count -= 1;
+                    if (cart_product.ATTENDEES > 1) {
+                        cart_product.ATTENDEES -= 1;
                     }
                 },
                 remove(cart_productIDToRemove) {
-                    this.cart_products = this.cart_products.filter((cart_product)=>{
-                        return  cart_product.id !== cart_productIDToRemove;
+                    alert("確定要刪除?");
+                    this.cart_products = this.cart_products.filter((cart_product) => {
+                        return cart_product.ID !== cart_productIDToRemove;
                     });
                 },
-                selectAll() {
-                    if(!event.currentTarget.checked) {
+                selectAll(event) {
+                    // this.count = 0;
+                    if (!event.currentTarget.checked) {
                         this.selectedProducts = [];
                     } else {
+                        this.selectedProducts = [];
                         this.cart_products.forEach((value, key) => {
-							this.selectedProducts.push(value.id);		
-						});
+                            this.selectedProducts.push(value.ID);
+                            // console.log(aaa);
+                        });
                     }
+                    // if (this.checkAll) {
+                    //     this.selectedProducts = [];
+                    //     this.checkAll = false;
+                    // } else {
+                    //     this.selectedProducts = [];
+                    //     for (let cart_product in this.cart_products) {
+                    //         this.selectedProducts.push(this.cart_products[cart_product].ID);
+                    //     }
+                    //     this.checkAll = true;
+                    // }
                 },
-                singleCheck(id) {
-                    let selectIndex = this.selectedProducts.indexOf(id);
-					// 不存在就加入，用Index來splice，而不是id
-					(selectIndex == -1) ? this.selectedProducts.push(id) : this.selectedProducts.splice(selectIndex, 1);
-					// 判斷是否全部勾選
-					this.checkAll = this.cart_products.length == this.selectedProducts.length;
+                singleCheck(e) {
+                    // let selectIndex = this.cart_products[index][0];
+                    // console.log(selectIndex);
+
+                    let val = e.target.value;
+                    // console.log(val);
+
+                    this.checkAll = false;
+                    (val == -1) ? this.selectedProducts.push(val) : this.selectedProducts.splice(val, 1);
+                    // this.selectedProducts.push(val);
+                    console.log(this.selectedProducts.length);
+                    console.log(this.cart_products.length);
+                    if (this.selectedProducts.length == (this.cart_products.length-1)) {
+                        this.checkAll = true;
+                        // this.selectedProducts.length = 0;
+                    }
+
+                    // let selectIndex = this.selectedProducts.indexOf(id);
+                    // // 不存在就加入，用Index來splice，而不是id
+                    // (selectIndex == -1) ? this.selectedProducts.push(selectIndex) : this.selectedProducts.splice(selectIndex, 1);
+                    // // 判斷是否全部勾選
+                    // this.checkAll = this.cart_products.length == this.selectedProducts.length;
                 },
                 removeAll() {
-                    this.cart_products = this.cart_products.filter((cart_product)=>{
-                        return  cart_product.id === 0;
+                    this.cart_products = this.cart_products.filter((cart_product) => {
+                        return cart_product.ID === 0;
                     });
-                }
+                }, 
+            },
+
+            mounted(){
+                axios.get('./Frontend/Cart.php')
+                    .then((res) => {
+                        console.log(res.data);
+                        this.cart_products = res.data
+                    })   // 成功時候的處理函數
+                    .catch((error) => console.log(error));   // 失敗時候的處理函數
+                    // res => this.cart_products = res
             },
            
         })
     </script>
     </script>
 </body>
+
 </html>

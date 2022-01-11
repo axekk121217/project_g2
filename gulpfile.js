@@ -105,8 +105,12 @@ function move_frontend_php(){
 <<<<<<< HEAD
     return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
 =======
+<<<<<<< HEAD
+    return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
+=======
   return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
 >>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.frontend_php = move_frontend_php;
 
@@ -115,14 +119,21 @@ function move_backend_php(){
 <<<<<<< HEAD
     return src("src/backend/*.php").pipe(dest("dist/backend"));
 =======
+<<<<<<< HEAD
+    return src("src/backend/*.php").pipe(dest("dist/backend"));
+=======
   return src("src/backend/*.php").pipe(dest("dist/backend"));
 >>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.backend_php = move_backend_php;
 
 //Lib
 function move_Lib_php(){
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
     return src("src/Lib/*.php").pipe(dest("dist/Lib"));
 }
 exports.Lib_php = move_Lib_php;
@@ -137,6 +148,8 @@ function watchall(){
    watch('src/Frontend/*.php' , move_frontend_php)
    watch('src/backend/*.php' , move_backend_php)
    watch('src/Lib/*.php' , move_Lib_php)
+<<<<<<< HEAD
+=======
 =======
   return src("src/Lib/*.php").pipe(dest("dist/Lib"));
 }
@@ -153,6 +166,7 @@ function watchall(){
  watch('src/backend/*.php' , move_backend_php)
  watch('src/Lib/*.php' , move_Lib_php)
 >>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 
 exports.w = watchall;

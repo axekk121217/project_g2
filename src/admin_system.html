@@ -1,264 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		@@include('./layout/meta.html', {
+			"title" : "會員管理" 
+		})
+		<script src="./js/bootstrap.bundle.min.js"></script>
+		<script src="./js/vue.js"></script>
+	</head>
 
-<head>
-  @@include('./layout/meta.html', {
-  "title" : "會員管理"
-  })
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./js/vue.js"></script>
-</head>
+	<body>
+		<div style="min-height:100%; height: 850px;">
+			<div class="admin_member">
+				<!-- header -->
+				<div class="admin_header">
+					<div class="admin_header_logo">
+						<img src="images/admin/logo.png" alt="" />
+						<p>CAMPION後臺管理系統</p>
+					</div>
+					<div class="admin_header_btn">
+						<input  type="button" value="帳號登出" onclick="javascript: location.href = './backend/Logout.php';" class="admin_btn_signOut"/>
+					</div>
+				</div>
+		
+				<!-- main -->
+				<div class="admin_main">
+		
+					<!-- 切換按鈕 -->
+					<div class="admin_aside">
+						<a href="./admin_system.html">
+							<button class="admin_aside_btn">會員管理</button>
+						</a>
+						<a href="./admin_order.html">
+							<button class="admin_aside_btn">訂單管理</button>
+						</a>
+						<a href="./admin_commodity.html">
+							<button class="admin_aside_btn">商品管理</button>
+						</a>
+						<a href="./admin_review.html">
+							<button class="admin_aside_btn">評論管理</button>
+						</a>
+					</div>
+		
+					<!-- 表格 -->
+					<div class="admin_main_tltle">
+						<!-- 標題&搜尋 -->
+						<div class="admin_search">
+							<p>會員管理</p>
+						</div>
+						<div class="admin_system_content">
+							<!-- 會員管理表格 -->
+							<div id="app_m_comm">
+								<!-- 表格組件 -->
+								<member-table></member-table>
+							</div>						
+						</div>
+						
+					</div>
+				</div>
+		
+			</div>
+		</div>
+		
+		<!-- <div>
+		<div class="admin_member">
+		<div class="admin_header">
+			<div class="admin_header_logo">
+			<img src="images/admin/logo.png" alt="" />
+			<p>CAMPION後臺管理系統</p>
+			</div>
+			<div class="admin_header_btn">
+			
+				<input  type="button" value="帳號登出" onclick="javascript: location.href = './backend/API/Logout.php';" class="admin_btn_signOut"/>
+			</div>
+		</div>
 
-<body>
-  <div style="height: auto;">
-    <div class="admin_member">
-      <!-- header -->
-      <div class="admin_header">
-        <div class="admin_header_logo">
-          <img src="images/admin/logo.png" alt="" />
-          <p>CAMPION後臺管理系統</p>
-        </div>
-        <div class="admin_header_btn">
-          <input type="button" value="帳號登出" onclick="javascript: location.href = './backend/Logout.php';"
-            class="admin_btn_signOut" />
-        </div>
-      </div>
+		<div class="admin_main">
+			<div class="admin_aside">
+			<a href="./admin_system.html">
+				<button class="admin_aside_btn">會員管理</button>
+			</a>
+			<a href="./admin_order.html">
+				<button class="admin_aside_btn">訂單管理</button>
+			</a>
+			<a href="./admin_commodity.html">
+				<button class="admin_aside_btn">商品管理</button>
+			</a>
+			<a href="./admin_review.html">
+				<button class="admin_aside_btn">評論管理</button>
+			</a>
+			</div>
 
-      <!-- main -->
-      <div class="admin_main">
+			<div class="admin_main_tltle">
+			<div class="admin_search">
+				<p>會員管理</p>
+				<div class="admin_search_bar">
+				<input class="search-bar" type="text" name="search" id="search" placeholder="輸入名稱" />
+				<button class="admin_search-btn">
+					<i class="fas fa-search admin_search_icon"></i>
+				</button>
+				</div>
+			</div>
 
-        <!-- 切換按鈕 -->
-        <div class="admin_aside">
-          <a href="./admin_system.html">
-            <button class="admin_aside_btn">會員管理</button>
-          </a>
-          <a href="./admin_order.html">
-            <button class="admin_aside_btn">訂單管理</button>
-          </a>
-          <a href="./admin_commodity.html">
-            <button class="admin_aside_btn">商品管理</button>
-          </a>
-          <a href="./admin_review.html">
-            <button class="admin_aside_btn">評論管理</button>
-          </a>
-        </div>
+			<div class="admin_main_content">
+				<table class="table table-hover">
+				<thead>
+					<tr>
+					<th scope="col">會員編號</th>
+					<th scope="col">會員姓名</th>
+					<th scope="col">性別</th>
+					<th scope="col">會員帳號</th>
+					<th scope="col">聯絡電話</th>
+					<th scope="col">註冊日期</th>
+					<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<th scope="row">438115684</th>
+					<td>王大明</td>
+					<td>男</td>
+					<td>mingwang@gmail.com</td>
+					<td>0912345678</td>
+					<td>2021-12-12</td>
+					<td>
+						Button trigger modal
+						<button type="button" class="btn admin_order_btn" data-bs-toggle="modal"
+						data-bs-target="#staticBackdrop">
+						編輯&nbsp;&frasl;&nbsp;查看
+						</button>
 
-        <!-- 表格 -->
-        <div class="admin_main_tltle">
-          <div class="admin_search">
-            <p>會員管理</p>
-            <div class="admin_search_bar">
-              <input class="search-bar" type="text" name="search" id="search" placeholder="以會員編號查詢" />
-              <button class="admin_search-btn">
-                <i class="fas fa-search admin_search_icon"></i>
-              </button>
-            </div>
-          </div>
+						Modal
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+							<div class="modal-header admin_order_header">
+								<h5 class="modal-title admin_order_title" id="staticBackdropLabel">
+								編輯&nbsp;&frasl;&nbsp;查看
+								</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="admin_order_edit">
+								<div class="admin_edit_main">
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">會員編號</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									</div>
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">會員姓名</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									<label class="input-group-text" for="inputGroupSelect01">性別</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									</div>
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">會員帳號</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									</div>
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									</div>
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">註冊日期</label>
+									<input type="text" class="form-control"
+										aria-label="Text input with segmented dropdown button" />
+									</div>
+									<div class="input-group mb-3">
+									<label class="input-group-text" for="inputGroupSelect01">帳號狀態</label>
+									<select class="form-select" id="inputGroupSelect01">
+										<option selected>選擇帳號狀態</option>
+										<option value="1">正常</option>
+										<option value="2">停權</option>
+									</select>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+								關閉
+								</button>
+								<button type="button" class="btn">儲存</button>
+							</div>
+							</div>
+						</div>
+						</div>
+					</td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
 
-          <!-- 會員管理表格 -->
-          <div id="app_m_comm">
-            <member-table></member-table>
-            <div class="d-flex justify-content-end">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item page-link" v-for="page in pages" @click="getMemberData(page.link)">{{page.page}}
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+			<div class="d-flex justify-content-end">
+				<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+					</li>
+				</ul>
+				</nav>
+			</div>
+			</div>
+		</div>
+		</div>
+	-->
+		<script>
+			// 會員管理表格組件
+			Vue.component('member-table',{
+				data(){
+					return{
+						titles: ['會員編號','會員姓名','性別','會員帳號','聯絡電話','註冊日期',''],
+						member_number: "",
+						m_status: 0,
+						member_list: [{name: '正常'},{name: '停權'}],
+						members: [],
+						pages:[],
+						nowpage:1,
+					};
+				},
 
-        </div>
-      </div>
+				template: `
+					<!-- 表格 -->
+					<div style="display: flex; flex-direction: column; position: relative">
+						<!-- 右上方 search bar -->
+						<div class="admin_search_bar" style="position: absolute; top: -50px; right: 0">
+							<input class="search-bar" type="text" name="search" id="search" placeholder="請輸入會員編號或姓名" style="padding-left: 5px" @keyup.enter="searchMember"/>
+							<button class="admin_search-btn" @click="searchMember">
+								<i class="fas fa-search admin_search_icon"></i>
+							</button>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope = "col" v-for="title in titles">{{title}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(member, index) in members.slice(((nowpage-1)*10),(nowpage*10))">
+									<th scope="row">{{member.ID}}</th>
+									<td>{{member.NAME}}</td>
+									<td>{{member.GENDER}}</td>
+									<td>{{member.ACCOUNT}}</td>
+									<td>{{member.PHONE}}</td>
+									<td>{{member.CREATION_DATE}}</td>
+									<td>
+										<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#member' + member.ID">編輯&nbsp;&frasl;&nbsp;查看</button>
 
-    </div>
-  </div>
-
-  
-
-    <script>
-
-      // 會員管理表格
-      Vue.component('member-table', {
-        data() {
-          return {
-            titles: ['會員編號', '會員姓名', '性別', '會員帳號', '聯絡電話', '註冊日期', ''],
-            member_number: "",
-            members: [],
-          };
-        },
-
-        template: `
-				<div class="admin_main_content">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope = "col" v-for="title in titles">{{title}}</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr v-for="member in members">
-								<th scope="row">{{member.ID}}</th>
-								<td>{{member.NAME}}</td>
-								<td>{{member.GENDER}}</td>
-								<td>{{member.ACCOUNT}}</td>
-								<td>{{member.PHONE}}</td>
-								<td>{{member.CREATION_DATE}}</td>
-								<td>
-									<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">編輯&nbsp;&frasl;&nbsp;查看</button>
-
-									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header admin_order_header">
-													<h5 class="modal-title admin_order_title" id="staticBackdropLabel">
-													編輯&nbsp;&frasl;&nbsp;查看
-													</h5>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<div class="admin_order_edit">
-														<div class="admin_edit_main">
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">會員編號</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.ID" disabled/>
-															</div>
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">會員姓名</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.NAME" disabled/>
-																<label class="input-group-text" for="inputGroupSelect01">性別</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.GENDER" disabled/>
-															</div>
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">會員帳號</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.ACCOUNT" disabled/>
-															</div>
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.PHONE" disabled/>
-															</div>
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">註冊日期</label>
-																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.CREATION_DATE" disabled/>
-															</div>
-															<div class="input-group mb-3">
-																<label class="input-group-text" for="inputGroupSelect01">帳號狀態</label>
-																<select class="form-select" id="inputGroupSelect01">
-																	<option selected>選擇帳號狀態</option>
-																	<option value="1">正常</option>
-																	<option value="2">停權</option>
-																</select>
+										<div class="modal fade" :id="'member' + member.ID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header admin_order_header">
+														<h5 class="modal-title admin_order_title" id="staticBackdropLabel">
+														編輯&nbsp;&frasl;&nbsp;查看
+														</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-body">
+														<div class="admin_order_edit">
+															<div class="admin_edit_main">
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">會員編號</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.ID" disabled/>
+																</div>
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">會員姓名</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.NAME" disabled/>
+																	<label class="input-group-text" for="inputGroupSelect01">性別</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.GENDER" disabled/>
+																</div>
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">會員帳號</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.ACCOUNT" disabled/>
+																</div>
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.PHONE" disabled/>
+																</div>
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">註冊日期</label>
+																	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" v-model="member.CREATION_DATE" disabled/>
+																</div>
+																<div class="input-group mb-3">
+																	<label class="input-group-text" for="inputGroupSelect01">帳號狀態</label>
+																	<select class="form-select" id="inputGroupSelect01" v-model="member.ACCOUNT_STATE">
+																		<option v-for="state in member_list" :selected="state.name == member.ACCOUNT_STATE">{{state.name}}</option>
+																	</select>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-													關閉
-													</button>
-													<button type="button" class="btn">儲存</button>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+														關閉
+														</button>
+														<button :value="index" type="button" class="btn" v-on:click="UpdateState">儲存</button>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			`,
-        mounted() {
-          // 取得會員資料
-          $.getJSON('./backend/MemberSystem.php').then((res) => {
-            console.log(res);
-            this.members = res;
-          });
-        },
-      });
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<!-- page -->
+						<div class="d-flex justify-content-end">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<li class="page-item page-link" v-on:click="Subgopage(nowpage)">
+										<span aria-hidden="true">&laquo;</span>
+									</li>
+									<li class="page-item page-link" v-for="page in pages" v-on:click="getMemberData(page)">{{page}}</li>
+									<li class="page-item page-link" v-on:click="Addgopage(nowpage)">
+										<span aria-hidden="true">&raquo;</span>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				`,
+				methods: {
+					// ===== 分頁顯示筆數 ===== // 
+					getMemberData(gopage){
+						console.log(gopage);
+						if(isNaN(gopage)) return;
+						this.nowpage = gopage;
+						
+						$.ajax({
+							method: "POST",
+							url: "./backend/getMemberData.php",
+							data:{ 
+								page : this.nowpage,
+							},            
+							dataType: "json",
+							success: function (res) {
+								// console.log(res);
+								return this.members = res;
+								// console.log(this.members);
+								
+							},
+							error: function(exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+					},
+
+					// ===== 下10筆資料 ====== //
+					Addgopage(nowpage){
+						// console.log(this.nowpage);
+						// console.log(this.pages);
+						if(this.nowpage != this.pages){
+							return this.nowpage += 1;
+						}
+					},
+
+					// ====== 上10筆資料 ====== //
+					Subgopage(nowpage){
+						// console.log(this.nowpage);
+						if(this.nowpage != 1){
+							return this.nowpage -= 1;
+						}
+					},
+
+					// ====== 修改權限 ===== //
+					UpdateState(e){
+						// console.log(index);
+						// console.log(this.members);
+						const target = e.target
+						const idx = e.target.value;
+						$.ajax({
+							method: "POST",
+							url: "./backend/Member_update.php",
+							data:{ 
+								status : this.members[idx].ACCOUNT_STATE,
+								memberID : this.members[idx].ID,
+							},            
+							dataType: "text",
+							success: function (res) {
+								// console.log(res);
+								target.closest('div').firstElementChild.click();
+								alert("更新成功");
+
+							},
+							error: function (exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+					},
+
+					
+					// ====== 右上方關鍵字搜尋會員 ===== //
+					searchMember(e){
+						const self = this;
+						let searchId = parseInt($('#search').val());
+						let searchName = $('#search').val();
+					
+						$.ajax({
+							type: "POST",
+							url: "./backend/admin-searchMember.php", // API 路徑
+							data:{ 
+								searchId: searchId,
+								searchName: searchName,
+								// searchCountry: searchName,
+							},
+							// dataType: "json",
+			
+							// 設定 listener：
+							success: function (response) { // 網路傳輸成功
+								// console.log(response)
+								let filteredData = JSON.parse(response);
+								console.log(filteredData);
+
+								self.members = filteredData;
+								if(filteredData.length == 0){
+									alert('查無資料！');
+									location.reload();
+								}
+
+							},
+							error: function (exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+					},
+				},
+
+				mounted() {
+					// ======== 取得load近來時的會員資料 ======== //
+					$.getJSON('./backend/MemberSystem.php').then((res) => {
+						// console.log(res);
+						this.pages =  Math.ceil(res.length / 10);
+						this.members = res;
+						// console.log(this.members)
+					});
+				},
+			});
 
 
-      let vm = new Vue({
-        el: '#app_m_comm',
-        data: {
-          current_edit: null,
-          dbcheck: false,
-          m_status: 0,
+			let vm = new Vue({
+				el: '#app_m_comm',
+				data: {
+					current_edit: null,
+					dbcheck: false,
+					members: [] ,
+				},
+			});
+		</script>
 
-          mainbtn: [
-            { name: '會員管理', url: "./admin_system.html" },
-            { name: '訂單管理', url: "./admin_order.html" },
-            { name: '商品管理', url: "./admin_commodity.html" },
-            { name: '評論管理', url: "./admin_review.html" },
-          ],
-          // titles: ['會員編號','會員姓名','性別','會員帳號','聯絡電話','註冊日期',''],
-
-          pages: [
-            { page: "1", link: "1" },
-            { page: "2", link: "2" },
-            { page: "3", link: "3" },
-            { page: "4", link: "4" },
-            { page: "5", link: "5" },
-          ],
-          nowpage: 1,
-        },
-
-        methods: {
-          getMemberData(gopage) {
-            console.log(gopage);
-            if (isNaN(gopage)) return;
-            this.nowpage = gopage;
-
-            // $.ajax({
-            // 	method: "POST",
-            // 	url: "./backend/MemberSystem.php",
-            // 	data:{ 
-            // 		page : gopage,
-            // 	},            
-            // 	dataType: "json",
-            // 	success: function (res) {
-            // 		// appVue.pages = response[0];
-            // 		// appVue.members = response[1];
-            // 		this.members = res;
-            // 	},
-            // 	error: function(exception) {
-            // 		alert("發生錯誤: " + exception.status);
-            // 	},
-            // });
-          }
-        },
-
-        computed: {
-
-        },
-
-      });
-
-
-
-
-
-    </script>
-
-</body>
-
-</html>
-=======
-
-<script>
-  new Vue({
-    el: "#app",
-  });
-</script>
-</body>
+	</body>
 
 </html>
