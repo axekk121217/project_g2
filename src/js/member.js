@@ -1,21 +1,19 @@
 window.onload = function () {
-  let currentUrl = new URL(window.location.href);
-  let account = currentUrl.searchParams.get("account");
-  
-  let uncompletedItineraries = getUncommentItinerary(account);
+
+  let uncompletedItineraries = getUncommentItinerary();
   
   renderUncompletedItineraries(uncompletedItineraries);
 
   starOnClick(uncompletedItineraries);
 
-  sendOnClick(uncompletedItineraries,account);
+  sendOnClick(uncompletedItineraries);
 }
 
-function getUncommentItinerary(account) {
+function getUncommentItinerary() {
   let result = [];
   $.ajax({
     method: "GET",
-    url: "./Frontend/getUncompletedItinerary.php?account="+ account,
+    url: "./Frontend/getUncompletedItinerary.php",
     data: {},
     async: false,
     dataType: "json",
@@ -36,7 +34,7 @@ function renderUncompletedItineraries(uncompletedItineraries){
     $(".member_commentAll").append(`
     <div class="row">
       <div class="member_commentItem col-md-5">
-          <img src="./images/member/${row.IMG}" alt="">
+          <img src="./images/summer_camp/${row.IMG}" alt="">
       </div>
 
       <div class="member_commentContent col-md-7">
@@ -99,13 +97,12 @@ function starOnClick(uncompletedItineraries){
   });
 }
 
-function sendOnClick(uncompletedItineraries,account){
+function sendOnClick(uncompletedItineraries){
   $(".member_commentButton").on('click',function(){
     let index = $(this).attr("data-row-index");
     let content = $(`textarea[data-row-index=${index}]`).val();
     
-    fd = new FormData();  
-    fd.append( 'account',account);  
+    let fd = new FormData();  
     fd.append( 'itineraryId', uncompletedItineraries[index].ID); 
     fd.append( 'star', uncompletedItineraries[index].STAR ? parseInt(uncompletedItineraries[index].STAR):1); 
     fd.append( 'content', content); 

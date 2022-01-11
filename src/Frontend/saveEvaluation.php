@@ -1,10 +1,10 @@
 <?php 
     // 會員發佈評論
-    
     include("../Lib/Util.php");
+    include("../Lib/Member.php");
     
     // 取得必要參數
-    $account = $_POST["account"];
+    $account = getMemberName();
     $itineraryId = $_POST["itineraryId"];
     $star = $_POST["star"];
     $content = $_POST["content"];

@@ -6,7 +6,7 @@ $sql = "SELECT * FROM MEMBER WHERE ID > 2 and ACCOUNT = ? and PASSWORD = ?";
 
 //給值
 $statement = getPDO()->prepare($sql);
-$statement->bindValue(1, $_POST["EMAIL"]);
+$statement->bindValue(1, $_POST["ACCOUNT"]);
 $statement->bindValue(2, $_POST["PASSWORD"]);
 $statement->execute();
 $data = $statement->fetchAll();
