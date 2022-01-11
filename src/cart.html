@@ -68,7 +68,7 @@
                 <h1 class="cart_headTitle">購物車</h1>
                 <hr>
             </div>
-            <div class="cart_board" v-for="cart_product in cart_products">
+            <!-- <div class="cart_board" v-for="cart_product in cart_products">
                 <div class="cart_item cart_item_lg">
                     <div class="cart_checkBox">
                         <input type="checkbox" @click="singleCheck" :value="cart_product.ID" v-model="selectedProducts">
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="cart_footer">
                 <div class="cart_boardAction">
                     <div class="cart_checkBox">
@@ -143,7 +143,7 @@
                             <span class="cart_priceTitle">{{count}}件商品合計</span>
                             <span class="cart_totalPrice">TWD {{ parseInt(total).toLocaleString() }}</span>
                         </div>
-                        <a href="process.html"><button class="btn_sub">前往結帳</button></a>
+                        <a href="process.html"><button class="btn_sub">結帳</button></a>
                     </div>
                 </div>
             </div>
@@ -299,7 +299,9 @@
                     .catch((error) => console.log(error));   // 失敗時候的處理函數
                     // res => this.cart_products = res
             },
+           
         })
+    </script>
     </script>
 </body>
 

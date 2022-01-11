@@ -6,13 +6,10 @@
         "title" : "會員登入" 
       })
       @@include('./layout/chat.html')
-  
       <script>
         function init(){
           showMember();
         }
-        
-       
         // 顯示會員資訊
         function showMember() {
           $.ajax({
@@ -21,8 +18,14 @@
             data: {},
             dataType: "text",
             success: function (response) {
+              // console.log(response);
               $('.guest_icon').css('display', 'none');
               $('.icon_create').after(response);
+            //   if($('#memberSignUp_Privacy').is(':checked')) {
+            //   localStorage.setItem('account',  account);
+            // } else {
+            //   sessionStorage.setItem('account', account);
+            // }
             },
             error: function (exception) {
               alert("數據載入失敗: " + exception.status);
@@ -35,7 +38,7 @@
           function loginCheck(pid) {
             $.ajax({
               method: "POST",
-              url: "Frontend/LoginCheck.php",
+              url: "./Frontend/LoginCheck.php",
               data: {},
               dataType: "text",
               success: function (response) {
@@ -52,7 +55,33 @@
               },
             });
           }
-        
+          
+          function doLogin() {
+            $.ajax ({
+              method: 'POST',
+              url: './Frontend/Login.php',
+              data: {
+                ACCOUNT : $('#ACCOUNT').val(),
+                PASSWORD: $('#PASSWORD').val(),
+              },
+              dataType: 'text',
+              success: function (res) {
+                // let account = $('#ACCOUNT').val();
+                
+                // let password = $('#PASSWORD').val();
+                console.log(res);
+                // doSubmit();
+                if(res == 'ok'){
+                  alert('登入成功!'); location.href = './member.html';
+                }else if(res == 'error'){
+                  alert('帳號或密碼錯誤!!'); location.href = './member_signIn.html';
+                }
+              },
+              error: function (ero) {
+                alert("數據載入失敗: " + ero.status);
+              },
+            });
+          }
       </script>
     </head>
     <body onload="init()">
@@ -66,11 +95,11 @@
           class="memberSignUp_logo rounded mx-auto d-block"
         />
         <h1 class="memberSignUp_title text-center">會員登入</h1>
-        <form action="./Frontend/Login.php" method="post">
+        <!-- <form method="post"> -->
           <label>會員帳號</label>
           <br />
           <input
-            type="email"
+            type="email" required
             placeholder="請輸入您的Email"
             size="40"
             name="ACCOUNT"
@@ -80,7 +109,7 @@
           <label>會員密碼</label>
           <br />
           <input
-            type="password"
+            type="password" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$"  required="required"
             placeholder="請輸入您的密碼"
             size="40"
             name="PASSWORD"
@@ -98,12 +127,8 @@
           </div>
           <br />
 
-          <a href="member.html"
-            ><button class="memberSignUp_confirm" onclick="return doSubmit()">
-              登入
-            </button></a
-          >
-        </form>
+          <button type="submit" class="memberSignUp_confirm" onclick="doLogin()">登入</button>
+        <!-- </form> -->
         <h4 class="memberSignUp_word text-center">
           還不是會員?<a
             onclick="location.href='member_signUp.html'"
@@ -145,7 +170,7 @@
       </div>
     </footer>
 
-    <script>
+    <script type="text/javascript">
       // 設定當前頁面 css：桌機版 header
       let page = document.getElementsByClassName("header_pg");
       for (let i = 0; i < page.length; i++) {
@@ -160,12 +185,9 @@
           ham_page[i].removeAttribute("id");
         }
       }
-    </script>
-
-    <script type="text/javascript">
 
       function doSubmit() {
-        if (document.getElementById("ACCOUNT").value == "") {
+        if (document.getElementById("EMAIL").value == "") {
           alert("請填寫[帳號]");
           return false;
         }
@@ -174,6 +196,62 @@
           return false;
         }
       }
+
+      // // 驗證帳號密碼是否錯誤
+      // const verifyAccount = document.getElementById('EMAIL');
+      // // console.log(verify)
+      // verifyAccount.addEventListener('input', function (){
+      //   if (verifyAccount.checkValidity()){
+      //     verifyAccount.classList.add('valid')
+      //     verifyAccount.classList.remove('invalid')
+      //   }else{
+      //     verifyAccount.classList.remove('valid')
+      //     verifyAccount.classList.add('invalid')
+      //     // if(verifyAccount.validity.valueMissing){
+      //     //   verifyAccount.setCustomValidity("此欄位為必填")
+      //     //   return
+      //     // }
+      //     // if(verifyAccount.validity.valueMismatch){
+      //     //   verifyAccount.setCustomValidity("格式錯誤")
+      //     //   return
+      //     // }
+      //   }
+      // });
+
+      // const verifyPassword = document.getElementById('PASSWORD');
+      // // console.log(verifyPassword)
+      // verifyPassword.addEventListener('input', function (){
+      //   if (verifyPassword.checkValidity()){
+      //     verifyPassword.classList.add('valid')
+      //     verifyPassword.classList.remove('invalid')
+      //   }else{
+      //     verifyPassword.classList.remove('valid')
+      //     verifyPassword.classList.add('invalid')
+      //     // if(verifyPassword.validity.valueMissing){
+      //     //   verifyPassword.setCustomValidity("此欄位為必填")
+      //     //   return
+      //     // }
+      //     // if(verifyPassword.validity.valueMismatch){
+      //     //   verifyPassword.setCustomValidity("格式錯誤")
+      //     //   return
+      //     // }
+      //   }
+      // });
+
     </script>
+
+    <!-- <script type="text/javascript">
+
+      function doSubmit() {
+        if (document.getElementById("EMAIL").value == "") {
+          alert("請填寫[帳號]");
+          return false;
+        }
+        if (document.getElementById("PASSWORD").value == "") {
+          alert("請填寫[密碼]");
+          return false;
+        }
+      }
+    </script> -->
   </body>
 </html>

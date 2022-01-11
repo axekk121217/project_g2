@@ -217,9 +217,9 @@ div.admin_commodity_header {
   background-color: #FCB629;
 }
 
-#app {
-  text-align: center;
-}
+// #app {
+//   text-align: center;
+// }
 
 
 .admin_newItem_img>img {
@@ -242,6 +242,10 @@ button.admin_commodity_file {
 
 button.admin_commodity_file:hover {
   background-color: $btn_color_sub_hover;
+}
+
+p.item_showImg{
+  position: absolute;
 }
 
 label.admin_commodity_text {
@@ -282,4 +286,9 @@ input.datetime:focus {
   border-color: none;
   box-shadow: none;
   border: 2px solid#FCB629;
+}
+
+//彈窗
+.modal-dialog{
+  max-width: 800px !important;
 }

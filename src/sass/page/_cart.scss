@@ -204,7 +204,7 @@ section.cart_container {
     padding: 0 20px;
 
     .cart_checkBox {
-        display: flex;
+        // display: flex;
 
         input {
             width: 16px;
@@ -258,4 +258,12 @@ section.cart_container {
 
 #bodyBackgroundColor {
     background-color: black;
+}
+
+@media (max-width: 400px){
+  div.cart_checkBox{
+    .btn_sub{
+      width: 70px;
+    }
+  }
 }

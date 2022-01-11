@@ -7,7 +7,6 @@
         $db_user = "root";
         $db_pass = "password";
         $db_select = "CAMPION";
-
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
 
@@ -30,5 +29,18 @@
         return $ServerRoot.$filePath;
 
     }
+
+      // 取得用戶
+      function getMemberByAccount($account){
+        $member_sql = "SELECT * FROM MEMBER WHERE ACCOUNT = ?";
+    
+        //執行
+        $statement = getPDO()->prepare($member_sql);
+        $statement->bindValue(1 , $account);    
+        $statement->execute();
+        $data = $statement->fetchAll();
+    
+        return array_values($data)[0];
+        }
 
 ?>

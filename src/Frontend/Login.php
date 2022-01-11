@@ -27,12 +27,13 @@ if ($memberID != "" && $memberName != "") {
     setMemberInfo($memberID, $memberName);
 
     //導回產品頁
-    echo "<script>alert('登入成功!'); location.href = '../member.html';</script>";
-    echo ('Correct');
+    // echo "<script>alert('登入成功!'); location.href = '../member.html';</script>";
+    echo 'ok';
 
 } else {
 
     //跳出提示停留在登入頁
-    echo "<script>alert('帳號或密碼錯誤!'); location.href = '../member_signIn.html';</script>";
-
+    // echo "<script>alert('帳號或密碼錯誤!'); location.href = '../member_signIn.html';</script>";
+    echo 'error';
 }
+?>

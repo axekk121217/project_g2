@@ -1,22 +1,22 @@
 const {
-    src,
-    dest,
-    series,
-    parallel,
-    watch
+  src,
+  dest,
+  series,
+  parallel,
+  watch
 } = require('gulp');
 
 // 第一個任務 console 
 function tasks(cb){
-  console.log('gulp 第一個任務');
-  cb();
+console.log('gulp 第一個任務');
+cb();
 }
 
 exports.do = tasks;
 
 //第二個任務 搬家
 function move(){
-   return src('style.css').pipe(dest('css/'));
+ return src('style.css').pipe(dest('css/'));
 }
 
 exports.copy = move; 
@@ -28,14 +28,14 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps'); // 在瀏覽器開發者工具可追蹤 sass 引用檔案來源
 
 function sassstyle(){
-   return src('src/sass/*.scss') // 
-   .pipe(sourcemaps.init()) 
-   .pipe(sass().on('error', sass.logError))
-   .pipe(sourcemaps.write())
-   .pipe(autoprefixer({ // 注意順序
-            cascade: false
-        })) // 解決 css 跨瀏覽器問題
-   .pipe(dest('dist/css/' , 'src/sass/')) // 目的地路徑
+ return src('src/sass/*.scss') // 
+ .pipe(sourcemaps.init()) 
+ .pipe(sass().on('error', sass.logError))
+ .pipe(sourcemaps.write())
+ .pipe(autoprefixer({ // 注意順序
+          cascade: false
+      })) // 解決 css 跨瀏覽器問題
+ .pipe(dest('dist/css/' , 'src/sass/')) // 目的地路徑
 }
 
 exports.style =sassstyle;
@@ -45,12 +45,12 @@ exports.style =sassstyle;
 const fileinclude = require('gulp-file-include');
 
 function html(){
-   return src('src/*.html') // 來源路徑
-   .pipe(fileinclude({
-    prefix: '@@',
-    basepath: '@file'
-     }))
-   .pipe(dest('./dist')); // 目的地路徑
+ return src('src/*.html') // 來源路徑
+ .pipe(fileinclude({
+  prefix: '@@',
+  basepath: '@file'
+   }))
+ .pipe(dest('./dist')); // 目的地路徑
 }
 
 exports.template = html;
@@ -61,11 +61,11 @@ exports.template = html;
 const babel = require('gulp-babel');
 
 function babel5() {
-    return src('dev/js/*.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        .pipe(dest('js'));
+  return src('dev/js/*.js')
+      .pipe(babel({
+          presets: ['@babel/env']
+      }))
+      .pipe(dest('js'));
 }
 
 // js uglify
@@ -73,12 +73,12 @@ function babel5() {
 const uglify = require('gulp-uglify');
 
 function jsmini(){
-   return src('src/js/*.js')
-   .pipe(babel({
-            presets: ['@babel/env']
-        })) // ES6 轉譯成 ES5："use strict"; const -> var
-   .pipe(uglify())
-   .pipe(dest('dist/js'))
+ return src('src/js/*.js')
+ .pipe(babel({
+          presets: ['@babel/env']
+      })) // ES6 轉譯成 ES5："use strict"; const -> var
+ .pipe(uglify())
+ .pipe(dest('dist/js'))
 }
 
 exports.js =jsmini;
@@ -88,11 +88,11 @@ exports.js =jsmini;
 const imagemin = require('gulp-imagemin');
 
 function min_images(){
-    return src('src/images/**/*.*')
-    .pipe(imagemin([
-        imagemin.mozjpeg({quality: 70, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
-    ]))
-    .pipe(dest('dist/images'))
+  return src('src/images/**/*.*')
+  .pipe(imagemin([
+      imagemin.mozjpeg({quality: 70, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+  ]))
+  .pipe(dest('dist/images'))
 }
 
 exports.img =min_images;
@@ -102,18 +102,38 @@ exports.img =min_images;
 
 //frontend
 function move_frontend_php(){
+<<<<<<< HEAD
     return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
+=======
+<<<<<<< HEAD
+    return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
+=======
+  return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
+>>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.frontend_php = move_frontend_php;
 
 //backend
 function move_backend_php(){
+<<<<<<< HEAD
     return src("src/backend/*.php").pipe(dest("dist/backend"));
+=======
+<<<<<<< HEAD
+    return src("src/backend/*.php").pipe(dest("dist/backend"));
+=======
+  return src("src/backend/*.php").pipe(dest("dist/backend"));
+>>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.backend_php = move_backend_php;
 
 //Lib
 function move_Lib_php(){
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
     return src("src/Lib/*.php").pipe(dest("dist/Lib"));
 }
 exports.Lib_php = move_Lib_php;
@@ -128,6 +148,25 @@ function watchall(){
    watch('src/Frontend/*.php' , move_frontend_php)
    watch('src/backend/*.php' , move_backend_php)
    watch('src/Lib/*.php' , move_Lib_php)
+<<<<<<< HEAD
+=======
+=======
+  return src("src/Lib/*.php").pipe(dest("dist/Lib"));
+}
+exports.Lib_php = move_Lib_php;
+
+
+
+// watch
+function watchall(){
+ watch(['src/*.html' , 'src/layout/*.html'] , html);
+ watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
+ watch('src/js/*.js' , jsmini)
+ watch('src/Frontend/*.php' , move_frontend_php)
+ watch('src/backend/*.php' , move_backend_php)
+ watch('src/Lib/*.php' , move_Lib_php)
+>>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
+>>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 
 exports.w = watchall;
@@ -137,8 +176,8 @@ exports.w = watchall;
 const clean = require('gulp-clean');
 
 function clear() {
-  return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
-  .pipe(clean({force: true})); //強制刪除檔案 
+return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+.pipe(clean({force: true})); //強制刪除檔案 
 }
 
 exports.c = clear;
@@ -149,6 +188,7 @@ const reload = browserSync.reload;
 
 
 function browser(done) {
+<<<<<<< HEAD
     browserSync.init({
         server: {
             baseDir: "./dist",
@@ -163,6 +203,22 @@ function browser(done) {
     watch(['src/backend/*.php'] , move_backend_php).on("change", reload);
     watch(['src/Lib/*.php'] , move_Lib_php).on("change", reload);
     done();
+=======
+  browserSync.init({
+      server: {
+          baseDir: "./dist",
+          index: "index.html"
+      },
+      port: 3000
+  });
+  watch(['src/*.html' , 'src/layout/*.html'] , html).on("change", reload)
+  watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on("change", reload)
+  watch(['src/js/*.js'] , jsmini).on("change", reload);
+  watch(['src/Frontend/*.php'] , move_frontend_php).on("change", reload);
+  watch(['src/backend/*.php'] , move_backend_php).on("change", reload);
+  watch(['src/Lib/*.php'] , move_Lib_php).on("change", reload);
+  done();
+>>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
 }
 
 exports.default = browser;
