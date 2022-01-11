@@ -2,7 +2,7 @@
 include "../Lib/Util.php";
 
 //建立SQL
-$sql = "INSERT INTO MEMBER(ACCOUNT, PASSWORD, NAME, PICTURE, PHONE, CREATION_DATE, ACCOUNT_STATE, GENDER) VALUES (?, ?, ?, 1, ?, now(), '正常', ?)";
+$sql = "INSERT INTO MEMBER(ACCOUNT, PASSWORD, NAME, PICTURE, PHONE, CREATION_DATE, ACCOUNT_STATE, GENDER) VALUES (?, ?, ?, './images/member_upload/', ?, now(), '正常', ?)";
 
 //執行
 $statement = getPDO()->prepare($sql);

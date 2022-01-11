@@ -1,781 +1,689 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    @@include('./layout/meta.html', {
-      "title" : "會員中心" 
-    }) 
-    @@include('./layout/chat.html')
 
-    
-    <script>
-      function init(){
-        showMember();
-      }
-      
-     
-      // 顯示會員資訊
-      function showMember() {
-        $.ajax({
-          method: "POST",
-          url: "./Frontend/Member.php",
-          data: {},
-          dataType: "text",
-          success: function (response) {
-            $('.guest_icon').css('display', 'none');
-            $('.icon_create').after(response);
-          },
-          error: function (exception) {
-            alert("數據載入失敗: " + exception.status);
-          },
-        });
-      }
-      // 顯示會員資訊結束
+<head>
+  @@include('./layout/meta.html', {
+  "title" : "會員中心"
+  })
+  @@include('./layout/chat.html')
 
-      //登入檢查 ---------------------------------------------------------------------------------
-        function loginCheck(pid) {
-          $.ajax({
-            method: "POST",
-            url: "Frontend/LoginCheck.php",
-            data: {},
-            dataType: "text",
-            success: function (response) {
-              if (response == "") {
-                //尚未登入->前往Login.php
-                alert("請先登入，將前往登入頁");
-                location.href = "/member_signIn.html";
-              } else {
-                addToCar(pid);
-              }
-            },
-            error: function (exception) {
-              alert("數據載入失敗: " + exception.status);
-            },
-          });
-        }
-      
-    </script>
-  </head>
 
-  <body onload="init()">
-    @@include('./layout/header.html');
+  <script>
+    function init() {
+      showMember();
+    }
 
-    <section class="member_accountItem">
-      <div class="member_banner container">
-        <h1 class="member_title">會員中心</h1>
-        <div class="member row">
-          <div class="member_left col-md-3">
-            <aside class="member_pageAside">
-              <div class="member_box text-center">
-                <div class="member_editorLogo"></div>
-                <h4 class="member_name">流川風</h4>
-              </div>
-              <ul class="member_asideMenuItem">
-                <li class="member_listItem member_listItem-on">
-                  <img
-                    src="./images/member/setting.png"
-                    alt=""
-                    class="member_icon"
-                  />
-                  <span class="member_accountBox">會員資料</span>
-                </li>
-                <li class="member_listItem">
-                  <img
-                    src="./images/member/type=order.png"
-                    alt=""
-                    class="member_icon"
-                  />
-                  <span class="member_accountBox">訂單管理</span>
-                </li>
-                <li class="member_listItem">
-                  <img
-                    src="./images/member/type=heart.png"
-                    alt=""
-                    class="member_icon"
-                  />
-                  <span class="member_accountBox">收藏管理</span>
-                </li>
-                <li class="member_listItem">
-                  <img
-                    src="./images/member/type=message.png"
-                    alt=""
-                    class="member_icon"
-                  />
-                  <span class="member_accountBox">行程評論</span>
-                </li>
-              </ul>
-            </aside>
-          </div>
-          <div class="dropdown">
-            <button
-              class="btn btn_sub dropdown-toggle"
-              type="button"
-              id="dropdownMenu2"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              會員選單
-            </button>
-            <ul
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="dropdownMenu2"
-            >
-              <li>
-                <button
-                  class="dropdown-item dropdown-item-active"
-                  type="button"
-                >
-                  會員資料
-                </button>
+
+    // 顯示會員資訊
+    function showMember() {
+      $.ajax({
+        method: "POST",
+        url: "./Frontend/Member.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          $('.guest_icon').css('display', 'none');
+          $('.icon_create').after(response);
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        },
+      });
+    }
+    // 顯示會員資訊結束
+
+    //登入檢查 ---------------------------------------------------------------------------------
+    function loginCheck(pid) {
+      $.ajax({
+        method: "POST",
+        url: "Frontend/LoginCheck.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          if (response == "") {
+            //尚未登入->前往Login.php
+            alert("請先登入，將前往登入頁");
+            location.href = "/member_signIn.html";
+          } else {
+            addToCar(pid);
+          }
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        },
+      });
+    }
+
+  </script>
+</head>
+
+<body onload="init()">
+  @@include('./layout/header.html');
+
+  <section class="member_accountItem">
+    <div class="member_banner container">
+      <h1 class="member_title">會員中心</h1>
+      <div class="member row">
+        <div class="member_left col-md-3">
+          <aside class="member_pageAside">
+            <div class="member_box text-center">
+              <div class="member_editorLogo"></div>
+              <h4 class="member_name">流川風</h4>
+            </div>
+            <ul class="member_asideMenuItem">
+              <li class="member_listItem member_listItem-on">
+                <img src="./images/member/setting.png" alt="" class="member_icon" />
+                <span class="member_accountBox">會員資料</span>
               </li>
-              <li>
-                <button class="dropdown-item" type="button">訂單管理</button>
+              <li class="member_listItem">
+                <img src="./images/member/type=order.png" alt="" class="member_icon" />
+                <span class="member_accountBox">訂單管理</span>
               </li>
-              <li>
-                <button class="dropdown-item" type="button">收藏管理</button>
+              <li class="member_listItem">
+                <img src="./images/member/type=heart.png" alt="" class="member_icon" />
+                <span class="member_accountBox">收藏管理</span>
               </li>
-              <li>
-                <button class="dropdown-item" type="button">行程評論</button>
+              <li class="member_listItem">
+                <img src="./images/member/type=message.png" alt="" class="member_icon" />
+                <span class="member_accountBox">行程評論</span>
               </li>
             </ul>
+          </aside>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn_sub dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            會員選單
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu2">
+            <li>
+              <button class="dropdown-item dropdown-item-active" type="button">
+                會員資料
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">訂單管理</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">收藏管理</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">行程評論</button>
+            </li>
+          </ul>
+        </div>
+        <div class="member_right col-md-9">
+          <div class="member_board member_board-show">
+            <!-- 會員資料 -->
+            <div class="member_accountHeader">
+              <h1 class="member_accountTitle">會員資料</h1>
+              <a href="./Frontend/Logout.php"><button class="btn_sub">登出</button></a>
+            </div>
+
+            <hr />
+            <div class="member_accountAll">
+              <form action="#" method="post">
+                <br />
+                <label class="member_accountItemTitle">會員帳號</label>
+                <br />
+                <input type="text" class="memeber_account member_item" value="abc123@gmail.com" disabled size="40" />
+                <br />
+
+                <label class="member_accountItemTitle">姓名</label>
+                <br />
+                <input type="text" class="member_accountName member_item" size="40" value="流川風" />
+                <br />
+
+                <label class="member_accountItemTitle">聯絡電話</label>
+                <br />
+                <input type="text" class="member_phone member_item" size="40" value="0987654321" />
+                <br />
+
+                <label class="member_accountItemTitle">性別</label>
+                <br />
+                <input type="radio" name="member_gender" id="member_first" checked />
+                <label for="member_first">男性</label>
+                <input type="radio" name="member_gender" id="member_second" />
+                <label for="member_second">女性</label>
+                <input type="radio" name="member_gender" id="member_third" />
+                <label for="member_third">暫不提供</label>
+                <br />
+                <div class="member_saveItem text-end">
+                  <button class="member_save btn_sub">儲存</button>
+                </div>
+              </form>
+            </div>
+            <!-- 密碼變更 -->
+            <h1 class="member_changePassword">密碼變更</h1>
+            <hr />
+            <div class="member_passwordAll">
+              <form action="#" method="post">
+                <label class="member_accountItemTitle">舊密碼</label>
+                <br />
+                <input type="password" class="member_oldPassword member_item" size="40" />
+                <br />
+
+                <label class="member_accountItemTitle">新密碼</label>
+                <br />
+                <input type="password" class="member_newPassword member_item" size="40" />
+                <br />
+
+                <label class="member_accountItemTitle">再次輸入新密碼</label>
+                <br />
+
+                <input type="password" class="member_ confirmPassword member_item" size="40" />
+                <br />
+                <div class="member_resive text-end">
+                  <button class="member_revisePassword btn_sub">修改</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="member_right col-md-9">
-            <div class="member_board member_board-show">
-              <!-- 會員資料 -->
-              <div class="member_accountHeader">
-                <h1 class="member_accountTitle">會員資料</h1>
-                <a href="./Frontend/Logout.php"
-                  ><button class="btn_sub">登出</button></a
-                >
-              </div>
+          <!-- 訂單管理 -->
+          <div class="member_board">
+            <div class="member_accountHeader">
+              <h1 class="member_orderTitle">訂單管理</h1>
+              <a href="./Frontend/Logout.php"><button class="btn_sub">登出</button></a>
+            </div>
+            <hr />
+            <div class="member_orderSearch text-end">
+              <input type="search" placeholder="請輸入您的訂單編號" id="member_orderBtn" />
+              <label for="member_orderBtn">搜尋</label>
+            </div>
+            <div class="member_orderNumberAll">
+              <div class="row">
+                <div class="member_orderImage col-md-5">
+                  <img src="./images/member/image1.png" alt="" class="member_orderImage_All" />
+                </div>
 
-              <hr />
-              <div class="member_accountAll">
-                <form action="#" method="post">
-                  <br />
-                  <label class="member_accountItemTitle">會員帳號</label>
-                  <br />
-                  <input
-                    type="text"
-                    class="memeber_account member_item"
-                    value="abc123@gmail.com"
-                    disabled
-                    size="40"
-                  />
-                  <br />
-
-                  <label class="member_accountItemTitle">姓名</label>
-                  <br />
-                  <input
-                    type="text"
-                    class="member_accountName member_item"
-                    size="40"
-                    value="流川風"
-                  />
-                  <br />
-
-                  <label class="member_accountItemTitle">聯絡電話</label>
-                  <br />
-                  <input
-                    type="text"
-                    class="member_phone member_item"
-                    size="40"
-                    value="0987654321"
-                  />
-                  <br />
-
-                  <label class="member_accountItemTitle">性別</label>
-                  <br />
-                  <input
-                    type="radio"
-                    name="member_gender"
-                    id="member_first"
-                    checked
-                  />
-                  <label for="member_first">男性</label>
-                  <input type="radio" name="member_gender" id="member_second" />
-                  <label for="member_second">女性</label>
-                  <input type="radio" name="member_gender" id="member_third" />
-                  <label for="member_third">暫不提供</label>
-                  <br />
-                  <div class="member_saveItem text-end">
-                    <button class="member_save btn_sub">儲存</button>
+                <div class="member_orderItemAll col-md-7">
+                  <ul class="member_orderNameAll">
+                    <li class="member_orderList">
+                      <div class="member_orderName">
+                        <div class="member_orderNameicon">
+                          <h1 class="member_orderName_Title">
+                            [美國-洛杉磯] 微電影創作營
+                          </h1>
+                          <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h4>California State University</h4>
+                      </div>
+                    </li>
+                    <li class="member_orderList">
+                      <div class="member_orderItem">
+                        <h4 class="member_orderWord">
+                          <i class="bi bi-calendar-fill"></i>梯次:7/5-8/15
+                        </h4>
+                        <h4 class="member_orderWord">
+                          <i class="bi bi-file-text-fill"></i>訂單編號:A2154879
+                        </h4>
+                        <div class="member_orderWord member_orderPriceAll">
+                          <h4 class="memeber_orderdate">
+                            <i class="bi bi-calendar-check-fill"></i>付款日期:2021/11/11
+                          </h4>
+                          <h4 class="member_orderPrice">TWD38,000</h4>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="member_orderButtonAll text-end">
+                    <button class="member_orderCancel btn_sub">
+                      申請取消訂單
+                    </button>
+                    <button class="member_contact btn_sub">聯絡客服</button>
                   </div>
-                </form>
-              </div>
-              <!-- 密碼變更 -->
-              <h1 class="member_changePassword">密碼變更</h1>
-              <hr />
-              <div class="member_passwordAll">
-                <form action="#" method="post">
-                  <label class="member_accountItemTitle">舊密碼</label>
-                  <br />
-                  <input
-                    type="password"
-                    class="member_oldPassword member_item"
-                    size="40"
-                  />
-                  <br />
-
-                  <label class="member_accountItemTitle">新密碼</label>
-                  <br />
-                  <input
-                    type="password"
-                    class="member_newPassword member_item"
-                    size="40"
-                  />
-                  <br />
-
-                  <label class="member_accountItemTitle">再次輸入新密碼</label>
-                  <br />
-
-                  <input
-                    type="password"
-                    class="member_ confirmPassword member_item"
-                    size="40"
-                  />
-                  <br />
-                  <div class="member_resive text-end">
-                    <button class="member_revisePassword btn_sub">修改</button>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
-            <!-- 訂單管理 -->
-            <div class="member_board">
-              <div class="member_accountHeader">
-                <h1 class="member_orderTitle">訂單管理</h1>
-                <a href="./Frontend/Logout.php"
-                  ><button class="btn_sub">登出</button></a
-                >
-              </div>
-              <hr />
-              <div class="member_orderSearch text-end">
-                <input
-                  type="search"
-                  placeholder="請輸入您的訂單編號"
-                  id="member_orderBtn"
-                />
-                <label for="member_orderBtn">搜尋</label>
-              </div>
-              <div class="member_orderNumberAll">
-                <div class="row">
-                  <div class="member_orderImage col-md-5">
-                    <img
-                      src="./images/member/image1.png"
-                      alt=""
-                      class="member_orderImage_All"
-                    />
-                  </div>
 
-                  <div class="member_orderItemAll col-md-7">
-                    <ul class="member_orderNameAll">
-                      <li class="member_orderList">
-                        <div class="member_orderName">
-                          <div class="member_orderNameicon">
-                            <h1 class="member_orderName_Title">
-                              [美國-洛杉磯] 微電影創作營
-                            </h1>
-                            <i class="bi bi-heart-fill"></i>
-                          </div>
-                          <h4>California State University</h4>
+            <div class="member_orderNumberAll">
+              <div class="row">
+                <div class="member_orderImage col-md-5">
+                  <img src="./images/member/image2.png" alt="" />
+                </div>
+
+                <div class="member_orderItemAll col-md-7">
+                  <ul class="member_orderNameAll">
+                    <li class="member_orderList">
+                      <div class="member_orderName">
+                        <div class="member_orderNameicon">
+                          <h1 class="member_orderName_Title">
+                            [美國-紐約] 百老匯表演藝術營
+                          </h1>
+                          <i class="bi bi-heart-fill"></i>
                         </div>
-                      </li>
-                      <li class="member_orderList">
-                        <div class="member_orderItem">
-                          <h4 class="member_orderWord">
-                            <i class="bi bi-calendar-fill"></i>梯次:7/5-8/15
+                        <h4>CUNY Brooklyn College</h4>
+                      </div>
+                    </li>
+                    <li class="member_orderList">
+                      <div class="member_orderItem">
+                        <h4 class="member_orderWord">
+                          <i class="bi bi-calendar-fill"></i>梯次:7/5-8/15
+                        </h4>
+                        <h4 class="member_orderWord">
+                          <i class="bi bi-file-text-fill"></i>訂單編號:A2154879
+                        </h4>
+                        <div class="member_orderWord member_orderPriceAll">
+                          <h4 class="memeber_orderdate">
+                            <i class="bi bi-calendar-check-fill"></i>付款日期:2021/11/11
                           </h4>
-                          <h4 class="member_orderWord">
-                            <i class="bi bi-file-text-fill"></i
-                            >訂單編號:A2154879
-                          </h4>
-                          <div class="member_orderWord member_orderPriceAll">
-                            <h4 class="memeber_orderdate">
-                              <i class="bi bi-calendar-check-fill"></i
-                              >付款日期:2021/11/11
-                            </h4>
-                            <h4 class="member_orderPrice">TWD38,000</h4>
-                          </div>
+                          <h4 class="member_orderPrice">TWD38,000</h4>
                         </div>
-                      </li>
-                    </ul>
-                    <div class="member_orderButtonAll text-end">
-                      <button class="member_orderCancel btn_sub">
-                        申請取消訂單
-                      </button>
-                      <button class="member_contact btn_sub">聯絡客服</button>
-                    </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="member_orderButtonAll text-end">
+                    <button class="member_orderCancel btn_sub">
+                      訂單取消進度
+                    </button>
+                    <button class="member_contact btn_sub">聯絡客服</button>
                   </div>
                 </div>
               </div>
+              <div class="member_line">
+                <ul class="member_Schedule">
+                  <li class="member_scheduleContent">成立訂單</li>
+                  <li class="member_scheduleContent">專員聯繫</li>
+                  <li class="member_scheduleContent">審核中</li>
+                  <li class="member_scheduleContent">退款中</li>
+                  <li class="member_scheduleContent">成功退款</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 收藏管理 -->
+          <div class="member_board">
+            <div class="member_accountHeader">
+              <h1 class="member_collectTitle">收藏管理</h1>
+              <a href="./Frontend/Logout.php"><button class="btn_sub">登出</button></a>
+            </div>
 
-              <div class="member_orderNumberAll">
-                <div class="row">
-                  <div class="member_orderImage col-md-5">
-                    <img src="./images/member/image2.png" alt="" />
-                  </div>
-
-                  <div class="member_orderItemAll col-md-7">
-                    <ul class="member_orderNameAll">
-                      <li class="member_orderList">
-                        <div class="member_orderName">
-                          <div class="member_orderNameicon">
-                            <h1 class="member_orderName_Title">
-                              [美國-紐約] 百老匯表演藝術營
-                            </h1>
-                            <i class="bi bi-heart-fill"></i>
-                          </div>
-                          <h4>CUNY Brooklyn College</h4>
-                        </div>
-                      </li>
-                      <li class="member_orderList">
-                        <div class="member_orderItem">
-                          <h4 class="member_orderWord">
-                            <i class="bi bi-calendar-fill"></i>梯次:7/5-8/15
-                          </h4>
-                          <h4 class="member_orderWord">
-                            <i class="bi bi-file-text-fill"></i
-                            >訂單編號:A2154879
-                          </h4>
-                          <div class="member_orderWord member_orderPriceAll">
-                            <h4 class="memeber_orderdate">
-                              <i class="bi bi-calendar-check-fill"></i
-                              >付款日期:2021/11/11
-                            </h4>
-                            <h4 class="member_orderPrice">TWD38,000</h4>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="member_orderButtonAll text-end">
-                      <button class="member_orderCancel btn_sub">
-                        訂單取消進度
-                      </button>
-                      <button class="member_contact btn_sub">聯絡客服</button>
-                    </div>
-                  </div>
+            <hr />
+            <div class="member_collectNumberAll">
+              <div class="row">
+                <div class="member_collectImage col-md-5">
+                  <img src="./images/member/image1.png" alt="" />
                 </div>
-                <div class="member_line">
-                  <ul class="member_Schedule">
-                    <li class="member_scheduleContent">成立訂單</li>
-                    <li class="member_scheduleContent">專員聯繫</li>
-                    <li class="member_scheduleContent">審核中</li>
-                    <li class="member_scheduleContent">退款中</li>
-                    <li class="member_scheduleContent">成功退款</li>
+
+                <div class="member_collectItem col-md-7">
+                  <ul class="member_collectWordAll">
+                    <li class="member_collectList">
+                      <div class="member_collectName">
+                        <h1 class="member_collectName_Title">
+                          [美國-洛杉磯] 微電影創作營
+                        </h1>
+                        <h4>California State University</h4>
+                      </div>
+                    </li>
+
+                    <li class="member_collectList">
+                      <p class="member_collectContent">
+                        我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。
+                      </p>
+                    </li>
+
+                    <li class="member_collectList">
+                      <div class="member_collectSmallContent">
+                        <h4 class="member_collectDate">
+                          <i class="bi bi-calendar-fill"></i>課程期間3週
+                        </h4>
+                        <h4><i class="bi bi-person-fill"></i>15~18歲</h4>
+                      </div>
+                    </li>
+
+                    <li class="member_collectList">
+                      <div class="member_collectPrice">
+                        <div class="member_star">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <p>(12)</p>
+                        </div>
+                        <h4 class="member_collectCost">TWD 38,000</h4>
+                      </div>
+                    </li>
+
+                    <li class="member_collectList">
+                      <div class="member_collectButtonAll">
+                        <button class="member_collectButton btn_sub">
+                          加入購物車
+                        </button>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <!-- 收藏管理 -->
-            <div class="member_board">
-              <div class="member_accountHeader">
-                <h1 class="member_collectTitle">收藏管理</h1>
-                <a href="./Frontend/Logout.php"
-                  ><button class="btn_sub">登出</button></a
-                >
-              </div>
 
-              <hr />
-              <div class="member_collectNumberAll">
-                <div class="row">
-                  <div class="member_collectImage col-md-5">
-                    <img src="./images/member/image1.png" alt="" />
-                  </div>
-
-                  <div class="member_collectItem col-md-7">
-                    <ul class="member_collectWordAll">
-                      <li class="member_collectList">
-                        <div class="member_collectName">
-                          <h1 class="member_collectName_Title">
-                            [美國-洛杉磯] 微電影創作營
-                          </h1>
-                          <h4>California State University</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_collectList">
-                        <p class="member_collectContent">
-                          我們的電影之旅，會向您全面介紹電影的製作過程，邀請好萊塢專業的導演和幕後人員，親臨課程現場，傳授拍攝經驗和技巧。
-                        </p>
-                      </li>
-
-                      <li class="member_collectList">
-                        <div class="member_collectSmallContent">
-                          <h4 class="member_collectDate">
-                            <i class="bi bi-calendar-fill"></i>課程期間3週
-                          </h4>
-                          <h4><i class="bi bi-person-fill"></i>15~18歲</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_collectList">
-                        <div class="member_collectPrice">
-                          <div class="member_star">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <p>(12)</p>
-                          </div>
-                          <h4 class="member_collectCost">TWD 38,000</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_collectList">
-                        <div class="member_collectButtonAll">
-                          <button class="member_collectButton btn_sub">
-                            加入購物車
-                          </button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+            <div class="member_collectNumberAll">
+              <div class="row">
+                <div class="member_collectImage col-md-5">
+                  <img src="./images/member/image2.png" alt="" />
                 </div>
-              </div>
 
-              <div class="member_collectNumberAll">
-                <div class="row">
-                  <div class="member_collectImage col-md-5">
-                    <img src="./images/member/image2.png" alt="" />
-                  </div>
+                <div class="member_collectItem col-md-7">
+                  <ul class="member_collectWordAll">
+                    <li class="member_collectList">
+                      <div class="member_collectName">
+                        <h1 class="member_collectName_Title">
+                          [美國-紐約] 百老匯表演藝術營
+                        </h1>
+                        <h4>CUNY Brooklyn College</h4>
+                      </div>
+                    </li>
 
-                  <div class="member_collectItem col-md-7">
-                    <ul class="member_collectWordAll">
-                      <li class="member_collectList">
-                        <div class="member_collectName">
-                          <h1 class="member_collectName_Title">
-                            [美國-紐約] 百老匯表演藝術營
-                          </h1>
-                          <h4>CUNY Brooklyn College</h4>
+                    <li class="member_collectList">
+                      <p class="member_collectContent">
+                        透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。
+                      </p>
+                    </li>
+
+                    <li class="member_collectList">
+                      <div class="member_collectSmallContent">
+                        <h4 class="member_collectDate">
+                          <i class="bi bi-calendar-fill"></i>課程期間3週
+                        </h4>
+                        <h4><i class="bi bi-person-fill"></i>13~17歲</h4>
+                      </div>
+                    </li>
+
+                    <li class="member_collectList">
+                      <div class="member_collectPrice">
+                        <div class="member_star">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <p>(12)</p>
                         </div>
-                      </li>
 
-                      <li class="member_collectList">
-                        <p class="member_collectContent">
-                          透過每週主題對百老匯探討，您將可以得到深入的解析與認知。了解表演技巧及如何成為一名出色的表演者，深入體驗劇場魅力。
-                        </p>
-                      </li>
+                        <h4 class="member_collectCost">TWD 38,000</h4>
+                      </div>
+                    </li>
 
-                      <li class="member_collectList">
-                        <div class="member_collectSmallContent">
-                          <h4 class="member_collectDate">
-                            <i class="bi bi-calendar-fill"></i>課程期間3週
-                          </h4>
-                          <h4><i class="bi bi-person-fill"></i>13~17歲</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_collectList">
-                        <div class="member_collectPrice">
-                          <div class="member_star">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <p>(12)</p>
-                          </div>
-
-                          <h4 class="member_collectCost">TWD 38,000</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_collectList">
-                        <div class="member_collectButtonAll">
-                          <button class="member_collectButton btn_sub">
-                            加入購物車
-                          </button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                    <li class="member_collectList">
+                      <div class="member_collectButtonAll">
+                        <button class="member_collectButton btn_sub">
+                          加入購物車
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- 行程評論 -->
-            <div class="member_board">
-              <div class="member_accountHeader">
-                <h1 class="member_commentTitle">行程評論</h1>
-                <a href="./Frontend/Logout.php"
-                  ><button class="btn_sub">登出</button></a
-                >
-              </div>
-              <hr />
-              <div class="member_commentAll">
-                <div class="row">
-                  <div class="member_commentItem col-md-5">
-                    <img src="./images/member/image1.png" alt="" />
-                  </div>
-
-                  <div class="member_commentContent col-md-7">
-                    <ul class="member_commentWordAll">
-                      <li class="member_commenttList">
-                        <div class="member_commentWordTitle">
-                          <h1 class="member_commentName_Title">
-                            [美國-紐約] 百老匯表演藝術營
-                          </h1>
-                          <h4>CUNY Brooklyn College</h4>
-                        </div>
-                      </li>
-
-                      <li class="member_commenttList">
-                        <p class="member_commentDate">
-                          <i class="bi bi-calendar-check-fill"></i
-                          >2022/02/01-2/28
-                        </p>
-                      </li>
-
-                      <li class="member_commenttList">
-                        <p><i class="bi bi-person-fill"></i>1人</p>
-                      </li>
-
-                      <li class="member_commenttList">
-                        <p class="price">TWD $38,000</p>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="member_commentStar">
-                    <p class="member_commentStarCountTitle">
-                      請為這次的課程體驗打個星星吧！
-                    </p>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                  </div>
-                  <div class="member_commentWriteItem">
-                    <p class="member_commentWriteTitle">
-                      將您的心得提供給其他人參考
-                    </p>
-                    <textarea
-                      name="member_commentWrite"
-                      placeholder="請輸入您的心得"
-                    ></textarea>
-                  </div>
-                  <div class="member_commentButtonAll">
-                    <button class="btn_sub">存成草稿</button>
-                    <button class="btn_sub member_commentButton">
-                      送出評論
-                    </button>
-                  </div>
-                </div>
-              </div>
+          <!-- 行程評論 -->
+          <div class="member_board">
+            <div class="member_accountHeader">
+              <h1 class="member_commentTitle">行程評論</h1>
+              <a href="./Frontend/Logout.php"><button class="btn_sub">登出</button></a>
             </div>
-            <!-- 訂單取消 -->
-            <div class="member_orderCancelAll">
-              <h1 class="member_orderCancelTitle">訂單取消</h1>
-              <hr />
-              <ul class="member_orderCancelItemAll">
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelNumber">
-                    <p>訂單編號: A2154879</p>
-                    <p class="member_Item1">付款日期 : 2021/11/11</p>
-                  </div>
-                </li>
+            <hr />
+            <div class="member_commentAll">
+              <div class="row">
+                <div class="member_commentItem col-md-5">
+                  <img src="./images/member/image1.png" alt="" />
+                </div>
 
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelNameContent">
-                    <p class="member_orderCancelName">訂單名稱: 微電影創作營</p>
-                    <p class="member_Item1">付款人姓名: 流川風</p>
-                  </div>
-                </li>
+                <div class="member_commentContent col-md-7">
+                  <ul class="member_commentWordAll">
+                    <li class="member_commenttList">
+                      <div class="member_commentWordTitle">
+                        <h1 class="member_commentName_Title">
+                          [美國-紐約] 百老匯表演藝術營
+                        </h1>
+                        <h4>CUNY Brooklyn College</h4>
+                      </div>
+                    </li>
 
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelPay">
-                    <p>付款方式: 信用卡</p>
-                    <p class="member_Item1">付款金額: TWD 38,000</p>
-                  </div>
-                </li>
+                    <li class="member_commenttList">
+                      <p class="member_commentDate">
+                        <i class="bi bi-calendar-check-fill"></i>2022/02/01-2/28
+                      </p>
+                    </li>
 
-                <li class="member_orderCancelList">
-                  <p class="member_orderCancelPrice">
-                    退款金額: TWD 38,000
-                    <br
-                      class="member_orderCancelRow"
-                    />(依商品取消政策收取手續費)
+                    <li class="member_commenttList">
+                      <p><i class="bi bi-person-fill"></i>1人</p>
+                    </li>
+
+                    <li class="member_commenttList">
+                      <p class="price">TWD $38,000</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="member_commentStar">
+                  <p class="member_commentStarCountTitle">
+                    請為這次的課程體驗打個星星吧！
                   </p>
-                </li>
-
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelSelect">
-                    <p>*取消原因:</p>
-                    <select
-                      name="member_orderCancelCause"
-                      id="member_orderCancelCause"
-                    >
-                      <option value="">請選擇一個選項</option>
-                      <option value="">我誤買了行程</option>
-                      <option value="">我已經不需要購買此行程</option>
-                      <option value="">親朋好友未經我同意擅自購買此行程</option>
-                    </select>
-                  </div>
-                </li>
-
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelNote">
-                    <p class="member_orderCancelNoteTitle">備註</p>
-                    <textarea name="member_orderCancelWrite"></textarea>
-                  </div>
-                </li>
-
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelNotice">
-                    <p class="member_orderCancelNoticeTitle">
-                      <i class="bi bi-info-circle"></i>注意
-                    </p>
-                    <p>
-                      由於站內商品來自全球各地，訂單取消時間將依該供應商所在時區判定。供應商需
-                      2-5
-                      個工作天進行取消流程，依照您購買的商品取消政策收取手續費，並於取消流程完成後14
-                      個工作天內退款。
-                    </p>
-                  </div>
-                </li>
-
-                <li class="member_orderCancelList">
-                  <div class="member_orderCancelButtonItem text-end">
-                    <button class="member_orderCancelPage btn_sub">
-                      上一頁
-                    </button>
-                    <button class="btn_sub">確認</button>
-                  </div>
-                </li>
-              </ul>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>
+                </div>
+                <div class="member_commentWriteItem">
+                  <p class="member_commentWriteTitle">
+                    將您的心得提供給其他人參考
+                  </p>
+                  <textarea name="member_commentWrite" placeholder="請輸入您的心得"></textarea>
+                </div>
+                <div class="member_commentButtonAll">
+                  <button class="btn_sub">存成草稿</button>
+                  <button class="btn_sub member_commentButton">
+                    送出評論
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="footer_container">
-        <ul class="footer_list">
-          <li><a href="./news.html">最新消息</a></li>
-          <li><a href="./summer_camp.html">冬夏令營</a></li>
-          <li><a href="./local_theme.html">當地主題</a></li>
-          <li><a href="./ideas.html">獲得靈感</a></li>
-          <li><a href="./aboutus.html">品牌故事</a></li>
-          <li><a href="./faq.html">常見問題</a></li>
-          <li><a href="./member_signIn.html">會員專區</a></li>
-        </ul>
-        <ul class="footer_contact">
-          <li>聯絡我們</li>
-          <li>campion_service@gmail.com</li>
-          <li>02 2712 0589</li>
-          <li>104506台北市中山區南京東路三段219號5樓</li>
-        </ul>
-        <div class="footer_subscribe">
-          <p>訂閱我們</p>
-          <p>隨時取得冬夏令營資訊</p>
-          <div class="footer_subscribe_mail">
-            <input type="text" placeholder="Your email" style="padding: 8px" />
-            <div class="btn footer_btn">訂閱</div>
+          <!-- 訂單取消 -->
+          <div class="member_orderCancelAll">
+            <h1 class="member_orderCancelTitle">訂單取消</h1>
+            <hr />
+            <ul class="member_orderCancelItemAll">
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelNumber">
+                  <p>訂單編號: A2154879</p>
+                  <p class="member_Item1">付款日期 : 2021/11/11</p>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelNameContent">
+                  <p class="member_orderCancelName">訂單名稱: 微電影創作營</p>
+                  <p class="member_Item1">付款人姓名: 流川風</p>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelPay">
+                  <p>付款方式: 信用卡</p>
+                  <p class="member_Item1">付款金額: TWD 38,000</p>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <p class="member_orderCancelPrice">
+                  退款金額: TWD 38,000
+                  <br class="member_orderCancelRow" />(依商品取消政策收取手續費)
+                </p>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelSelect">
+                  <p>*取消原因:</p>
+                  <select name="member_orderCancelCause" id="member_orderCancelCause">
+                    <option value="">請選擇一個選項</option>
+                    <option value="">我誤買了行程</option>
+                    <option value="">我已經不需要購買此行程</option>
+                    <option value="">親朋好友未經我同意擅自購買此行程</option>
+                  </select>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelNote">
+                  <p class="member_orderCancelNoteTitle">備註</p>
+                  <textarea name="member_orderCancelWrite"></textarea>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelNotice">
+                  <p class="member_orderCancelNoticeTitle">
+                    <i class="bi bi-info-circle"></i>注意
+                  </p>
+                  <p>
+                    由於站內商品來自全球各地，訂單取消時間將依該供應商所在時區判定。供應商需
+                    2-5
+                    個工作天進行取消流程，依照您購買的商品取消政策收取手續費，並於取消流程完成後14
+                    個工作天內退款。
+                  </p>
+                </div>
+              </li>
+
+              <li class="member_orderCancelList">
+                <div class="member_orderCancelButtonItem text-end">
+                  <button class="member_orderCancelPage btn_sub">
+                    上一頁
+                  </button>
+                  <button class="btn_sub">確認</button>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <hr class="hr-solid" />
-      <div class="footer_tibame">
-        本網站為緯育TibaMe前端設計工程師班第72期第二組學員專題成果作品，本平台僅供學習、展示之用。參考資源：＿＿＿＿＿＿＿＿。
+    </div>
+  </section>
+  <footer>
+    <div class="footer_container">
+      <ul class="footer_list">
+        <li><a href="./news.html">最新消息</a></li>
+        <li><a href="./summer_camp.html">冬夏令營</a></li>
+        <li><a href="./local_theme.html">當地主題</a></li>
+        <li><a href="./ideas.html">獲得靈感</a></li>
+        <li><a href="./aboutus.html">品牌故事</a></li>
+        <li><a href="./faq.html">常見問題</a></li>
+        <li><a href="./member_signIn.html">會員專區</a></li>
+      </ul>
+      <ul class="footer_contact">
+        <li>聯絡我們</li>
+        <li>campion_service@gmail.com</li>
+        <li>02 2712 0589</li>
+        <li>104506台北市中山區南京東路三段219號5樓</li>
+      </ul>
+      <div class="footer_subscribe">
+        <p>訂閱我們</p>
+        <p>隨時取得冬夏令營資訊</p>
+        <div class="footer_subscribe_mail">
+          <input type="text" placeholder="Your email" style="padding: 8px" />
+          <div class="btn footer_btn">訂閱</div>
+        </div>
       </div>
-    </footer>
+    </div>
+    <hr class="hr-solid" />
+    <div class="footer_tibame">
+      本網站為緯育TibaMe前端設計工程師班第72期第二組學員專題成果作品，本平台僅供學習、展示之用。參考資源：＿＿＿＿＿＿＿＿。
+    </div>
+  </footer>
 
-    <script
-      src="https://kit.fontawesome.com/8c41348ce8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      // 設定當前頁面 css：桌機版 header
-      let page = document.getElementsByClassName("header_pg");
-      for (let i = 0; i < page.length; i++) {
-        if (page[i].id !== "page_active7") {
-          page[i].removeAttribute("id");
+  <script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script>
+    // 設定當前頁面 css：桌機版 header
+    let page = document.getElementsByClassName("header_pg");
+    for (let i = 0; i < page.length; i++) {
+      if (page[i].id !== "page_active7") {
+        page[i].removeAttribute("id");
+      }
+    }
+    // 設定當前頁面 css：漢堡選單
+    let ham_page = document.getElementsByClassName("ham_pg");
+    for (let i = 0; i < ham_page.length; i++) {
+      if (ham_page[i].id !== "h_page_active7") {
+        ham_page[i].removeAttribute("id");
+      }
+    }
+
+    // 取消訂單進度
+    const member_orderCancel =
+      document.getElementsByClassName("member_orderCancel")[1];
+    const member_line = document.querySelectorAll("div.member_line")[0];
+    const member_cancel = document.getElementsByClassName(
+      "member_orderCancelAll"
+    )[0];
+
+    member_orderCancel.addEventListener("click", function () {
+      if (member_line.classList.contains("member_board-show")) {
+        member_line.classList.remove("member_board-show");
+      } else {
+        member_line.classList.add("member_board-show");
+      }
+    });
+
+    // 會員資料
+    const member_listItem = document.querySelectorAll("li.member_listItem");
+    const member_board = document.querySelectorAll("div.member_board");
+
+    for (let i = 0; i < member_listItem.length; i++) {
+      member_listItem[i].addEventListener("click", function () {
+        for (let j = 0; j < member_board.length; j++) {
+          member_listItem[j].classList.remove("member_listItem-on");
+          member_board[j].classList.remove("member_board-show");
+          member_cancel.classList.remove("member_board-show");
         }
-      }
-      // 設定當前頁面 css：漢堡選單
-      let ham_page = document.getElementsByClassName("ham_pg");
-      for (let i = 0; i < ham_page.length; i++) {
-        if (ham_page[i].id !== "h_page_active7") {
-          ham_page[i].removeAttribute("id");
+        member_listItem[i].classList.add("member_listItem-on");
+        member_board[i].classList.add("member_board-show");
+      });
+    }
+
+    // 申請訂單取消
+    const member_orderCancelCause =
+      document.getElementsByClassName("member_orderCancel")[0];
+    const member_orderCancelAll = document.getElementsByClassName(
+      "member_orderCancelAll"
+    )[0];
+    const member_orderCancelClick =
+      document.getElementsByClassName("member_board")[1];
+
+    member_orderCancelCause.addEventListener("click", function () {
+      member_orderCancelClick.classList.remove("member_board-show");
+      member_orderCancelAll.classList.add("member_board-show");
+    });
+
+    const member_orderCancelPage = document.getElementsByClassName(
+      "member_orderCancelPage"
+    )[0];
+    member_orderCancelPage.addEventListener("click", function () {
+      member_orderCancelAll.classList.remove("member_board-show");
+      member_orderCancelClick.classList.add("member_board-show");
+    });
+
+    // 會員選單
+    const dropdown_item = document.querySelectorAll(
+      "li button.dropdown-item"
+    );
+    for (let i = 0; i < dropdown_item.length; i++) {
+      dropdown_item[i].addEventListener("click", function () {
+        for (let j = 0; j < dropdown_item.length; j++) {
+          dropdown_item[j].classList.remove("dropdown-item-active");
+          member_board[j].classList.remove("member_board-show");
         }
-      }
-
-      // 取消訂單進度
-      const member_orderCancel =
-        document.getElementsByClassName("member_orderCancel")[1];
-      const member_line = document.querySelectorAll("div.member_line")[0];
-      const member_cancel = document.getElementsByClassName(
-        "member_orderCancelAll"
-      )[0];
-
-      member_orderCancel.addEventListener("click", function () {
-        if (member_line.classList.contains("member_board-show")) {
-          member_line.classList.remove("member_board-show");
-        } else {
-          member_line.classList.add("member_board-show");
-        }
+        dropdown_item[i].classList.add("dropdown-item-active");
+        member_board[i].classList.add("member_board-show");
       });
+    }
+  </script>
 
-      // 會員資料
-      const member_listItem = document.querySelectorAll("li.member_listItem");
-      const member_board = document.querySelectorAll("div.member_board");
 
-      for (let i = 0; i < member_listItem.length; i++) {
-        member_listItem[i].addEventListener("click", function () {
-          for (let j = 0; j < member_board.length; j++) {
-            member_listItem[j].classList.remove("member_listItem-on");
-            member_board[j].classList.remove("member_board-show");
-            member_cancel.classList.remove("member_board-show");
-          }
-          member_listItem[i].classList.add("member_listItem-on");
-          member_board[i].classList.add("member_board-show");
-        });
-      }
+</body>
 
-      // 申請訂單取消
-      const member_orderCancelCause =
-        document.getElementsByClassName("member_orderCancel")[0];
-      const member_orderCancelAll = document.getElementsByClassName(
-        "member_orderCancelAll"
-      )[0];
-      const member_orderCancelClick =
-        document.getElementsByClassName("member_board")[1];
-
-      member_orderCancelCause.addEventListener("click", function () {
-        member_orderCancelClick.classList.remove("member_board-show");
-        member_orderCancelAll.classList.add("member_board-show");
-      });
-
-      const member_orderCancelPage = document.getElementsByClassName(
-        "member_orderCancelPage"
-      )[0];
-      member_orderCancelPage.addEventListener("click", function () {
-        member_orderCancelAll.classList.remove("member_board-show");
-        member_orderCancelClick.classList.add("member_board-show");
-      });
-
-      // 會員選單
-      const dropdown_item = document.querySelectorAll(
-        "li button.dropdown-item"
-      );
-      for (let i = 0; i < dropdown_item.length; i++) {
-        dropdown_item[i].addEventListener("click", function () {
-          for (let j = 0; j < dropdown_item.length; j++) {
-            dropdown_item[j].classList.remove("dropdown-item-active");
-            member_board[j].classList.remove("member_board-show");
-          }
-          dropdown_item[i].classList.add("dropdown-item-active");
-          member_board[i].classList.add("member_board-show");
-        });
-      }
-    </script>
-
-    
-  </body>
 </html>

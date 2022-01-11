@@ -112,7 +112,13 @@ section.cart_container {
         }
         p.cart_text {
             border: solid 1px black;
-            padding: 6px;
+            // padding: 6px;
+            input{
+                border: none;
+                text-align: center;
+                width: 30px;
+                height: 100%;
+            }
         }
         @media (max-width: 991.98px) {
             .cart_substract, p.cart_text, .cart_add {
