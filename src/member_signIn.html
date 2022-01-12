@@ -102,8 +102,8 @@
             type="email" required
             placeholder="請輸入您的Email"
             size="40"
-            name="EMAIL"
-            id="EMAIL"
+            name="ACCOUNT"
+            id="ACCOUNT"
           />
           <br />
           <label>會員密碼</label>
@@ -186,7 +186,7 @@
         }
       }
       // 驗證帳號密碼是否錯誤
-      const verifyAccount = document.getElementById('EMAIL');
+      const verifyAccount = document.getElementById('ACCOUNT');
       // console.log(verify)
       verifyAccount.addEventListener('input', function (){
         if (verifyAccount.checkValidity()){
@@ -231,7 +231,7 @@
     <!-- <script type="text/javascript">
 
       function doSubmit() {
-        if (document.getElementById("EMAIL").value == "") {
+        if (document.getElementById("ACCOUNT").value == "") {
           alert("請填寫[帳號]");
           return false;
         }

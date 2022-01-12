@@ -66,7 +66,7 @@
       <form action="./Frontend/join.php" method="post">
         <label>會員帳號</label>
         <br />
-        <input type="email" required placeholder="請輸入您的Email" id="EMAIL" name="EMAIL" size="40" value="" />
+        <input type="email" required placeholder="請輸入您的Email" id="ACCOUNT" name="ACCOUNT" size="40" value="" />
         <br />
         <label>設定會員密碼</label>
         <br />
@@ -157,15 +157,15 @@
     }
 
     // 驗證帳號密碼是否錯誤
-    const verifyEMAIL = document.getElementById('EMAIL');
+    const verifyACCOUNT = document.getElementById('ACCOUNT');
     // console.log(verify)
-    verifyEMAIL.addEventListener('input', function () {
-      if (verifyEMAIL.checkValidity()) {
-        verifyEMAIL.classList.add('valid')
-        verifyEMAIL.classList.remove('invalid')
+    verifyACCOUNT.addEventListener('input', function () {
+      if (verifyACCOUNT.checkValidity()) {
+        verifyACCOUNT.classList.add('valid')
+        verifyACCOUNT.classList.remove('invalid')
       } else {
-        verifyEMAIL.classList.remove('valid')
-        verifyEMAIL.classList.add('invalid')
+        verifyACCOUNT.classList.remove('valid')
+        verifyACCOUNT.classList.add('invalid')
       }
     });
 

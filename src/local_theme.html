@@ -1,360 +1,365 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-@@include('./layout/meta.html', {
-  "title" : "當地主題 Feature Camp" 
-}) 
-@@include('./layout/chat.html')
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./js/vue.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
+  @@include('./layout/meta.html', {
+  "title" : "當地主題 Feature Camp"
+  })
+  @@include('./layout/chat.html')
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
 
 
-    <script>
-      function init(){
-        showMember();
-      }
-      
-     
-      // 顯示會員資訊
-      function showMember() {
-        $.ajax({
-          method: "POST",
-          url: "./Frontend/Member.php",
-          data: {},
-          dataType: "text",
-          success: function (response) {
-            $('.guest_icon').css('display', 'none');
-            $('.icon_create').after(response);
-          },
-          error: function (exception) {
-            alert("數據載入失敗: " + exception.status);
-          },
-        });
-      }
+  <script>
+    function init() {
+      showMember();
+    }
+
+
+    // 顯示會員資訊
+    function showMember() {
+      $.ajax({
+        method: "POST",
+        url: "./Frontend/Member.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          $('.guest_icon').css('display', 'none');
+          $('.icon_create').after(response);
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        },
+      });
+    }
       // 顯示會員資訊結束
-      
-    </script>
+
+  </script>
 </head>
+
 <body onload="init()">
-    @@include('./layout/header.html')
+  @@include('./layout/header.html')
 
-    <!-- banner -->
-    <div class="local_theme_bg">
-        
-            <div class="local_theme_color">
-                <div class="banner_test">
-                    融入異國生活的最快方式，就是深入在地文化體驗！<br>
-                    藉由各式各類的世界節慶活動了解當地的歷史緣由，並拉近人與人之間的距離。<br>
-                    到底每個月有哪些不容錯過的各國節日呢？
-                </div>
-            </div>    
+  <!-- banner -->
+  <div class="local_theme_bg">
+
+    <div class="local_theme_color">
+      <div class="banner_test">
+        融入異國生活的最快方式，就是深入在地文化體驗！<br>
+        藉由各式各類的世界節慶活動了解當地的歷史緣由，並拉近人與人之間的距離。<br>
+        到底每個月有哪些不容錯過的各國節日呢？
+      </div>
+    </div>
+  </div>
+
+  <!-- summer -->
+  <div class="summer-season">
+
+    <div class="season-gray">
+      <div class="one-s">
+        <div class="summer-s">夏季</div>
+        <div class="summer-word">
+          夏天，一年之中最熱情的季節！<br>體驗西班牙奔牛節的狂野，或是美國火人祭的奇想與自由，看看世界各國如何以特色慶典歡度夏日，敞開心胸加入這場文化盛會。
+        </div>
+      </div>
+
+      <div class="two-s">
+        <div class="white"></div>
+        <div class="Local-events">Local events</div>
+      </div>
     </div>
 
-    <!-- summer -->
-    <div class="summer-season">
-       
-            <div class="season-gray">
-                <div class="one-s">
-                    <div class="summer-s">夏季</div>
-                    <div class="summer-word">
-                        夏天，一年之中最熱情的季節！<br>體驗西班牙奔牛節的狂野，或是美國火人祭的奇想與自由，看看世界各國如何以特色慶典歡度夏日，敞開心胸加入這場文化盛會。
-                    </div>    
-                </div>
-
-                <div class="two-s">
-                    <div class="white"></div>
-                    <div class="Local-events">Local events</div>
-                </div>               
-            </div>
-
-            <!-- 輪播 -->
-            <div class="divvvv">
-                <div class="swiper mySwiper swiperr">
-                    <div class="swiper-wrapper swiper-wrapperr">
-                        <div class="swiper-slide swiperr-slide card">
-                            <i class="fas fa-heart"></i>
-                            <a href="./schedule.html">
-                                <img src="./images/summer_camp/Rectangle 300.png" class="card-img-top"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">【西班牙】<br>番茄節</h5>
-                                    <hr style="border: 0.5px solid #000000" />
-                                    <p class="card-text">你可以盡情地向人砸番茄！不過丟擲番茄前要先捏爛才可以丟，確保不會令人受傷。街道己成為了蕃茄河。當蕃茄大戰結束，當地市民與成千上萬的志願者就會一起掃街道。</p>
-                                    <a href="./schedule.html" class="a">
-                                        Learn more 
-                                        <img src="./images/summer_camp/icon.png"/>
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide swiperr-slide card">
-                            <i class="fas fa-heart"></i>
-                            <a href="./schedule.html">
-                                <img src="./images/summer_camp/Rectangle 302.png" class="card-img-top"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">【美國】<br>火人祭</h5>
-                                    <hr style="border: 0.5px solid #000000" />
-                                    <p class="card-text">參加者會製作服飾、工具和古怪的工藝去開派對，並且會保持這個僻靜的地方如當初發現時般原始。火人節會以燃燒大量的木製男人雕像達到節日的高潮，這是一個不能錯過的一幕。</p>
-                                    <a href="./schedule.html" class="a">
-                                        Learn more 
-                                        <img src="./images/summer_camp/icon.png"/>
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide swiperr-slide card">
-                            <i class="fas fa-heart"></i>
-                            <a href="./schedule.html">
-                                <img src="./images/summer_camp/Rectangle 3s02.png" class="card-img-top"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">【法國】<br>法國國慶</h5>
-                                    <hr style="border: 0.5px solid #000000" />
-                                    <p class="card-text">在巴士底日當天，法國全國上下將有大規模的慶祝活動，以紀念18世紀的法國大革命。法國人和他們的歷史有著深深的連結，所以這對他們來說是一個非常重要的節日。</p>
-                                    <a href="./schedule.html" class="a">
-                                        Learn more 
-                                        <img src="./images/summer_camp/icon.png"/>
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- <div class="swiper-pagination"></div> -->
-                </div>
-            </div>
-    </div>
-    <!-- summer 768 none -->
-    <div class="summer-bgg">
-        <div class="container">
-            <div class="row justify-content-evenly">
-                <div class="col-12 festival-ss">夏季</div>
-                
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 300.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【西班牙】<br>番茄節</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">你可以盡情地向人砸番茄！不過丟擲番茄前要先捏爛才可以丟，確保不會令人受傷。街道己成為了蕃茄河。當蕃茄大戰結束，當地市民與成千上萬的志願者就會一起掃街道。</p>
-                              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-               
-    
-               
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 302.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【美國】<br>火人祭</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">參加者會製作服飾、工具和古怪的工藝去開派對，並且會保持這個僻靜的地方如當初發現時般原始。火人節會以燃燒大量的木製男人雕像達到節日的高潮，這是一個不能錯過的一幕。</p>
-                            <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-             
-    
-             
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 292.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【法國】<br>法國國慶</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">在巴士底日當天，法國全國上下將有大規模的慶祝活動，以紀念18世紀的法國大革命。法國人和他們的歷史有著深深的連結，所以這對他們來說是一個非常重要的節日。</p>
-                            <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-            </div>
-        </div>
-    </div>
-
-    <!-- winter -->
-    
-    <div class="winter-season">
-
-        <!-- 輪播 -->
-        
-        <div class="divvvv">
-            <div class="swiper mySwiper swiperr">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide swiperr-slide card">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 296.png" class="card-img-top"/>
-                            <div class="card-body">
-                                <h5 class="card-title">【俄羅斯】<br>俄羅斯耶誕節</h5>
-                                <hr style="border: 0.5px solid #000000" />
-                                <p class="card-text">俄羅斯慶祝的聖誕節則是在1月7日，是為聖誕夜理所當然地就落在1月6日，因為東正教的曆法較一般西曆晚兩周，因此才會在1月時度過這個重要節日。</p>
-                                <a href="./schedule.html" class="a">
-                                    Learn more 
-                                    <img src="./images/summer_camp/icon.png"/>
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide swiperr-slide card">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top"/>
-                            <div class="card-body">
-                                <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
-                                <hr style="border: 0.5px solid #000000" />
-                                <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
-                                <a href="./schedule.html" class="a">
-                                    Learn more 
-                                    <img src="./images/summer_camp/icon.png"/>
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide swiperr-slide card">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 30sss0.png" class="card-img-top"/>
-                            <div class="card-body">
-                                <h5 class="card-title">【英國】<br>蘇格蘭聖火節</h5>
-                                <hr style="border: 0.5px solid #000000" />
-                                <p class="card-text">在“火節”慶祝活動中，勒維克鎮的“維京火祭”最為盛大，通常在每年1月份的最後一個星期二舉行。 1月25日，在英國蘇格蘭地區，當地人舉行傳統的“火節”慶典。</p>
-                                <a href="./schedule.html" class="a">
-                                    Learn more 
-                                    <img src="./images/summer_camp/icon.png"/>
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- <div class="swiper-pagination"></div> -->
-            </div>
-        </div>
-       
-        <div class="winter-season-gray">
-            <div class="one-w">
-                <div class="winter-s">冬季</div>
-                <div class="winter-word">
-                    冬日的大地並非一片靜寂，世界各地的人們正以豐饒的嘉年華會，為即將到來的一年展開全新氣象！<br>一起加入這場冬季慶典，體驗南北半球截然不同的冬日風情。
-                </div>    
-            </div>
-
-            <div class="two-w">
-                <div class="winter-white"></div>
-                <div class="winter-Local-events">Local events</div>
-            </div>           
-        </div>
-
-    </div>
-
-
-    <!-- winter 768 none -->
-    <div class="winter-bgg">
-        <div class="container">
-            <div class="row justify-content-evenly">
-                <div class="col-12 festival-ss">冬季</div>
-                
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 296.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【俄羅斯】<br>俄羅斯耶誕節</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">俄羅斯慶祝的聖誕節則是在1月7日，是為聖誕夜理所當然地就落在1月6日，因為東正教的曆法較一般西曆晚兩周，因此才會在1月時度過這個重要節日。</p>
-                                <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-               
-    
-               
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
-                                <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-             
-    
-             
-                    <div class="card" style="width: 18rem;">
-                        <i class="fas fa-heart"></i>
-                        <a href="./schedule.html">
-                            <img src="./images/summer_camp/Rectangle 30sss0.png" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">【英國】<br>蘇格蘭聖火節</h5>
-                                <hr style="border: 0.5px solid #000000;">
-                                <p class="card-text">在“火節”慶祝活動中，勒維克鎮的“維京火祭”最為盛大，通常在每年1月份的最後一個星期二舉行。 1月25日，在英國蘇格蘭地區，當地人舉行傳統的“火節”慶典。</p>
-                                <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
-                            </div>
-                        </a>
-                    </div> 
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- festival -->
-    <div class="festival-bg">
-        <div class="container">
-            <div class="row justify-content-evenly">
-                <div class="col-12 festival">各國節慶</div>
-                <div id="app-local">
-                    <card></card>
-                </div>
-                <div class="row loc_btn_show_more">
-                    <button type="button" class="button loc_showMore">SHOW MORE</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="camp_two local_theme_two">
-            <a href="./summer_camp.html">
-                <div class="camp-sw local_theme-sw">夏令營
-                    <img class="arr_icon img_1" src="./images/summer_camp/akar-icons_chevron-right.png">
-                    <img class="arr_icon_hover" src="./images/summer_camp/akar-icons_chevron-right_1.png">
-                </div>
+    <!-- 輪播 -->
+    <div class="divvvv">
+      <div class="swiper mySwiper swiperr">
+        <div class="swiper-wrapper swiper-wrapperr">
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 300.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【西班牙】<br>番茄節</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">你可以盡情地向人砸番茄！不過丟擲番茄前要先捏爛才可以丟，確保不會令人受傷。街道己成為了蕃茄河。當蕃茄大戰結束，當地市民與成千上萬的志願者就會一起掃街道。</p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
             </a>
-            <a href="./winter_camp.html">
-                <div class="camp-sw local_theme-sw">冬令營
-                    <img class="arr_icon img_2" src="./images/summer_camp/akar-icons_chevron-right.png">
-                    <img class="arr_icon_hover" src="./images/summer_camp/akar-icons_chevron-right_1.png">
-                </div>
-            </a>    
+          </div>
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 302.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【美國】<br>火人祭</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">參加者會製作服飾、工具和古怪的工藝去開派對，並且會保持這個僻靜的地方如當初發現時般原始。火人節會以燃燒大量的木製男人雕像達到節日的高潮，這是一個不能錯過的一幕。
+                </p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 3s02.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【法國】<br>法國國慶</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">在巴士底日當天，法國全國上下將有大規模的慶祝活動，以紀念18世紀的法國大革命。法國人和他們的歷史有著深深的連結，所以這對他們來說是一個非常重要的節日。</p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+    </div>
+  </div>
+  <!-- summer 768 none -->
+  <div class="summer-bgg">
+    <div class="container">
+      <div class="row justify-content-evenly">
+        <div class="col-12 festival-ss">夏季</div>
+
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 300.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【西班牙】<br>番茄節</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">你可以盡情地向人砸番茄！不過丟擲番茄前要先捏爛才可以丟，確保不會令人受傷。街道己成為了蕃茄河。當蕃茄大戰結束，當地市民與成千上萬的志願者就會一起掃街道。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
         </div>
 
+
+
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 302.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【美國】<br>火人祭</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">參加者會製作服飾、工具和古怪的工藝去開派對，並且會保持這個僻靜的地方如當初發現時般原始。火人節會以燃燒大量的木製男人雕像達到節日的高潮，這是一個不能錯過的一幕。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 292.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【法國】<br>法國國慶</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">在巴士底日當天，法國全國上下將有大規模的慶祝活動，以紀念18世紀的法國大革命。法國人和他們的歷史有著深深的連結，所以這對他們來說是一個非常重要的節日。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- winter -->
+
+  <div class="winter-season">
+
+    <!-- 輪播 -->
+
+    <div class="divvvv">
+      <div class="swiper mySwiper swiperr">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 296.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【俄羅斯】<br>俄羅斯耶誕節</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">俄羅斯慶祝的聖誕節則是在1月7日，是為聖誕夜理所當然地就落在1月6日，因為東正教的曆法較一般西曆晚兩周，因此才會在1月時度過這個重要節日。</p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide swiperr-slide card">
+            <i class="fas fa-heart"></i>
+            <a href="./schedule.html">
+              <img src="./images/summer_camp/Rectangle 30sss0.png" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">【英國】<br>蘇格蘭聖火節</h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">在“火節”慶祝活動中，勒維克鎮的“維京火祭”最為盛大，通常在每年1月份的最後一個星期二舉行。 1月25日，在英國蘇格蘭地區，當地人舉行傳統的“火節”慶典。</p>
+                <a href="./schedule.html" class="a">
+                  Learn more
+                  <img src="./images/summer_camp/icon.png" />
+                </a>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
     </div>
 
+    <div class="winter-season-gray">
+      <div class="one-w">
+        <div class="winter-s">冬季</div>
+        <div class="winter-word">
+          冬日的大地並非一片靜寂，世界各地的人們正以豐饒的嘉年華會，為即將到來的一年展開全新氣象！<br>一起加入這場冬季慶典，體驗南北半球截然不同的冬日風情。
+        </div>
+      </div>
+
+      <div class="two-w">
+        <div class="winter-white"></div>
+        <div class="winter-Local-events">Local events</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- winter 768 none -->
+  <div class="winter-bgg">
+    <div class="container">
+      <div class="row justify-content-evenly">
+        <div class="col-12 festival-ss">冬季</div>
+
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 296.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【俄羅斯】<br>俄羅斯耶誕節</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">俄羅斯慶祝的聖誕節則是在1月7日，是為聖誕夜理所當然地就落在1月6日，因為東正教的曆法較一般西曆晚兩周，因此才會在1月時度過這個重要節日。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
+        </div>
 
 
 
-    @@include('./layout/footer.html')
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 3ss02.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【義大利】<br>威尼斯嘉年華</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">每年都在大齋首日前2個禮拜開始，並在懺悔節結束。在節日期間，人人都帶上一個華麗面具，只露出靈魂的眼睛，穿梭在熱鬧的街道，聚首運河，或是乘坐鳳尾船貢多拉夜遊。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
+        </div>
 
-    <script>
-        Vue.component("card", {
-            data() {
-                return {
-                  data: [],
-                };
-            },
-            template: `
+
+
+        <div class="card" style="width: 18rem;">
+          <i class="fas fa-heart"></i>
+          <a href="./schedule.html">
+            <img src="./images/summer_camp/Rectangle 30sss0.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">【英國】<br>蘇格蘭聖火節</h5>
+              <hr style="border: 0.5px solid #000000;">
+              <p class="card-text">在“火節”慶祝活動中，勒維克鎮的“維京火祭”最為盛大，通常在每年1月份的最後一個星期二舉行。 1月25日，在英國蘇格蘭地區，當地人舉行傳統的“火節”慶典。</p>
+              <a href="#" class="a">Learn more <img src="./images/summer_camp/icon.png"></a>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- festival -->
+  <div class="festival-bg">
+    <div class="container">
+      <div class="row justify-content-evenly">
+        <div class="col-12 festival">各國節慶</div>
+        <div id="app-local">
+          <card></card>
+        </div>
+        <div class="row loc_btn_show_more">
+          <button type="button" class="button loc_showMore">SHOW MORE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="camp_two local_theme_two">
+      <a href="./summer_camp.html">
+        <div class="camp-sw local_theme-sw">夏令營
+          <img class="arr_icon img_1" src="./images/summer_camp/akar-icons_chevron-right.png">
+          <img class="arr_icon_hover" src="./images/summer_camp/akar-icons_chevron-right_1.png">
+        </div>
+      </a>
+      <a href="./winter_camp.html">
+        <div class="camp-sw local_theme-sw">冬令營
+          <img class="arr_icon img_2" src="./images/summer_camp/akar-icons_chevron-right.png">
+          <img class="arr_icon_hover" src="./images/summer_camp/akar-icons_chevron-right_1.png">
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+  @@include('./layout/footer.html')
+
+  <script>
+    Vue.component("card", {
+      data() {
+        return {
+          data: [],
+        };
+      },
+      template: `
                 <div class="row justify-content-center" align-items-start>
-                <div v-for="item in data" class="card" style="width: 18rem">
-                    <i class="fas fa-heart"></i>
+                <div v-for="(item, index) in data" class="card" style="width: 18rem">
+                    <i class="fas fa-heart heart" v-on:click="favorite"></i>
                     <a href="./schedule.html">
                     <img
                         :src= "'./images/summer_camp/' + item.IMG"
@@ -375,78 +380,83 @@
                 </div>
                 </div>
                 `,
-            methods: {
-                checkTitle(theTitle){
-                  return theTitle.slice(0, 40); // 只取書名20個字，以免破版
-                },
-            },
-            mounted(){
-                $.getJSON('./Frontend/local.php').then((res) => {
-                  // console.log(res);
-                  this.data = res;
-                });
-            },
-        });
-
-        // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
-        // Vue2 template 一定要記得寫根節點！ <div></div>
-        let vm = new Vue({
-        el: "#app-local",
-        data: {
-            // new Vue 的 data 是物件
+      methods: {
+        checkTitle(theTitle) {
+          return theTitle.slice(0, 40); // 只取書名20個字，以免破版
         },
-        computed: {},
-        methods: {},
-        });
-
-        // 點擊 show more 展開更多
-        $(".loc_showMore").click(function () {
-        $("#app-local").toggleClass("-open");
-        $(".loc_showMore").addClass("-off");
-        });
-
-
-        // 輪播
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 4,
-          spaceBetween: 30,
-          centeredSlides: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
-   
-        // ---- 文字省略 (...) ----
-        // let len = 50; // 超過n個字以"..."取代
-        // $(".card-text").each(function (i) {
-        //     if ($(this).text().length > len) {
-        //         $(this).attr("title", $(this).text());
-        //         let text =
-        //         $(this)
-        //             .text()
-        //             .substring(0, len - 1) + "...";
-        //         $(this).text(text);
-        //     }else{
-        //         $(this).attr("title", $(this).text());
-               
-        //     }
-        // });
-
-        // 設定當前頁面 css：桌機版 header
-        let page = document.getElementsByClassName("header_pg");
-        for(let i = 0; i < (page.length); i++){
-            if(page[i].id !== "page_active3"){
-                page[i].removeAttribute('id');
-            }
+        favorite(e) {
+          console.log(e.target);
+          $(e.target).toggleClass('local_theme-favorite');
         }
-        // 設定當前頁面 css：漢堡選單
-        let ham_page = document.getElementsByClassName("ham_pg");
-        for(let i = 0; i < (ham_page.length); i++){
-            if(ham_page[i].id !== "h_page_active3"){
-                ham_page[i].removeAttribute('id');
-            }
-        }
-    </script>
+      },
+      mounted() {
+        $.getJSON('./Frontend/local.php').then((res) => {
+          // console.log(res);
+          this.data = res;
+        });
+      },
+    });
+
+    // ======== 把要 render 到 DOM 的整包結構放進 template 裡面 ===========
+    // Vue2 template 一定要記得寫根節點！ <div></div>
+    let vm = new Vue({
+      el: "#app-local",
+      data: {
+        // new Vue 的 data 是物件
+      },
+      computed: {},
+      methods: {},
+    });
+
+    // 點擊 show more 展開更多
+    $(".loc_showMore").click(function () {
+      $("#app-local").toggleClass("-open");
+      $(".loc_showMore").addClass("-off");
+    });
+
+
+    // 輪播
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      centeredSlides: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    // ---- 文字省略 (...) ----
+    // let len = 50; // 超過n個字以"..."取代
+    // $(".card-text").each(function (i) {
+    //     if ($(this).text().length > len) {
+    //         $(this).attr("title", $(this).text());
+    //         let text =
+    //         $(this)
+    //             .text()
+    //             .substring(0, len - 1) + "...";
+    //         $(this).text(text);
+    //     }else{
+    //         $(this).attr("title", $(this).text());
+
+    //     }
+    // });
+
+    // 設定當前頁面 css：桌機版 header
+    let page = document.getElementsByClassName("header_pg");
+    for (let i = 0; i < (page.length); i++) {
+      if (page[i].id !== "page_active3") {
+        page[i].removeAttribute('id');
+      }
+    }
+    // 設定當前頁面 css：漢堡選單
+    let ham_page = document.getElementsByClassName("ham_pg");
+    for (let i = 0; i < (ham_page.length); i++) {
+      if (ham_page[i].id !== "h_page_active3") {
+        ham_page[i].removeAttribute('id');
+      }
+    }
+  </script>
 </body>
+
 </html>
