@@ -8,7 +8,7 @@
     $sql = "SELECT SHOPPING_CART.ID, 
                 SHOPPING_CART.MEMBER_ID, 
                 SHOPPING_CART.ITINERARY_ID,
-                SHOPPING_CART.BATCH_ID,  
+                SHOPPING_CART.BATCH_ID,   
                 SHOPPING_CART.ATTENDEES,
                 ITINERARY.COUNTRY,
                 ITINERARY.CITY,
