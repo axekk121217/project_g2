@@ -10,6 +10,34 @@
         function init(){
           showMember();
         }
+        function getMemberInfo(){
+          $.ajax({
+            method: "POST",
+            url: "./Frontend/getMemberInfo.php",
+            data: {},
+            dataType: "json",
+            success: function (response) {
+              // console.log('aaaaa');
+              console.log(response);
+              $('.member_editorLogo img').attr('src', response[0]["PICTURE"]);
+              $('.member_name').html(response[0]['NAME']);
+
+              $('#ACCOUNT').val(response[0]['ACCOUNT']);
+              $('#NAME').val(response[0]['NAME']);
+              $('#PHONE').val(response[0]['PHONE']);
+              if (`${response[0]['GENDER']}` == '男') {
+                $('.member_gender input[name="GENDER"]')[0].checked = true;
+              } else if (`${response[0]['GENDER']}` == '女') {
+                $('.member_gender input[name="GENDER"]')[1].checked = true;
+              } else {
+                $('.member_gender input[name="GENDER"]')[2].checked = true;
+              }
+            },
+            error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+            },
+          });
+        }
         // 顯示會員資訊
         function showMember() {
           $.ajax({
@@ -21,11 +49,7 @@
               // console.log(response);
               $('.guest_icon').css('display', 'none');
               $('.icon_create').after(response);
-            //   if($('#memberSignUp_Privacy').is(':checked')) {
-            //   localStorage.setItem('account',  account);
-            // } else {
-            //   sessionStorage.setItem('account', account);
-            // }
+              getMemberInfo();
             },
             error: function (exception) {
               alert("數據載入失敗: " + exception.status);
@@ -196,62 +220,6 @@
           return false;
         }
       }
-
-      // // 驗證帳號密碼是否錯誤
-      // const verifyAccount = document.getElementById('EMAIL');
-      // // console.log(verify)
-      // verifyAccount.addEventListener('input', function (){
-      //   if (verifyAccount.checkValidity()){
-      //     verifyAccount.classList.add('valid')
-      //     verifyAccount.classList.remove('invalid')
-      //   }else{
-      //     verifyAccount.classList.remove('valid')
-      //     verifyAccount.classList.add('invalid')
-      //     // if(verifyAccount.validity.valueMissing){
-      //     //   verifyAccount.setCustomValidity("此欄位為必填")
-      //     //   return
-      //     // }
-      //     // if(verifyAccount.validity.valueMismatch){
-      //     //   verifyAccount.setCustomValidity("格式錯誤")
-      //     //   return
-      //     // }
-      //   }
-      // });
-
-      // const verifyPassword = document.getElementById('PASSWORD');
-      // // console.log(verifyPassword)
-      // verifyPassword.addEventListener('input', function (){
-      //   if (verifyPassword.checkValidity()){
-      //     verifyPassword.classList.add('valid')
-      //     verifyPassword.classList.remove('invalid')
-      //   }else{
-      //     verifyPassword.classList.remove('valid')
-      //     verifyPassword.classList.add('invalid')
-      //     // if(verifyPassword.validity.valueMissing){
-      //     //   verifyPassword.setCustomValidity("此欄位為必填")
-      //     //   return
-      //     // }
-      //     // if(verifyPassword.validity.valueMismatch){
-      //     //   verifyPassword.setCustomValidity("格式錯誤")
-      //     //   return
-      //     // }
-      //   }
-      // });
-
     </script>
-
-    <!-- <script type="text/javascript">
-
-      function doSubmit() {
-        if (document.getElementById("EMAIL").value == "") {
-          alert("請填寫[帳號]");
-          return false;
-        }
-        if (document.getElementById("PASSWORD").value == "") {
-          alert("請填寫[密碼]");
-          return false;
-        }
-      }
-    </script> -->
   </body>
 </html>

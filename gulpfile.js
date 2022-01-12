@@ -102,38 +102,18 @@ exports.img =min_images;
 
 //frontend
 function move_frontend_php(){
-<<<<<<< HEAD
     return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
-=======
-<<<<<<< HEAD
-    return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
-=======
-  return src("src/Frontend/*.php").pipe(dest("dist/Frontend"));
->>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
->>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.frontend_php = move_frontend_php;
 
 //backend
 function move_backend_php(){
-<<<<<<< HEAD
     return src("src/backend/*.php").pipe(dest("dist/backend"));
-=======
-<<<<<<< HEAD
-    return src("src/backend/*.php").pipe(dest("dist/backend"));
-=======
-  return src("src/backend/*.php").pipe(dest("dist/backend"));
->>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
->>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 exports.backend_php = move_backend_php;
 
 //Lib
 function move_Lib_php(){
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
     return src("src/Lib/*.php").pipe(dest("dist/Lib"));
 }
 exports.Lib_php = move_Lib_php;
@@ -148,25 +128,6 @@ function watchall(){
    watch('src/Frontend/*.php' , move_frontend_php)
    watch('src/backend/*.php' , move_backend_php)
    watch('src/Lib/*.php' , move_Lib_php)
-<<<<<<< HEAD
-=======
-=======
-  return src("src/Lib/*.php").pipe(dest("dist/Lib"));
-}
-exports.Lib_php = move_Lib_php;
-
-
-
-// watch
-function watchall(){
- watch(['src/*.html' , 'src/layout/*.html'] , html);
- watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
- watch('src/js/*.js' , jsmini)
- watch('src/Frontend/*.php' , move_frontend_php)
- watch('src/backend/*.php' , move_backend_php)
- watch('src/Lib/*.php' , move_Lib_php)
->>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
->>>>>>> fd29cf28d2af11189d956d1dcf64cc6c57399456
 }
 
 exports.w = watchall;
@@ -188,7 +149,6 @@ const reload = browserSync.reload;
 
 
 function browser(done) {
-<<<<<<< HEAD
     browserSync.init({
         server: {
             baseDir: "./dist",
@@ -203,22 +163,6 @@ function browser(done) {
     watch(['src/backend/*.php'] , move_backend_php).on("change", reload);
     watch(['src/Lib/*.php'] , move_Lib_php).on("change", reload);
     done();
-=======
-  browserSync.init({
-      server: {
-          baseDir: "./dist",
-          index: "index.html"
-      },
-      port: 3000
-  });
-  watch(['src/*.html' , 'src/layout/*.html'] , html).on("change", reload)
-  watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on("change", reload)
-  watch(['src/js/*.js'] , jsmini).on("change", reload);
-  watch(['src/Frontend/*.php'] , move_frontend_php).on("change", reload);
-  watch(['src/backend/*.php'] , move_backend_php).on("change", reload);
-  watch(['src/Lib/*.php'] , move_Lib_php).on("change", reload);
-  done();
->>>>>>> 275f8588b85ae74be24e47ed1f4d9b8471eda50b
 }
 
 exports.default = browser;

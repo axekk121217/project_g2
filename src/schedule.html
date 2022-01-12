@@ -37,7 +37,7 @@
     
     <!-- header  -->
     @@include('./layout/header.html')
-    <div id="app" v-for="product in products">
+    <div id="app_schedule" v-for="product in products">
         <!-- breadcrumb -->
         <div class="container sch_breadcrumb">
             <div class="row">
@@ -72,33 +72,32 @@
                     <div class="sch_info_intro">
                         {{ product.CONTEXT }}
                     </div>
-                        <div class="sch_form">
-                            <p>梯次：</p> 
-                            <select name="" id="" class="sch_select">
-                                <option value="" class="sch_select_data">梯次一：2022/7/1-8/15</option>
-                                <option value="" class="sch_select_data">梯次二：2022/8/16-9/30</option>
-                            </select>
-                        </div>
-                        <div class="sch_form">
-                            <p>人數：</p>
-                            <span class="sch_count sch_count_item" @click="reduce">–</span>
-                            <input type="text" :value="count" size="1" name="name" id="name">
-                            <span class="sch_count sch_count_item" @click="add">+</span>
-                        </div>
-                        <div class="sch_action">
-                            <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
-                            <div class="sch_heart">
-                                <div class="sch_like_svg" @click="heartChange">
-                                    <object>
-                                        <embed src="images/schedule/like.svg" class="sch_like">
-                                        <embed src="images/schedule/heart-fill.svg" class="sch_liked">
-                                    </object>
-                                </div>
-                                <p>收藏行程</p>
+                    <div class="sch_form">
+                        <p>梯次：</p> 
+                        <select name="" id="" class="sch_select">
+                            <option value="" class="sch_select_data">梯次一：2022/7/1-8/15</option>
+                            <option value="" class="sch_select_data">梯次二：2022/8/16-9/30</option>
+                        </select>
+                    </div>
+                    <div class="sch_form">
+                        <p>人數：</p>
+                        <span class="sch_count sch_count_item" @click="reduce">–</span>
+                        <input type="text" :value="count" size="1" name="name" id="name">
+                        <span class="sch_count sch_count_item" @click="add">+</span>
+                    </div>
+                    <div class="sch_action">
+                        <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
+                        <div class="sch_heart">
+                            <div class="sch_like_svg" @click="heartChange">
+                                <object>
+                                    <embed src="images/schedule/like.svg" class="sch_like">
+                                    <embed src="images/schedule/heart-fill.svg" class="sch_liked">
+                                </object>
                             </div>
+                            <p>收藏行程</p>
                         </div>
+                    </div>
                 </div> 
-    
                 <div class="col-lg-7 col-md-12 sch_img_right">
                     <div class="sch_img_shown_area">
                         <img src="images/schedule/paris.jpg" class="sch_img -on" data-id="1" id=8>
@@ -119,51 +118,9 @@
                         <div class="sch_img_shift sch_shift7" id=7 @click="changePhoto"></div>
                     </div>
                 </div>
-              </div>
             </div>
-            <div class="sch_info_context">
-              <div class="sch_info_context_para">
-                ・ 費用包含機票、營期行程交通、Campion
-                巴黎校區宿舍住宿、相關景點門票、餐食及其他行政手續辦理費<br />
-                ・由法籍老師授課，在 Campion
-                巴黎校區學習道地的法國語言和文化課程<br />
-                ・營隊結合密集的工作坊培訓，以及參訪博物館、設計工作室等景點，充分領略巴黎的時尚、藝術與建築之美，拓展學員的美學視野，動手創作個人作品集<br />
-                ・每週六晚上舉辦文化交流之夜，與來自世界各地的朋友分享彼此國家的文化與特色美食<br />
-              </div>
-              <div class="sch_info_context_para">
-                加入【法國-巴黎】時尚設計工作坊夏令營，讓您在進入大學、決定要主修哪一項專業之前，領先體驗時尚產業的各個面向。本營隊結合法國語言與文化的密集課程，以及工作坊的實作設計，規劃「時尚產業地圖」、「藝術品鑑與設計概論」、「成為一位設計師：打造個人品牌」、「時尚與永續未來」等核心主題，在時尚與藝文薈萃之都巴黎，開啟美的視野。
-              </div>
-            </div>
-          </div>
-          <div class="sch_info_content" data-sec="b">
-            <!-- 行程介紹 -->
-            <div class="sch_info_content_title">行程介紹</div>
-            <div class="sch_info_content_subtitle">- 行程特色 -</div>
-            <div class="sch_info_context_para">
-              在為期 45 天的營隊期間，學員的上課地點、工作坊與住宿主要集中在
-              Campion 巴黎校區，營隊最後的個人作品展，將在巴黎時尚學院 IFM Paris
-              舉行，並邀請專業講師參與評論。工作坊將以導師制分組進行，每組將在導師的手把手帶領下，逐步從靈感發想、繪製線稿到打造個人作品，找尋自我的風格，產出屬於自己的品牌。
-            </div>
-            <div class="sch_info_context_para">
-              創作的靈感來自生活中不經意瞥見的細節。除了參與 Campion
-              精心規劃的主題課程之外，我們也特別安排了羅浮宮（Musée du
-              Louvre）、奧賽美術館（Musée d'Orsay）、龐畢度中心（Le Centre
-              Pompidou）等巴黎博物館導覽，以及 Chanel、Dior
-              品牌參訪、法式料理饗宴、漫步巴黎等行程，讓學員在密集的課程與工作坊之餘，有豐富的時間可以獲得喘息，深度體驗巴黎這座城市之美。
-            </div>
-            <div class="sch_info_context_para">
-              透過本次營隊，學員將快速培養道地的法文語感，在日常生活中以法語無礙溝通；營隊最後，也特別安排一次法語能力測驗，通過的學員即可領取證書，做為日後申請相關升學準備之依據。
-            </div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10503.586517711494!2d2.3692753!3d48.8411104!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x94edcd3cd32e9f9c!2sInstitut%20Fran%C3%A7ais%20de%20la%20Mode!5e0!3m2!1szh-TW!2stw!4v1639812593886!5m2!1szh-TW!2stw"
-              width="100%"
-              height="350"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
         </div>
+    
         <div class="container">
             <div class="col-lg-8 col-md-12 sch_info_shift_area">
                 <div class="sch_info_btn -on" id="a" @click="changeArea">行程說明</div>
@@ -216,17 +173,6 @@
                                 <div class="sch_info_feature_bottom">
                                     行程包含一次免費法語能力測驗，營隊結束即領證書
                                 </div>
-                            </div>
-                        </div>
-                        <div class="sch_info_context">
-                            <div class="sch_info_context_para">
-                                ・ 費用包含機票、營期行程交通、Campion 巴黎校區宿舍住宿、相關景點門票、餐食及其他行政手續辦理費<br>
-                                ・由法籍老師授課，在 Campion 巴黎校區學習道地的法國語言和文化課程<br>
-                                ・營隊結合密集的工作坊培訓，以及參訪博物館、設計工作室等景點，充分領略巴黎的時尚、藝術與建築之美，拓展學員的美學視野，動手創作個人作品集<br>
-                                ・每週六晚上舉辦文化交流之夜，與來自世界各地的朋友分享彼此國家的文化與特色美食<br>
-                            </div>
-                            <div class="sch_info_context_para">
-                                加入【法國-巴黎】時尚設計工作坊夏令營，讓您在進入大學、決定要主修哪一項專業之前，領先體驗時尚產業的各個面向。本營隊結合法國語言與文化的密集課程，以及工作坊的實作設計，規劃「時尚產業地圖」、「藝術品鑑與設計概論」、「成為一位設計師：打造個人品牌」、「時尚與永續未來」等核心主題，在時尚與藝文薈萃之都巴黎，開啟美的視野。
                             </div>
                         </div>
                     </div>
@@ -525,7 +471,7 @@
     
     <script>
         new Vue({
-            el: '#app',
+            el: '#app_schedule',
 
             data: {
                 count: 1,
