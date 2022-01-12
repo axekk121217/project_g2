@@ -617,3 +617,16 @@ img.sch_info_content_img{
 .sch_card_sticky_area2{
     margin-top: 60px;
 }
+
+span.sch_count {
+    border: solid 1px black;
+    padding: 5px;
+}
+
+span.sch_count_item {
+    cursor: pointer;
+}
+
+span.sch_count_item:hover {
+    background-color: #aaa;
+}

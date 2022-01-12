@@ -3,13 +3,40 @@
   <head>
     <head>
       @@include('./layout/meta.html', {
-        "title" : "會員註冊" 
-      });
-      @@include('./layout/chat.html');
-  
+        "title" : "會員登入" 
+      })
+      @@include('./layout/chat.html')
       <script>
         function init(){
           showMember();
+        }
+        function getMemberInfo(){
+          $.ajax({
+            method: "POST",
+            url: "./Frontend/getMemberInfo.php",
+            data: {},
+            dataType: "json",
+            success: function (response) {
+              // console.log('aaaaa');
+              console.log(response);
+              $('.member_editorLogo img').attr('src', response[0]["PICTURE"]);
+              $('.member_name').html(response[0]['NAME']);
+
+              $('#ACCOUNT').val(response[0]['ACCOUNT']);
+              $('#NAME').val(response[0]['NAME']);
+              $('#PHONE').val(response[0]['PHONE']);
+              if (`${response[0]['GENDER']}` == '男') {
+                $('.member_gender input[name="GENDER"]')[0].checked = true;
+              } else if (`${response[0]['GENDER']}` == '女') {
+                $('.member_gender input[name="GENDER"]')[1].checked = true;
+              } else {
+                $('.member_gender input[name="GENDER"]')[2].checked = true;
+              }
+            },
+            error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+            },
+          });
         }
         // 顯示會員資訊
         function showMember() {
@@ -19,8 +46,10 @@
             data: {},
             dataType: "text",
             success: function (response) {
+              // console.log(response);
               $('.guest_icon').css('display', 'none');
               $('.icon_create').after(response);
+              getMemberInfo();
             },
             error: function (exception) {
               alert("數據載入失敗: " + exception.status);
@@ -50,11 +79,37 @@
               },
             });
           }
-        
+          
+          function doLogin() {
+            $.ajax ({
+              method: 'POST',
+              url: './Frontend/Login.php',
+              data: {
+                ACCOUNT : $('#ACCOUNT').val(),
+                PASSWORD: $('#PASSWORD').val(),
+              },
+              dataType: 'text',
+              success: function (res) {
+                // let account = $('#ACCOUNT').val();
+                
+                // let password = $('#PASSWORD').val();
+                console.log(res);
+                // doSubmit();
+                if(res == 'ok'){
+                  alert('登入成功!'); location.href = './member.html';
+                }else if(res == 'error'){
+                  alert('帳號或密碼錯誤!!'); location.href = './member_signIn.html';
+                }
+              },
+              error: function (ero) {
+                alert("數據載入失敗: " + ero.status);
+              },
+            });
+          }
       </script>
     </head>
     <body onload="init()">
-      @@include('./layout/header.html');
+      @@include('./layout/header.html')
 
     <section class="memberSignUp_container">
       <div class="memberSignUp_banner">
@@ -64,11 +119,11 @@
           class="memberSignUp_logo rounded mx-auto d-block"
         />
         <h1 class="memberSignUp_title text-center">會員登入</h1>
-        <form action="./Frontend/Login.php" method="post">
+        <!-- <form method="post"> -->
           <label>會員帳號</label>
           <br />
           <input
-            type="email"
+            type="email" required
             placeholder="請輸入您的Email"
             size="40"
             name="ACCOUNT"
@@ -78,7 +133,7 @@
           <label>會員密碼</label>
           <br />
           <input
-            type="password"
+            type="password" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$"  required="required"
             placeholder="請輸入您的密碼"
             size="40"
             name="PASSWORD"
@@ -96,11 +151,8 @@
           </div>
           <br />
 
-          <button class="memberSignUp_confirm" onclick="return doSubmit()">
-              登入
-            </button>
-          
-        </form>
+          <button type="submit" class="memberSignUp_confirm" onclick="doLogin()">登入</button>
+        <!-- </form> -->
         <h4 class="memberSignUp_word text-center">
           還不是會員?<a
             onclick="location.href='member_signUp.html'"
@@ -142,7 +194,7 @@
       </div>
     </footer>
 
-    <script>
+    <script type="text/javascript">
       // 設定當前頁面 css：桌機版 header
       let page = document.getElementsByClassName("header_pg");
       for (let i = 0; i < page.length; i++) {
@@ -157,12 +209,9 @@
           ham_page[i].removeAttribute("id");
         }
       }
-    </script>
-
-    <script type="text/javascript">
 
       function doSubmit() {
-        if (document.getElementById("ACCOUNT").value == "") {
+        if (document.getElementById("EMAIL").value == "") {
           alert("請填寫[帳號]");
           return false;
         }

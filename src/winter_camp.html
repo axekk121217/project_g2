@@ -324,9 +324,8 @@
               },
               template: `
               <div class="row justify-content-start sw-row" align-items-start style="margin-bottom: 30px">
-                <div v-for="item in data" class="card" style="width: 18rem">
+                <div v-for="(item, index) in data" class="card" style="width: 18rem" @click="getStorage(index)">
                 <i class="fas fa-heart"></i>
-                <a href="./schedule.html">
                   <img
                   :src= "'./images/summer_camp/' + item.IMG"
                   class="card-img-top"/>
@@ -344,7 +343,6 @@
                     <img src="./images/summer_camp/icon.png"/>
                   </a>
                   </div>
-                </a>
                 </div>
               </div>
               `,
@@ -352,6 +350,12 @@
                 checkTitle(theTitle){
                   return theTitle.slice(0, 40); // 只取書名20個字，以免破版
                 },
+                getStorage(index) {
+                  // alert(index);
+                  localStorage.setItem("product_NAME", JSON.stringify(this.data[index]['NAME'])) ;
+                  localStorage.setItem('getID', JSON.stringify(this.data[index]['ID']));
+                  location.href = `./schedule.html`;
+                }
               },
               mounted(){
                 $.getJSON('./Frontend/winter.php').then((res) => {

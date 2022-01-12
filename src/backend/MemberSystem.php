@@ -2,7 +2,8 @@
     include("../Lib/Util.php");
 
     //建立SQL
-    $sql = "SELECT * FROM MEMBER WHERE ID > 1 ORDER BY ID";
+    $sql = ("SELECT * FROM MEMBER ORDER BY ID"); 
+
     //執行
     $statement = getPDO()->prepare($sql);
     $statement->execute();

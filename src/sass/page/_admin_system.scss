@@ -130,11 +130,14 @@ button.admin_search-btn {
   border-radius: 0 5px 5px 0;
 }
 
-div.admin_main_content {
-  border: 2px solid #395762;
-  margin-top: 10px;
+div.admin_system_content {
+  // border: 2px solid #395762;
+  margin-top: 30px;
   width: 1000px;
   text-align: center;
+  table{
+    border: 2px solid #395762;
+  }
 }
 
 div.admin_aside {
@@ -172,6 +175,7 @@ li.page-link {
   background-color: #01B3A7;
   color: white;
   border: 1px solid #395762;
+  cursor: pointer;
 }
 
 li.page-link:hover {
