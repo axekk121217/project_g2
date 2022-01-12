@@ -21,249 +21,74 @@
     ></script>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script src="./js/vue.js"></script>
   </head>
   <body>
-    <div style="height: auto">
-      <div class="admin_member">
-        <div class="admin_header">
-          <div class="admin_header_logo">
-            <img src="images/admin/logo.png" alt="" />
-            <p>CAMPION後臺管理系統</p>
-          </div>
-          <div class="admin_header_btn">
-            <a href="admin.html">
-              <button class="admin_btn_signOut">登出</button>
-            </a>
-          </div>
-        </div>
+    <div style="height: 950px">
+		<div class="admin_member">
+			<div class="admin_header">
+				<div class="admin_header_logo">
+					<img src="images/admin/logo.png" alt="" />
+					<p>CAMPION後臺管理系統</p>
+				</div>
+				<div class="admin_header_btn">
+					<a href="admin.html">
+						<button class="admin_btn_signOut">登出</button>
+					</a>
+				</div>
+			</div>
 
         <div class="admin_main">
-          <div class="admin_aside">
-            <a href="./admin_system.html">
-              <button class="admin_aside_btn">會員管理</button>
-            </a>
-            <a href="./admin_order.html">
-              <button class="admin_aside_btn">訂單管理</button>
-            </a>
-            <a href="./admin_commodity.html">
-              <button class="admin_aside_btn">商品管理</button>
-            </a>
-            <a href="./admin_review.html">
-              <button class="admin_aside_btn">評論管理</button>
-            </a>
-          </div>
+			<div class="admin_aside">
+				<a href="./admin_system.html">
+					<button class="admin_aside_btn">會員管理</button>
+				</a>
+				<a href="./admin_order.html">
+					<button class="admin_aside_btn">訂單管理</button>
+				</a>
+				<a href="./admin_commodity.html">
+					<button class="admin_aside_btn">商品管理</button>
+				</a>
+				<a href="./admin_review.html">
+					<button class="admin_aside_btn">評論管理</button>
+				</a>
+			</div>
 
-          <div class="admin_main_tltle">
-            <div class="admin_commodity">
-              <div class="admin_search">
-                <p>商品管理</p>
-                <div class="admin_commodity_add justify-content-start">
-                  <!-- Button trigger modal -->
-                  <button
-                    type="button"
-                    class="btn admin_commodity_btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdropAdd"
-                  >
-                    <i class="fas fa-plus admin_search_icon">新增商品</i>
-                  </button>
-
-                  <!-- Modal 新增商品 -->
-                  <!-- <div class="modal fade" id="staticBackdropAdd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header admin_commodity_header">
-                          <h5 class="modal-title" id="staticBackdropLabel">
-                            編輯&nbsp;&frasl;&nbsp;查看
-                          </h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="admin_order_edit">
-                            <div class="admin_edit_main">
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
-                                <input type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">行程類別</label>
-
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇行程類別</option>
-                                  <option value="1">冬令營</option>
-                                  <option value="2">夏令營</option>
-                                  <option value="3">當地主題</option>
-                                </select>
-
-                                <label class="input-group-text" for="inputGroupSelect01">行程主題</label>
-
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇行程主題</option>
-                                  <option value="1">運動</option>
-                                  <option value="2">電影</option>
-                                  <option value="4">設計</option>
-                                  <option value="5">科學</option>
-                                  <option value="6">藝術</option>
-                                  <option value="7">語言</option>
-                                  <option value="8">程式</option>
-                                  <option value="9">自然</option>
-                                  <option value="10">音樂</option>
-                                </select>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">行程國家</label>
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇行程國家</option>
-                                  <option value="1">美國</option>
-                                  <option value="2">英國</option>
-                                  <option value="3">加拿大</option>
-                                  <option value="4">法國</option>
-                                  <option value="5">德國</option>
-                                  <option value="6">澳洲</option>
-                                  <option value="7">紐西蘭</option>
-                                </select>
-
-                                <label class="input-group-text" for="inputGroupSelect01">行程地點</label>
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇行程地點</option>
-                                  <option value="1">紐約</option>
-                                  <option value="2">洛杉磯</option>
-                                  <option value="3">舊金山</option>
-                                  <option value="3">巴黎</option>
-                                  <option value="3">倫敦</option>
-                                  <option value="3">溫哥華</option>
-                                  <option value="3">多倫多</option>
-                                  <option value="3">柏林</option>
-                                </select>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇招生年齡</option>
-                                  <option value="1">10歲~12歲</option>
-                                  <option value="2">13歲~15歲</option>
-                                  <option value="2">16歲~18歲</option>
-                                </select>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">成團人數</label>
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇成團人數</option>
-                                  <option value="1">10</option>
-                                  <option value="2">15</option>
-                                  <option value="2">20</option>
-                                </select>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
-                                <select class="form-select admin_commodity_focus" id="inputGroupSelect01">
-                                  <option selected>選擇梯次</option>
-                                  <option value="1">梯次一</option>
-                                  <option value="2">梯次二</option>
-                                  <option value="2">梯次三</option>
-                                </select>
-                              </div>
-
-                              <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">成團日期</label>
-                                <input class="form-select datetime" type="text" name="dates"/>
-                              </div>
-
-                              <div class="mb-3" id="app">
-                                <div v-if="!image">
-                                  <input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @change="onFileChange"/>
-                                </div>
-                                <div v-else class="admin_newItem_img">
-                                  <img :src="image" />
-                                  <button class="admin_commodity_file" @click="removeImage">
-                                    重新選擇
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div class="mb-3">
-                                <label class="input-group-text admin_commodity_text" for="inputGroupSelect01">文案內容</label>
-                                <textarea class="form-control admin_commodity_textarea" id="exampleFormControlTextarea1" rows="3"><textarea>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal">
-                            關閉
-                          </button>
-                          <button type="button" class="btn admin_commodity_btn">
-                            儲存
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-
-              	<!-- 右上方 search bar -->
-				<div class="admin_search_bar">
-				<input class="search-bar" type="text" name="search" id="search" placeholder="輸入名稱"/>
-				<button class="admin_search-btn">
-					<i class="fas fa-search admin_search_icon"></i>
-				</button>
+			<div class="admin_main_tltle">
+				<div class="admin_commodity">
+					<div class="admin_search">
+						<p>商品管理</p>
+						<div class="admin_commodity_add justify-content-start">
+							<div id="appAddItem">
+								<!-- Button trigger modal -->
+								<button type="button" class="btn admin_commodity_btn" data-bs-toggle="modal" data-bs-target="#addNewItem" style="width: 120px; height: 45px; padding: 2px 4px">
+								<i class="fas fa-plus admin_search_icon">新增商品</i>
+								</button>
+								<new-itinerary></new-itinerary>
+							</div>
+						</div>
+					</div>
 				</div>
-            </div>
-
-            <!-- 中間顯示資料明細 -->
-            <div class="admin_main_content">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">行程編號</th>
-							<th scope="col">行程名稱</th>
-							<th scope="col">行程場次</th>
-							<th scope="col">行程日期</th>
-							<th scope="col">單價</th>
-							<th scope="col"></th>
-						</tr>
-					</thead>
-				</table>
-				<div id="app-comm">
-					<!-- 這裡要用 vue 組件寫 -->
-					<itinerary></itinerary>
-				</div>
-            </div>
-
-            <!-- 分頁 -->
-            <div class="d-flex justify-content-end">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<li class="page-item">
-							<a class="page-link" href="#" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-							</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">2</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">3</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span>
-							</a>
-						</li>
-					</ul>
-				</nav>
+				
+				<!-- 中間顯示資料明細 -->
+				<div class="admin_comm_content">
+					<table class="table table-hover" style="margin-bottom: -2px">
+						<thead>
+							<tr style="display: flex; justify-content: left;">
+								<th scope="col" style="width: 10%">行程編號</th>
+								<th scope="col" style="width: 33%">行程名稱</th>
+								<th scope="col" style="width: 11%">行程場次</th>
+								<th scope="col" style="width: 21%">行程日期</th>
+								<th scope="col" style="width: 8%">單價</th>
+								<th scope="col" style="width: 17%"></th>
+							</tr>
+						</thead>
+					</table>
+					<div id="app-comm">
+						<!-- 這裡用 vue 組件寫 -->
+						<itinerary></itinerary>
+					</div>
             </div>
           </div>
         </div>
@@ -272,11 +97,16 @@
 
     <script src="./js/js.js"></script>
     <script>
+
+		// 編輯查看行程 component
 		Vue.component("itinerary", {
 			data() {
 				return {
+					updateData: [],
 					data: [],
 					image: "",
+					fileName: "",
+					myfile: {},
 					cate: [
 						{ name: "夏令營" },
 						{ name: "冬令營" },
@@ -296,6 +126,96 @@
 						{ name: "商業" },
 						{ name: "文化" },
 						{ name: "節慶" },
+					],
+					areas: [
+						{
+							nation: '美國',
+							cities: { 
+								name: "紐約",
+								name: "洛杉磯",
+								name: "舊金山" 
+							},
+						},
+						{
+							nation: '法國',
+							cities: { 
+								name: "巴黎",
+								name: "波爾多",
+								name: "史特拉斯堡",
+								name: "里昂" 
+							},
+						},
+						{
+							nation: '英國',
+							cities: { 
+								name: "倫敦",
+								name: "牛津",
+								name: "愛丁堡",
+								name: "曼徹斯特",
+								name: "格拉斯頓伯里",
+								name: "勒維克" 
+							},
+						},
+						{
+							nation: '加拿大',
+							cities: { 
+								name: "多倫多",
+								name: "基洛納" ,
+								name: "溫哥華" 
+							},
+						},
+						{
+							nation: '德國',
+							cities: { 
+								name: "柏林",
+								name: "慕尼黑" 
+							},
+							
+						},
+						{
+							nation: '澳洲',
+							cities: { 
+								name: "布里斯本" 
+							},
+						},
+						{
+							nation: '紐西蘭',
+							cities: { 
+								name: "奧克蘭" 
+							},
+						},
+						{
+							nation: '瑞士',
+							cities:{ 
+								name: "日內瓦" 
+							},
+						},
+						{
+							nation: '義大利',
+							cities: {	
+								name: "威尼斯" 
+							},
+						},
+						{
+							nation: '西班牙',
+							cities: {	
+								name: "巴塞隆納" ,
+								name: "潘普洛納" ,
+								name: "布尼奧爾" 
+							},
+						},
+						{
+							nation: '俄羅斯',
+							cities: {	
+								name: "聖彼得堡" 
+							},
+						},
+						{
+							nation: '巴西',
+							cities: { 
+								name: "里約" 
+							},
+						},
 					],
 					country: [
 						{ name: "美國" },
@@ -361,12 +281,26 @@
 					batch: [
 						{ no: "梯次一" }, { no: "梯次二" }, { no: "梯次三" }
 					],
+					status: [
+						{val: '上架'},
+						{val: '下架'},
+					],
+					pages:[],
+     				nowpage:1,
 				};
 			},
 			template: ` 
+			<div style="display: flex; flex-direction: column; position: relative">
+				<!-- 右上方 search bar -->
+				<div class="admin_search_bar" style="position: absolute; top: -90px; right: 0">
+					<input class="search-bar" type="text" name="search" id="search" placeholder="請輸入關鍵字" style="padding-left: 5px" @keyup.enter="searchItinerary"/>
+					<button class="admin_search-btn" @click="searchItinerary">
+						<i class="fas fa-search admin_search_icon"></i>
+					</button>
+				</div>
 				<table class="table table-hover">
 					<tbody>
-						<tr v-for="(item, index) in data.slice(0, 30)">
+						<tr v-for="(item, index) in data.slice(((nowpage-1)*10),(nowpage*10))">
 							<th scope="row" id="item_ID">{{item.ID}}</th>
 							<td>【{{item.COUNTRY}}-{{item.CITY}}】{{item.NAME}}</td>
 							<td>{{item.BATCH}}</td>
@@ -374,12 +308,12 @@
 							<td>{{item.PRICE}}</td>
 							<td>
 								<!-- Button trigger modal -->
-								<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#' + item.NAME">
+								<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#item' + item.ID" style="width: 120px; height: 45px; padding: 2px 4px">
 								編輯&nbsp;&frasl;&nbsp;查看
 								</button>
 
 								<!-- Modal -->
-								<div class="modal fade" :id="item.NAME" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal fade" :id="'item' + item.ID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header admin_commodity_header">
@@ -391,50 +325,57 @@
 											<div class="modal-body">
 												<div class="admin_order_edit">
 													<div class="admin_edit_main">
+														<!-- 行程名稱 -->
 														<div class="input-group mb-3">
 															<label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
 															<input v-model="item.NAME" type="text" class="form-control admin_commodity_focus item_name" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
-															<!--:value="item.NAME"-->
 														</div>
 
 														<div class="input-group mb-3">
+															<!-- 行程類別 -->
 															<label class="input-group-text" for="inputGroupSelect01">行程類別</label>
-															<select v-model="item.CATEGORY" class="form-select admin_commodity_focus select1" id="inputGroupSelect01" @change="selectCategory">
-																<option disabled>選擇行程主題</option>
+															<select v-model="item.CATEGORY" class="form-select admin_commodity_focus select1" id="inputGroupSelect01">
+																<option disabled>選擇行程類別</option>
 																<option class="item_category" v-for="cat in cate" :selected="cat.name == item.CATEGORY">{{cat.name}}</option>
-																<!--  :value="cat.name" -->
 															</select>
 
+															<!-- 行程主題 -->
 															<label class="input-group-text" for="inputGroupSelect01">行程主題</label>
 															<select v-model="item.THEME" class="form-select admin_commodity_focus" id="inputGroupSelect01">
 																<option disabled>選擇行程主題</option>
 																<option class="item_theme" v-for="topic in theme" :selected="topic.name == item.THEME">{{topic.name}}</option>
-																<!--  :value="topic.name" -->
 															</select>
 														</div>
 
 														<div class="input-group mb-3">
+															<!-- 行程國家 -->
 															<label class="input-group-text" for="inputGroupSelect01">行程國家</label>
 															<select v-model="item.COUNTRY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
 																<option disabled>選擇行程國家</option>
-																<option class="item_country" v-for="nat in country" :selected="nat.name == item.COUNTRY">{{nat.name}}</option>
-																<!--  :value="nat.name" -->
+																<option class="item_country" v-for="(area, i) in areas" :selected="area.nation == item.COUNTRY">{{area.nation}}</option>
 															</select>
 
+															<!-- 行程地點 -->
 															<label class="input-group-text" for="inputGroupSelect01">行程地點</label>
 															<select v-model="item.CITY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
 																<option disabled>選擇行程地點</option>
 																<option class="item_city" v-for="ct in city" :selected="ct.name == item.CITY">{{ct.name}}</option>
-																<!--  :value="ct.name" -->
 															</select>
 														</div>
 
 														<div class="input-group mb-3">
+															<!-- 招生年齡 -->
 															<label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
 															<select v-model="item.AGE" class="form-select admin_commodity_focus" id="inputGroupSelect01">
 																<option disabled>選擇招生年齡</option>
 																<option class="item_age" v-for="ag in age" :selected="ag.range == item.AGE">{{ag.range}}</option>
-																<!--  :value="ag.range" -->
+															</select>
+
+															<!-- 成團梯次 -->
+															<label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
+															<select v-model="item.BATCH" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇梯次</option>
+																<option class="item_batch" v-for="ba in batch" :selected="ba.no == item.BATCH">{{ba.no}}</option>
 															</select>
 														</div>
 
@@ -448,53 +389,51 @@
 														</div>
 														-->
 
+														<!-- 開始日期 -->
 														<div class="input-group mb-3">
-															<label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
-															<select v-model="item.BATCH" class="form-select admin_commodity_focus" id="inputGroupSelect01">
-																<option disabled>選擇梯次</option>
-																<option class="item_batch" v-for="ba in batch" :selected="ba.no == item.BATCH">{{ba.no}}</option>
-																<!--  :value="ba.no" -->
+															<label class="input-group-text" for="inputGroupSelect01">開始日期</label>
+															<input v-model="item.START_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-07-01"/>
+														</div>
+
+														<!-- 結束日期 -->
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">結束日期</label>
+															<input v-model="item.END_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-08-15"/>
+														</div>
+
+														<!-- 行程價格 -->
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">行程價格</label>
+															<input v-model="item.PRICE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
+														</div>
+
+														<!-- 上下架 -->
+														<div class="input-group mb-3">
+															<label class="input-group-text" for="inputGroupSelect01">商品狀態</label>
+															<select v-model="item.STATUS" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇商品狀態</option>
+																<option v-for="st in status" :selected="st.val == item.STATUS">{{st.val}}</option>
 															</select>
 														</div>
 
-														<div class="input-group mb-3">
-															<label class="input-group-text" for="inputGroupSelect01">開始日期</label>
-															<input v-model="item.START_DATE" type="text" class="form-control admin_commodity_focus item_start_date" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-07-01"/>
-															<!--  :value="item.START_DATE" -->
-														</div>
-
-														<div class="input-group mb-3">
-															<label class="input-group-text" for="inputGroupSelect01">結束日期</label>
-															<input v-model="item.END_DATE" type="text" class="form-control admin_commodity_focus item_end_date" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-08-15"/>
-															<!--  :value="item.END_DATE" -->
-														</div>
-
-														<div class="input-group mb-3">
-															<label class="input-group-text" for="inputGroupSelect01">行程價格</label>
-															<input v-model="item.PRICE" type="text" class="form-control admin_commodity_focus item_price" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
-															<!--  :value="item.PRICE" -->
-														</div>
-
-														<!-- 新增圖片 -->
-														<div class="mb-3">
-															<div v-if="!image" style="position: relative">
-																<input class="form-control admin_commodity_focus item_img" accept="image/*" id="formFile" type="file" @change="onFileChange"/>
-																
-																<p class="item_showImg" v-if="item.IMG" style="position: absolute; top: 8px; left: 100px; width: 70%; text-align: left; background: #fff; padding: 3px; cursor: pointer">{{item.IMG}}</p>
-																<div class="input-group mb-3">
-																	<img :src="'./images/summer_camp/' + item.IMG" style="width: 100%">  
-																</div>
-															</div>
-															<div v-else class="admin_newItem_img">
-																<input class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file" @load="getImage" @change="onFileChange"/>
+														<!-- 行程圖片 -->
+														<div class="mb-3" style="position: relative">
+															<form method="post" action="./backend/admin-uploadImage.php" enctype="multipart/form-data">
+																<input ref="file" :data-id="item.ID" name="file" @change="onFileChange" class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file"/>
+																<input v-model="item.IMG" class="form-control admin_commodity_focus" style="height: 38px; border: none; text-align: left">
+																<img v-if="!image" :src="'./images/summer_camp/' + item.IMG" style="width: 100%">  
 																<img :src="image" />
-																<button class="admin_commodity_file" @click="removeImage">
+																<button id='btn_uploadImage' style="display: none">檔案上傳</button>
+															</form>
+															<br>
+															<!--
+															<button class="admin_commodity_file" @click="removeImage">
 																重新選擇
-																</button>
-															</div>
-															<!--<img :src="item.IMG"/>-->
+															</button>
+															-->
 														</div>
 													
+														<!-- 文案內容 -->
 														<div class="mb-3">
 															<label class="input-group-text admin_commodity_text" for="inputGroupSelect01">文案內容</label>
 															<textarea v-model="item.CONTEXT" class="form-control admin_commodity_textarea item_context" id="exampleFormControlTextarea1" rows="3" placeholder="請輸入不超過 300 字" maxlength="300"></textarea>
@@ -504,10 +443,10 @@
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal">
+												<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal" @click="pageReload">
 												關閉
 												</button>
-												<button type="button" class="btn admin_commodity_btn" @click="updateItem">
+												<button :value="index" type="button" class="btn admin_commodity_btn" @click="updateItem">
 												儲存
 												</button>
 											</div>
@@ -518,20 +457,42 @@
 						</tr>
 					</tbody>
 				</table>
+				<!-- page -->
+				<div class="d-flex justify-content-end">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-item page-link" v-on:click="Subgopage(nowpage)">
+								<span aria-hidden="true">&laquo;</span>
+							</li>
+							<li class="page-item page-link" v-for="page in pages" 	v-on:click="getCommData(page)">{{page}}</li>
+							<li class="page-item page-link" v-on:click="Addgopage(nowpage)">
+								<span aria-hidden="true">&raquo;</span>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 			`,
 			computed: {
 			
 			},
 			methods: {				
 				// 上傳圖片預覽
-				getImage() {
-					file.name = item.IMG;
-				},
 				onFileChange(e) {
 					let files = e.target.files || e.dataTransfer.files;
-					console.log(files);
+					let file = files[0];
+					let fileName = file.name;
+					// e.target.nextElementSibling.innerText = fileName;
+					e.target.nextElementSibling.style.display = 'none';
+					// console.log(e.target.files); //FileList
+					let dataId = e.target.getAttribute('data-id');
+					let idx = parseInt(dataId) - 1;
+					this.data[idx].IMG = fileName;
+					console.log(fileName); //檔案名稱
+
 					if (!files.length) return;
 					this.createImage(files[0]);
+
 				},
 				createImage(file) {
 					let image = new Image();
@@ -541,81 +502,173 @@
 
 					reader.onload = (e) => {
 						vm.image = e.target.result;
+						
 						// console.log(this.image); //base64
 					};
 					reader.readAsDataURL(file);
 				},
 				removeImage: function (e) {
 					this.image = "";
+					e.target.parentNode.querySelector('input#formFile').value = '';
 				},
+			
 				// 「編輯查看」儲存按鈕：更新行程資訊
 				updateItem(e){
-					// console.log(e.target.parentNode.parentNode.previousSibling.);
-					// console.log(e.target.parentNode.item);
-					// axios.post('./backend/admin-updateItem.php', {
-					// 	action:'update',
-					// 	firstName: application.first_name,
-					// 	lastName: application.last_name,
-					// 	hiddenId: application.hiddenId
-					// })
-					// .then(function(response){
-					// 	application.myModel = false;
-					// 	application.fetchAllData();
-					// 	application.first_name = '';
-					// 	application.last_name = '';
-					// 	application.hiddenId = '';
-					// 	alert(response.data.message);
-					// });
+					let target = e.target; // button
+					let idx = e.target.value;
+					let item_ID = parseInt(idx) + 1;
+					// console.log(item_ID);
+					
 					$.ajax({
-						method: "POST",
-						url: "./backend/admin-updateItem.php", // API 路徑
-						data: {
-							// item_ID: item.ID,
-							// name: item.NAME, // input name // key 對應 php 中的 $_POST["Name"]
-							// context: $('.item_context').val(),
-							// category: $('.item_category').val(),
-							// theme: $('.item_theme').val(),
-							// country: $('.item_country').val(),
-							// city: $('.item_city').val(),
-							// age: $('.item_age').val(),
-							// img: $('.item_img').val(),
-							// price: $('.item_price').val(),
-							// batch: $('.item_batch').val(),
-							// start_date: $('.item_start_date').val(),
-							// end_date: $('.item_end_date').val(),
+						type: "POST",
+						url: "./backend/admin-comm.php", // API 路徑
+						// processData: false,
+        				// contentType: false,
+						// enctype: "multipart/form-data",
+      					// cache: false,
+						data:{ 
+							// input name: key 對應 php 中的 $_POST["Name"]
+							item_ID: parseInt(idx) + 1,
+							name: this.data[idx].NAME, 
+							context: this.data[idx].CONTEXT,
+							category: this.data[idx].CATEGORY,
+							theme: this.data[idx].THEME,
+							country: this.data[idx].COUNTRY,
+							city: this.data[idx].CITY,
+							age: this.data[idx].AGE,
+							batch: this.data[idx].BATCH,
+							price: this.data[idx].PRICE,
+							start_date: this.data[idx].START_DATE,
+							end_date: this.data[idx].END_DATE,
+							img: this.data[idx].IMG,
+							status: this.data[idx].STATUS,
 						},
-						dataType: "text", // 取決於 php 要回傳什麼樣的資料：Y/N
+						// dataType: "text",
 		
-						// 設定 listener：
+					 	// 設定 listener：
 						success: function (response) { // 網路傳輸成功
-							alert('新增成功');
+							console.log(response);
+							target.closest('div').firstElementChild.click(); //關閉彈窗
+							$('button#btn_uploadImage')[idx].click(); //觸發 form submit 事件
+							alert('資料更新成功！');
+							// location.reload();
 						},
 						error: function (exception) {
 							alert("發生錯誤: " + exception.status);
 						},
 					});
 				},
-				// 「新增」儲存按鈕：新增行程資訊
-				// newItem(){
+				pageReload(){
+					location.reload();
+				},
+				// 右上方關鍵字搜尋行程
+				searchItinerary(e){
+					const self = this;
+					let searchId = parseInt($('#search').val());
+					let searchName = $('#search').val();
+					
+					$.ajax({
+						type: "POST",
+						url: "./backend/admin-searchItem.php", // API 路徑
+						data:{ 
+							searchId: searchId,
+							searchName: searchName,
+							searchCountry: searchName,
+						},
+						// dataType: "text",
+		
+					 	// 設定 listener：
+						success: function (response) { // 網路傳輸成功
+							let filteredData = JSON.parse(response);
+							// console.log(filteredData);
 
-				// },
+							self.data = filteredData;
+							if(filteredData.length == 0){
+								alert('查無資料！');
+								location.reload();
+							}
+
+						},
+						error: function (exception) {
+							alert("發生錯誤: " + exception.status);
+						},
+					});
+
+
+				},
 				
-				// 取得行程類型的值
-				selectCategory(e){
-					return e.target.value;
-				}
+
+				// ===== 分頁顯示筆數 ===== // 
+				getCommData(gopage){
+					console.log(gopage);
+					console.log(this);
+					if(isNaN(gopage)) return;
+					this.nowpage = gopage;
+					
+					$.ajax({
+						method: "POST",
+						url: "./backend/admin-getcomm.php",
+						data:{ 
+							page : this.nowpage,
+						},            
+						dataType: "json",
+						success: function (res) {
+							// console.log(res);
+							return this.data = res;
+							
+						},
+						error: function(exception) {
+							alert("發生錯誤: " + exception.status);
+						},
+					});
+				},
+
+				// ===== 下10筆資料 ====== //
+				Addgopage(nowpage){
+					if(this.nowpage != this.pages){
+						return this.nowpage += 1;
+					}
+				},
+
+				// ====== 上10筆資料 ====== //
+				Subgopage(nowpage){
+					if(this.nowpage != 1){
+						return this.nowpage -= 1;
+					}
+				},
+
+				// confirmClose(){
+				// 	let msg = '確定取消更新資料？'; 
+				// 	if (confirm(msg) == true){ 
+				// 		return true; 
+				// 	}else{ 
+				// 		return false; 
+				// 	} 
+				// },
+			},
+			
+			watch: {
+				
 			},
 			mounted() {
 				// 先從資料庫抓全部的行程資料
 				$.getJSON("./backend/admin-comm.php").then((res) => {
-					console.log(res);
+					// console.log(res);
+
+					// 取得load近來時資料長度
+					this.pages =  Math.ceil(res.length / 10);
 					this.data = res;
+
+					
+					// let BOD = this.data[0].ID;
+					// console.log(BOD);
 				});
 			},
 		
+		
 		});
 
-		// 宣告一個 Vue 實體
+		// 編輯查看 vue instance
 		let vm2 = new Vue({
 			el: "#app-comm",
 			data: {
@@ -625,6 +678,360 @@
 			computed: {},
 			methods: {},
 		});
+
+		// 新增商品 vue instance
+		let vmAddItem = new Vue({
+			el: "#appAddItem",
+			computed: {},
+			components:{ // 想像成是一個 new Vue({})，裡面可以有 data、template...
+                'new-itinerary': { // kebab-case：優先排序一
+					data() {
+						return{
+							// 綁定回傳資料庫的欄位資料
+							dataCount: 0,
+							NAME: '', 
+							CONTEXT: '',
+							CATEGORY: '夏令營',
+							THEME: '運動',
+							COUNTRY: '美國',
+							CITY: '紐約',
+							AGE: '10歲~12歲',
+							BATCH: '梯次一',
+							PRICE: 0,
+							START_DATE: '',
+							END_DATE: '',
+							STATUS: '上架',
+						
+							IMG: "", // 上傳圖片的檔名
+
+							// 圖片預覽 data64 資料格式
+							image: "", 
+
+							// 下拉選單的選項資料
+							category: [ 
+								{ name: "夏令營" },
+								{ name: "冬令營" },
+								{ name: "當地主題" },
+							],
+							theme: [
+								{ name: "運動" },
+								{ name: "設計" },
+								{ name: "科學" },
+								{ name: "科技" },
+								{ name: "藝術" },
+								{ name: "語言" },
+								{ name: "程式" },
+								{ name: "自然" },
+								{ name: "音樂" },
+								{ name: "領導" },
+								{ name: "商業" },
+								{ name: "文化" },
+								{ name: "節慶" },
+							],
+							country: [
+								{ name: "美國" },
+								{ name: "法國" },
+								{ name: "英國" },
+								{ name: "加拿大" },
+								{ name: "德國" },
+								{ name: "澳洲" },
+								{ name: "紐西蘭" },
+								{ name: "瑞士" },
+								{ name: "義大利" },
+								{ name: "西班牙" },
+								{ name: "俄羅斯" },
+								{ name: "巴西" },
+							],
+							city: [
+								// 美國
+								{ name: "紐約" },
+								{ name: "洛杉磯" },
+								{ name: "舊金山" },
+								// 法國
+								{ name: "巴黎" },
+								{ name: "波爾多" },
+								{ name: "史特拉斯堡" },
+								{ name: "里昂" },
+								// 英國
+								{ name: "倫敦" },
+								{ name: "牛津" },
+								{ name: "愛丁堡" },
+								{ name: "曼徹斯特" },
+								{ name: "格拉斯頓伯里" },
+								{ name: "勒維克" },
+								// 加拿大
+								{ name: "多倫多" },
+								{ name: "基洛納" },
+								{ name: "溫哥華" },
+								// 德國
+								{ name: "柏林" },
+								{ name: "慕尼黑" },
+								// 澳洲
+								{ name: "布里斯本" },
+								// 紐西蘭
+								{ name: "奧克蘭" },
+								// 瑞士
+								{ name: "日內瓦" },
+								// 義大利
+								{ name: "威尼斯" },
+								// 西班牙
+								{ name: "巴塞隆納" },
+								{ name: "潘普洛納" },
+								{ name: "布尼奧爾" },
+								// 俄羅斯
+								{ name: "聖彼得堡" },
+								// 巴西
+								{ name: "里約" },
+							],
+							age: [
+								{ range: "10歲~12歲" },
+								{ range: "13歲~15歲" },
+								{ range: "16歲~18歲" },
+							],
+							groupAmount: [{ num: 10 }, { num: 15 }, { num: 20 }],
+							batch: [
+								{ no: "梯次一" }, { no: "梯次二" }, { no: "梯次三" }
+							],
+							status: [
+								{val: '上架'},
+								{val: '下架'}
+							],
+						}
+					},
+                    template: ` 
+						<!-- Modal -->
+						<div class="modal fade" id="addNewItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header admin_commodity_header">
+										<h5 class="modal-title" id="staticBackdropLabel">
+										新增商品
+										</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+										</button>
+									</div>
+									<!-- 行程名稱 -->
+									<div class="modal-body">
+										<div class="admin_order_edit">
+											<div class="admin_edit_main">
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">行程名稱</label>
+													<input v-model="NAME" placeholder="請輸入行程名稱" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
+												</div>
+												
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">行程類別</label>
+
+													<!-- 行程類別 -->
+													<select v-model="CATEGORY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇行程類別</option>
+														<option v-for="cat in category">{{cat.name}}</option>
+													</select>
+
+													<label class="input-group-text" for="inputGroupSelect01">行程主題</label>
+
+													<!-- 行程主題 -->
+													<select v-model="THEME" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇行程主題</option>
+														<option v-for="the in theme">{{the.name}}</option>
+													</select>
+												</div>
+
+												<div class="input-group mb-3">
+													<!-- 行程國家 -->
+													<label class="input-group-text" for="inputGroupSelect01">行程國家</label>
+													<select v-model="COUNTRY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇行程國家</option>
+														<option v-for="nat in country">{{nat.name}}</option>
+													</select>
+
+													<!-- 行程地點 -->
+													<label class="input-group-text" for="inputGroupSelect01">行程地點</label>
+													<select v-model="CITY" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇行程地點</option>
+														<option v-for="ct in city">{{ct.name}}</option>
+													</select>
+												</div>
+
+												<div class="input-group mb-3">
+													<!-- 招生年齡 -->
+													<label class="input-group-text" for="inputGroupSelect01">招生年齡</label>
+													<select v-model="AGE" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇招生年齡</option>
+														<option v-for="ag in age">{{ag.range}}</option>
+													</select>
+
+													<!-- 成團梯次 -->
+													<label class="input-group-text" for="inputGroupSelect01">成團梯次</label>
+													<select v-model="BATCH" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option selected>選擇梯次</option>
+														<option v-for="ba in batch">{{ba.no}}</option>
+													</select>
+												</div>
+
+												<!--
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">成團人數</label>
+													<select class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇成團人數</option>
+														<option v-for="ga in groupAmount">{{ga.num}}</option>
+													</select>
+												</div>
+												-->
+
+												<!-- 開始日期 -->
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">開始日期</label>
+													<input v-model="START_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-07-01"/>
+												</div>
+
+												<!-- 結束日期 -->
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">結束日期</label>
+													<input v-model="END_DATE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button" placeholder="2022-08-15"/>
+												</div>
+
+												<!-- 上下架 -->
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">商品狀態</label>
+													<select v-model="STATUS" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled>選擇商品狀態</option>
+														<option v-for="st in status">{{st.val}}</option>
+													</select>
+												</div>
+
+												<!-- 行程價格 -->
+												<div class="input-group mb-3">
+													<label class="input-group-text" for="inputGroupSelect01">行程價格</label>
+													<input v-model="PRICE" type="text" class="form-control admin_commodity_focus" id="inputGroupSelect01" aria-label="Text input with segmented dropdown button"/>
+												</div>
+
+												<div class="mb-3" style="position: relative">
+													
+													<form method="post" action="./backend/admin-createImage.php" enctype="multipart/form-data">
+														<input ref="file" name="newFile" @change="onFileChange" class="form-control admin_commodity_focus" accept="image/*" id="formFile" type="file"/>
+														<img :src="image" />
+														<button id='btn_uploadNewImage' style="display: none">檔案上傳</button>
+													</form>
+													
+													<br>
+													<button v-if="image" class="admin_commodity_file" @click="removeImage">
+														重新選擇
+													</button>
+												</div>
+
+												<div class="mb-3">
+													<label class="input-group-text admin_commodity_text" for="inputGroupSelect01">文案內容</label>
+													<textarea v-model="CONTEXT" class="form-control admin_commodity_textarea" id="exampleFormControlTextarea1" rows="3" placeholder="請輸入不超過 300 字" maxlength="300"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal" @click="pageReload">
+										關閉
+										</button>
+										<button type="button" class="btn admin_commodity_btn" @click="createItem">
+										儲存
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					`,
+					methods: {				
+						// 上傳圖片預覽
+						onFileChange(e) {
+							let files = e.target.files || e.dataTransfer.files;
+							let file = files[0];
+							let fileName = file.name;
+							// console.log(fileName); //檔案名稱
+							this.IMG = fileName;
+
+							if (!files.length) return;
+							this.createImage(files[0]);
+
+						},
+						createImage(file) {
+							let image = new Image();
+							let reader = new FileReader();
+							let vm = this;
+							// return file.name;
+
+							reader.onload = (e) => {
+								vm.image = e.target.result;
+								// console.log(this.image); //base64
+							};
+							reader.readAsDataURL(file);
+						},
+						removeImage: function (e) {
+							// console.log(e.target); //button
+							e.target.parentNode.querySelector('input#formFile').value = '';
+							this.image = "";
+							files = "";
+							this.IMG = "";
+						},
+						createItem(e){
+							$.ajax({
+								type: "POST",
+								url: "./backend/admin-createItem.php", // API 路徑
+								// processData: false,
+								// contentType: false,
+								// enctype: "multipart/form-data",
+								// cache: false,
+								data:{ 
+									// input name: key 對應 php 中的 $_POST["Name"]
+									item_ID: this.dataCount + 1,
+									name: this.NAME, 
+									context: this.CONTEXT,
+									category: this.CATEGORY,
+									theme: this.THEME,
+									country: this.COUNTRY,
+									city: this.CITY,
+									age: this.AGE,
+									batch: this.BATCH,
+									price: this.PRICE,
+									start_date: this.START_DATE,
+									end_date: this.END_DATE,
+									img: this.IMG,
+									status: this.STATUS,
+								},
+								// dataType: "text",
+				
+								// 設定 listener：
+								success: function (response) { // 網路傳輸成功
+									alert('資料更新成功！');
+									console.log(response);
+									e.target.closest('div').firstElementChild.click(); //關閉彈窗
+									$('button#btn_uploadNewImage').click(); //觸發 form submit 事件
+									// location.reload();
+								},
+								error: function (exception) {
+									alert("發生錯誤: " + exception.status);
+								},
+							});
+						},
+						pageReload(){
+							// location.reload();
+							console.log('關閉表單');
+						},
+					},
+					mounted() {
+						// 先從資料庫抓全部的行程資料
+						$.getJSON("./backend/admin-comm.php").then((res) => {
+							// console.log(res.length);
+							this.dataCount = res.length; //計算有幾筆資料
+							
+							// let BOD = this.data[0].ID;
+							// console.log(BOD);
+						});
+					},
+                },
+                
+            },
+		});
+
     </script>
   </body>
 </html>

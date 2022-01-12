@@ -482,10 +482,11 @@
           </div>
         </div>
 
-        <div class="col-md-9 col-sm-12 change-page">
+        <div class="col-md-9 col-sm-12 change-page" style="flex-shrink: 0">
           <!-- main -->
-          <div id="app-summer">
+          <div id="app-summer" style="display: flex">
             <card></card>
+            <div></div>
           </div>
           <div class="row btn_show_more">
             <button type="submit" class="button showMore" style="margin-top: 30px">SHOW MORE</button>
@@ -508,28 +509,28 @@
 				};
 			},
 			template: `
-			<div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
-				<div v-for="item in data" class="card" style="width: 18rem">
-				<i class="fas fa-heart"></i>
-				<a href="./schedule.html">
-					<img
-					:src= "'./images/summer_camp/' + item.IMG"
-					class="card-img-top"/>
-					<div class="card-body">
-					<h5 class="card-title">
-					【{{item.COUNTRY}}-{{item.CITY}}】<br>
-					{{item.NAME}}
-					</h5>
-					<hr style="border: 0.5px solid #000000" />
-					<p class="card-text">
-					{{checkTitle(item.CONTEXT)}}...
-					</p>
-					<a href="./schedule.html" class="a">
-						Learn more 
-						<img src="./images/summer_camp/icon.png"/>
+			<div class="row justify-content-start sw-row" align-items-start style="margin-bottom: 30px;">
+				<div v-for="item in data" class="card" style="width: 18rem; flex-shrink: 0">
+					<i class="fas fa-heart"></i>
+					<a href="./schedule.html">
+						<img
+						:src= "'./images/summer_camp/' + item.IMG"
+						class="card-img-top"/>
+						<div class="card-body">
+						<h5 class="card-title">
+						【{{item.COUNTRY}}-{{item.CITY}}】<br>
+						{{item.NAME}}
+						</h5>
+						<hr style="border: 0.5px solid #000000" />
+						<p class="card-text">
+						{{checkTitle(item.CONTEXT)}}...
+						</p>
+						<a href="./schedule.html" class="a">
+							Learn more 
+							<img src="./images/summer_camp/icon.png"/>
+						</a>
+						</div>
 					</a>
-					</div>
-				</a>
 				</div>
 			</div>
 			`,

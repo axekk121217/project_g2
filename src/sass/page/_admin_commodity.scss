@@ -113,11 +113,14 @@ button.admin_search-btn {
   border-radius: 0 5px 5px 0;
 }
 
-div.admin_main_content {
-  border: 2px solid #395762;
-  margin-top: 10px;
+div.admin_comm_content {
+  // border: 2px solid #395762;
+  margin-top: 30px;
   width: 1000px;
   text-align: center;
+  table{
+    border: 2px solid #395762;
+  }
 }
 
 div.admin_aside {
@@ -217,9 +220,9 @@ div.admin_commodity_header {
   background-color: #FCB629;
 }
 
-#app {
-  text-align: center;
-}
+// #app {
+//   text-align: center;
+// }
 
 
 .admin_newItem_img>img {
