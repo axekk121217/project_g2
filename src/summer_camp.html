@@ -482,10 +482,11 @@
           </div>
         </div>
 
-        <div class="col-md-9 col-sm-12 change-page">
+        <div class="col-md-9 col-sm-12 change-page" style="flex-shrink: 0">
           <!-- main -->
-          <div id="app-summer">
+          <div id="app-summer" style="display: flex">
             <card></card>
+            <div></div>
           </div>
           <div class="row btn_show_more">
             <button type="submit" class="button showMore" style="margin-top: 30px">SHOW MORE</button>
@@ -505,7 +506,7 @@
 				};
 			},
 			template: `
-			<div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
+			<div class="row justify-content-start sw-row" align-items-start style="margin-bottom: 30px">
 				<div v-for="(item, index) in data" class="card" style="width: 18rem"  @click="getStorage(index)">
           <i class="fas fa-heart"></i>
           <!-- <a href="./schedule.html"> -->
