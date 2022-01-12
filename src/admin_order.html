@@ -68,7 +68,7 @@
 		<script>
 			Vue.component('order-detail',{
 				data(){
-
+					
 				},
 				template: `
 				<div>
@@ -89,10 +89,10 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td style="text-align: left">{{item.INAME}}</td>
-											<td style="text-align: left">{{item.ATTENDEES}}人</td>
-											<td style="text-align: left">{{parseInt(item.PRICE).toLocaleString()}}</td>
-											<td style="text-align: left">{{parseInt(item.TOTAL).toLocaleString()}}</td>
+											<td style="text-align: left">{{}}</td>
+											<td style="text-align: left">{{}}人</td>
+											<td style="text-align: left">{{}}</td>
+											<td style="text-align: left">{{}}</td>
 										</tr>
 									</tbody>
 									<tfoot>
@@ -117,7 +117,7 @@
 					</div>
 				</div>	
 				`,
-			})
+			});
 			Vue.component("order", {
 				data() {
 					return {
@@ -154,7 +154,7 @@
 							<tbody>
 								<tr v-for="(item, index) in data.slice(((nowpage-1)*10),(nowpage*10))">
 									<th scope="row">{{item.OID}}</th>
-									<td>{{item.EMAIL}}</td>
+									<td>{{item.ACCOUNT}}</td>
 									<td>{{item.ORDER_DATE}}</td>
 									<td>{{item.PAY_CHOOSE}}</td>
 									<td>{{item.PAY_STATE}}</td>
@@ -187,7 +187,7 @@
 
 																<div class="input-group mb-3">
 																	<label class="input-group-text" for="inputGroupSelect01">電子信箱</label>
-																	<input v-model="item.EMAIL" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<input v-model="item.ACCOUNT" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																	<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
 																	<input v-model="item.PHONE" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																</div>
@@ -228,9 +228,52 @@
 																	</select>
 																</div>
 															</div>
-
-															<order-detail></order-detail>
 															
+															<!-- 這裡是訂單明細 -->
+															<div class="admin_edit_main" style="text-align: left; padding: 10px 0 10px 5px; border-bottom: 1px solid #dee2e6; margin-bottom: 15px; color: #828282">
+																訂單明細
+															</div>
+															<div class="admin_order_edit">
+																<div class="admin_edit_main">
+																	<div class="input-group mb-3">
+																		<table class="table table-hover">
+																			<thead>
+																				<tr style="border-bottom: 1px solid #dee2e6">
+																					<th style="text-align: left">行程名稱</th>
+																					<th style="text-align: left">人數</th>
+																					<th style="text-align: left">單價</th>
+																					<th style="text-align: left">小計</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td style="text-align: left">{{item.INAME}}</td>
+																					<td style="text-align: left">{{item.ATTENDEES}}人</td>
+																					<td style="text-align: left">{{parseInt(item.PRICE).toLocaleString()}}</td>
+																					<td style="text-align: left">{{parseInt(item.TOTAL).toLocaleString()}}</td>
+																				</tr>
+																			</tbody>
+																			<tfoot>
+																				<tr>
+																					<td></td>
+																					<td></td>
+																					<td style="text-align: left">總金額：</td>
+																					<td style="text-align: left">$$$</td>
+																				</tr>
+																			</tfoot>
+																		</table>
+																	</div>
+
+																	<div class="input-group mb-3">
+																	
+																	</div>
+
+																	<div class="input-group mb-3">
+																	
+																	</div>
+																</div>
+															</div>
+
 														</div>
 													</div>
 													
@@ -267,7 +310,11 @@
 				computed: {
 				
 				},
-				methods: {				
+				methods: {		
+					// 取得訂單明細資料
+					getOrderDetail(){
+
+					},	
 					// ===== 分頁顯示筆數 ===== // 
 					getCommData(gopage){
 						// console.log(gopage);
