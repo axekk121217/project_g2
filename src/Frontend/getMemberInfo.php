@@ -2,7 +2,7 @@
     include "../Lib/Util.php";
     include "../Lib/Member.php";
 
-    $memberID = getMemberName();
+    $memberID = getMemberID();
 
     //建立SQL
     $sql = "SELECT * FROM MEMBER WHERE ID = ?";

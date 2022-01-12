@@ -141,6 +141,15 @@
 .col3-aside{
     background-color: #f2f2f2;
 }
+@media screen and (min-width: 760px) and (max-width: 860px) {
+    .col3-aside{
+        background-color: #f2f2f2;
+        width: 100%;
+    }
+    .change-page{
+        width: 100%;
+    }
+}
 
 .accordion-header .accordion-button, .accordion-item .accordion-collapse{
     background-color: #f2f2f2; 
@@ -222,6 +231,36 @@
 }
 .sw-row{
     margin-bottom: 30px !important;
+}
+@media screen and (min-width: 1680px) and (max-width: 1981px) {
+    .sw-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 1255px) / 2);
+    }
+}
+@media screen and (min-width: 1250px) and (max-width: 1679.98px) {
+    .sw-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 941px) / 2);
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1249.98px) {
+    .sw-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 627px) / 2);
+    }
+}
+@media screen and (min-width: 605px) and (max-width: 767.98px) {
+    .sw-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 627px) / 2);
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 604.98px) {
+    .sw-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 314px) / 2);
+    }
 }
 .btn_show_more{
     display: flex;

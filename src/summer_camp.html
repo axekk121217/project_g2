@@ -308,10 +308,11 @@
           </div>
         </div>
 
-        <div class="col-md-9 col-sm-12 change-page">
+        <div class="col-md-9 col-sm-12 change-page" style="flex-shrink: 0">
           <!-- main -->
-          <div id="app-summer">
+          <div id="app-summer" style="display: flex">
             <card></card>
+            <div></div>
           </div>
           <div class="row btn_show_more">
             <button type="submit" class="button showMore" style="margin-top: 30px">SHOW MORE</button>
@@ -334,36 +335,39 @@
           };
         },
         template: `
-			<div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
-				<div v-for="(item, index) in data" class="card" style="width: 18rem">
-				<i class="fas fa-heart heart" v-on:click="favorite(index)"></i>
-				<a href="./schedule.html">
-					<img
-					:src= "'./images/summer_camp/' + item.IMG"
-					class="card-img-top"/>
-					<div class="card-body">
-					<h5 class="card-title">
-					【{{item.COUNTRY}}-{{item.CITY}}】<br>
-					{{item.NAME}}
-					</h5>
-					<hr style="border: 0.5px solid #000000" />
-					<p class="card-text">
-					{{checkTitle(item.CONTEXT)}}...
-					</p>
-					<a href="./schedule.html" class="a">
-						Learn more 
-						<img src="./images/summer_camp/icon.png"/>
-					</a>
-					</div>
-				</a>
-				</div>
-			</div>
+          <div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
+            <div v-for="(item, index) in data" class="card" style="width: 18rem; cursor: pointer" >
+              <i class="fas fa-heart fav_heart" @click="favorite(index)"></i>
+              <div @click="getStorage(index)">
+                <img :src= "'./images/summer_camp/' + item.IMG" class="card-img-top"/>
+                <div class="card-body">
+                <h5 class="card-title">
+                【{{item.COUNTRY}}-{{item.CITY}}】<br>
+                {{item.NAME}}
+                </h5>
+                <hr style="border: 0.5px solid #000000" />
+                <p class="card-text">
+                {{checkTitle(item.CONTEXT)}}...
+                </p>
+                <a class="a">
+                  Learn more 
+                  <img src="./images/summer_camp/icon.png"/>
+                </a>
+                </div>
+              </div>
+            </div>
+          </div>
 			`,
         methods: {
           checkTitle(theTitle) {
             return theTitle.slice(0, 40); // 只取40個字，以免破版
           },
-
+          getStorage(index) {
+              // alert(index);
+              localStorage.setItem("product_NAME", JSON.stringify(this.data[index]['NAME'])) ;
+              localStorage.setItem('getID', JSON.stringify(this.data[index]['ID']));
+              location.href = `./schedule.html`;
+          },
           favorite(index) {
             $.ajax({
               method: 'POST',
@@ -376,12 +380,13 @@
                   if (r == true) {
                     window.location = "member_signIn.html";
                   }
-                } else {
-                  let getHeart = document.getElementsByClassName('heart');
+                }else {
+                  let getHeart = document.getElementsByClassName('fav_heart');
                   if (getHeart[index].classList.contains("summer-camp-favorite")) {
                     getHeart[index].classList.remove("summer-camp-favorite");
                   } else { 
                     getHeart[index].classList.add("summer-camp-favorite"); 
+                    
                     $.ajax({
                       method: 'POST',
                       url: './Frontend/summer_favorite_add.php',

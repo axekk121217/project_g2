@@ -51,116 +51,158 @@
 		});
 	}
 
-      // ------ 會員登入抓資料 ----------------- //
-	function getMemberInfo(){
-	$.ajax({
-		method: "POST",
-		url: "./Frontend/getMemberInfo.php",
-		data: {},
-		dataType: "json",
-		success: function (response) {
+		// 顯示會員資訊
+		function showMember() {
+			$.ajax({
+				method: "POST",
+				url: "./Frontend/Member.php",
+				data: {},
+				dataType: "text",
+				success: function (response) {
+					$('.guest_icon').css('display', 'none');
+					$('.icon_create').after(response);
+					getMemberInfo();
+				},
+				error: function (exception) {
+				alert("數據載入失敗: " + exception.status);
+				},
+			});
+		}
+		// 顯示會員資訊結束
+
+		//登入檢查 ---------------------------------------------------------------------------------
+		function loginCheck(pid) {
+			$.ajax({
+				method: "POST",
+				url: "./Frontend/LoginCheck.php",
+				data: {},
+				dataType: "text",
+				success: function (response) {
+					if (response == "") {
+					//尚未登入->前往Login.php
+					alert("請先登入，將前往登入頁");
+					location.href = "/member_signIn.html";
+					} else {
+					addToCar(pid);
+					}
+				},
+				error: function (exception) {
+					alert("數據載入失敗: " + exception.status);
+				},
+			});
+		}
+
+		// ------ 會員登入抓資料 ----------------- //
+		function getMemberInfo(){
+			$.ajax({
+				method: "POST",
+				url: "./Frontend/getMemberInfo.php",
+				data: {},
+				dataType: "json",
+				success: function (response) {
+					// console.log('aaaaa');
+					console.log(response);
+					$('.member_editorLogo img').attr('src', response[0]["PICTURE"]);
+					$('.member_name').html(response[0]['NAME']);
+
+					$('#ACCOUNT').val(response[0]['ACCOUNT']);
+					$('#NAME').val(response[0]['NAME']);
+					$('#PHONE').val(response[0]['PHONE']);
+					if (`${response[0]['GENDER']}` == '男') {
+						$('.member_gender input[name="GENDER"]')[0].checked = true;
+					} else if (`${response[0]['GENDER']}` == '女') {
+						$('.member_gender input[name="GENDER"]')[1].checked = true;
+					} else {
+						$('.member_gender input[name="GENDER"]')[2].checked = true;
+					}
+				},
+				error: function (exception) {
+					alert("數據載入失敗: " + exception.status);
+				},
+			});
+		}
 		
-		// console.log(response);
-		$('.member_editorLogo img').attr('src', response[0]["PICTURE"]);
-		$('.member_name').html(response[0]['NAME']);
-
-		$('#ACCOUNT').val(response[0]['ACCOUNT']);
-		$('#NAME').val(response[0]['NAME']);
-		$('#PHONE').val(response[0]['PHONE']);
-		if (`${response[0]['GENDER']}` == '男') {
-			$('.member_gender input[name="GENDER"]')[0].checked = true;
-		} else if (`${response[0]['GENDER']}` == '女') {
-			$('.member_gender input[name="GENDER"]')[1].checked = true;
-		} else {
-			$('.member_gender input[name="GENDER"]')[2].checked = true;
+		//  ==================== 修改會員資料 ========================
+		function updateMember() {
+			if($('#NAME').val() != '' && $('#PHONE').val() != '' && $('#ACCOUNT').val() != '') {
+				let memberGenderData = $('.member_gender input[name="GENDER"]:checked').val();
+				if(memberGenderData == '男') {
+					memberGenderData = '男';
+				} else if (memberGenderData == '女') {
+					memberGenderData = '女';
+				} else {
+					memberGenderData = '暫不提供';
+				}
+			}
+			// var name = $('#NAME').val();
+			// var phone = $('#PHONE').val();
+			// var account = $('#ACCOUNT').val();
+			// console.log(memberGenderData, name, phone, account);
+			$.ajax({
+				method: 'POST',
+				url: './Frontend/MemberUpdate.php',
+				data: {
+					NAME: $('#NAME').val(),
+					PHONE: $('#PHONE').val(), 
+					ACCOUNT: $('#ACCOUNT').val(), 
+					GENDER: $('.member_gender input[name="GENDER"]:checked').val()
+				},
+				dataType: 'text',
+				success: function(res) {
+					getMemberInfo();
+					alert('會員資料更改完成');
+				},
+				error: function (exception) {
+					alert("數據載入失敗: " + exception.status);
+				},
+			});
 		}
-		},
-		error: function (exception) {
-		alert("數據載入失敗: " + exception.status);
-		},
-	});
-	}
-      //  ==================== 修改會員資料 ========================
-	function updateMember() {
-		if($('#NAME').val() != '' && $('#PHONE').val() != '' && $('#ACCOUNT').val() != '') {
-		let memberGenderData = $('.member_gender input[name="GENDER"]:checked').val();
-		if(memberGenderData == '男') {
-		memberGenderData = '男';
-		} else if (memberGenderData == '女') {
-		memberGenderData = '女';
-		} else {
-		memberGenderData = '暫不提供';
-		}
-	}
-        // var name = $('#NAME').val();
-        // var phone = $('#PHONE').val();
-        // var account = $('#ACCOUNT').val();
-        // console.log(memberGenderData, name, phone, account);
-		$.ajax({
-		method: 'POST',
-		url: './Frontend/MemberUpdate.php',
-		data: {
-			NAME: $('#NAME').val(),
-			PHONE: $('#PHONE').val(), 
-			ACCOUNT: $('#ACCOUNT').val(), 
-			GENDER: $('.member_gender input[name="GENDER"]:checked').val()
-		},
-		dataType: 'text',
-		success: function(res) {
-			getMemberInfo();
-			alert('會員資料更改完成');
-		},
-		error: function (exception) {
-			alert("數據載入失敗: " + exception.status);
-		},
-		});
-	}
 
-        // =================== 修改密碼 ====================
-	function changePassword() {
-		let passwordCheck = [];
-		let oldPwd = $('#oldPassword').val();
-		let newPwd = $('#newPassword').val();
-		let newPwd2 = $('#newPassword2').val();
-		if(oldPwd == '') {
-		alert('請輸入密碼');
+		// =================== 修改密碼 ====================
+		function changePassword() {
+				let passwordCheck = [];
+				let oldPwd = $('#oldPassword').val();
+				let newPwd = $('#newPassword').val();
+				let newPwd2 = $('#newPassword2').val();
+				if(oldPwd == '') {
+					alert('請輸入密碼');
+				} else {
+					passwordCheck.push('1');
+				}
+
+				if(newPwd == '') {
+					alert('請輸入密碼');
+				} else {
+					passwordCheck.push('2');
+				}
+
+				if(newPwd2 == newPwd) {
+					passwordCheck.push('3');
+					alert('密碼更改成功');
+				} else {
+					alert('第二次密碼不相同');
+				}
+				if(passwordCheck.length === 3) {
+					$.ajax({
+						method: 'post',
+						url: "./Frontend/memberPassword.php",
+						data: {
+							oldPassword: $('#oldPassword').val(),
+							newPassword: $('#newPassword').val(),
+							// newPassword2: $('#newPassword2').val(),
+						},
+						dataType: 'text',
+						success: function(res) {
+							getMemberInfo();
+						},
+						error: function (exception) {
+							alert("數據載入失敗: " + exception.status);
+						},
+					});
+				}
+			}
 		
-		} else {
-		passwordCheck.push('1');
-		}
-
-		if(newPwd == '') {
-		alert('請輸入密碼');
-		} else {
-		passwordCheck.push('2');
-		}
-
-		if(newPwd2 == newPwd) {
-		passwordCheck.push('3');
-		alert('密碼更改成功');
-		} else {
-		alert('第二次密碼不相同');
-		}
-		if(passwordCheck.length === 3) {
-		$.ajax({
-			method: 'post',
-			url: "./Frontend/memberPassword.php",
-			data: {
-			oldPassword: $('#oldPassword').val(),
-			newPassword: $('#newPassword').val(),
-			// newPassword2: $('#newPassword2').val(),
-			},
-			dataType: 'text',
-			success: function(res) {
-			getMemberInfo();
-			},
-			error: function (exception) {
-			alert("數據載入失敗: " + exception.status);
-			},
-		});
-		}
-	}
-    </script>
+	</script>
 </head>
 
 <body onload="init()">
@@ -176,7 +218,7 @@
 				<div class="member_editorLogo">
 					<img src="" alt="">
 				</div>
-				<h4 class="member_name">流川風</h4>
+				<h4 class="member_name"></h4>
 			  </div>
 			  <ul class="member_asideMenuItem">
 				<li class="member_listItem member_listItem-on">
@@ -532,60 +574,7 @@
 			  </div>
 			  <hr />
 			  <div class="member_commentAll">
-				<div class="row">
-				  <div class="member_commentItem col-md-5">
-					<img src="./images/member/image1.png" alt="" />
-				  </div>
-  
-				  <div class="member_commentContent col-md-7">
-					<ul class="member_commentWordAll">
-					  <li class="member_commenttList">
-						<div class="member_commentWordTitle">
-						  <h1 class="member_commentName_Title">
-							[美國-紐約] 百老匯表演藝術營
-						  </h1>
-						  <h4>CUNY Brooklyn College</h4>
-						</div>
-					  </li>
-  
-					  <li class="member_commenttList">
-						<p class="member_commentDate">
-						  <i class="bi bi-calendar-check-fill"></i>2022/02/01-2/28
-						</p>
-					  </li>
-  
-					  <li class="member_commenttList">
-						<p><i class="bi bi-person-fill"></i>1人</p>
-					  </li>
-  
-					  <li class="member_commenttList">
-						<p class="price">TWD $38,000</p>
-					  </li>
-					</ul>
-				  </div>
-				  <div class="member_commentStar">
-					<p class="member_commentStarCountTitle">
-					  請為這次的課程體驗打個星星吧！
-					</p>
-					<i class="bi bi-star"></i>
-					<i class="bi bi-star"></i>
-					<i class="bi bi-star"></i>
-					<i class="bi bi-star"></i>
-					<i class="bi bi-star"></i>
-				  </div>
-				  <div class="member_commentWriteItem">
-					<p class="member_commentWriteTitle">
-					  將您的心得提供給其他人參考
-					</p>
-					<textarea name="member_commentWrite" placeholder="請輸入您的心得"></textarea>
-				  </div>
-				  <div class="member_commentButtonAll">
-					<button class="btn_sub">存成草稿</button>
-					<button class="btn_sub member_commentButton">
-					  送出評論
-					</button>
-				  </div>
-				</div>
+				
 			  </div>
 			</div>
 			<!-- 訂單取消 -->
@@ -701,22 +690,22 @@
 	</footer>
   
 	<script src="https://kit.fontawesome.com/8c41348ce8.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-  crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	<script>
 	  // 設定當前頁面 css：桌機版 header
 	  let page = document.getElementsByClassName("header_pg");
 	  for (let i = 0; i < page.length; i++) {
-		if (page[i].id !== "page_active7") {
-		  page[i].removeAttribute("id");
-		}
+      if (page[i].id !== "page_active7") {
+        page[i].removeAttribute("id");
+      }
 	  }
-	  // 設定當前頁面 css：漢堡選單
+	  
+    // 設定當前頁面 css：漢堡選單
 	  let ham_page = document.getElementsByClassName("ham_pg");
-	  for (let i = 0; i < ham_page.length; i++) {
-		if (ham_page[i].id !== "h_page_active7") {
-		  ham_page[i].removeAttribute("id");
-		}
+    for (let i = 0; i < ham_page.length; i++) {
+      if (ham_page[i].id !== "h_page_active7") {
+        ham_page[i].removeAttribute("id");
+      }
 	  }
   
 	  // 取消訂單進度
@@ -725,11 +714,11 @@
 	  const member_cancel = document.getElementsByClassName("member_orderCancelAll")[0];
   
 	  member_orderCancel.addEventListener("click", function () {
-		if (member_line.classList.contains("member_board-show")) {
-		  member_line.classList.remove("member_board-show");
-		} else {
-		  member_line.classList.add("member_board-show");
-		}
+      if (member_line.classList.contains("member_board-show")) {
+        member_line.classList.remove("member_board-show");
+      } else {
+        member_line.classList.add("member_board-show");
+      }
 	  });
   
 	  // 會員資料
@@ -737,15 +726,15 @@
 	  const member_board = document.querySelectorAll("div.member_board");
   
 	  for (let i = 0; i < member_listItem.length; i++) {
-		member_listItem[i].addEventListener("click", function () {
-		  for (let j = 0; j < member_board.length; j++) {
-			member_listItem[j].classList.remove("member_listItem-on");
-			member_board[j].classList.remove("member_board-show");
-			member_cancel.classList.remove("member_board-show");
-		  }
-		  member_listItem[i].classList.add("member_listItem-on");
-		  member_board[i].classList.add("member_board-show");
-		});
+      member_listItem[i].addEventListener("click", function () {
+        for (let j = 0; j < member_board.length; j++) {
+          member_listItem[j].classList.remove("member_listItem-on");
+          member_board[j].classList.remove("member_board-show");
+          member_cancel.classList.remove("member_board-show");
+        }
+          member_listItem[i].classList.add("member_listItem-on");
+          member_board[i].classList.add("member_board-show");
+      });
 	  }
   
 	  // 申請訂單取消
@@ -754,28 +743,28 @@
 		const member_orderCancelClick = document.getElementsByClassName("member_board")[1];
   
 		member_orderCancelCause.addEventListener("click", function () {
-		member_orderCancelClick.classList.remove("member_board-show");
-		member_orderCancelAll.classList.add("member_board-show");
+		  member_orderCancelClick.classList.remove("member_board-show");
+		  member_orderCancelAll.classList.add("member_board-show");
 	  });
   
 	  const member_orderCancelPage = document.getElementsByClassName("member_orderCancelPage")[0];
 	  member_orderCancelPage.addEventListener("click", function () {
-		member_orderCancelAll.classList.remove("member_board-show");
-		member_orderCancelClick.classList.add("member_board-show");
+		  member_orderCancelAll.classList.remove("member_board-show");
+		  member_orderCancelClick.classList.add("member_board-show");
 	  });
   
 	  // 會員選單
 	  const dropdown_item = document.querySelectorAll("li button.dropdown-item");
 	  for (let i = 0; i < dropdown_item.length; i++) {
-		dropdown_item[i].addEventListener("click", function () {
-		  for (let j = 0; j < dropdown_item.length; j++) {
-			dropdown_item[j].classList.remove("dropdown-item-active");
-			member_board[j].classList.remove("member_board-show");
-		  }
-		  dropdown_item[i].classList.add("dropdown-item-active");
-		  member_board[i].classList.add("member_board-show");
-		});
+      dropdown_item[i].addEventListener("click", function () {
+        for (let j = 0; j < dropdown_item.length; j++) {
+          dropdown_item[j].classList.remove("dropdown-item-active");
+          member_board[j].classList.remove("member_board-show");
+        }
+          dropdown_item[i].classList.add("dropdown-item-active");
+          member_board[i].classList.add("member_board-show");
+      });
 	  }
 	</script>
   </body>
-  </html>
+</html>

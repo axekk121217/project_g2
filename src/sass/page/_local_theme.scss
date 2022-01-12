@@ -331,7 +331,7 @@
         color: white;
         .local_theme-sw{
           background: $color_primary;
-          border: none;
+          // border: none; 
         }
         .arr_icon{
           display: none;
@@ -340,10 +340,11 @@
           display: block;
         }
       }
-      .local_theme-sw{
+      .local_theme-sw{ 
         padding: 15px 20px;
         margin: 0;
         width: 200px;
+        height: 45px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -385,6 +386,37 @@
     display: none;
   }
 
+  @media screen and (min-width: 1680px) and (max-width: 1981px) {
+    .localTheme-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 1255px) / 2);
+    }
+}
+@media screen and (min-width: 1250px) and (max-width: 1679.98px) {
+  .localTheme-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 941px) / 2);
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1249.98px) {
+    .localTheme-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 627px) / 2);
+    }
+}
+@media screen and (min-width: 605px) and (max-width: 767.98px) {
+    .localTheme-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 314px) / 2);
+    } 
+}
+@media screen and (min-width: 320px) and (max-width: 604.98px) {
+    .localTheme-row{
+        margin-bottom: 30px !important;
+        margin-left: calc((100% - 314px) / 2);
+    }
+}
+
   
 // 桌機板顯示目前頁面
 .tab_container li a#page_active3::before {
@@ -397,7 +429,7 @@
     top: 26px;
     display: block;
     transform: scaleX(1);
-  }
+  } 
 
   // 漢堡選單顯示目前頁面
   ul.menu a li#h_page_active3{
