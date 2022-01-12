@@ -100,13 +100,13 @@
                 </div> 
                 <div class="col-lg-7 col-md-12 sch_img_right">
                     <div class="sch_img_shown_area">
-                        <img src="images/schedule/paris.jpg" class="sch_img -on" data-id="1" id=8>
-                        <img src="images/schedule/eiffel.jpg" class="sch_img" data-id="2" id=9>
-                        <img src="images/schedule/scene.jpg" class="sch_img" data-id="3" id=10>
-                        <img src="images/schedule/louvre.jpg" class="sch_img" data-id="4" id=11>
-                        <img src="images/schedule/script.jpg" class="sch_img" data-id="5" id=12>
-                        <img src="images/schedule/studio.jpg" class="sch_img" data-id="6" id=13>
-                        <img src="images/schedule/archi.jpg" class="sch_img" data-id="7" id=14>
+                        <img :src="'./images/summer_camp/' + product.IMG" class="sch_img -on" data-id="1" id=8>
+                        <img src="./images/schedule/eiffel.jpg" class="sch_img" data-id="2" id=9>
+                        <img src="./images/schedule/scene.jpg" class="sch_img" data-id="3" id=10>
+                        <img src="./images/schedule/louvre.jpg" class="sch_img" data-id="4" id=11>
+                        <img src="./images/schedule/script.jpg" class="sch_img" data-id="5" id=12>
+                        <img src="./images/schedule/studio.jpg" class="sch_img" data-id="6" id=13>
+                        <img src="./images/schedule/archi.jpg" class="sch_img" data-id="7" id=14>
                     </div>
                     <div class="sch_img_shift_area">
                         <div class="sch_img_shift sch_shift1 -on" id=1 @click="changePhoto"></div>
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="sch_action">
-                                <button class="btn sch_signup" type="submit">加入購物車</button>
+                                <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
                                 <div class="sch_heart">
                                     <div class="sch_like_svg"  @click="heartChange">
                                         <object>
@@ -446,7 +446,7 @@
                                 </div>
                             </div>
                             <div class="sch_action">
-                                <button class="btn sch_signup" type="submit">加入購物車</button>
+                                <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
                                 <div class="sch_heart">
                                     <div class="sch_like_svg" @click="heartChange">
                                         <object>
@@ -538,8 +538,12 @@
                                     },
                                     dataType: 'text',
                                     success: function(res) {
-                                        console.log(res);
-                                        alert("加入購物車成功!")
+                                        if(res == "商品已存在"){
+                                            alert('商品已存在');
+                                        } else {
+                                            alert("加入購物車成功!");
+                                        }
+                                        
                                     }
                                 });
                             }
@@ -554,7 +558,7 @@
             mounted() {
                 axios.get('./Frontend/schedule.php',{
                     params: {
-                        product_NAME: localStorage.getItem('product_NAME'),
+                        product_NAME: localStorage.getItem('getID'),
                     }
                 }).then(res => this.products = res.data);
             }

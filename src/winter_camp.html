@@ -324,8 +324,9 @@
               },
               template: `
               <div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
-                <div v-for="(item, index) in data" class="card" style="width: 18rem" @click="getStorage(index)">
+                <div v-for="(item, index) in data" class="card" style="width: 18rem; cursor: pointer">
                 <i class="fas fa-heart"></i>
+                <div @click="getStorage(index)">
                   <img
                   :src= "'./images/summer_camp/' + item.IMG"
                   class="card-img-top"/>
@@ -343,6 +344,7 @@
                     <img src="./images/summer_camp/icon.png"/>
                   </a>
                   </div>
+                </div>
                 </div>
               </div>
               `,

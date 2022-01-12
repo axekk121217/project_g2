@@ -122,19 +122,21 @@
 				let oldPwd = $('#oldPassword').val();
 				let newPwd = $('#newPassword').val();
 				let newPwd2 = $('#newPassword2').val();
-				if(oldPwd == '') {
-					alert('請輸入密碼');
-				} else {
+				if(oldPwd != '') {
 					passwordCheck.push('1');
-				}
-
-				if(newPwd == '') {
-					alert('請輸入密碼');
+					
 				} else {
-					passwordCheck.push('2');
+					alert('請輸入密碼');
 				}
 
-				if(newPwd2 == newPwd) {
+				if(newPwd != '') {
+					passwordCheck.push('2');
+					
+				} else {
+					alert('請輸入密碼');
+				}
+
+				if(newPwd2 == newPwd && newPwd != '' && newPwd2 != '') {
 					passwordCheck.push('3');
 					alert('密碼更改成功');
 				} else {
@@ -256,7 +258,7 @@
 					<br />
 				  </div>
 				  <div class="member_saveItem text-end">
-					<button type="submit" class="member_save btn_sub" onclick="updateMember()">儲存</button>
+					<button class="member_save btn_sub" onclick="updateMember()">儲存</button>
 				  </div>
 				</form>
 			  </div>
@@ -281,7 +283,7 @@
 				  <input type="password" class="member_ confirmPassword member_item" id="newPassword2" name="newPassword2"  size="40"/>
 				  <br />
 				  <div class="member_resive text-end">
-					<button type="submit" class="member_revisePassword btn_sub" onclick="changePassword()">修改</button>
+					<button class="member_revisePassword btn_sub" onclick="changePassword()">修改</button>
 				  </div>
 				</form>
 			  </div>
