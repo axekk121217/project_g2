@@ -41,7 +41,6 @@
     }
 
     //--------------------------------------前台專用--------------------------------------
-
     //取得會員ID(前台專用)
     function getMemberID(){
 
@@ -64,7 +63,7 @@
         }
 
         //有登入session->回傳Name，無登入session->回傳空字串""
-        return isset($_SESSION["MemberID"]) ? $_SESSION["MemberID"] : "";
+        return isset($_SESSION["MemberID"]) ? $_SESSION["MemberID"] : ""; 
 
     }
 

@@ -1,5 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+
+<head>
+  @@include('./layout/meta.html', {
+  "title" : "會員管理"
+  })
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/vue.js"></script>
+</head>
+
+<body>
+  <div style="height: auto;">
+    <div class="admin_member">
+      <!-- header -->
+      <div class="admin_header">
+        <div class="admin_header_logo">
+          <img src="images/admin/logo.png" alt="" />
+          <p>CAMPION後臺管理系統</p>
+        </div>
+        <div class="admin_header_btn">
+          <input type="button" value="帳號登出" onclick="javascript: location.href = './backend/Logout.php';"
+            class="admin_btn_signOut" />
+        </div>
+      </div>
+
+      <!-- main -->
+      <div class="admin_main">
+
+        <!-- 切換按鈕 -->
+        <div class="admin_aside">
+          <a href="./admin_system.html">
+            <button class="admin_aside_btn">會員管理</button>
+          </a>
+          <a href="./admin_order.html">
+            <button class="admin_aside_btn">訂單管理</button>
+          </a>
+          <a href="./admin_commodity.html">
+            <button class="admin_aside_btn">商品管理</button>
+          </a>
+          <a href="./admin_review.html">
+            <button class="admin_aside_btn">評論管理</button>
+          </a>
+        </div>
+
+        <!-- 表格 -->
+        <div class="admin_main_tltle">
+          <div class="admin_search">
+            <p>會員管理</p>
+            <div class="admin_search_bar">
+              <input class="search-bar" type="text" name="search" id="search" placeholder="以會員編號查詢" />
+              <button class="admin_search-btn">
+                <i class="fas fa-search admin_search_icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 會員管理表格 -->
+          <div id="app_m_comm">
+            <member-table></member-table>
+            <div class="d-flex justify-content-end">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item page-link" v-for="page in pages" @click="getMemberData(page.link)">{{page.page}}
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div>
+    <div class="admin_member">
+      <div class="admin_header">
+        <div class="admin_header_logo">
+          <img src="images/admin/logo.png" alt="" />
+          <p>CAMPION後臺管理系統</p>
+        </div>
+        <div class="admin_header_btn">
+          
+            <input  type="button" value="帳號登出" onclick="javascript: location.href = './backend/API/Logout.php';" class="admin_btn_signOut"/>
+        </div>
+      </div>
+
+      <div class="admin_main">
+        <div class="admin_aside">
+          <a href="./admin_system.html">
+            <button class="admin_aside_btn">會員管理</button>
+          </a>
+          <a href="./admin_order.html">
+            <button class="admin_aside_btn">訂單管理</button>
+          </a>
+          <a href="./admin_commodity.html">
+            <button class="admin_aside_btn">商品管理</button>
+          </a>
+          <a href="./admin_review.html">
+            <button class="admin_aside_btn">評論管理</button>
+          </a>
+        </div>
+
+        <div class="admin_main_tltle">
+          <div class="admin_search">
+            <p>會員管理</p>
+            <div class="admin_search_bar">
+              <input class="search-bar" type="text" name="search" id="search" placeholder="輸入名稱" />
+              <button class="admin_search-btn">
+                <i class="fas fa-search admin_search_icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="admin_main_content">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">會員編號</th>
+                  <th scope="col">會員姓名</th>
+                  <th scope="col">性別</th>
+                  <th scope="col">會員帳號</th>
+                  <th scope="col">聯絡電話</th>
+                  <th scope="col">註冊日期</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">438115684</th>
+                  <td>王大明</td>
+                  <td>男</td>
+                  <td>mingwang@gmail.com</td>
+                  <td>0912345678</td>
+                  <td>2021-12-12</td>
+                  <td>
+                    Button trigger modal
+                    <button type="button" class="btn admin_order_btn" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">
+                      編輯&nbsp;&frasl;&nbsp;查看
+                    </button>
+
+                    Modal
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header admin_order_header">
+                            <h5 class="modal-title admin_order_title" id="staticBackdropLabel">
+                              編輯&nbsp;&frasl;&nbsp;查看
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="admin_order_edit">
+                              <div class="admin_edit_main">
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">會員編號</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">會員姓名</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                  <label class="input-group-text" for="inputGroupSelect01">性別</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">會員帳號</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">註冊日期</label>
+                                  <input type="text" class="form-control"
+                                    aria-label="Text input with segmented dropdown button" />
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupSelect01">帳號狀態</label>
+                                  <select class="form-select" id="inputGroupSelect01">
+                                    <option selected>選擇帳號狀態</option>
+                                    <option value="1">正常</option>
+                                    <option value="2">停權</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              關閉
+                            </button>
+                            <button type="button" class="btn">儲存</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-end">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div> -->
+
+  <div class="d-flex justify-content-end">
+    <div id="app">
+      <ul class="pagination">
+        <li class="page-item" @click.prevent>
+          <a class="page-link" href>&laquo;</a>
+        </li>
+        <li class="page-item" v-for="page in 5" @click.prevent>
+          <a class="page-link" href>{{ page }}</a>
+        </li>
+        <li class="page-item" @click.prevent>
+          <a class="page-link" href>&raquo;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  
+    <script>
+
+      // 會員管理表格
+      Vue.component('member-table', {
+        data() {
+          return {
+            titles: ['會員編號', '會員姓名', '性別', '會員帳號', '聯絡電話', '註冊日期', ''],
+            member_number: "",
+            members: [],
+          };
+        },
+
+        template: `
+				<div class="admin_main_content">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope = "col" v-for="title in titles">{{title}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="member in members">
+								<th scope="row">{{member.ID}}</th>
+								<td>{{member.NAME}}</td>
+								<td>{{member.GENDER}}</td>
+								<td>{{member.ACCOUNT}}</td>
+								<td>{{member.PHONE}}</td>
+								<td>{{member.CREATION_DATE}}</td>
+								<td>
+									<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">編輯&nbsp;&frasl;&nbsp;查看</button>
+
+									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header admin_order_header">
+													<h5 class="modal-title admin_order_title" id="staticBackdropLabel">
+													編輯&nbsp;&frasl;&nbsp;查看
+													</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<div class="admin_order_edit">
+														<div class="admin_edit_main">
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">會員編號</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.ID" disabled/>
+															</div>
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">會員姓名</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.NAME" disabled/>
+																<label class="input-group-text" for="inputGroupSelect01">性別</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.GENDER" disabled/>
+															</div>
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">會員帳號</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.ACCOUNT" disabled/>
+															</div>
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.PHONE" disabled/>
+															</div>
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">註冊日期</label>
+																<input type="text" class="form-control" aria-label="Text input with segmented dropdown button" :value="member.CREATION_DATE" disabled/>
+															</div>
+															<div class="input-group mb-3">
+																<label class="input-group-text" for="inputGroupSelect01">帳號狀態</label>
+																<select class="form-select" id="inputGroupSelect01">
+																	<option selected>選擇帳號狀態</option>
+																	<option value="1">正常</option>
+																	<option value="2">停權</option>
+																</select>
+=======
 	<head>
 		@@include('./layout/meta.html', {
 			"title" : "會員管理" 
@@ -302,6 +637,7 @@
 																		<option v-for="state in member_list" :selected="state.name == member.ACCOUNT_STATE">{{state.name}}</option>
 																	</select>
 																</div>
+>>>>>>> 54cda60b1b3fb3050983a53092305cccb9738127
 															</div>
 														</div>
 													</div>
