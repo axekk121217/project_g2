@@ -6,7 +6,12 @@
 }) 
 <script src="./js/vue.js"></script>
 <script src="./js/vue.min.js"></script>
+<script src="./js/schedule.js"></script>
 <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<!-- 暫勿引用node_modules內的jquery,無法使用 -->
+
+
 <script>
   function init(){
     showMember();
@@ -33,7 +38,7 @@
   
 </script>
 </head> 
-<body onload="init()">
+<body>
     
     <!-- header  -->
     @@include('./layout/header.html')
@@ -81,9 +86,9 @@
                     </div>
                     <div class="sch_form">
                         <p>人數：</p>
-                        <span class="sch_count sch_count_item" @click="reduce">–</span>
+                        <button class="sch_count sch_count_item" @click="reduce">–</button>
                         <input type="text" :value="count" size="1" name="name" id="name">
-                        <span class="sch_count sch_count_item" @click="add">+</span>
+                        <button class="sch_count sch_count_item" @click="add">+</button>
                     </div>
                     <div class="sch_action">
                         <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
@@ -100,13 +105,13 @@
                 </div> 
                 <div class="col-lg-7 col-md-12 sch_img_right">
                     <div class="sch_img_shown_area">
-                        <img src="images/schedule/paris.jpg" class="sch_img -on" data-id="1" id=8>
-                        <img src="images/schedule/eiffel.jpg" class="sch_img" data-id="2" id=9>
-                        <img src="images/schedule/scene.jpg" class="sch_img" data-id="3" id=10>
-                        <img src="images/schedule/louvre.jpg" class="sch_img" data-id="4" id=11>
-                        <img src="images/schedule/script.jpg" class="sch_img" data-id="5" id=12>
-                        <img src="images/schedule/studio.jpg" class="sch_img" data-id="6" id=13>
-                        <img src="images/schedule/archi.jpg" class="sch_img" data-id="7" id=14>
+                        <img :src="'./images/summer_camp/' + product.IMG" class="sch_img -on" data-id="1" id=8>
+                        <img src="./images/schedule/eiffel.jpg" class="sch_img" data-id="2" id=9>
+                        <img src="./images/schedule/scene.jpg" class="sch_img" data-id="3" id=10>
+                        <img src="./images/schedule/louvre.jpg" class="sch_img" data-id="4" id=11>
+                        <img src="./images/schedule/script.jpg" class="sch_img" data-id="5" id=12>
+                        <img src="./images/schedule/studio.jpg" class="sch_img" data-id="6" id=13>
+                        <img src="./images/schedule/archi.jpg" class="sch_img" data-id="7" id=14>
                     </div>
                     <div class="sch_img_shift_area">
                         <div class="sch_img_shift sch_shift1 -on" id=1 @click="changePhoto"></div>
@@ -211,12 +216,12 @@
                                 <div class="sch_form">
                                     <p>人數：</p>
                                     <span class="sch_count sch_count_item" @click="reduce">–</span>
-                                    <input type="text" :value="count" size="1" name="name">
+                                    <input class="sch_count" type="text" :value="count" size="1" name="name" id="name">
                                     <span class="sch_count sch_count_item" @click="add">+</span>
                                 </div>
                             </div>
                             <div class="sch_action">
-                                <button class="btn sch_signup" type="submit">加入購物車</button>
+                                <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
                                 <div class="sch_heart">
                                     <div class="sch_like_svg"  @click="heartChange">
                                         <object>
@@ -382,47 +387,7 @@
                         </div>
                     </div>
         
-                    <!-- 學員評價 -->
-                    <div class="sch_info_content sch_anchor_end">
-                        <div class="sch_info_content_title">學員評價</div>
-                        <div class="sch_comments_star">
-                            <div class="sch_rate">4.8</div>
-                            <div class="sch_rate_star">
-                                <embed src="./images/schedule/starred.svg">
-                                <embed src="./images/schedule/starred.svg">
-                                <embed src="./images/schedule/starred.svg">
-                                <embed src="./images/schedule/starred.svg">
-                                <embed src="./images/schedule/star_blank.svg">
-                            </div>
-                        </div>
-                        <div class="sch_comments_area">
-                            <div class="sch_commemts_member sch_member1"></div>
-                            <div class="sch_member_right">
-                                <div class="sch_comments_text">
-                                    強烈推薦對於時尚產業有興趣的學弟妹參加這個營隊！巴黎這座城市本身就是一間大型的博物館，能夠在當地學習時尚相關的各種知識、進行創作，真的是今年暑假最幸福的事。如果有機會，你一定要來！
-                                </div>
-                                <div class="sch_comments_name">Amber Wang</div>
-                            </div>
-                        </div>
-                        <div class="sch_comments_area">
-                            <div class="sch_commemts_member sch_member2"></div>
-                            <div class="sch_member_right">
-                                <div class="sch_comments_text">
-                                    因為參加了這次的夏令營，讓我更加確定自己想要成為設計師的夢想。如果你對於時尚產業有興趣、但還不清楚自己要往哪個方向走，參加 Campion 舉辦的夏令營絕對可以幫助你釐清方向！
-                                </div>
-                                <div class="sch_comments_name">Cathy Hsieh</div>
-                            </div>
-                        </div>
-                        <div class="sch_comments_area">
-                            <div class="sch_commemts_member sch_member3"></div>
-                            <div class="sch_member_right">
-                                <div class="sch_comments_text">
-                                    無論是工作坊或是文化語言體驗交流活動，經過這次的夏令營，讓我對於法國的文化與時尚發展都有更深入的認識！除了工作坊之外，Campion 規劃的博物館等參訪活動，也讓我大大拓展了欣賞藝術的視野。
-                                </div>
-                                <div class="sch_comments_name">Emily Chu</div>
-                            </div>
-                        </div>
-                    </div>   
+              
                 </div>
                 
                 <!-- 右邊報名卡片 -->
@@ -440,13 +405,14 @@
                                     </select>
                                 </div>
                                 <div class="sch_form">
-                                    <span class="sch_count sch_count_item" @click="reduce">–</span>
-                                    <input type="text" :value="count" size="1" name="name">
-                                    <span class="sch_count sch_count_item" @click="add">+</span>
+                                    <p>人數：</p>
+                                    <span class="sch_count sch_count_item" type="text" @click="reduce">–</span>
+                                    <input type="text" :value="count" size="1" name="name" id="name">
+                                    <span class="sch_count sch_count_item " type="text" @click="add">+</span>
                                 </div>
                             </div>
                             <div class="sch_action">
-                                <button class="btn sch_signup" type="submit">加入購物車</button>
+                                <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
                                 <div class="sch_heart">
                                     <div class="sch_like_svg" @click="heartChange">
                                         <object>
@@ -464,10 +430,19 @@
         </div>
     </div>
 
+    <!-- 學員評價 -->
+    <div class="sch_info_content sch_anchor_end">
+        <div class="sch_info_content_title">學員評價</div>
+        <div class="sch_comments_star">
+            <div class="sch_rate">-</div>
+            <div class="sch_rate_star">
+            </div>
+        </div>
+        <div id="comment_area"></div>
+    </div>  
+
     <!-- footer -->
     @@include('./layout/footer.html')
-
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
     
     <script>
         new Vue({
@@ -538,8 +513,12 @@
                                     },
                                     dataType: 'text',
                                     success: function(res) {
-                                        console.log(res);
-                                        alert("加入購物車成功!")
+                                        if(res == "商品已存在"){
+                                            alert('商品已存在');
+                                        } else {
+                                            alert("加入購物車成功!");
+                                        }
+                                        
                                     }
                                 });
                             }
@@ -554,7 +533,7 @@
             mounted() {
                 axios.get('./Frontend/schedule.php',{
                     params: {
-                        product_NAME: localStorage.getItem('product_NAME'),
+                        product_NAME: localStorage.getItem('getID'),
                     }
                 }).then(res => this.products = res.data);
             }

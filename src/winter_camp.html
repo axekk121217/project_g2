@@ -323,28 +323,30 @@
                 };
               },
               template: `
-              <div class="row justify-content-start sw-row" align-items-start style="margin-bottom: 30px">
-                <div v-for="(item, index) in data" class="card" style="width: 18rem" @click="getStorage(index)">
-                <i class="fas fa-heart"></i>
-                  <img
-                  :src= "'./images/summer_camp/' + item.IMG"
-                  class="card-img-top"/>
-                  <div class="card-body">
-                  <h5 class="card-title">
-                  【{{item.COUNTRY}}-{{item.CITY}}】<br>
-                  {{item.NAME}}
-                  </h5>
-                  <hr style="border: 0.5px solid #000000" />
-                  <p class="card-text">
-                  {{checkTitle(item.CONTEXT)}}...
-                  </p>
-                  <a href="./schedule.html" class="a">
-                    Learn more 
-                    <img src="./images/summer_camp/icon.png"/>
-                  </a>
+                <div class="row justify-content-center sw-row" align-items-start style="margin-bottom: 30px">
+                  <div v-for="(item, index) in data" class="card" style="width: 18rem; cursor: pointer" >
+                    <i class="fas fa-heart fav_heart" @click="favorite(index)"></i>
+                    <div @click="getStorage(index)">
+                      <img
+                      :src= "'./images/summer_camp/' + item.IMG"
+                      class="card-img-top"/>
+                      <div class="card-body">
+                      <h5 class="card-title">
+                      【{{item.COUNTRY}}-{{item.CITY}}】<br>
+                      {{item.NAME}}
+                      </h5>
+                      <hr style="border: 0.5px solid #000000" />
+                      <p class="card-text">
+                      {{checkTitle(item.CONTEXT)}}...
+                      </p>
+                      <a class="a">
+                        Learn more 
+                        <img src="./images/summer_camp/icon.png"/>
+                      </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
               `,
               methods: {
                 checkTitle(theTitle){
@@ -355,6 +357,47 @@
                   localStorage.setItem("product_NAME", JSON.stringify(this.data[index]['NAME'])) ;
                   localStorage.setItem('getID', JSON.stringify(this.data[index]['ID']));
                   location.href = `./schedule.html`;
+                },
+                favorite(index) {
+                  $.ajax({
+                    method: 'POST',
+                    url: './Frontend/LoginCheck.php',
+                    dataType: 'text',
+                    data: {},
+                    success: function (res) {
+                      console.log("aaaaa")
+                      if (res == "") {
+                        let r = confirm("尚未登入，是否前往登入頁面");
+                        if (r == true) {
+                          window.location = "member_signIn.html";
+                        }
+                      }else {
+                        let getHeart = document.getElementsByClassName('fav_heart');
+                        if (getHeart[index].classList.contains("summer-camp-favorite")) {
+                          getHeart[index].classList.remove("summer-camp-favorite");
+                        } else { 
+                          getHeart[index].classList.add("summer-camp-favorite"); 
+                          
+                          $.ajax({
+                            method: 'POST',
+                            url: './Frontend/summer_favorite_add.php',
+                            dataType: 'text',
+                            data: {
+                              ITINERARY_NUMBER: index,
+                            },
+                            success: function(res) {
+                              if(res == "done") {
+                                
+                                alert("已經收藏!!!");
+                              } else {
+                                alert("已經入收藏!!");
+                              }
+                            }
+                          });
+                        }
+                      }
+                    }
+                  });
                 }
               },
               mounted(){

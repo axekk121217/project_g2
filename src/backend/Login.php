@@ -2,7 +2,7 @@
     include("../Lib/Util.php");
 
     //建立SQL
-    $sql = "SELECT * FROM MEMBER WHERE ID = 1 and Account = ? and password = ?";
+    $sql = "SELECT * FROM MEMBER WHERE ID = 1 and ACCOUNT = ? and password = ?";
     
     //執行
     $statement = getPDO()->prepare($sql);    
