@@ -1,4 +1,6 @@
 window.onload = function () {
+  showMember();
+
   let uncompletedItineraries = getUncommentItinerary();
 
   renderUncompletedItineraries(uncompletedItineraries);
@@ -90,23 +92,23 @@ function starOnClick(uncompletedItineraries) {
   $("[data-type=star]").on("click", function () {
     let index = $(this).attr("data-row-index");
     let value = $(this).attr("data-value");
-    changeStar(index,value,uncompletedItineraries)
+    changeStar(index, value, uncompletedItineraries);
   });
 }
 
 // 渲染星號
-function changeStar(index, value,uncompletedItineraries){
-    $(`[data-type=star][data-row-index=${index}]`).each(function () {
-        let targetValue = $(this).attr("data-value");
-        if (targetValue <= value) {
-          $(this).removeClass("bi-star");
-          $(this).addClass("bi-star-fill");
-        } else {
-          $(this).removeClass("bi-star-fill");
-          $(this).addClass("bi-star");
-        }
-      });
-      uncompletedItineraries[index].STAR = value;
+function changeStar(index, value, uncompletedItineraries) {
+  $(`[data-type=star][data-row-index=${index}]`).each(function () {
+    let targetValue = $(this).attr("data-value");
+    if (targetValue <= value) {
+      $(this).removeClass("bi-star");
+      $(this).addClass("bi-star-fill");
+    } else {
+      $(this).removeClass("bi-star-fill");
+      $(this).addClass("bi-star");
+    }
+  });
+  uncompletedItineraries[index].STAR = value;
 }
 
 // 送出評論的點擊事件
@@ -157,31 +159,192 @@ function saveToSketch(uncompletedItineraries) {
         : 1,
       content: $(`textarea[data-row-index=${index}]`).val(),
     };
-    
-    let itemIdx = sketch.findIndex(element => element.id == uncompletedItineraries[index].ID);
+
+    let itemIdx = sketch.findIndex(
+      (element) => element.id == uncompletedItineraries[index].ID
+    );
 
     if (itemIdx >= 0) {
       sketch[itemIdx] = item;
     } else {
       sketch.push(item);
     }
-    localStorage.setItem("sketch",JSON.stringify(sketch));
+    localStorage.setItem("sketch", JSON.stringify(sketch));
     alert("成功");
   });
 }
 
 // 載入儲存草稿
-function loadSketch(uncompletedItineraries){
-    let sketch = localStorage.getItem("sketch");
+function loadSketch(uncompletedItineraries) {
+  let sketch = localStorage.getItem("sketch");
 
-    if(!sketch) return;
-    if(!uncompletedItineraries.length) return;
+  if (!sketch) return;
+  if (!uncompletedItineraries.length) return;
 
-    sketch = JSON.parse(sketch);
-    sketch.forEach(element => {
-        let idx = uncompletedItineraries.findIndex(itinerary => itinerary.ID ==  element.id);
-        if(idx == -1) return;
-        changeStar(idx,element.star,uncompletedItineraries);
-        $(`textarea[data-row-index=${idx}]`).val(element.content);
-    });   
+  sketch = JSON.parse(sketch);
+  sketch.forEach((element) => {
+    let idx = uncompletedItineraries.findIndex(
+      (itinerary) => itinerary.ID == element.id
+    );
+    if (idx == -1) return;
+    changeStar(idx, element.star, uncompletedItineraries);
+    $(`textarea[data-row-index=${idx}]`).val(element.content);
+  });
+}
+
+// 顯示會員資訊
+function showMember() {
+  $.ajax({
+    method: "POST",
+    url: "./Frontend/Member.php",
+    data: {},
+    dataType: "text",
+    success: function (response) {
+      $(".guest_icon").css("display", "none");
+      $(".icon_create").after(response);
+      getMemberInfo();
+    },
+    error: function (exception) {
+      alert("數據載入失敗: " + exception.status);
+    },
+  });
+}
+// 顯示會員資訊結束
+
+//登入檢查 ---------------------------------------------------------------------------------
+function loginCheck(pid) {
+  $.ajax({
+    method: "POST",
+    url: "./Frontend/LoginCheck.php",
+    data: {},
+    dataType: "text",
+    success: function (response) {
+      if (response == "") {
+        //尚未登入->前往Login.php
+        alert("請先登入，將前往登入頁");
+        location.href = "/member_signIn.html";
+      } else {
+        addToCar(pid);
+      }
+    },
+    error: function (exception) {
+      alert("數據載入失敗: " + exception.status);
+    },
+  });
+}
+
+// ------ 會員登入抓資料 ----------------- //
+function getMemberInfo() {
+  $.ajax({
+    method: "POST",
+    url: "./Frontend/getMemberInfo.php",
+    data: {},
+    dataType: "json",
+    success: function (response) {
+      // console.log('aaaaa');
+      console.log(response);
+      $(".member_editorLogo img").attr("src", response[0]["PICTURE"]);
+      $(".member_name").html(response[0]["NAME"]);
+
+      $("#ACCOUNT").val(response[0]["ACCOUNT"]);
+      $("#NAME").val(response[0]["NAME"]);
+      $("#PHONE").val(response[0]["PHONE"]);
+      if (`${response[0]["GENDER"]}` == "男") {
+        $('.member_gender input[name="GENDER"]')[0].checked = true;
+      } else if (`${response[0]["GENDER"]}` == "女") {
+        $('.member_gender input[name="GENDER"]')[1].checked = true;
+      } else {
+        $('.member_gender input[name="GENDER"]')[2].checked = true;
+      }
+    },
+    error: function (exception) {
+      alert("數據載入失敗: " + exception.status);
+    },
+  });
+}
+
+//  ==================== 修改會員資料 ========================
+function updateMember() {
+  if (
+    $("#NAME").val() != "" &&
+    $("#PHONE").val() != "" &&
+    $("#ACCOUNT").val() != ""
+  ) {
+    let memberGenderData = $(
+      '.member_gender input[name="GENDER"]:checked'
+    ).val();
+    if (memberGenderData == "男") {
+      memberGenderData = "男";
+    } else if (memberGenderData == "女") {
+      memberGenderData = "女";
+    } else {
+      memberGenderData = "暫不提供";
+    }
+  }
+  // var name = $('#NAME').val();
+  // var phone = $('#PHONE').val();
+  // var account = $('#ACCOUNT').val();
+  // console.log(memberGenderData, name, phone, account);
+  $.ajax({
+    method: "POST",
+    url: "./Frontend/MemberUpdate.php",
+    data: {
+      NAME: $("#NAME").val(),
+      PHONE: $("#PHONE").val(),
+      ACCOUNT: $("#ACCOUNT").val(),
+      GENDER: $('.member_gender input[name="GENDER"]:checked').val(),
+    },
+    dataType: "text",
+    success: function (res) {
+      getMemberInfo();
+      alert("會員資料更改完成");
+    },
+    error: function (exception) {
+      alert("數據載入失敗: " + exception.status);
+    },
+  });
+}
+
+// =================== 修改密碼 ====================
+function changePassword() {
+  let passwordCheck = [];
+  let oldPwd = $("#oldPassword").val();
+  let newPwd = $("#newPassword").val();
+  let newPwd2 = $("#newPassword2").val();
+  if (oldPwd != "") {
+    passwordCheck.push("1");
+  } else {
+    alert("請輸入密碼");
+  }
+
+  if (newPwd != "") {
+    passwordCheck.push("2");
+  } else {
+    alert("請輸入密碼");
+  }
+
+  if (newPwd2 == newPwd && newPwd != "" && newPwd2 != "") {
+    passwordCheck.push("3");
+    alert("密碼更改成功");
+  } else {
+    alert("第二次密碼不相同");
+  }
+  if (passwordCheck.length === 3) {
+    $.ajax({
+      method: "post",
+      url: "./Frontend/memberPassword.php",
+      data: {
+        oldPassword: $("#oldPassword").val(),
+        newPassword: $("#newPassword").val(),
+        // newPassword2: $('#newPassword2').val(),
+      },
+      dataType: "text",
+      success: function (res) {
+        getMemberInfo();
+      },
+      error: function (exception) {
+        alert("數據載入失敗: " + exception.status);
+      },
+    });
+  }
 }

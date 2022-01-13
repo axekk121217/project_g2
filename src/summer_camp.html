@@ -363,7 +363,7 @@
               // alert(index);
               localStorage.setItem("product_NAME", JSON.stringify(this.data[index]['NAME'])) ;
               localStorage.setItem('getID', JSON.stringify(this.data[index]['ID']));
-              location.href = `./schedule.html`;
+              location.href = `./schedule.html?id=${this.data[index]['ID']}`;
           },
           favorite(index) {
             $.ajax({
