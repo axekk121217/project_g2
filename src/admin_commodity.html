@@ -107,6 +107,11 @@
 					image: "",
 					fileName: "",
 					myfile: {},
+					continent: [
+						{ con: "美洲" },
+						{ con: "歐洲" },
+						{ con: "大洋洲" },
+					],
 					cate: [
 						{ name: "夏令營" },
 						{ name: "冬令營" },
@@ -133,7 +138,9 @@
 							cities: { 
 								name: "紐約",
 								name: "洛杉磯",
-								name: "舊金山" 
+								name: "舊金山",
+								name: "弗里多尼亞", 
+								name: "費爾班克斯",
 							},
 						},
 						{
@@ -142,7 +149,8 @@
 								name: "巴黎",
 								name: "波爾多",
 								name: "史特拉斯堡",
-								name: "里昂" 
+								name: "里昂",
+								name: "霞慕尼", 
 							},
 						},
 						{
@@ -170,18 +178,20 @@
 								name: "柏林",
 								name: "慕尼黑" 
 							},
-							
 						},
 						{
 							nation: '澳洲',
 							cities: { 
-								name: "布里斯本" 
+								name: "布里斯本",
+								name: "凱恩斯", 
+								name: "漢密爾頓島",
 							},
 						},
 						{
 							nation: '紐西蘭',
 							cities: { 
-								name: "奧克蘭" 
+								name: "奧克蘭",
+								name: "皇后鎮"  
 							},
 						},
 						{
@@ -193,7 +203,8 @@
 						{
 							nation: '義大利',
 							cities: {	
-								name: "威尼斯" 
+								name: "威尼斯",
+								name: "米蘭", 
 							},
 						},
 						{
@@ -201,7 +212,8 @@
 							cities: {	
 								name: "巴塞隆納" ,
 								name: "潘普洛納" ,
-								name: "布尼奧爾" 
+								name: "布尼奧爾",
+								name: "亞拉岡", 
 							},
 						},
 						{
@@ -214,6 +226,12 @@
 							nation: '巴西',
 							cities: { 
 								name: "里約" 
+							},
+						},
+						{
+							nation: '墨西哥',
+							cities: { 
+								name: "聖盧卡斯" 
 							},
 						},
 					],
@@ -230,17 +248,21 @@
 						{ name: "西班牙" },
 						{ name: "俄羅斯" },
 						{ name: "巴西" },
+						{ name: "墨西哥"},
 					],
 					city: [
 						// 美國
 						{ name: "紐約" },
 						{ name: "洛杉磯" },
 						{ name: "舊金山" },
+						{ name: "弗里多尼亞"},
+						{ name: "費爾班克斯"},
 						// 法國
 						{ name: "巴黎" },
 						{ name: "波爾多" },
 						{ name: "史特拉斯堡" },
 						{ name: "里昂" },
+						{ name: "霞慕尼"},
 						// 英國
 						{ name: "倫敦" },
 						{ name: "牛津" },
@@ -257,20 +279,28 @@
 						{ name: "慕尼黑" },
 						// 澳洲
 						{ name: "布里斯本" },
+						{ name: "漢密爾頓島"},
+						{ name: "凱恩斯"},
 						// 紐西蘭
 						{ name: "奧克蘭" },
+						{ name: "皇后鎮" },
 						// 瑞士
 						{ name: "日內瓦" },
 						// 義大利
 						{ name: "威尼斯" },
+						{ name: "米蘭" },
 						// 西班牙
 						{ name: "巴塞隆納" },
 						{ name: "潘普洛納" },
 						{ name: "布尼奧爾" },
+						{ name: "亞拉岡"},
 						// 俄羅斯
 						{ name: "聖彼得堡" },
 						// 巴西
 						{ name: "里約" },
+						// 墨西哥
+						{name: "聖盧卡斯"},
+
 					],
 					age: [
 						{ range: "10歲~12歲" },
@@ -305,7 +335,7 @@
 							<td>【{{item.COUNTRY}}-{{item.CITY}}】{{item.NAME}}</td>
 							<td>{{item.BATCH}}</td>
 							<td>{{item.START_DATE}}-{{item.END_DATE}}</td>
-							<td>{{item.PRICE}}</td>
+							<td>{{parseInt(item.PRICE).toLocaleString()}}</td>
 							<td>
 								<!-- Button trigger modal -->
 								<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#item' + item.ID" style="width: 120px; height: 45px; padding: 2px 4px">
@@ -320,7 +350,7 @@
 												<h5 class="modal-title" id="staticBackdropLabel">
 												編輯&nbsp;&frasl;&nbsp;查看
 												</h5>
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="pageReload"></button>
 											</div>
 											<div class="modal-body">
 												<div class="admin_order_edit">
@@ -346,7 +376,16 @@
 																<option class="item_theme" v-for="topic in theme" :selected="topic.name == item.THEME">{{topic.name}}</option>
 															</select>
 														</div>
-
+																
+														<div class="input-group mb-3">
+															<!-- 行程洲別 -->
+															<label class="input-group-text" for="inputGroupSelect01">行程洲別</label>
+															<select v-model="item.CONTINENT" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+																<option disabled>選擇行程洲別</option>
+																<option v-for="cont in continent" :selected="cont.con == item.CONTINENT">{{cont.con}}</option>
+															</select>
+														</div>
+																
 														<div class="input-group mb-3">
 															<!-- 行程國家 -->
 															<label class="input-group-text" for="inputGroupSelect01">行程國家</label>
@@ -446,7 +485,7 @@
 												<button type="button" class="btn admin_commodity_btn" data-bs-dismiss="modal" @click="pageReload">
 												關閉
 												</button>
-												<button :value="index" type="button" class="btn admin_commodity_btn" @click="updateItem">
+												<button :value="item.ID" type="button" class="btn admin_commodity_btn" @click="updateItem">
 												儲存
 												</button>
 											</div>
@@ -515,22 +554,22 @@
 				// 「編輯查看」儲存按鈕：更新行程資訊
 				updateItem(e){
 					let target = e.target; // button
-					let idx = e.target.value;
-					let item_ID = parseInt(idx) + 1;
-					// console.log(item_ID);
+					let idx = parseInt(target.value) - 1;
+					// console.log(idx);
 					
 					$.ajax({
 						type: "POST",
-						url: "./backend/admin-comm.php", // API 路徑
+						url: "./backend/admin-updateItem.php", // API 路徑
 						// processData: false,
         				// contentType: false,
 						// enctype: "multipart/form-data",
       					// cache: false,
 						data:{ 
 							// input name: key 對應 php 中的 $_POST["Name"]
-							item_ID: parseInt(idx) + 1,
+							item_ID: parseInt(target.value),
 							name: this.data[idx].NAME, 
 							context: this.data[idx].CONTEXT,
+							continent: this.data[idx].CONTINENT,
 							category: this.data[idx].CATEGORY,
 							theme: this.data[idx].THEME,
 							country: this.data[idx].COUNTRY,
@@ -547,7 +586,7 @@
 		
 					 	// 設定 listener：
 						success: function (response) { // 網路傳輸成功
-							console.log(response);
+							// console.log(response);
 							target.closest('div').firstElementChild.click(); //關閉彈窗
 							$('button#btn_uploadImage')[idx].click(); //觸發 form submit 事件
 							alert('資料更新成功！');
@@ -600,8 +639,7 @@
 
 				// ===== 分頁顯示筆數 ===== // 
 				getCommData(gopage){
-					console.log(gopage);
-					console.log(this);
+					// console.log(gopage);
 					if(isNaN(gopage)) return;
 					this.nowpage = gopage;
 					
@@ -692,9 +730,10 @@
 							NAME: '', 
 							CONTEXT: '',
 							CATEGORY: '夏令營',
-							THEME: '運動',
+							CONTINENT: '美洲',
 							COUNTRY: '美國',
 							CITY: '紐約',
+							THEME: '運動',
 							AGE: '10歲~12歲',
 							BATCH: '梯次一',
 							PRICE: 0,
@@ -728,6 +767,11 @@
 								{ name: "文化" },
 								{ name: "節慶" },
 							],
+							continent: [
+								{ con: "美洲" },
+								{ con: "歐洲" },
+								{ con: "大洋洲" },
+							],
 							country: [
 								{ name: "美國" },
 								{ name: "法國" },
@@ -741,17 +785,21 @@
 								{ name: "西班牙" },
 								{ name: "俄羅斯" },
 								{ name: "巴西" },
+								{ name: "墨西哥" },
 							],
 							city: [
 								// 美國
 								{ name: "紐約" },
 								{ name: "洛杉磯" },
 								{ name: "舊金山" },
+								{ name: "弗里多尼亞"},
+								{ name: "費爾班克斯"},
 								// 法國
 								{ name: "巴黎" },
 								{ name: "波爾多" },
 								{ name: "史特拉斯堡" },
 								{ name: "里昂" },
+								{ name: "霞慕尼"},
 								// 英國
 								{ name: "倫敦" },
 								{ name: "牛津" },
@@ -768,20 +816,27 @@
 								{ name: "慕尼黑" },
 								// 澳洲
 								{ name: "布里斯本" },
+								{ name: "漢密爾頓島"},
+								{ name: "凱恩斯"},
 								// 紐西蘭
 								{ name: "奧克蘭" },
+								{ name: "皇后鎮" },
 								// 瑞士
 								{ name: "日內瓦" },
 								// 義大利
 								{ name: "威尼斯" },
+								{ name: "米蘭" },
 								// 西班牙
 								{ name: "巴塞隆納" },
 								{ name: "潘普洛納" },
 								{ name: "布尼奧爾" },
+								{ name: "亞拉岡"},
 								// 俄羅斯
 								{ name: "聖彼得堡" },
 								// 巴西
 								{ name: "里約" },
+								// 墨西哥
+								{name: "聖盧卡斯"},
 							],
 							age: [
 								{ range: "10歲~12歲" },
@@ -834,6 +889,15 @@
 													<select v-model="THEME" class="form-select admin_commodity_focus" id="inputGroupSelect01">
 														<option disabled selected>選擇行程主題</option>
 														<option v-for="the in theme">{{the.name}}</option>
+													</select>
+												</div>
+
+												<div class="input-group mb-3">
+													<!-- 行程洲別 -->
+													<label class="input-group-text" for="inputGroupSelect01">行程洲別</label>
+													<select v-model="CONTINENT" class="form-select admin_commodity_focus" id="inputGroupSelect01">
+														<option disabled selected>選擇行程洲別</option>
+														<option v-for="cont in continent">{{cont.con}}</option>
 													</select>
 												</div>
 
@@ -945,6 +1009,7 @@
 						onFileChange(e) {
 							let files = e.target.files || e.dataTransfer.files;
 							let file = files[0];
+							console.log(file);
 							let fileName = file.name;
 							// console.log(fileName); //檔案名稱
 							this.IMG = fileName;
@@ -1002,7 +1067,7 @@
 								// 設定 listener：
 								success: function (response) { // 網路傳輸成功
 									alert('資料更新成功！');
-									console.log(response);
+									// console.log(response);
 									e.target.closest('div').firstElementChild.click(); //關閉彈窗
 									$('button#btn_uploadNewImage').click(); //觸發 form submit 事件
 									// location.reload();
@@ -1013,14 +1078,14 @@
 							});
 						},
 						pageReload(){
-							// location.reload();
-							console.log('關閉表單');
+							location.reload();
+							// console.log('關閉表單');
 						},
 					},
 					mounted() {
 						// 先從資料庫抓全部的行程資料
 						$.getJSON("./backend/admin-comm.php").then((res) => {
-							// console.log(res.length);
+							// console.log(res);
 							this.dataCount = res.length; //計算有幾筆資料
 							
 							// let BOD = this.data[0].ID;

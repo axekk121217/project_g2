@@ -1,4 +1,7 @@
 <?php
+    $searchId = $_POST['searchId'];
+    $searchName = $_POST['searchName'];
+
     include('../Lib/Util.php'); 
     
     $sql = "
@@ -30,11 +33,15 @@
                 ID MID, NAME MNAME, ACCOUNT, PHONE
             from MEMBER) m
         on o.MEMBER_ID = m.MID
+        where 
+            o.ID = ? or
+            m.ACCOUNT like ?
         order by OID
-        ;
-    ";
+        ;      
+    ";    
     $statement = getPDO()->prepare($sql); // 預載
-    // $statement->bindValue(1, '%'.$name.'%'); // (第n個?, 值 || 變數)
+    $statement->bindValue(1, $searchId); 
+    $statement->bindValue(2, '%'.$searchName.'%'); 
     $statement->execute(); // 執行
 
     $data = $statement->fetchAll();

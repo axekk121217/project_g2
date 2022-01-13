@@ -12,7 +12,7 @@
 
     .memberSignIn_banner {
         background-color: rgba(255, 255, 255, .9);
-        padding: 20px 50px;
+        padding: 20px 50px 50px;
         margin: 30px 0;
         border-radius: 5px;
     }
@@ -51,7 +51,7 @@
         margin-bottom: 20px
     }
 
-    button.memberSignIn_confirm {
+    input.memberSignIn_confirm {
         margin-bottom: 20px;
         @include btn_module(400px, 5px, $btn_color_sub, $btn_color_sub_hover);
         border: none;
@@ -63,12 +63,12 @@
     }
 
     @media (max-width: 576.98px) {
-        button.memberSignIn_confirm {
+        input.memberSignIn_confirm {
             @include btn_module(100%, 5px, $btn_color_sub, $btn_color_sub_hover);
             padding: 15px;
         }
     }
-    button.memberSignIn_confirm:hover {
+    input.memberSignIn_confirm:hover {
         background-color: $btn_color_sub_hover;
     }
 
@@ -95,7 +95,7 @@
 @media (max-width:575.98px) {
     .memberSignIn_banner {
         background-color: rgba(255, 255, 255, .9);
-        padding: 20px 50px;
+        padding: 20px 50px 50px;
         margin: 50px 0;
         border-radius: 5px;
         width: 100%;

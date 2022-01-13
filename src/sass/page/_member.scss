@@ -45,12 +45,37 @@ ul.menu a li#h_page_active7{
     opacity: .95;
 
     .member_editorLogo {
-        width: 82px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
         margin: 0 auto;
         // background: url("../images/member/Ellipse 8.png");
         background-repeat: no-repeat;
         background-size: cover;
+        border: 1px solid #828282; 
+        border-radius: 50%; 
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            background-color: #01B3A7;
+            color: #fff;
+        }
+    }
+    .member_editorLogo-toggle{
+        display: none !important;
+        &:hover{
+            display: block;
+        }
+    }
+    label.memberImg{
+        padding: 6px 8px;
+        cursor: pointer;
+        width: 100% ;
+        @include flex-center;
+    }
+    .member_editorLogo input#memberImg{
+        display: none;
     }
 
     .member_name {

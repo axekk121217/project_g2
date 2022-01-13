@@ -8,6 +8,7 @@
     $context = $_POST["context"];
     $category = $_POST["category"];
     $theme = $_POST["theme"];
+    $continent = $_POST["continent"];
     $country = $_POST["country"];
     $city = $_POST["city"];
     $img = $_POST["img"];
@@ -30,6 +31,7 @@
             CONTEXT = ?, 
             CATEGORY = ?, 
             THEME = ?, 
+            CONTINENT = ?,
             COUNTRY = ?, 
             CITY = ?, 
             AGE = ?, 
@@ -47,16 +49,17 @@
     $statement->bindValue(2, $context);
     $statement->bindValue(3, $category);
     $statement->bindValue(4, $theme);
-    $statement->bindValue(5, $country);
-    $statement->bindValue(6, $city);
-    $statement->bindValue(7, $age);
-    $statement->bindValue(8, $price);
-    $statement->bindValue(9, $batch);
-    $statement->bindValue(10, $start_date);
-    $statement->bindValue(11, $end_date);
-    $statement->bindValue(12, $img);
-    $statement->bindValue(13, $status);
-    $statement->bindValue(14, $item_ID);
+    $statement->bindValue(5, $continent);
+    $statement->bindValue(6, $country);
+    $statement->bindValue(7, $city);
+    $statement->bindValue(8, $age);
+    $statement->bindValue(9, $price);
+    $statement->bindValue(10, $batch);
+    $statement->bindValue(11, $start_date);
+    $statement->bindValue(12, $end_date);
+    $statement->bindValue(13, $img);
+    $statement->bindValue(14, $status);
+    $statement->bindValue(15, $item_ID);
     $statement->execute();
     echo '更新成功!';
 
