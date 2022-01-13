@@ -1,0 +1,79 @@
+-- 10歲~12歲 + 自然 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(43, '龍柏野生動物探索營', '龍柏無尾熊動物園 (Lone Pine Koala Sanctuary)位於澳大利亞昆士蘭州首府布里斯本市的一個野生動物保護區，是由AOL評定「世界十大動物園」之一，也是金氏世界紀錄上第一和最大的無尾熊保護區，園內有超過130只無尾熊。', '冬令營', '自然', '大洋洲', '澳洲', '布里斯本', '10歲~12歲', 'koala.jpg', 78000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 10歲~12歲 + 自然 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(44, '洛斯卡沃斯走廊海洋營', '由沿著城鎮延伸的大片海岸線組成，卡波聖盧卡斯和 SanJosédelCabo 這片30公里長的原始海灘，被稱為洛斯卡沃斯走廊（Corredor Turistico），因其清澈的海水，潛水，浮潛和釣魚而吸引著世界各地的遊客。', '夏令營', '自然', '美洲', '墨西哥', '卡沃聖盧卡斯', '10歲~12歲', 'cabo.jpg', 75000, '梯次一', '2022-01-25', '2022-02-15', NOW(), '上架');
+
+-- 10歲~12歲 + 自然 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(45, '庇里牛斯山雪地營', '庇里牛斯山脈跨越西班牙加泰隆尼亞（Catalunya）、納瓦拉（Navarra）和亞拉岡（Aragón）三個大區，滑雪資源極其豐富。亞拉岡境內的庇里牛斯山脈有50多個海拔高於3000米的山峰，你可以在長距離雪坡上體驗快速下滑的暢意，進行越野滑雪或山地滑雪練習。', '冬令營', '自然', '歐洲', '西班牙', '亞拉岡', '10歲~12歲', 'Pyrenees.jpg', 81000, '梯次一', '2022-01-21', '2022-02-10', NOW(), '上架');
+
+-- 10歲~12歲 + 運動 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(46, '大堡礁潛水體驗營', '澳洲的大堡礁（Great Barrier Reef）是全世界最大的珊瑚礁群，全長超過兩千六百公里，面積將近三十五萬平方公里。 這片自然奇景不只在一九八一年被譽為世界遺產，更是世界七大自然奇蹟之一。', '冬令營', '運動', '大洋洲', '澳洲', '漢密爾頓島', '10歲~12歲', 'GreatBarrier.jpg', 75000, '梯次一', '2022-07-10', '2022-07-25', NOW(), '上架');
+
+-- 10歲~12歲 + 語言 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(47, '語言交換冬令營', '溫哥華三面環水，坐落在海岸山脈旁，擁有壯麗的自然風光、繁華的大都市、冬季溫和的氣候。營隊規劃多元化的語言課程，一般英語課程有4種可以選擇，孩子可以針對自己的進度和目的選擇課程。', '冬令營', '語言', '美洲', '加拿大', '溫哥華', '10歲~12歲', 'vancouver.jpg', 82000, '梯次一', '2022-01-15', '2022-02-05', NOW(), '上架');
+
+-- 10歲~12歲 + 語言 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(48, '西班牙語言文化營', '悠遠的傳統在現代西班牙繼續發揚光大，包括沙塵飛揚的鬥牛場，以及居民午間小憩的習慣。在西班牙語言學校，深入探索現代西班牙風範背後的傳統和現代文化。', '夏令營', '語言', '歐洲', '西班牙', '巴塞隆納', '10歲~12歲', 'barcelona.jpg', 81000, '梯次一', '2022-07-10', '2022-08-05', NOW(), '上架');
+
+#-------------------------------------------------
+
+-- 13歲~15歲 + 自然 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(49, '熱帶雨林探索營', '在奧克蘭西部海岸和熱帶雨林冒險中與大自然接觸！孩子將在鬱鬱蔥蔥的熱帶雨林中航行，眺望整座城市和南部港口的全景，沿著懸崖步道步行，欣賞海岸和塔斯曼海的壯麗景色，拓展視野。', '夏令營', '自然', '大洋洲', '紐西蘭', '奧克蘭', '13歲~15歲', 'rainforest.jpg', 75000, '梯次一', '2022-07-15', '2022-07-31', NOW(), '上架');
+
+-- 13歲~15歲 + 自然 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(50, '被譽為世界七大奇景之一的美國大峽谷國家公園（Grand Canyon National Park），為科羅拉多河經過數百萬年沖蝕而成。由於地貌蜿蜒奇偉，1979 年被聯合國教科文組織列入世界自然遺產，是美國最負盛名的國家公園，壯闊綺麗的景緻曾多次被票選為一生一定要去的景點之一。', '夏令營', '自然', '美洲', '美國', '弗里多尼亞', '13歲~15歲', 'GrandCanyon.jpg', 78000, '梯次一', '2022-07-15', '2022-08-05', NOW(), '上架');
+
+-- 13歲~15歲 + 運動 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(51, '極限運動高空跳傘營', '乘坐小飛機約 20 分鐘前往 15,000 英呎上空，經驗豐富的專業教練將領你一同躍而下！體驗時速 200 公里的 60 秒自由落體以及在空中翱翔 5-7 分鐘的珍貴體驗，零死角俯瞰凱恩斯海岸的壯觀景色，留下最深刻的回憶！', '冬令營', '運動', '大洋洲', '澳洲', '凱恩斯', '13歲~15歲', 'Skydive.jpg', 81000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 13歲~15歲 + 運動 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(52, '馬術訓練營', '法國傳統的馬術訓練強調人與馬之間的和諧，騎士間的共識是建立與馬兒的親密關係，訓練上互相尊重，以達到「輕盈」的境界。參加馬術訓練營，體驗最道地的騎士精神。', '冬令營', '運動', '歐洲', '法國', '巴黎', '13歲~15歲', 'Equestrian.jpg', 91000, '梯次一', '2022-01-17', '2022-02-05', NOW(), '上架');
+
+-- 13歲~15歲 + 語言 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(53, '語言學校培訓營', '在以霧氣繚繞的迷人景緻、老式纜車與蓬勃發展的藝術場景聞名於世的舊金山，結合語言及學術科目，依照您的學術及職涯目標，透過個人化的語言課程，完成您精進外語能力的渴望。', '夏令營', '語言', '美洲', '美國', '舊金山', '13歲~15歲', 'sfcity.jpg', 83000, '梯次一', '2022-07-25', '2022-08-20', NOW(), '上架');
+
+#-------------------------------------------------
+
+-- 16歲~18歲 + 自然 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(54, '南島五湖野外探索營', '南島五湖的瓦卡蒂湖為狹長型的湖泊，孕育了許多小鎮與美景，皇后鎮便是其中之一，除了如詩如畫的景色外，周邊有許多值得一訪的景點，還有更多冒險性的活動等著你來挑戰。', '冬令營', '自然', '大洋洲', '紐西蘭', '皇后鎮', '16歲~18歲', 'Queenstown.jpg', 89000, '梯次一', '2022-01-18', '2022-02-05', NOW(), '上架');
+
+-- 16歲~18歲 + 自然 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(55, '北極極光營', '阿拉斯加的第二大城「費爾班克斯」地處北緯64.48度，是最接近北極圈北緯66.33度的地方，一年之中有近243天看的到極光，大約每2天就會出現一次，也因雲層較薄、較少、氣候穩定，成為全世界出現北極光機率最高的地點。', '冬令營', '自然', '美洲', '美國', '費爾班克斯', '16歲~18歲', 'aurora.jpg', 89000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 16歲~18歲 + 自然 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(56, '白朗峰高山登頂營', '白朗峰 (Chamonix-Mont-Blanc) 是一個位於法國，瑞士和義大利邊境的小鎮，包括16個從北向南延伸的小村莊。海拔高度從995米至4809米，以滑雪，滑翔和攀岩而聞名。這裡吸引了世界各地的遊客，登山者和探險家。', '冬令營', '自然', '歐洲', '法國', '霞慕尼', '16歲~18歲', 'Mont-Blanc.jpg', 91000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 16歲~18歲 + 運動 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(57, '軟珊瑚海洋浮潛營', '本加（Beqa）島和亞努卡島（Yanuca）位於太平洋港以南的海上，本加島是地質堅固的火山島，38英里長的珊瑚礁包圍在外，是潛水勝地！如果你熱愛潛水，可以看到親手在魚類保護區餵養數百種熱帶鯊魚的驚奇景觀。', '冬令營', '運動', '大洋洲', '斐濟', '本加島', '16歲~18歲', 'fiji.jpg', 78000, '梯次一', '2022-07-10', '2022-07-25', NOW(), '上架');
+
+-- 16歲~18歲 + 運動 + 美洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(58, '陽光足球營', '課程設計讓學生了解足球員的日常生活，包括體能測試、營養、媒體和新聞發布訓練等，讓孩子體驗足球的多樣性、人才管理和賽况分析。透過專業足球教練提升個人足球各方面互動技巧，挖掘個人潛在的能力。課程中並學習如何在實際狀況中作戰力分析。', '冬令營', '運動', '美洲', '巴西', '里約', '16歲~18歲', 'brazilsoccer.jpg', 79000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 16歲~18歲 + 運動 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(59, '溫布頓網球營', '專為青少年設計的網球訓練營。在運動中加強自信，加強孩子的學習動機，訓練專注力與全身的協調性，愛上網球，學習扎實的網球技能，同時培養團隊精神與自信心。', '夏令營', '運動', '歐洲', '英國', '倫敦', '16歲~18歲', 'tennis.jpg', 77000, '梯次一', '2022-01-25', '2022-02-05', NOW(), '上架');
+
+-- 16歲~18歲 + 語言 + 大洋洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(60, '語言文化體驗營', '奧克蘭坐落在點綴著風景如畫島嶼的天然海港邊緣的一系列死火山周遭，擁有豐富的歷史，是紐西蘭最大的城市，在這裡可以體驗大城市的生活方式以及該國出名的寧靜與平和。無論您喜歡日間活動還是繁華的夜生活，都能享受優越的生活品質，充分學習道地的語言文化。', '夏令營', '語言', '大洋洲', '紐西蘭', '奧克蘭', '16歲~18歲', 'auck.jpg', 78000, '梯次一', '2022-07-15', '2022-08-05', NOW(), '上架');
+
+-- 16歲~18歲 + 語言 + 歐洲 * 1
+insert into CAMPION.ITINERARY(ID, NAME, CONTEXT, CATEGORY, THEME, CONTINENT, COUNTRY, CITY, AGE, IMG, PRICE, BATCH, START_DATE, END_DATE, CREATE_DATE, STATUS) 
+values(61, '義大利語言文化營', '如果您想要說一口流利的義大利文，那麼就從學習義大利的文化、傳統及美食開始吧！參加義大利語言學校，享受真正的義大利佳餚、在義大利咖啡館啜飲卡布奇諾，體驗最道地的義大利文化。', '夏令營', '語言', '歐洲', '義大利', '米蘭', '16歲~18歲', 'milan.jpg', 86000, '梯次一', '2022-07-10', '2022-08-05', NOW(), '上架');

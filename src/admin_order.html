@@ -4,6 +4,8 @@
 		@@include('./layout/meta.html', { "title" : "訂單管理" })
 		<script src="./js/bootstrap.bundle.min.js"></script>
 		<script src="./js/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 
 	</head>
   <body>
@@ -118,12 +120,18 @@
 				</div>	
 				`,
 			});
+			
 			Vue.component("order", {
 				data() {
 					return {
 						data: [],
+						dataDetail: [],
 						pages:[],
 						nowpage:1,
+						payment: [
+							{opt: '信用卡付款'},
+							{opt: '轉帳付款'}
+						],
 						payStatus: [
 							{opt: '已付款'},
 							{opt: '未付款'}
@@ -145,8 +153,8 @@
 					<div style="display: flex; flex-direction: column; position: relative">
 						<!-- 右上方 search bar -->
 						<div class="admin_search_bar" style="position: absolute; top: -90px; right: 0">
-							<input class="search-bar" type="text" name="search" id="search" placeholder="請輸入訂單編號" style="padding-left: 5px"/>
-							<button class="admin_search-btn"">
+							<input class="search-bar" type="text" name="search" id="search" placeholder="請輸入訂單編號或會員帳號" style="padding-left: 5px" @keyup.enter="searchOrder"/>
+							<button class="admin_search-btn" @click="searchOrder">
 								<i class="fas fa-search admin_search_icon"></i>
 							</button>
 						</div>
@@ -161,7 +169,7 @@
 									<td>{{item.ORDER_STATE}}</td>
 									<td>
 										<!-- Button trigger modal -->
-										<button type="button" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#item' + item.OID">
+										<button type="button" :id="item.OID" class="btn admin_order_btn" data-bs-toggle="modal" :data-bs-target="'#item' + item.OID" @click="getOrderDetail">
 										編輯&nbsp;&frasl;&nbsp;查看
 										</button>
 
@@ -180,26 +188,29 @@
 															<div class="admin_edit_main">
 																<div class="input-group mb-3">
 																	<label class="input-group-text" for="inputGroupSelect01">會員編號</label>
-																	<input v-model="item.MID" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<input disabled v-model="item.MID" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																	<label class="input-group-text" for="inputGroupSelect01">會員名稱</label>
-																	<input v-model="item.MNAME" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<input disabled v-model="item.MNAME" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																</div>
 
 																<div class="input-group mb-3">
-																	<label class="input-group-text" for="inputGroupSelect01">電子信箱</label>
-																	<input v-model="item.ACCOUNT" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<label disabled class="input-group-text" for="inputGroupSelect01">電子信箱</label>
+																	<input disabled v-model="item.ACCOUNT" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																	<label class="input-group-text" for="inputGroupSelect01">聯絡電話</label>
-																	<input v-model="item.PHONE" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<input disabled v-model="item.PHONE" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																</div>
 
 																<div class="input-group mb-3">
 																	<label class="input-group-text" for="inputGroupSelect01">訂單編號</label>
-																	<input v-model="item.OID" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
+																	<input disabled v-model="item.OID" type="text" class="form-control" aria-label="Text input with segmented dropdown button"/>
 																</div>
 
 																<div class="input-group mb-3">
 																	<label class="input-group-text" for="inputGroupSelect01">付款方式</label>
-																	<input v-model="item.PAY_CHOOSE" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="轉帳/信用卡"/>
+																	<select v-model="item.PAY_CHOOSE" class="form-select" id="inputGroupSelect01">
+																		<option disabled>選擇付款方式</option>
+																		<option v-for="pm in payment" :selected="pm.opt == item.PAY_CHOOSE">{{pm.opt}}</option>
+																	</select>
 																	<input v-model="item.ATM_ACCOUNT" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="匯款帳號後五碼"/>
 																</div>
 
@@ -210,7 +221,7 @@
 
 																<div class="input-group mb-3">
 																	<label class="input-group-text" for="inputGroupSelect01">付款狀態</label>
-																	<select v-model="item.PAY_STATE" class="form-select" id="inputGroupSelect01">
+																	<select :disabled="item.PAY_STATE == '已付款'" v-model="item.PAY_STATE" class="form-select" id="inputGroupSelect01">
 																		<option disabled>選擇付款狀態</option>
 																		<option v-for="ps in payStatus" :selected="ps.opt == item.PAY_STATE">{{ps.opt}}</option>
 																	</select>
@@ -246,11 +257,11 @@
 																				</tr>
 																			</thead>
 																			<tbody>
-																				<tr>
-																					<td style="text-align: left">{{item.INAME}}</td>
-																					<td style="text-align: left">{{item.ATTENDEES}}人</td>
-																					<td style="text-align: left">{{parseInt(item.PRICE).toLocaleString()}}</td>
-																					<td style="text-align: left">{{parseInt(item.TOTAL).toLocaleString()}}</td>
+																				<tr v-for="ord in dataDetail">
+																					<td style="text-align: left">{{ord.INAME}}</td>
+																					<td style="text-align: left">{{ord.ATTENDEES}}人</td>
+																					<td style="text-align: left">{{parseInt(ord.PRICE).toLocaleString()}}</td>
+																					<td style="text-align: left">{{parseInt(ord.TOTAL).toLocaleString()}}</td>
 																				</tr>
 																			</tbody>
 																			<tfoot>
@@ -279,10 +290,10 @@
 													
 														
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="pageReload">
 														關閉
 														</button>
-														<button type="button" class="btn">儲存</button>
+														<button type="button" :value="item.OID" class="btn" @click="updateOrder">儲存</button>
 													</div>
 												</div>
 											</div>
@@ -310,11 +321,124 @@
 				computed: {
 				
 				},
+				watch: {
+					
+				},
 				methods: {		
 					// 取得訂單明細資料
-					getOrderDetail(){
+					getOrderDetail(e){
+						// console.log(e.target.id); //OID
+						$.ajax({
+							method: "POST",
+							url: "./backend/admin-orderDetail.php",
+							data:{ 
+								OID : e.target.id,
+							},            
+							dataType: "json",
+							success: function (res) {
+								// console.log(res);
+								this.dataDetail = res;
+								console.log(this.dataDetail);
+								// for(let i = 0; i < res.length; i++){
+								// 	for(let orderDetail in res[i]){
+								// 		let newArr = [];
+								// 		newArr[`${orderDetail}`] = res[i][orderDetail];
+								// 		// console.log(`${orderDetail}: ${res[i][orderDetail]}`);
+								// 		// newArr.push(`${orderDetail}: ${res[i][orderDetail]}`);
+								// 		console.log(newArr);
+
+									
+								// 	}
+								// }
+								
+							},
+							error: function(exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+						vm.$forceUpdate()
+						// $.getJSON("./backend/admin-orderDetail.php").then((res) => {
+						// 	console.log(res);
+
+						// 	this.dataDetail = res[e.target.id - 1]; //單筆訂單的訂單明細
+						// 	console.log(this.dataDetail);
+
+						// });
+
 
 					},	
+					updateOrder(e){
+						let target = e.target; // button
+						let order_id = target.value; //OID, string
+						let idx = parseInt(target.value) - 1;
+						console.log(order_id);
+					
+						$.ajax({
+							type: "POST",
+							url: "./backend/admin-updateOrder.php", // API 路徑
+							// processData: false,
+							// contentType: false,
+							// enctype: "multipart/form-data",
+							// cache: false,
+							data:{ 
+								// input name: key 對應 php 中的 $_POST["Name"]
+								orderId: parseInt(order_id), //訂單編號
+								pay_choose: this.data[idx].PAY_CHOOSE, //付款方式
+								atm_account: this.data[idx].ATM_ACCOUNT, //匯款帳號後五碼
+								pay_date: this.data[idx].PAY_DATE, //付款日期
+								pay_state: this.data[idx].PAY_STATE, //付款狀態
+								order_state: this.data[idx].ORDER_STATE, //訂單狀態
+								cancel_status: this.data[idx].CANCEL_STATUS, //訂單取消處理進度
+								
+							},
+							// dataType: "text",
+			
+							// 設定 listener：
+							success: function (response) { // 網路傳輸成功
+								console.log(response);
+								target.closest('div').firstElementChild.click(); //關閉彈窗
+								alert('資料更新成功！');
+								// location.reload();
+							},
+							error: function (exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+					},
+					searchOrder(e){
+						const self = this;
+						let searchId = parseInt($('#search').val());
+						let searchName = $('#search').val();
+						
+						$.ajax({
+							type: "POST",
+							url: "./backend/admin-searchOrder.php", // API 路徑
+							data:{ 
+								searchId: searchId,
+								searchName: searchName,
+							},
+							// dataType: "text",
+			
+							// 設定 listener：
+							success: function (response) { // 網路傳輸成功
+								let filteredData = JSON.parse(response);
+								// console.log(filteredData);
+
+								self.data = filteredData;
+								if(filteredData.length == 0){
+									alert('查無資料！');
+									location.reload();
+								}
+
+							},
+							error: function (exception) {
+								alert("發生錯誤: " + exception.status);
+							},
+						});
+					},
+					pageReload(){
+						location.reload();
+					},
 					// ===== 分頁顯示筆數 ===== // 
 					getCommData(gopage){
 						// console.log(gopage);
@@ -376,6 +500,7 @@
 						this.data = res;
 
 					});
+					
 				},
 			
 			
