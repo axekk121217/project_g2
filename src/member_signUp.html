@@ -94,9 +94,9 @@
         <input type="radio" name="GENDER" id="member_third" value="暫不提供" />
         <label for="member_third">暫不提供</label>
         <br />
-        <label>聯絡電話</label>
+        <label>行動電話</label>
         <br />
-        <input type="text" placeholder="請輸入您的聯絡電話" name="PHONE" size="40" value="" />
+        <input type="text" required="required" maxlength="10" pattern="09\d{2}\d{6}" placeholder="請輸入您的行動電話" name="PHONE" size="40" value="" />
         <br />
         <input type="checkbox" onclick="if (this.checked) {enable()} else {disable()}" id="memberSignIn_Privacy" />
         <label for="memberSignIn_Privacy">我已閱讀並同意會員條款</label>

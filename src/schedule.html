@@ -81,9 +81,9 @@
                     </div>
                     <div class="sch_form">
                         <p>人數：</p>
-                        <span class="sch_count sch_count_item" @click="reduce">–</span>
+                        <button class="sch_count sch_count_item" @click="reduce">–</button>
                         <input type="text" :value="count" size="1" name="name" id="name">
-                        <span class="sch_count sch_count_item" @click="add">+</span>
+                        <button class="sch_count sch_count_item" @click="add">+</button>
                     </div>
                     <div class="sch_action">
                         <button class="btn sch_signup" @click="memberVerify">加入購物車</button>
@@ -211,7 +211,7 @@
                                 <div class="sch_form">
                                     <p>人數：</p>
                                     <span class="sch_count sch_count_item" @click="reduce">–</span>
-                                    <input type="text" :value="count" size="1" name="name">
+                                    <input class="sch_count" type="text" :value="count" size="1" name="name" id="name">
                                     <span class="sch_count sch_count_item" @click="add">+</span>
                                 </div>
                             </div>
@@ -440,9 +440,10 @@
                                     </select>
                                 </div>
                                 <div class="sch_form">
-                                    <span class="sch_count sch_count_item" @click="reduce">–</span>
-                                    <input type="text" :value="count" size="1" name="name">
-                                    <span class="sch_count sch_count_item" @click="add">+</span>
+                                    <p>人數：</p>
+                                    <span class="sch_count sch_count_item" type="text" @click="reduce">–</span>
+                                    <input type="text" :value="count" size="1" name="name" id="name">
+                                    <span class="sch_count sch_count_item " type="text" @click="add">+</span>
                                 </div>
                             </div>
                             <div class="sch_action">
